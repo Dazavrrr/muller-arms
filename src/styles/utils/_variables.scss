@@ -1,0 +1,29 @@
+// Global params
+
+$mainFont: Georgia, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", Arial, sans-serif, ;
+$font-weight-primary: 400 !default;
+
+// Media
+$desktop-width-1500: 1536px;
+$desktop-width-1400: 1400px;
+$desktop-width: 1200px;
+$sm-desktop-width: 1024px;
+$tablet-width: 768px;
+$sm-tablet-width: 640px;
+$phone-width: 500px;
+$sm-phone-width: 375px;
+
+// Main Colors
+$body: #fff;
+$white: #fff;
+$black: #000;
+$text-color: #000;
+$primary: #3D3E41;
+$secondary: #295898;
+// $primaryLight: #6783B4;
+// $primaryDark: #345EA8;
+// $secondaryLight: #BD5559;
+// $secondaryDark: #8C2024;
+
+$rfs-breakpoint: 1400px;

@@ -1,11 +1,8 @@
-import React from 'react';
+import React from 'react'
+import styles from './styles.module.scss'
 
 const Header = () => {
-  return (
-    <HeaderContainer>
-      <h1>My Next.js App</h1>
-    </HeaderContainer>
-  );
-};
+  return <header className={styles.header}>Header</header>
+}
 
-export default Header;
+export default Header
