@@ -1,8 +1,8 @@
-@import "../../styles/utils/_variables.scss";
-@import "../../styles/utils/_mixins.scss";
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
 
 .footer {
-  background-color: green;
+  background-color: $bg-color;
   @include center-flex();
-  @include size(100%, 80px);
+  @include size(100%, 593px);
 }
