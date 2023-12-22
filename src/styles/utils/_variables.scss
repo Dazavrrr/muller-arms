@@ -1,7 +1,17 @@
 // Global params
 
-$mainFont: Georgia, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", Arial, sans-serif, ;
+$mainFont:
+  Georgia,
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Helvetica,
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol',
+  Arial,
+  sans-serif;
 $font-weight-primary: 400 !default;
 
 // Media
@@ -19,8 +29,12 @@ $body: #fff;
 $white: #fff;
 $black: #000;
 $text-color: #000;
-$primary: #3D3E41;
+$primary: #3d3e41;
 $secondary: #295898;
+
+$bg-color: #333439;
+$yellow-btn: #fec401;
+
 // $primaryLight: #6783B4;
 // $primaryDark: #345EA8;
 // $secondaryLight: #BD5559;
