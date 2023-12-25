@@ -44,4 +44,10 @@
 
 .navContacts {
   @include center-flex();
+  width: 280px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
 }
