@@ -5,4 +5,48 @@
   background-color: $bg-color;
   @include center-flex();
   @include size(100%, 593px);
+  gap: 34px;
+
+  margin-top: -2px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.map {
+  width: 417px;
+  height: 390px;
+  flex-shrink: 0;
+
+  border-radius: 15px;
+}
+
+.contacts {
+  background-color: #43444b;
+  width: 417px;
+  height: 390px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  color: $white;
+}
+
+.form {
+  flex-direction: column;
+
+  background-color: #43444b;
+  width: 417px;
+  height: 390px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  color: $white;
+}
+
+.title {
+  font-family: var(--font-DuskDemon);
+  text-align: center;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
