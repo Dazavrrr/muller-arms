@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
+
 import Logo from '../Icons/Logo'
 import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
