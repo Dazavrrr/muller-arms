@@ -4,6 +4,7 @@ import '@/styles/globals.scss'
 import Services from '@/components/Services'
 import Instructors from '@/components/Instructors'
 import Advantages from '@/components/Advantages'
+import About from '@/components/About'
 
 export default function Home() {
   return <div>
@@ -11,5 +12,6 @@ export default function Home() {
     <Services />
     <Instructors />
     <Advantages />
+    <About />
   </div>
 }
