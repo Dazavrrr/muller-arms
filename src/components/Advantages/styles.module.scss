@@ -1,0 +1,56 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.advantages {
+  @include center-flex();
+  height: auto;
+  background-color: #333439;
+  margin-top: -2px;
+  margin-bottom: 0;
+  padding-top: 60px;
+  padding-bottom: 180px;
+  flex-direction: column;
+  grid-row-gap: 60px;
+
+  &_title {
+    font-family: var(--font-DuskDemon);
+    color: $white;
+    font-size: 45px;
+    line-height: 100%;
+  }
+
+  &_blocks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &_block {
+    @include center-flex();
+    width: 366px;
+    min-height: 122px;
+    background-color: $white;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    padding: 30px;
+  }
+
+  &_blockText {
+    text-align: center;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 120%;
+    font-family: var(--font-DuskDemon);
+  }
+}
+
+.orange {
+  color: #e5a40e;
+}
