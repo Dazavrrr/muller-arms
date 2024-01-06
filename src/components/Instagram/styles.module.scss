@@ -1,0 +1,47 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.instagram {
+  @include center-flex();
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 120px;
+  flex-direction: column;
+  gap: 60px;
+
+  &_title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #333;
+  }
+
+  &_photos {
+    gap: 30px;
+  }
+
+  &_photo {
+    border-radius: 15px;
+    object-fit: cover;
+  }
+
+  &_btn {
+    @include center-flex();
+    @include size(320px, 50px);
+    color: #000;
+    text-align: center;
+    background-color: #fec401;
+    border-radius: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    font-family: var(--font-Montserrat);
+    font-weight: 500;
+    text-decoration: none;
+  }
+}
