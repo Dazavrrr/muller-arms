@@ -6,6 +6,13 @@
   @include center-flex();
   @include size(100%, 70vh);
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  &_content {
+    position: relative;
+    z-index: 10;
+  }
 
   &_title {
     color: #333439;
@@ -18,6 +25,15 @@
 
     padding-bottom: 20px;
     margin-top: -80px;
+  }
+
+  &_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    object-fit: contain;
   }
 
   &_text {

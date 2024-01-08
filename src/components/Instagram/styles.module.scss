@@ -24,11 +24,22 @@
 
   &_photos {
     gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @include lg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include xs {
+      grid-template-columns: 1fr;
+    }
   }
 
   &_photo {
     border-radius: 15px;
     object-fit: cover;
+    width: 100%;
+    height: auto
   }
 
   &_btn {
