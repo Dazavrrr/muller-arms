@@ -6,48 +6,58 @@
   @include center-flex();
   @include size(100%, 80px);
 
-  justify-content: space-around;
-}
+  &_container {
+    width: 1160px;
+    gap: 30px;
 
-.logo {
-  @include center-flex();
-  color: $white;
+    justify-content: space-between;
 
-  width: 100px;
-  height: 37px;
-}
+    align-items: center;
+    display: flex;
+  }
 
-.navItems {
-  @include center-flex();
-  color: $white;
-  gap: 40px;
+  &_logo {
+    @include center-flex();
+    @include size(260px, 37px);
+    color: $white;
+  }
 
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 16.8px;
-  text-transform: uppercase;
+  &_navigation {
+    @include center-flex();
+    color: $white;
+    gap: 50px;
+    font-weight: 600;
+    line-height: 16.8px;
+    text-transform: uppercase;
 
-  a {
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  &_contacts {
+    @include center-flex();
+    width: 280px;
+    gap: 20px;
+    justify-content: flex-end;
+  }
+
+  &_phoneNum {
     color: $white;
     text-decoration: none;
+    font-weight: 600;
+    line-height: 120%;
+    font-family: var(--font-Montserrat);
   }
-}
 
-.phoneNumber {
-  color: $white;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 16.8px;
-  padding-right: 20px;
-}
-
-.navContacts {
-  @include center-flex();
-  width: 280px;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  justify-content: flex-end;
-  align-items: center;
-  display: flex;
+  &_icon {
+    @include center-flex();
+    @include size(40px, 40px);
+    background-color: #44454b;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border-radius: 5px;
+  }
 }
