@@ -7,7 +7,7 @@ const Hero = () => {
     <h1 className={styles.hero_title}>
       Стрілецький клуб
       <br />
-      <span className={styles.hero_titleOrange}>“Muller arms”</span>
+      <span className={styles.orange}>“Muller arms”</span>
     </h1>
     <p className={styles.hero_text}>
       Сучасні, професійні методики навчання із пістолетів, напівавтоматичних карабінів та гладкоствольних рушниць.

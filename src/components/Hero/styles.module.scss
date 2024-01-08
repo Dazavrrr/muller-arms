@@ -6,67 +6,59 @@
   @include center-flex();
   @include size(100%, 70vh);
   flex-direction: column;
-  // background-image: url(/public/images/heroBg.png);
-  // background-position:
-  //   50% 100%,
-  //   50%;
-  // background-repeat: no-repeat, no-repeat;
-  // background-size: contain, cover;
+
+  &_title {
+    color: #333439;
+    text-align: center;
+    font-family: var(--font-DuskDemon);
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 100%;
+    text-transform: uppercase;
+
+    padding-bottom: 20px;
+    margin-top: -80px;
+  }
+
+  &_text {
+    color: #a3978d;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+
+    width: 580px;
+    margin-bottom: 40px;
+  }
+
+  &_form {
+    @include center-flex();
+    gap: 20px;
+  }
+
+  &_formField {
+    @include size(210px, 60px);
+    text-transform: uppercase;
+    border-radius: 10px;
+    margin-bottom: 0;
+    padding: 10px 20px;
+    font-family: var(--font-Montserrat);
+    font-weight: 500;
+  }
+
+  &_button {
+    @include size(210px, 60px);
+    text-transform: uppercase;
+    color: #000;
+    background-color: #fec401;
+    border-radius: 10px;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+  }
 }
 
-.hero_title {
-  color: #333439;
-  text-align: center;
-  font-family: var(--font-DuskDemon);
-  font-size: 70px;
-  font-weight: 400;
-  line-height: 100%;
-  text-transform: uppercase;
-
-  padding-bottom: 20px;
-  margin-top: -80px;
-}
-
-.hero_titleOrange {
+.orange {
   color: #e5a40e;
-}
-
-.hero_text {
-  color: #a3978d;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: var(--font-Montserrat), sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-
-  width: 580px;
-  margin-bottom: 40px;
-}
-
-.hero_form {
-  @include center-flex();
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-}
-
-.hero_formField {
-  @include size(210px, 60px);
-  text-transform: uppercase;
-  border: 1px #000;
-  border-radius: 10px;
-  margin-bottom: 0;
-  padding: 10px 20px;
-  font-family: var(--font-Montserrat), sans-serif;
-  font-weight: 500;
-}
-
-.hero_button {
-  @include size(210px, 60px);
-  text-transform: uppercase;
-  color: #000;
-  background-color: #fec401;
-  border-radius: 10px;
-  font-family: var(--font-Montserrat), sans-serif;
-  font-weight: 500;
 }
