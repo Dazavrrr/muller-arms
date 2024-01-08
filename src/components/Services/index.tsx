@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import ServicesPhoto1 from 'public/images/servicesPhoto1.png'
-import ServicesPhoto2 from 'public/images/servicesPhoto2.png'
-import ServicesPhoto3 from 'public/images/servicesPhoto3.png'
-import ServicesPhoto4 from 'public/images/servicesPhoto4.png'
+import ServicesPhoto1 from 'public/images/Services_Photo1.png'
+import ServicesPhoto2 from 'public/images/Services_Photo2.jpg'
+import ServicesPhoto3 from 'public/images/Services_Photo3.jpg'
+import ServicesPhoto4 from 'public/images/Services_Photo4.jpg'
 
 
 const Services = () => {
