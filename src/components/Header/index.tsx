@@ -7,23 +7,27 @@ import TelegramIcon from '../Icons/TelegramIcon'
 
 const Header = () => {
   return <header className={styles.header}>
-    <Logo />
+    <div className={styles.header_container}>
+      <a href="" className={styles.header_logo}>
+        <Logo />
+      </a>
 
-    <ul className={styles.navItems}>
+    <ul className={styles.header_navigation}>
       <li>Про нас</li>
       <li>Послуги</li>
       <li>Тренери</li>
-      <li>Про клуб</li>
+      <li>Переваги</li>
     </ul>
 
-    <div className={styles.navContacts}>
-      <a href="tel:380960264475" className={styles.phoneNumber}>+38 (096) 026-44-75</a>
-      <a href="">
+    <div className={styles.header_contacts}>
+      <a href="tel:380996533061" className={styles.header_phoneNum}>+38 (099) 653-30-61</a>
+      <a href="https://t.me/+380996533061" className={styles.header_icon}>
         <TelegramIcon />
       </a>
-      <a href='https://www.instagram.com/mullerarms/'>
+      <a href='https://www.instagram.com/mullerarms/' className={styles.header_icon}>
         <InstagramIcon />
       </a>
+    </div>
     </div>
   </header>
 }
