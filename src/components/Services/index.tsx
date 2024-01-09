@@ -35,67 +35,67 @@ const Services = () => {
           </div>
         </div>
 
-        <div className={styles.services_card}>
-          <div className={styles.services_photo}>
-            <Image
-              className={styles.services_image}
-              src="/images/servicesPhoto2.png"
-              alt="Групові тренування"
-              width={267}
-              height={200}
-            />
-          </div>
-          <div className={styles.services_info}>
-            <h1 className={styles.services_infoTitle}>Групові тренування</h1>
-            <div className={styles.services_infoPrice}>
-              <p>ВАРТІСТЬ:</p>
-              <p className={styles.services_infoPriceOrange}>1 500 ГРН</p>
+      <div className={styles.services_card}>
+        <div className={styles.services_photo}>
+          <Image
+            className={styles.services_image}
+          src='/images/Services_Photo2.jpg'
+          alt='Групові тренування'
+          width={267}
+          height={200}
+        />
+        </div>
+        <div className={styles.services_info}>
+          <h1 className={styles.services_infoTitle}>Групові тренування</h1>
+          <div className={styles.services_infoPrice}>
+            <p>ВАРТІСТЬ:</p>
+            <p className={styles.services_infoPriceOrange}>1 500 ГРН</p>
             </div>
             <div className={styles.services_infoBtn}>
               <a href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
             </div>
           </div>
         </div>
-        <div className={styles.services_card}>
-          <div className={styles.services_photo}>
-            <Image
-              className={styles.services_image}
-              src="/images/servicesPhoto3.png"
-              alt="Індивідуальні тренування"
-              width={267}
-              height={200}
-            />
-          </div>
-          <div className={styles.services_info}>
-            <h1 className={styles.services_infoTitle}>
-              Індивідуальні тренування
-            </h1>
-            <div className={styles.services_infoPrice}>
-              <p>ВАРТІСТЬ:</p>
-              <p className={styles.services_infoPriceOrange}>1 500 ГРН</p>
+        
+      </div>
+      <div className={styles.services_card}>
+        <div className={styles.services_photo}>
+          <Image
+            className={styles.services_image}
+          src='/images/Services_Photo3.jpg'
+          alt='Індивідуальні тренування'
+          width={267}
+          height={200}
+        />
+        </div>
+        <div className={styles.services_info}>
+          <h1 className={styles.services_infoTitle}>Індивідуальні тренування</h1>
+          <div className={styles.services_infoPrice}>
+            <p>ВАРТІСТЬ:</p>
+            <p className={styles.services_infoPriceOrange}>1 500 ГРН</p>
             </div>
             <div className={styles.services_infoBtn}>
               <a href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
             </div>
           </div>
         </div>
-        <div className={styles.services_card}>
-          <div className={styles.services_photo}>
-            <Image
-              className={styles.services_image}
-              src="/images/servicesPhoto4.png"
-              alt="КУРC МАЙБУТНЬОГО БІЙЦЯ"
-              width={267}
-              height={200}
-            />
-          </div>
-          <div className={styles.services_info}>
-            <h1 className={styles.services_infoTitle}>
-              КУРC МАЙБУТНЬОГО БІЙЦЯ
-            </h1>
-            <div className={styles.services_infoPrice}>
-              <p>ВАРТІСТЬ:</p>
-              <p className={styles.services_infoPriceOrange}>9 900 ГРН</p>
+
+      </div>
+      <div className={styles.services_card}>
+        <div className={styles.services_photo}>
+          <Image
+            className={styles.services_image}
+          src='/images/Services_Photo4.jpg'
+          alt='КУРC МАЙБУТНЬОГО БІЙЦЯ'
+          width={267}
+          height={200}
+        />
+        </div>
+        <div className={styles.services_info}>
+          <h1 className={styles.services_infoTitle}>КУРC МАЙБУТНЬОГО БІЙЦЯ</h1>
+          <div className={styles.services_infoPrice}>
+            <p>ВАРТІСТЬ:</p>
+            <p className={styles.services_infoPriceOrange}>9 900 ГРН</p>
             </div>
             <div className={styles.services_infoBtn}>
               <a href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
