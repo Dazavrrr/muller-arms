@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import ServicesPhoto1 from 'public/images/Services_Photo1.png'
 import ServicesPhoto2 from 'public/images/Services_Photo2.jpg'
 import ServicesPhoto3 from 'public/images/Services_Photo3.jpg'
 import ServicesPhoto4 from 'public/images/Services_Photo4.jpg'
@@ -18,7 +17,7 @@ const Services = () => {
         <div className={styles.services_photo}>
           <Image
             className={styles.services_image}
-          src={ServicesPhoto1}
+          src="/images/Services_Photo1.png"
           alt='Базове тренування з автоматом'
           width={267}
           height={200}
