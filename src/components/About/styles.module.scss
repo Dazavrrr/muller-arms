@@ -29,7 +29,7 @@
     grid-column-gap: 30px;
     grid-row-gap: 30px;
     flex-direction: column;
-    display: flex;
+    display: grid;
   }
 
   &_photo {
