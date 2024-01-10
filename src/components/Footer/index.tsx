@@ -5,6 +5,7 @@ import TelegramIcon from '../Icons/TelegramIcon'
 
 const Footer = () => {
   return <div className={styles.footer}>
+  <div className={styles.footer_container}>
     <iframe className={styles.footer_map} src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5072.516055265364!2d30.238731000000005!3d50.529371!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472b3180ac175cbf%3A0x8338dd1327c5a9ba!2z0LLRg9C70LjRhtGPINCc0ZbQvdC10YDQsNC70YzQvdCwLCA3LCDQhtGA0L_RltC90YwsINCa0LjRl9Cy0YHRjNC60LAg0L7QsdC7LiwgMDgyMDA!5e0!3m2!1suk!2sua!4v1703325940124!5m2!1suk!2sua" referrerPolicy="no-referrer-when-downgrade"></iframe>
       
     <div className={styles.footer_schedule}>
@@ -19,8 +20,12 @@ const Footer = () => {
     </div>
       
       <div className={styles.footer_icons}>
-        <TelegramIcon />
-        <InstagramIcon />
+        <a href="https://t.me/+380996533061" className={styles.footer_icon}>
+          <TelegramIcon />
+        </a>
+        <a href="https://www.instagram.com/mullerarms/" className={styles.footer_icon}>
+          <InstagramIcon />
+        </a>
     </div>
 
     </div>
@@ -33,7 +38,13 @@ const Footer = () => {
         <input className={styles.footer_input} type="text" placeholder="Номер телефону" />
         <button className={styles.footer_button} type='button'>Передзвоніть мені</button>
       </div>
-      
+    </div>
+  </div>
+    
+
+    <div className={styles.footer_politics}>
+      <p>ALL RIGHTS RESERVED.</p>
+      <a href=''>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</a>
     </div>
   </div>
 }
