@@ -9,7 +9,7 @@ import Instagram from '@/components/Instagram'
 export default function Home() {
   return <div>
     <Hero />
-    <Services />
+    {/*<Services />*/}
     <Instructors />
     <Advantages />
     <About />

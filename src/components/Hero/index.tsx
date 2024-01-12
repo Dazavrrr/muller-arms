@@ -2,6 +2,9 @@ import React from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 
+//images
+import hero from '../../../public/images/test2.png'
+
 const Hero = () => {
   return (
     <div className={styles.hero}>
@@ -35,18 +38,8 @@ const Hero = () => {
       <Image
         priority
         className={styles.hero_image}
-        src="/images/test2.png"
-        width={1920}
+        src={hero}
         alt="dsds"
-        height={1000}
-      />
-      <Image
-        priority
-        className={styles.hero_image}
-        src="/images/test2.png"
-        width={1920}
-        alt="dsds"
-        height={1000}
       />
     </div>
   )
