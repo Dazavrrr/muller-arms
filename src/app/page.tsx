@@ -7,12 +7,12 @@ import About from '@/components/About'
 import Instagram from '@/components/Instagram'
 
 export default function Home() {
-  return <div>
+  return <>
     <Hero />
-    {/*<Services />*/}
+    <Services />
     <Instructors />
     <Advantages />
     <About />
     <Instagram />
-  </div>
+  </>
 }

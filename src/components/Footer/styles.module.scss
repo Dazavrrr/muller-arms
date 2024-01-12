@@ -3,6 +3,7 @@
 
 .footer {
   background-color: $bg-color;
+
   @include center-flex();
   @include size(100%, auto);
   gap: 40px;
