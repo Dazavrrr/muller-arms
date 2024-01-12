@@ -7,7 +7,7 @@ import hero from '../../../public/images/test2.png'
 
 const Hero = () => {
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <div className={styles.hero_content}>
         <h1 className={styles.hero_title}>
           Стрілецький клуб
@@ -41,7 +41,7 @@ const Hero = () => {
         src={hero}
         alt="dsds"
       />
-    </div>
+    </section>
   )
 }
 

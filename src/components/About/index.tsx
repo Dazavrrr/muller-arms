@@ -1,26 +1,24 @@
 import React from "react";
 import styles from './styles.module.scss'
 import Image from "next/image";
-import About_Photo1 from 'public/images/About_Photo1.png'
-import About_Photo2 from 'public/images/About_Photo2.png'
 
 const About = () => {
-  return <div className={styles.about}>
+  return <section className={styles.about}>
   <div className={styles.about_wrapper}>
-    <h1 className={styles.about_title}>Про наш клуб</h1>
+    <h2 className={styles.about_title}>Про наш клуб</h2>
 
     <div className={styles.about_info}>
       <div className={styles.about_photos}>
         <Image
           className={styles.about_photo}
-          src={About_Photo1}
+          src="/images/About_Photo1.png"
           width={500}
           height={300}
           alt="Group of people"
         />
         <Image
           className={styles.about_photo}
-          src={About_Photo2}
+          src="/images/About_Photo2.png"
           width={500}
           height={300}
           alt="Group of people"
@@ -36,7 +34,7 @@ const About = () => {
       </div>
     </div>
     </div>
-  </div>
+  </section>
 }
 
 export default About
