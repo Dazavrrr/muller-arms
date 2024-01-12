@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <div className={styles.hero_content}>
         <h1 className={styles.hero_title}>
           Стрілецький клуб
@@ -48,7 +48,7 @@ const Hero = () => {
         alt="dsds"
         height={1000}
       />
-    </div>
+    </section>
   )
 }
 
