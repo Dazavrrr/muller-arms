@@ -13,14 +13,15 @@ const Instructors = () => {
       <div className={styles.instructors_card}>
         <Image
           className={styles.instructors_photos}
-          src="/images/InstructorMuller.png"
+          src="/images/instructors/instructor-muller.webp"
           alt='Instructor Muller'
           width={480}
           height={340}
         />
 
         <div className={styles.instructors_info}>
-          <a
+          <div className={styles.instructors_infoSection}>
+            <a
             href='https://www.instagram.com/instructor_muller/'
             className={styles.instructors_infoTitle}>
             Олександр Мельник
@@ -29,6 +30,8 @@ const Instructors = () => {
           <p className={styles.instructors_infoText}>
             ПОЧАВ СВІЙ ШЛЯХ ЩЕ В 2006 РОЦІ ЗАСВОЮЮЧИ СТАРЕНЬКИЙ ПМ, ПОТІМ СЛУЖБА В СПЕЦ ПІДРОЗДІЛІ, ДЕРЖАВНІЙ ТА ПРИВАТНИХ СЛУЖБАХ БЕЗПЕКИ, ЗАВЖДИ СУПРОВОДЖУВАЛАСЬ СПЕЦІАЛЬНОЮ СТРІЛЕЦЬКОЮ ПІДГОТОВКОЮ. СЕРТИФІКОВАНИЙ СУДДЯ (RANGE OFFICER) ТА ІНСТРУКТОР IPSC. НЕОДНОРАЗОВИЙ ПРИЗЕР ЗМАГАНЬ З ТАКТИКО-ПРИКЛАДНОЇ, ПРАКТИЧНОЇ СТРІЛЬБИ ТА В ДИСЦИПЛІНІ FIT&SHOOTING. З 24 ЛЮТОГО ПО 20 БЕРЕЗНЯ ПРИЙМАВ УЧАСТЬ В ОБОРОНІ КИЇВЩИНИ, У СКЛАДІ ГРУПИ ДОБРОВОЛЬЦІВ ЗАБЕЗПЕЧУВАВ БЕЗПЕКУ БАТАРЕЇ РСЗО. 20 БЕРЕЗНЯ ОТРИМАВ ВАЖКЕ ПОРАНЕННЯ ТА ПІСЛЯ ТРИВАЛОЇ РЕАБІЛІТАЦІЇ ПОВЕРНУВСЯ ДО ІНСТРУКТОРСЬКОЇ ДІЯЛЬНОСТІ.
           </p>
+          </div>
+          
           <a className={styles.instructors_btn} href="">Записатись до інструктора</a>
         </div>
       </div>
@@ -36,7 +39,7 @@ const Instructors = () => {
       <div className={styles.instructors_card}>
         <Image
           className={styles.instructors_photos}
-          src='/images/InstructorChizh.jpg'
+          src='/images/instructors/instructor-chizh.webp'
           alt='Instructor Chizh'
           width={480}
           height={340}
@@ -56,6 +59,15 @@ const Instructors = () => {
         </div>
       </div>
     </div>
+
+    {/* <Image
+       className={styles.instructors_stroke}
+      src="/images/instructors/test.webp"
+      width={1900}
+      height={100}
+      alt='stroke'
+    /> */}
+    
   </section>
 }
 

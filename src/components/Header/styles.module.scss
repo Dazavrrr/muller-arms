@@ -36,6 +36,10 @@
     }
   }
 
+  &_navItem:hover {
+    color: #e5a40e;
+  }
+
   &_contacts {
     @include center-flex();
     width: 280px;
@@ -49,6 +53,10 @@
     font-weight: 600;
     line-height: 120%;
     font-family: var(--font-Montserrat);
+
+    &:hover {
+      color: #e5a40e;
+    }
   }
 
   &_icon {
@@ -59,5 +67,9 @@
     background-repeat: no-repeat;
     background-size: 20px;
     border-radius: 5px;
+
+    &:hover {
+      background-color: #55565e;
+    }
   }
 }

@@ -13,10 +13,10 @@ const Header = () => {
       </a>
 
     <ul className={styles.header_navigation}>
-      <li>Про нас</li>
-      <li>Послуги</li>
-      <li>Тренери</li>
-      <li>Переваги</li>
+      <li className={styles.header_navItem}>Про нас</li>
+      <li className={styles.header_navItem}>Послуги</li>
+      <li className={styles.header_navItem}>Тренери</li>
+      <li className={styles.header_navItem}>Переваги</li>
     </ul>
 
     <div className={styles.header_contacts}>

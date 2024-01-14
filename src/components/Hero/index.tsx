@@ -35,7 +35,7 @@ const Hero = () => {
       <Image
         priority
         className={styles.hero_image}
-        src="/images/test2.png"
+        src="/images/hero/hero-bg.webp"
         width={1920}
         alt="dsds"
         height={1000}
@@ -43,7 +43,7 @@ const Hero = () => {
       <Image
         priority
         className={styles.hero_image}
-        src="/images/test2.png"
+        src="/images/hero/hero-bg.webp"
         width={1920}
         alt="dsds"
         height={1000}

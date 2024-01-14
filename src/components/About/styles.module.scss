@@ -20,7 +20,7 @@
   }
 
   &_title {
-    font-size: 46px;
+    font-size: 45px;
     color: #333;
     font-family: var(--font-DuskDemon);
   }
@@ -33,6 +33,7 @@
   }
 
   &_photo {
+    width: 566px;
     height: 340px;
     object-fit: cover;
     border-radius: 15px;
@@ -71,5 +72,9 @@
     font-family: var(--font-Montserrat);
     font-weight: 500;
     text-decoration: none;
+
+    &:hover {
+      background-color: #ffd135;
+    }
   }
 }
