@@ -10,6 +10,9 @@
   @media (max-width: 1024px) {
     padding: 0 30px;
   }
+  @media (max-width: 490px) {
+    padding: 0 15px;
+  }
 
   &_container {
     max-width: 1440px;
@@ -53,6 +56,7 @@
     }
     @media (max-width: 790px) {
       //display: none;
+      pointer-events: none;
       position: absolute;
       height: 0;
       opacity: 0;
@@ -71,6 +75,7 @@
  &_mobNavActive{
    @media (max-width: 790px) {
      //display: flex;
+     pointer-events: all;
      height: 100vh;
      opacity: 1;
    }
@@ -96,6 +101,7 @@
 
     @media (max-width: 790px) {
       opacity: 0;
+      pointer-events: none;
       position: absolute;
       left: 50%;
       top: 490%;
@@ -106,6 +112,7 @@
   }
   &_mobContactsActive{
     @media (max-width: 790px) {
+      pointer-events: all;
       transition: all 0.45s ease-in-out;
       opacity: 1;
     }

@@ -8,8 +8,11 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  
+  @media (max-width: 1355px) {
 
-
+  }
+  
   &_content {
     position: relative;
     z-index: 10;

@@ -7,8 +7,8 @@
   @include center-flex();
   @include size(100%, auto);
   gap: 40px;
-  padding-top: 200px;
-  padding-bottom: 40px;
+  padding: 200px 60px 40px;
+
   position: relative;
   flex-direction: column;
 
@@ -17,30 +17,69 @@
   background-size: contain;
   background-position-y: -2%;
 
+  @media (max-width: 1250px) {
+    padding-top: 120px;
+  }
+  @media (max-width: 1024px) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  @media (max-width: 490px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
   &_container {
     @include center-flex();
     width: 100%;
     max-width: 1440px;
     justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    @media (max-width: 1258px) {
+      justify-content: center;
+      flex: 1;
+    }
+    @media (max-width: 630px) {
+      flex-wrap: nowrap;
+      flex-direction: column-reverse;
+    }
+    //@media (max-width: 1250px) {
+    //  flex-direction: column-reverse;
+    //  gap: 25px;
+    //}
   }
 
   &_map {
-    width: 366px;
+    max-width: 366px;
+    width: 100%;
     height: 435px;
     flex-shrink: 0;
     border-radius: 15px;
+    @media (max-width: 1258px) {
+      max-width: none;
+      width: 48%;
+    }
+    @media (max-width: 630px) {
+      width: 100%;
+    }
   }
 
   &_info {
     background-color: #43444b;
-    width: 366px;
+    max-width: 366px;
+    width: 100%;
     height: 435px;
     flex-shrink: 0;
     border-radius: 15px;
     color: $white;
     padding: 0px 40px 40px 40px;
-    grid-column-gap: 40px;
-    grid-row-gap: 40px;
+    @media (max-width: 1258px) {
+      max-width: none;
+      width: 48%;
+    }
+    @media (max-width: 630px) {
+      width: 100%;
+    }
   }
 
   &_schedule {
@@ -67,6 +106,9 @@
     flex-shrink: 0;
     border-radius: 15px;
     color: $white;
+    @media (max-width: 1258px) {
+      width: 100%;
+    }
   }
 
   &_title {

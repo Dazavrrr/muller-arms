@@ -1,6 +1,6 @@
 "use client"
 //libs
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Squash as Hamburger } from 'hamburger-react'
 //styles
 import styles from './styles.module.scss'
@@ -10,7 +10,11 @@ import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    document.body.style.overflowY = isMenuOpen ?  'hidden' : 'auto';
+  }, [isMenuOpen])
 
   return <header className={styles.header}>
     <div className={styles.header_container}>
