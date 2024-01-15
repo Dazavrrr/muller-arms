@@ -5,10 +5,17 @@
   background-color: $bg-color;
   @include center-flex();
   @include size(100%, 80px);
+  padding: 0 60px;
+  position: relative;
+  @media (max-width: 1024px) {
+    padding: 0 30px;
+  }
 
   &_container {
-    width: 1160px;
+    max-width: 1440px;
+    width: 100%;
     gap: 30px;
+
 
     justify-content: space-between;
 
@@ -19,6 +26,12 @@
   &_logo {
     @include center-flex();
     color: $white;
+    margin-right: 130px;
+    position: relative;
+    z-index: 5;
+    @media (max-width: 1150px) {
+      margin-right: 0;
+    }
   }
 
   &_navigation {
@@ -33,6 +46,43 @@
       color: $white;
       text-decoration: none;
     }
+
+    @media (max-width: 1024px) {
+      gap: 25px;
+      font-size: 12px;
+    }
+    @media (max-width: 790px) {
+      //display: none;
+      position: absolute;
+      height: 0;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      left: 50%;
+      top: 0;
+      width: 100%;
+      transform: translateX(-50%);
+      background-color: $bg-color;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 120px;
+    }
+  }
+ &_mobNavActive{
+   @media (max-width: 790px) {
+     //display: flex;
+     height: 100vh;
+     opacity: 1;
+   }
+ }
+  &_navItem{
+    @media (max-width: 790px) {
+      padding-bottom: 25px;
+      font-size: 16px;
+      border-bottom: 1px solid $primary;
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &_navItem:hover {
@@ -41,11 +91,25 @@
 
   &_contacts {
     @include center-flex();
-    width: 280px;
+    width: fit-content;
     gap: 20px;
-    justify-content: flex-end;
-  }
 
+    @media (max-width: 790px) {
+      opacity: 0;
+      position: absolute;
+      left: 50%;
+      top: 490%;
+      transform: translateX(-50%);
+      transition: all 0.2s ease-in-out;
+      flex-direction: column-reverse;
+    }
+  }
+  &_mobContactsActive{
+    @media (max-width: 790px) {
+      transition: all 0.45s ease-in-out;
+      opacity: 1;
+    }
+  }
   &_phoneNum {
     color: $white;
     text-decoration: none;
@@ -55,6 +119,13 @@
 
     &:hover {
       color: #e5a40e;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 12px;
+    }
+    @media (max-width: 790px) {
+      font-size: 16px;
     }
   }
 
@@ -70,5 +141,11 @@
     &:hover {
       background-color: #55565e;
     }
+  }
+}
+
+.burger{
+  @media (min-width: 791px) {
+    display: none;
   }
 }

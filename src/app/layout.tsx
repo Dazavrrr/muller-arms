@@ -28,8 +28,8 @@ export default function RootLayout({
           }}
         />
         <Header />
-        <main>{children}</main>
-        <Footer />
+        {/*<main>{children}</main>*/}
+        {/*<Footer />*/}
       </body>
     </html>
   )

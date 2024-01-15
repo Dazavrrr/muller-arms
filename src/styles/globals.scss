@@ -8,6 +8,7 @@ html {
 }
 
 body {
+  min-height: 100vh;
   background-color: $body;
   color: $text-color;
   position: relative;
