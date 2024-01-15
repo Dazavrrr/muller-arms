@@ -11,7 +11,11 @@
   padding-bottom: 180px;
   flex-direction: column;
   grid-row-gap: 60px;
-  background-image: url('/images/test.png') cover;
+
+  background-image: url('../../../public/images/advantages/advantages-bottom-bc.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
 
   &_title {
     font-family: var(--font-DuskDemon);
@@ -21,18 +25,17 @@
   }
 
   &_blocks {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    max-width: 1440px;
     width: 100%;
-    gap: 30px;
-    grid-template-rows: auto auto;
+    display: grid;
+    gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
   }
 
   &_block {
     @include center-flex();
-    width: 366px;
+    width: 100%;
     min-height: 122px;
     background-color: $white;
     border-radius: 15px;

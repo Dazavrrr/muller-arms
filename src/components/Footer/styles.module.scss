@@ -6,17 +6,21 @@
   @include center-flex();
   @include size(100%, auto);
   gap: 40px;
-  margin-top: -2px;
-  padding-top: 60px;
+  padding-top: 200px;
   padding-bottom: 40px;
   position: relative;
   flex-direction: column;
 
+  background-image: url('../../../public/images/footer/footer-top-bc.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: -2%;
+
   &_container {
     @include center-flex();
-    width: 1160px;
-    grid-column-gap: 30px;
-    grid-row-gap: 30px;
+    width: 100%;
+    max-width: 1440px;
+    justify-content: space-between;
   }
 
   &_map {
@@ -153,9 +157,10 @@
   }
 
   &_politics {
-    width: 1160px;
-    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
     display: flex;
+    justify-content: space-between;
     color: $white;
     text-align: center;
     font-family: var(--font-Montserrat);
