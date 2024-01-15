@@ -11,14 +11,14 @@ const About = () => {
       <div className={styles.about_photos}>
         <Image
           className={styles.about_photo}
-          src="/images/About_Photo1.png"
+          src="/images/about/about-photo1.webp"
           width={500}
           height={300}
           alt="Group of people"
         />
         <Image
           className={styles.about_photo}
-          src="/images/About_Photo2.png"
+          src="/images/about/about-photo2.webp"
           width={500}
           height={300}
           alt="Group of people"

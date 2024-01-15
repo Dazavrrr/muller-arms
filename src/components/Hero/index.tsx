@@ -1,6 +1,10 @@
+//libs
 import React from 'react'
-import styles from './styles.module.scss'
 import Image from 'next/image'
+//styles
+import styles from './styles.module.scss'
+//images
+import bottomBc from '../../../public/images/hero/hero-bottom-bc.webp'
 
 //images
 import hero from '../../../public/images/test2.png'
@@ -38,9 +42,12 @@ const Hero = () => {
       <Image
         priority
         className={styles.hero_image}
-        src={hero}
-        alt="dsds"
+        src="/images/hero/hero-bg.webp"
+        width={1920}
+        alt="Muller Arms instructors"
+        height={1000}
       />
+      <Image src={bottomBc} alt="Muller Arms" className={styles.hero_bottom_bc}/>
     </section>
   )
 }

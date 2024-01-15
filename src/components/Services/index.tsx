@@ -15,7 +15,7 @@ const Services = () => {
           <div className={styles.services_photo}>
             <Image
               className={styles.services_image}
-              src="/images/Services_Photo1.png"
+              src="/images/services/services-photo1.webp"
               alt="Базове тренування з автоматом"
               width={267}
               height={200}
@@ -30,7 +30,7 @@ const Services = () => {
               <p className={styles.services_infoPriceOrange}>1 400 ГРН</p>
             </div>
             <div className={styles.services_infoBtn}>
-              <a href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
+              <a className={styles.services_btn} href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@ const Services = () => {
         <div className={styles.services_photo}>
           <Image
             className={styles.services_image}
-          src='/images/Services_Photo2.jpg'
+          src='/images/services/services-photo2.webp'
           alt='Групові тренування'
           width={267}
           height={200}
@@ -52,7 +52,7 @@ const Services = () => {
             <p className={styles.services_infoPriceOrange}>1 500 ГРН</p>
             </div>
             <div className={styles.services_infoBtn}>
-              <a href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
+              <a className={styles.services_btn} href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ const Services = () => {
         <div className={styles.services_photo}>
           <Image
             className={styles.services_image}
-          src='/images/Services_Photo3.jpg'
+          src='/images/services/services-photo3.webp'
           alt='Індивідуальні тренування'
           width={267}
           height={200}
@@ -74,7 +74,7 @@ const Services = () => {
             <p className={styles.services_infoPriceOrange}>1 500 ГРН</p>
             </div>
             <div className={styles.services_infoBtn}>
-              <a href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
+              <a className={styles.services_btn} href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ const Services = () => {
         <div className={styles.services_photo}>
           <Image
             className={styles.services_image}
-          src='/images/Services_Photo4.jpg'
+          src='/images/services/services-photo4.webp'
           alt='КУРC МАЙБУТНЬОГО БІЙЦЯ'
           width={267}
           height={200}
@@ -96,7 +96,7 @@ const Services = () => {
             <p className={styles.services_infoPriceOrange}>9 900 ГРН</p>
           </div>
             <div className={styles.services_infoBtn}>
-              <a href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
+              <a className={styles.services_btn} href="">ДІЗНАТИСЬ БІЛЬШЕ</a>
             </div>
           </div>
         </div>
