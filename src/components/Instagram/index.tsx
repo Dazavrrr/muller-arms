@@ -9,28 +9,28 @@ const Instagram = () => {
     <div className={styles.instagram_photos}>
       <Image
         className={styles.instagram_photo}
-        src="/images/Instagram_Photo1.png"
+        src="/images/instagram/instagram-photo1.webp"
         width={267}
         height={268}
         alt="inst_photo"
       />
       <Image
         className={styles.instagram_photo}
-        src="/images/Instagram_Photo2.png"
+        src="/images/instagram/instagram-photo2.webp"
         width={267}
         height={268}
         alt="inst_photo"
       />
       <Image
         className={styles.instagram_photo}
-        src="/images/Instagram_Photo3.jpg"
+        src="/images/instagram/instagram-photo3.webp"
         width={267}
         height={268}
         alt="inst_photo"
       />
       <Image
         className={styles.instagram_photo}
-        src="/images/Instagram_Photo4.png"
+        src="/images/instagram/instagram-photo4.webp"
         width={267}
         height={268}
         alt="inst_photo"

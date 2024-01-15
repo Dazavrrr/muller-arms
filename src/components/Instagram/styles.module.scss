@@ -23,23 +23,28 @@
   }
 
   &_photos {
-    gap: 30px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    max-width: 1440px;
+    width: 100%;
+    //gap: 30px;
+    display: flex;
+    justify-content: space-between;
 
-    @include lg {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @include xs {
-      grid-template-columns: 1fr;
-    }
+
+    // @include lg {
+    //   grid-template-columns: repeat(2, 1fr);
+    // }
+    // @include xs {
+    //   grid-template-columns: 1fr;
+    // }
   }
 
   &_photo {
     border-radius: 15px;
     object-fit: cover;
+
+    max-width: 320px;
     width: 100%;
-    height: auto
+    height: auto;
   }
 
   &_btn {
@@ -54,5 +59,9 @@
     font-family: var(--font-Montserrat);
     font-weight: 500;
     text-decoration: none;
+
+    &:hover {
+      background-color: #ffd135;
+    }
   }
 }
