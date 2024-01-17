@@ -9,6 +9,7 @@ import bottomBc from '../../../public/images/hero/hero-bottom-bc.webp'
 //images
 import mobBc from '../../../public/images/hero/hero-mob-bc.webp'
 import bc from '../../../public/images/hero/hero-bg.webp'
+import HeroForm from '@/components/HeroForm/HeroForm'
 
 const Hero = () => {
   return (
@@ -24,21 +25,7 @@ const Hero = () => {
           карабінів та гладкоствольних рушниць.
         </p>
 
-        <div className={styles.hero_form}>
-          <input
-            className={styles.hero_formField}
-            type="text"
-            placeholder="Ім'я"
-          />
-          <input
-            className={styles.hero_formField}
-            type="text"
-            placeholder="Номер телефону"
-          />
-          <button className={styles.hero_button} type="button">
-            Передзвоніть мені
-          </button>
-        </div>
+        <HeroForm/>
         <div className={styles.hero_book_btn}>ЗАПИСАТИСЬ ДО ІНСТРУКТОРА</div>
       </div>
       <Image

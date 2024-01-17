@@ -1,0 +1,34 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.hero_form {
+  @include center-flex();
+  gap: 20px;
+  @media (max-width: 740px) {
+    display: none;
+  }
+}
+
+.hero_formField {
+  @include size(210px, 60px);
+  text-transform: uppercase;
+  border-radius: 10px;
+  margin-bottom: 0;
+  padding: 10px 20px;
+  font-family: var(--font-Montserrat);
+  font-weight: 500;
+}
+
+.hero_button {
+  @include size(210px, 60px);
+  text-transform: uppercase;
+  color: #000;
+  background-color: #fec401;
+  border-radius: 10px;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-weight: 500;
+
+  &:hover {
+    background-color: #ffd135;
+  }
+}

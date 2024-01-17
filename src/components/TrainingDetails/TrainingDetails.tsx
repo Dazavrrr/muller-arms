@@ -4,37 +4,35 @@ import { FC } from 'react'
 //styles
 import styles from './styles.module.scss'
 
-interface Props{
+interface Props {
   image: StaticImageData,
   trainingName: string,
   mainText: string,
   price: string,
-  weapons: string[]
+  weapons?: string[]
 }
 
-const TrainingDetails:FC<Props> = ({image,mainText,trainingName,price,weapons}) => {
+const TrainingDetails: FC<Props> = ({ image, mainText, trainingName, price, weapons }) => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.col}>
-        <Image src={image} alt={"Muller Arms training"} className={styles.image}/>
+        <Image src={image} alt={'Muller Arms training'} className={styles.image} />
 
-        <div className={styles.weapons}>
+        {weapons && <div className={styles.weapons}>
           <h3 className={styles.weapons__title}>ВИДИ ЗБРОЇ для тренування</h3>
 
           <div className={styles.weapons__list}>
-            {weapons.map((weaponName,i) => (
+            {weapons.map((weaponName, i) => (
               <p className={styles.weapons__weaponName} key={i}>{weaponName}</p>
             ))}
           </div>
-        </div>
+        </div>}
       </div>
       <section className={`${styles.col} ${styles.details}`}>
         <h1 className={styles.details__title}>{trainingName}</h1>
-        <div className={styles.details__text}>
-          {/*<p>тренування проходять в двох форматах: «МІЛІТАРІ» та «СПОРТ»</p>*/}
-          <p>{mainText}</p>
-          {/*<p>Якщо цей опис про вас — записуйтесь на тренування</p>*/}
-        </div>
+        <p className={styles.details__text}>
+          {mainText}
+        </p>
 
         <div className={styles.price}>
           <p className={styles.price__text}>Реєстраційний внесок</p>
