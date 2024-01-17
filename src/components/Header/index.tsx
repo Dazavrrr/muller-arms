@@ -38,9 +38,14 @@ const Header = () => {
           <InstagramIcon />
         </a>
       </div>
-      <div className={styles.burger}>
-        <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} color="white"/>
+      <div className={styles.header_rightMob}>
+        <a href="tel:380996533061" className={`${styles.header_phoneNum} ${styles.header_mobPhoneNum}`}>+38 (099) 653-30-61</a>
+
+        <div className={styles.burger}>
+          <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} color="white" size={25} rounded />
+        </div>
       </div>
+
     </div>
   </header>
 }

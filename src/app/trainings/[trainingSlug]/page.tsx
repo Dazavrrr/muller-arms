@@ -1,3 +1,4 @@
+//components
 import TrainingDetails from '@/components/TrainingDetails/TrainingDetails'
 
 

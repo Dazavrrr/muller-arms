@@ -73,15 +73,15 @@
 .btn{
   max-width: 300px;
   width: 100%;
-  padding: clamp(0.75rem, 0.589rem + 0.8vw, 1.313rem) 0;
-
+  height: 50px;
+  padding: 15px;
   font-family: var(--font-Montserrat);
-  font-size: clamp(0.75rem, 0.714rem + 0.18vw, 0.875rem);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 17px;
   letter-spacing: 0;
 
   background-color: $yellow-btn;
   border-radius: 10px;
+  text-transform: uppercase;
   text-align: center;
 }

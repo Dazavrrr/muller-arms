@@ -8,11 +8,11 @@ import Instagram from '@/components/Instagram'
 
 export default function Home() {
   return <>
-    {/*<Hero />*/}
-    {/*<Services />*/}
-    {/*<Instructors />*/}
+    <Hero />
+    <Services />
+    <Instructors />
     <Advantages />
-    {/*<About />*/}
-    {/*<Instagram />*/}
+    <About />
+    <Instagram />
   </>
 }

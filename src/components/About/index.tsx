@@ -1,6 +1,11 @@
+//libs
 import React from "react";
-import styles from './styles.module.scss'
 import Image from "next/image";
+//styles
+import styles from './styles.module.scss'
+//images
+import photo1 from '../../../public/images/about/about-photo1.webp'
+import photo2 from '../../../public/images/about/about-photo2.webp'
 
 const About = () => {
   return <section className={styles.about}>
@@ -11,16 +16,18 @@ const About = () => {
       <div className={styles.about_photos}>
         <Image
           className={styles.about_photo}
-          src="/images/about/about-photo1.webp"
+          src={photo1}
           width={500}
           height={300}
+          placeholder={'blur'}
           alt="Group of people"
         />
         <Image
           className={styles.about_photo}
-          src="/images/about/about-photo2.webp"
+          src={photo2}
           width={500}
           height={300}
+          placeholder={'blur'}
           alt="Group of people"
         />
       </div>

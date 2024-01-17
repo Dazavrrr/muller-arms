@@ -36,7 +36,8 @@
     width: 100%;
     max-width: 1440px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px;
   }
 
   &_card {

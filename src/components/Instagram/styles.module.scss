@@ -25,11 +25,16 @@
   &_photos {
     max-width: 1440px;
     width: 100%;
-    //gap: 30px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 30px;
 
-
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: 1fr 1fr;
+      justify-items: center;
+      row-gap: 30px;
+    }
     // @include lg {
     //   grid-template-columns: repeat(2, 1fr);
     // }
@@ -42,9 +47,9 @@
     border-radius: 15px;
     object-fit: cover;
 
-    max-width: 320px;
+    //max-width: 320px;
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   &_btn {
