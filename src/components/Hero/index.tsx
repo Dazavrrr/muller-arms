@@ -7,7 +7,9 @@ import styles from './styles.module.scss'
 import bottomBc from '../../../public/images/hero/hero-bottom-bc.webp'
 
 //images
-import hero from '../../../public/images/test2.png'
+import mobBc from '../../../public/images/hero/hero-mob-bc.webp'
+import bc from '../../../public/images/hero/hero-bg.webp'
+import HeroForm from '@/components/HeroForm/HeroForm'
 
 const Hero = () => {
   return (
@@ -23,31 +25,21 @@ const Hero = () => {
           карабінів та гладкоствольних рушниць.
         </p>
 
-        <div className={styles.hero_form}>
-          <input
-            className={styles.hero_formField}
-            type="text"
-            placeholder="Ім'я"
-          />
-          <input
-            className={styles.hero_formField}
-            type="text"
-            placeholder="Номер телефону"
-          />
-          <button className={styles.hero_button} type="button">
-            Передзвоніть мені
-          </button>
-        </div>
+        <HeroForm/>
+        <div className={styles.hero_book_btn}>ЗАПИСАТИСЬ ДО ІНСТРУКТОРА</div>
       </div>
       <Image
         priority
         className={styles.hero_image}
-        src="/images/hero/hero-bg.webp"
+        placeholder={'blur'}
+        loading={'eager'}
+        src={bc}
         width={1920}
         alt="Muller Arms instructors"
         height={1000}
       />
-      <Image src={bottomBc} alt="Muller Arms" className={styles.hero_bottom_bc}/>
+      <Image priority loading={'eager'} src={bottomBc} alt="Muller Arms" className={styles.hero_bottom_bc}/>
+      <Image src={mobBc} priority loading={'eager'} placeholder={'blur'} alt={"Muller Arms instructors"} className={styles.hero_mob_bc}/>
     </section>
   )
 }

@@ -11,9 +11,11 @@
   "dependencies": {
     "@next/font": "^14.0.4",
     "clsx": "^2.0.0",
+    "hamburger-react": "^2.5.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-phone-number-input": "^3.3.9",
     "rfs": "^10.0.0"
   },
   "devDependencies": {

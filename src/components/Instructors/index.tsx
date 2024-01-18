@@ -5,7 +5,7 @@ import Image from 'next/image'
 import styles from './styles.module.scss'
 
 const Instructors = () => {
-  return <section className={styles.instructors}>
+  return <section className={styles.instructors} id={"instructors"}>
     <div>
       <h2 className={styles.instructors_title}>Наші ТРЕНЕРИ</h2>
       <p className={styles.instructors_subtitle}>РУШІЙНОЮ СИЛОЮ НАШОГО КЛУБУ Є ВЕДУЧІ ТРЕНЕРИ, ЯКІ ДОПОМОЖУТЬ ВАМ
@@ -24,12 +24,12 @@ const Instructors = () => {
 
         <div className={styles.instructors_info}>
           <div className={styles.instructors_infoContent}>
-          <a
-            href="https://www.instagram.com/instructor_muller/"
-            className={styles.instructors_infoTitle}>
-            Олександр Мельник {`\n`}
-            <span className={styles.orange}>“instructor_Muller”</span>
-          </a>
+            <a
+              href="https://www.instagram.com/instructor_muller/"
+              className={styles.instructors_infoTitle}>
+              Олександр Мельник {`\n`}
+              <span className={styles.orange}>“instructor_Muller”</span>
+            </a>
             <p className={styles.instructors_infoText}>
               ПОЧАВ СВІЙ ШЛЯХ ЩЕ В 2006 РОЦІ ЗАСВОЮЮЧИ СТАРЕНЬКИЙ ПМ, ПОТІМ СЛУЖБА В СПЕЦ ПІДРОЗДІЛІ, ДЕРЖАВНІЙ ТА
               ПРИВАТНИХ СЛУЖБАХ БЕЗПЕКИ, ЗАВЖДИ СУПРОВОДЖУВАЛАСЬ СПЕЦІАЛЬНОЮ СТРІЛЕЦЬКОЮ ПІДГОТОВКОЮ. СЕРТИФІКОВАНИЙ
@@ -39,8 +39,8 @@ const Instructors = () => {
               ТРИВАЛОЇ РЕАБІЛІТАЦІЇ ПОВЕРНУВСЯ ДО ІНСТРУКТОРСЬКОЇ ДІЯЛЬНОСТІ.
             </p>
           </div>
-          
-            <a className={styles.instructors_btn} href="">Записатись до інструктора</a>
+
+          <a className={styles.instructors_btn} href="">Записатись до інструктора</a>
         </div>
       </div>
 
@@ -55,13 +55,13 @@ const Instructors = () => {
 
         <div className={styles.instructors_info}>
           <div className={styles.instructors_infoContent}>
-          <a
-            href="https://www.instagram.com/pozyvniy_chizh/"
-            className={styles.instructors_infoTitle}>
-            Олександр Чиж {`\n`}
-            <span className={styles.orange}>“pozyvniy_chizh”</span>
-          </a>
-          
+            <a
+              href="https://www.instagram.com/pozyvniy_chizh/"
+              className={styles.instructors_infoTitle}>
+              Олександр Чиж {`\n`}
+              <span className={styles.orange}>“pozyvniy_chizh”</span>
+            </a>
+
             <p className={styles.instructors_infoText}>
               ОЛЕКСАНДР МАЄ ВЕЛИКИЙ ДОСВІД РОБОТИ В СФЕРІ ФІЗИЧНОЇ БЕЗПЕКИ, ДОСВІД ПРАКТИЧНОГО ВИКОРИСТАННЯ ЗБРОЇ БІЛЬШЕ
               11 РОКІВ. МАЄ ВІЙСЬКОВИЙ ДОСВІД БІЛЬШЕ 8 РОКІВ. ПРАЦЮЄ З ВІЙСЬКОВИМИ ПІДРОЗДІЛАМИ, МАЄ ДОСВІД ТА
@@ -70,8 +70,8 @@ const Instructors = () => {
               ДАЄ МОЖЛИВОСТІ ПРОЯВЛЯТИ СЛАБКІСТЬ ТА ПОЄДНУЄ ПРАКТИЧНУ, ТАКТИКО - ПРИКЛАДНУ СТРІЛЬБУ ІЗ ФІЗИЧНИМИ
               НАВАНТАЖЕННЯМИ
             </p>
-            </div>
-            <a className={styles.instructors_btn} href="">Записатись до інструктора</a>
+          </div>
+          <a className={styles.instructors_btn} href="">Записатись до інструктора</a>
         </div>
       </div>
     </div>

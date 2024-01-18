@@ -1,8 +1,14 @@
-// libs
+//libs
+
 import React from "react";
 import Image from "next/image";
 //styles
 import styles from './styles.module.scss'
+//images
+import photo1 from '../../../public/images/instagram/instagram-photo1.webp'
+import photo2 from '../../../public/images/instagram/instagram-photo2.webp'
+import photo3 from '../../../public/images/instagram/instagram-photo3.webp'
+import photo4 from '../../../public/images/instagram/instagram-photo4.webp'
 
 const Instagram = () => {
   return <section className={styles.instagram}>
@@ -11,31 +17,35 @@ const Instagram = () => {
     <div className={styles.instagram_photos}>
       <Image
         className={styles.instagram_photo}
-        src="/images/instagram/instagram-photo1.webp"
+        src={photo1}
         width={267}
         height={268}
-        alt="inst_photo"
+        placeholder={'blur'}
+        alt="Muller Arms Instagram Photo"
       />
       <Image
         className={styles.instagram_photo}
-        src="/images/instagram/instagram-photo2.webp"
+        src={photo2}
         width={267}
         height={268}
-        alt="inst_photo"
+        placeholder={'blur'}
+        alt="Muller Arms Instagram Photo"
       />
       <Image
         className={styles.instagram_photo}
-        src="/images/instagram/instagram-photo3.webp"
+        src={photo3}
         width={267}
         height={268}
-        alt="inst_photo"
+        placeholder={'blur'}
+        alt="Muller Arms Instagram Photo"
       />
       <Image
         className={styles.instagram_photo}
-        src="/images/instagram/instagram-photo4.webp"
+        src={photo4}
         width={267}
         height={268}
-        alt="inst_photo"
+        placeholder={'blur'}
+        alt="Muller Arms Instagram Photo"
       />
     </div>
 
