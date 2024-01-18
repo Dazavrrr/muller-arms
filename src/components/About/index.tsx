@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 import photo1 from '../../../public/images/about/about-photo1.webp'
 import photo2 from '../../../public/images/about/about-photo2.webp'
 
+
 const About = () => {
   return <section className={styles.about}>
   <div className={styles.about_wrapper}>
@@ -17,16 +18,12 @@ const About = () => {
         <Image
           className={styles.about_photo}
           src={photo1}
-          width={500}
-          height={300}
           placeholder={'blur'}
           alt="Group of people"
         />
         <Image
           className={styles.about_photo}
           src={photo2}
-          width={500}
-          height={300}
           placeholder={'blur'}
           alt="Group of people"
         />
@@ -36,7 +33,6 @@ const About = () => {
         <p>ДЛЯ РОБОТИ ІЗ ПІСТОЛЕТОМ ЧИ ДЛЯ ОЗНАЙОМЧИХ ЗАНЯТЬ ІЗ ПОЧАТКІВЦЯМИ МИ ОБИРАЄМО ТИР, У ВИПАДКУ НАПРАЦЮВАНЬ ЕЛЕМЕНТІВ САМОЗАХИСТУ, ТАКТИКИ ЧИ КОРОТКИХ СПОРТИВНИХ ВПРАВ ПРАЦЮЄМО НА ССК “ПРАКТИКА” В КАПІТАНІВЦІ. РОБОТУ НА ДИСТАНЦІЇ ДО 300 М ДЛЯ БІЛЬШ ДОСВІДЧЕНИХ СТРІЛЬЦІВ ІЗ ГВИНТІВКАМИ ВЕДЕМО НА ССК “СТРІЛОК” В БРОВАРАХ.</p>
         <p>ДЛЯ НАС СТРІЛЬБА — ЦЕ ОКРЕМА КУЛЬТУРА ТА ФІЛОСОФІЯ. ЦЕ ДИСЦИПЛІНА, ВІДДАНІСТЬ ТА НАВИЧКИ, ЯКІ ОБОВʼЯЗКОВО ВСІМ НАМ ЗНАДОБЛЯТЬСЯ У ЖИТТІ.</p>
         <p>НЕЗАЛЕЖНО ВІД ВАШОГО РІВНЯ ВПРАВНОСТІ, НАШІ ТРЕНЕРИ ГОТОВІ ДОПОМОГТИ ВАМ ВДОСКОНАЛЮВАТИ ТЕХНІКУ ТА НАВИЧКИ.</p>
-
         <a className={styles.about_btn} href="">ЗАПИСАТИСЬ ДО ІНСТРУКТОРА</a>
       </div>
     </div>
