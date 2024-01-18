@@ -8,6 +8,7 @@ import styles from './styles.module.scss'
 import Logo from '../Icons/Logo'
 import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
+import Link from 'next/link'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -16,17 +17,28 @@ const Header = () => {
     document.body.style.overflowY = isMenuOpen ?  'hidden' : 'auto';
   }, [isMenuOpen])
 
+  const scrollHandler = (id: string) => {
+    if (isMenuOpen){
+      setIsMenuOpen(false);
+    }
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({behavior: 'smooth', block: handleWindowWidth() ? 'center' : 'start'});
+    },isMenuOpen ? 500 : 0)
+  }
+
+  const handleWindowWidth = () => typeof window !== 'undefined' && window.innerWidth > 780;
+
   return <header className={styles.header}>
     <div className={styles.header_container}>
-      <a href="" className={styles.header_logo}>
+      <Link href="/" className={styles.header_logo}>
         <Logo />
-      </a>
+      </Link>
 
       <nav className={`${styles.header_navigation} ${isMenuOpen && styles.header_mobNavActive}`}>
-        <div className={styles.header_navItem}>Про нас</div>
-        <div className={styles.header_navItem}>Послуги</div>
-        <div className={styles.header_navItem}>Тренери</div>
-        <div className={styles.header_navItem}>Переваги</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("aboutUs")}>Про нас</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("services")}>Послуги</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("instructors")}>Тренери</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("advantages")}>Переваги</div>
       </nav>
 
       <div className={`${styles.header_contacts} ${isMenuOpen && styles.header_mobContactsActive}`} >

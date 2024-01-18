@@ -12,7 +12,7 @@ const Advantages = () => {
     "Персональні та групові тренування",
     "Тренери — військові з бойовим досвідом"
   ]
-  return <section className={styles.advantages}>
+  return <section className={styles.advantages} id={"advantages"}>
     <h2 className={styles.advantages_title}>Стрілецький Клуб <span className={styles.orange}>  “Muller arms”</span></h2>
 
     <div className={styles.advantages_blocks}>

@@ -16,7 +16,7 @@ const TrainingDetails: FC<Props> = ({ image, mainText, trainingName, price, weap
   return (
     <section className={styles.wrapper}>
       <div className={styles.col}>
-        <Image src={image} alt={'Muller Arms training'} className={styles.image} />
+        <Image src={image} alt={'Muller Arms training'} placeholder={'blur'} priority className={styles.image} />
 
         {weapons && <div className={styles.weapons}>
           <h3 className={styles.weapons__title}>ВИДИ ЗБРОЇ для тренування</h3>
@@ -39,7 +39,7 @@ const TrainingDetails: FC<Props> = ({ image, mainText, trainingName, price, weap
           <p className={`${styles.price__text} ${styles.colored}`}>{price}</p>
         </div>
 
-        <button type={'button'} className={styles.btn}>Записатись на тренування</button>
+        <div className={styles.btn}>Записатись на тренування</div>
 
       </section>
     </section>
