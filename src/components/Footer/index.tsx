@@ -1,5 +1,8 @@
+//libs
 import React from 'react'
+//styles
 import styles from './styles.module.scss'
+//icons
 import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
 

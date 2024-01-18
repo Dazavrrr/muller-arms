@@ -1,6 +1,8 @@
+//libs
 import React from "react";
-import styles from './styles.module.scss'
 import Image from "next/image";
+//styles
+import styles from './styles.module.scss'
 
 const About = () => {
   return <section className={styles.about}>

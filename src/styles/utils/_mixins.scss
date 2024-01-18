@@ -1,5 +1,5 @@
 @use 'sass:math';
-@import "../../../node_modules/rfs/scss.scss";
+@import '../../../node_modules/rfs/scss.scss';
 
 @mixin center-flex() {
   display: flex;
@@ -80,29 +80,21 @@ $browser-context: 16;
 }
 
 @mixin font($font-size, $line-height: false, $font-weight: false) {
-
-  @if (math.unit($font-size) !='px') {
+  @if (math.unit($font-size) != 'px') {
     @include font-size(rem($font-size));
     line-height: $line-height;
-  }
-
-  @else {
+  } @else {
     font-size: rem($font-size);
     line-height: $line-height;
   }
 
-
   @if $line-height !=false {
-    @if (math.unit($line-height) !='px') {
-      @include rfs($line-height * 1px, "line-height")
-    }
-
-    @else {
+    @if (math.unit($line-height) != 'px') {
+      @include rfs($line-height * 1px, 'line-height');
+    } @else {
       line-height: $line-height;
     }
-  }
-
-  @else {
+  } @else {
     line-height: 1;
   }
 
