@@ -9,7 +9,7 @@ import Logo from '../Icons/Logo'
 import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
 import Link from 'next/link'
-import { useScrollDirection } from '@/hooks/useScrollDirection'
+import useScrollDirection  from '@/hooks/useScrollDirection'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
