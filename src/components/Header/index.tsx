@@ -9,13 +9,18 @@ import Logo from '../Icons/Logo'
 import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
 import Link from 'next/link'
+import { useScrollDirection } from '@/hooks/useScrollDirection'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const scrollDirection = useScrollDirection();
+
 
   useEffect(() => {
     document.body.style.overflowY = isMenuOpen ?  'hidden' : 'auto';
   }, [isMenuOpen])
+
+
 
   const scrollHandler = (id: string) => {
     if (isMenuOpen){
@@ -28,7 +33,7 @@ const Header = () => {
 
   const handleWindowWidth = () => typeof window !== 'undefined' && window.innerWidth > 780;
 
-  return <header className={styles.header}>
+  return <header className={`${styles.header} ${scrollDirection === 'down' ? styles.header_hide : styles.header_show}`}>
     <div className={styles.header_container}>
       <Link href="/" className={styles.header_logo}>
         <Logo />

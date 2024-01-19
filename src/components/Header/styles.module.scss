@@ -6,12 +6,22 @@
   @include center-flex();
   @include size(100%, 80px);
   padding: 0 60px;
-  position: relative;
+  position: sticky;
+  z-index: 20;
+  transition: all 0.75s ease-in-out;
   @media (max-width: 1024px) {
     padding: 0 30px;
   }
   @media (max-width: 490px) {
     padding: 0 15px;
+  }
+
+  &_hide {
+    top: -12%;
+  }
+
+  &_show {
+    top: 0;
   }
 
   &_container {
@@ -39,7 +49,7 @@
       margin-right: 0;
     }
     @media (max-width: 360px) {
-      svg{
+      svg {
         width: 75px;
       }
     }
@@ -80,21 +90,23 @@
       padding-top: 120px;
     }
   }
- &_mobNavActive{
-   @media (max-width: 790px) {
-     //display: flex;
-     pointer-events: all;
-     height: 100vh;
-     opacity: 1;
 
-     .header_navItem{
-       opacity: 1;
-       height: initial;
-       pointer-events: all;
-     }
-   }
- }
-  &_navItem{
+  &_mobNavActive {
+    @media (max-width: 790px) {
+      //display: flex;
+      pointer-events: all;
+      height: 100vh;
+      opacity: 1;
+
+      .header_navItem {
+        opacity: 1;
+        height: initial;
+        pointer-events: all;
+      }
+    }
+  }
+
+  &_navItem {
     cursor: pointer;
     @media (max-width: 790px) {
       opacity: 0;
@@ -129,13 +141,15 @@
       flex-direction: column-reverse;
     }
   }
-  &_mobContactsActive{
+
+  &_mobContactsActive {
     @media (max-width: 555px) {
       pointer-events: all;
       transition: all 0.45s ease-in-out;
       opacity: 1;
     }
   }
+
   &_phoneNum {
     color: $white;
     text-decoration: none;
@@ -160,15 +174,17 @@
     //  font-size: 12px;
     //}
   }
- &_mobPhoneNum{
-   font-size: 14px;
-   @media (min-width: 461px) {
-     display: none;
-   }
-   @media (max-width: 360px) {
-     font-size: 12px;
-   }
- }
+
+  &_mobPhoneNum {
+    font-size: 14px;
+    @media (min-width: 461px) {
+      display: none;
+    }
+    @media (max-width: 360px) {
+      font-size: 12px;
+    }
+  }
+
   &_icon {
     @include center-flex();
     @include size(40px, 40px);
@@ -181,6 +197,7 @@
     &:hover {
       background-color: #55565e;
     }
+
     //@media (max-width: 550px) {
     //  @include size(30px, 30px);
     //  svg{
@@ -189,19 +206,19 @@
     //  }
     //}
   }
- &_rightMob{
-   display: flex;
-   align-items: center;
-   gap: 20px;
-   @media (min-width: 791px) {
-     display: none;
-   }
- }
+
+  &_rightMob {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @media (min-width: 791px) {
+      display: none;
+    }
+  }
 }
 
 
-
-.burger{
+.burger {
   position: relative;
   z-index: 16;
   background-color: #44454b;
