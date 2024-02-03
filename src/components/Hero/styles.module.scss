@@ -3,8 +3,9 @@
 
 .hero {
   background-color: #f3ede9;
-  @include center-flex();
-  @include size(100%, 75vh);
+  @include size(100%, 599px);
+  display: flex;
+  justify-content: center;
   flex-direction: column;
   position: relative;
   overflow: hidden;
@@ -13,18 +14,23 @@
     height: 100%;
     padding-top: clamp(2.188rem, 0.375rem + 10vw, 5rem);
   }
-  
+
   &_content {
+    // max-width: 1176px;
     position: relative;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 70px;
   }
 
   &_title {
-    color: #333439;
-    text-align: center;
+    color: $white;
+    // text-align: center;
     font-family: var(--font-DuskDemon);
     font-size: clamp(3.75rem, 3.571rem + 0.89vw, 4.375rem);
-    line-height: 100%;
+    line-height: 110%;
     padding-bottom: 20px;
     @media (max-width: 465px) {
       font-size: 50px;
@@ -35,18 +41,31 @@
   }
 
   &_image {
+    @include size(100%, 599px);
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100%;
     object-fit: cover;
+    background: linear-gradient(
+        246deg,
+        rgba(0, 0, 0, 0) 60.68%,
+        rgba(0, 0, 0, 0.13) 76.7%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.54) 0.12%,
+        rgba(0, 0, 0, 0.1) 0.23%,
+        rgba(0, 0, 0, 0) 43.36%,
+        rgba(0, 0, 0, 0.45) 59.63%,
+        #151515 79.19%
+      );
+
     @media (max-width: 740px) {
       display: none;
     }
   }
 
-  &_book_btn{
+  &_book_btn {
     @include center-flex();
     @include size(320px, 50px);
     margin: 0 auto;
@@ -73,7 +92,7 @@
     left: 0;
     bottom: 0;
   }
-  &_mob_bc{
+  &_mob_bc {
     width: 100vw;
     height: auto;
     object-fit: contain;
@@ -83,15 +102,14 @@
   }
 
   &_text {
-    text-align: center;
-    color: #a3978d;
+    color: $white;
     text-transform: uppercase;
     font-family: var(--font-Montserrat);
-    font-weight: 500;
-    line-height: 120%;
+    font-weight: 600;
+    line-height: 130%;
 
+    font-size: 20px;
     width: 580px;
-    margin: 0 auto 40px;
     @media (max-width: 740px) {
       width: 100%;
     }

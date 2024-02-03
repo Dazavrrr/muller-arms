@@ -9,24 +9,19 @@ import bottomBc from '../../../public/images/hero/hero-bottom-bc.webp'
 //images
 import mobBc from '../../../public/images/hero/hero-mob-bc.webp'
 import bc from '../../../public/images/hero/hero-bg.webp'
-import HeroForm from '@/components/HeroForm/HeroForm'
 
 const Hero = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.hero_content}>
         <h1 className={styles.hero_title}>
-          Стрілецький клуб
+          історія
           <br />
-          <span className={styles.orange}>“Muller arms”</span>
+          та цінності
         </h1>
         <p className={styles.hero_text}>
-          Сучасні, професійні методики навчання із пістолетів, напівавтоматичних
-          карабінів та гладкоствольних рушниць.
+          Навчання на всіх рівнях. Безпека та задоволення. Приєднуйтесь сьогодні!
         </p>
-
-        <HeroForm/>
-        <div className={styles.hero_book_btn}>ЗАПИСАТИСЬ ДО ІНСТРУКТОРА</div>
       </div>
       <Image
         priority
