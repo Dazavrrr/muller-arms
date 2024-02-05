@@ -27,19 +27,9 @@
 
   &_photos {
     @include center-flex();
-    gap: 20px;
-    flex-direction: column;
-  }
-
-  &_photosFlex {
-    display: flex;
-    gap: 20px;
   }
 
   &_photo {
-    object-fit: cover;
-    margin-top: -90px;
-
     @media (max-width: 1080px) {
       width: 100%;
       height: auto;

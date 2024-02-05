@@ -4,9 +4,7 @@ import Image from 'next/image'
 //styles
 import styles from './styles.module.scss'
 //images
-import photo1 from '../../../public/images/about/about-photo1.webp'
-import photo2 from '../../../public/images/about/about-photo2.webp'
-import photo3 from '../../../public/images/about/about-photo3.webp'
+import photos from '../../../public/images/about/about-photos.webp'
 
 
 const About = () => {
@@ -30,33 +28,14 @@ const About = () => {
         </div>
 
         <div className={styles.about_photos}>
-          <div className={styles.about_photosFlex}>
             <Image
-            className={styles.about_photo}
-            src={photo1}
-            placeholder={'blur'}
-            alt="Group of people"
-            width={358}
-            height={255}
-            
+              className={styles.about_photo}
+              src={photos}
+              placeholder={'blur'}
+              alt="Group of people"
+              width={536}
+              height={567}
             />
-            <Image
-            className={styles.about_photo}
-            src={photo3}
-            placeholder={'blur'}
-            alt="Group of people"
-            width={158}
-            height={351}
-            />
-          </div>
-          <Image
-            className={styles.about_photo}
-            src={photo2}
-            placeholder={'blur'}
-            alt="Group of people"
-            width={536}
-            height={292}
-          />
         </div>
       </div>
     </div>
