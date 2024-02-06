@@ -1,0 +1,28 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.experience {
+  @include center-flex();
+  @include size(100%, auto);
+  flex-direction: column;
+  position: relative;
+
+  padding-top: 40px;
+  padding-bottom: 100px;
+
+  &_bg {
+    @include size(110%, auto);
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+
+  &_bg_top {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

@@ -6,12 +6,14 @@ import Advantages from '@/components/Advantages'
 import About from '@/components/About'
 import Instagram from '@/components/Instagram'
 import Partners from "@/components/Partners"
+import Experience from "@/components/Experience"
 
 export default function Home() {
   return <>
     <Hero />
     <About />
     <Partners />
+    <Experience />
     <Services />
     <Instructors />
     <Advantages />
