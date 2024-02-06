@@ -7,13 +7,14 @@
   background-color: #f3ede9;
   margin-top: -2px;
   flex-direction: column;
+  position: relative;
 
-  background-image: url('../../../public/images/instructors/instuctors-bottom-bc.webp');
+  background-image: url('../../../public/images/instructors/instructors-bottom-bc.webp');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
   padding-top: 40px;
-  padding-bottom: 180px;
+  padding-bottom: 80px;
 
   @media (max-width: 1200px) {
     padding-bottom: 100px;
@@ -32,7 +33,7 @@
     font-family: var(--font-DuskDemon);
     line-height: 100%;
     margin-top: 0;
-    text-align: center;
+    text-align: right;
     color: #333;
     margin-bottom: 20px;
 
@@ -42,13 +43,13 @@
   }
 
   &_subtitle {
-    color: #a3978d;
-    text-align: center;
+    color: #333;
+    text-align: right;
     text-transform: uppercase;
     font-family: var(--font-Montserrat);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 120%;
-    width: 580px;
+    width: 459px;
     padding-bottom: 60px;
 
     @media (max-width: 768px) {
@@ -87,7 +88,6 @@
     max-width: 480px;
     width: 100%;
     height: 100%;
-    background-color: #333439;
     border-radius: 15px;
 
     display: flex;
@@ -105,8 +105,7 @@
     object-fit: cover;
     width: 100%;
     min-height: 340px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+    border-radius: 5px;
     overflow: hidden;
     @media (max-width: 490px) {
       height: 100%;
@@ -118,7 +117,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 30px;
 
     @media (max-width: 1200px) {
       gap: 20px;
@@ -129,14 +127,14 @@
     }
   }
 
-  &_infoTitle {
-    color: $white;
+  &_info_inst {
+    color: #333;
     text-align: left;
-    margin-top: 0;
+    margin-top: 20px;
     margin-bottom: 20px;
     font-family: var(--font-DuskDemon);
-    font-size: 26px;
-    line-height: 120%;
+    font-size: 20px;
+    line-height: 100%;
     text-decoration: none;
 
     @media (max-width: 1200px) {
@@ -150,6 +148,15 @@
     @media (max-width: 479px) {
       font-size: 7vw;
     }
+  }
+
+  &_info_name {
+    color: #333;
+    font-family: var(--font-Montserrat);
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
   }
 
   &_infoContent {
@@ -171,41 +178,18 @@
     text-align: left;
     text-transform: uppercase;
     font-family: var(--font-Montserrat);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 130%;
     margin-bottom: 20px;
+    font-size: 13px;
 
     @media (max-width: 479px) {
       font-size: 3.5vw;
     }
   }
 
-  &_btn {
-    @include center-flex();
-    @include size(auto, 50px);
-    color: #000;
-    background-color: #fec401;
-    border-radius: 10px;
-    font-family: var(--font-Montserrat);
-    font-weight: 500;
-    text-decoration: none;
-    text-transform: uppercase;
-
-    &:hover {
-      background-color: #ffd135;
-    }
-
-    @media (max-width: 768px) {
-      @include size(100%, 60px);
-    }
-
-    @media (max-width: 479px) {
-      @include size(auto, 15vw);
-      font-size: 4vw;
-    }
+  &_line {
+    border-left: 1px solid #333;
+    height: 650px;
   }
-}
-
-.orange {
-  color: #e5a40e;
 }

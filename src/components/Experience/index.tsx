@@ -6,6 +6,7 @@ import styles from './styles.module.scss'
 //images
 import bg from '../../../public/images/experience/experience-bg.webp'
 import bgTop from '../../../public/images/experience/experience-top-bc.webp'
+import bgBottom from '../../../public/images/experience/experience-bottom-bc.webp'
 
 const Experience = () => {
   return <section className={styles.experience}>
@@ -18,6 +19,12 @@ const Experience = () => {
       <Image
         className={styles.experience_bg_top}
         src={bgTop}
+        placeholder={'blur'}
+        alt="MullerArms Photo"
+    />
+    <Image
+        className={styles.experience_bg_bottom}
+        src={bgBottom}
         placeholder={'blur'}
         alt="MullerArms Photo"
     />

@@ -14,8 +14,8 @@ export default function Home() {
     <About />
     <Partners />
     <Experience />
-    <Services />
     <Instructors />
+    <Services />
     <Advantages />
     <Instagram />
   </>
