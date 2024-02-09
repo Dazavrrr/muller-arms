@@ -5,7 +5,8 @@ import styles from './styles.module.scss'
 
 const Advantages = () => {
   return <section className={styles.advantages} id={"advantages"}>
-    <h2 className={styles.advantages_title}>Чому обирають нас?</h2>
+    <div className={styles.advantages_wrapper}>
+          <h2 className={styles.advantages_title}>Чому обирають нас?</h2>
 
     <div className={styles.advantages_texts}>
       <div className={styles.advantages_line}></div>
@@ -34,6 +35,7 @@ const Advantages = () => {
 
       <div className={styles.advantages_line}></div>
 
+    </div>
     </div>
   </section>
 }

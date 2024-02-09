@@ -6,10 +6,9 @@ import styles from './styles.module.scss'
 
 const Instructors = () => {
   return <section className={styles.instructors} id={"instructors"}>
-    <div>
-      <h2 className={styles.instructors_title}>Наші ТРЕНЕРИ</h2>
-      <p className={styles.instructors_subtitle}>Ведучі вас до майстерності: Досвід, Професіоналізм та Дружня Підтримка в Навчанні зі Стрільб</p>
-    </div>
+    <div className={styles.instructors_wrapper}>
+        <h2 className={styles.instructors_title}>Наші ТРЕНЕРИ</h2>
+        <p className={styles.instructors_subtitle}>Ведучі вас до майстерності: Досвід, Професіоналізм та Дружня Підтримка в Навчанні зі Стрільб</p>
 
     <div className={styles.instructors_cards}>
       <div className={styles.instructors_card}>
@@ -74,6 +73,7 @@ const Instructors = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 }

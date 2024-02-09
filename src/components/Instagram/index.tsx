@@ -1,5 +1,4 @@
 //libs
-
 import React from "react";
 import Image from "next/image";
 //styles
@@ -12,7 +11,8 @@ import photo4 from '../../../public/images/instagram/instagram-photo4.webp'
 
 const Instagram = () => {
   return <section className={styles.instagram}>
-    <h2 className={styles.instagram_title}>НАШ INSTAGRAM</h2>
+    <div className={styles.instagram_wrapper}>
+      <h2 className={styles.instagram_title}>НАШ INSTAGRAM</h2>
     
     <div className={styles.instagram_photos}>
       <Image
@@ -26,30 +26,31 @@ const Instagram = () => {
       <Image
         className={styles.instagram_photo}
         src={photo2}
-        width={267}
-        height={268}
+        width={279}
+        height={270}
         placeholder={'blur'}
         alt="Muller Arms Instagram Photo"
       />
       <Image
         className={styles.instagram_photo}
         src={photo3}
-        width={267}
-        height={268}
+        width={279}
+        height={270}
         placeholder={'blur'}
         alt="Muller Arms Instagram Photo"
       />
       <Image
         className={styles.instagram_photo}
         src={photo4}
-        width={267}
-        height={268}
+        width={279}
+        height={270}
         placeholder={'blur'}
         alt="Muller Arms Instagram Photo"
       />
     </div>
 
     <a className={styles.instagram_btn} href="https://www.instagram.com/mullerarms/">ПЕРЕЙТИ В INSTAGRAM</a>
+    </div>
   </section>
 }
 

@@ -15,6 +15,10 @@
   background-size: contain;
   background-position: top;
 
+  &_wrapper {
+    max-width: 1176px;
+  }
+
   &_title {
     font-family: var(--font-DuskDemon);
     color: $white;
@@ -22,12 +26,12 @@
     line-height: 100%;
     text-align: left;
     margin-bottom: clamp(1.875rem, 1.339rem + 2.68vw, 3.75rem);
+    margin-right: auto;
   }
 
   &_texts {
     @include center-flex();
     flex-direction: column;
-    max-width: 1440px;
     width: 100%;
     gap: 30px;
     justify-items: center;

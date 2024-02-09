@@ -27,11 +27,11 @@
 
   &_title {
     color: $white;
-    // text-align: center;
     font-family: var(--font-DuskDemon);
     font-size: clamp(3.75rem, 3.571rem + 0.89vw, 4.375rem);
     line-height: 110%;
     padding-bottom: 20px;
+
     @media (max-width: 465px) {
       font-size: 50px;
     }
@@ -46,19 +46,6 @@
     top: 0;
     left: 0;
     object-fit: cover;
-    background: linear-gradient(
-        246deg,
-        rgba(0, 0, 0, 0) 60.68%,
-        rgba(0, 0, 0, 0.13) 76.7%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.54) 0.12%,
-        rgba(0, 0, 0, 0.1) 0.23%,
-        rgba(0, 0, 0, 0) 43.36%,
-        rgba(0, 0, 0, 0.45) 59.63%,
-        #151515 79.19%
-      );
 
     @media (max-width: 740px) {
       display: none;
