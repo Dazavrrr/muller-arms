@@ -106,6 +106,10 @@
     }
   }
 
+  &_card_bottom {
+    margin-top: auto;
+  }
+
   &_photos {
     display: block;
     object-fit: cover;

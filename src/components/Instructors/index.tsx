@@ -43,7 +43,8 @@ const Instructors = () => {
 
       <div className={styles.instructors_line}></div>
 
-      <div className={styles.instructors_card}>
+        <div className={styles.instructors_card_bottom}>
+          <div className={styles.instructors_card}>
         <Image
           className={styles.instructors_photos}
           src="/images/instructors/instructor-chizh.webp"
@@ -73,6 +74,7 @@ const Instructors = () => {
           </div>
         </div>
       </div>
+        </div>
     </div>
     </div>
   </section>

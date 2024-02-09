@@ -45,7 +45,8 @@
   }
 
   &_info {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 8fr;
     max-width: 1176px;
     gap: 60px;
 
@@ -60,6 +61,7 @@
       text-transform: uppercase;
       font-weight: 500;
       font-size: 16px;
+      line-height: 120%;
     }
 
     &_text {
