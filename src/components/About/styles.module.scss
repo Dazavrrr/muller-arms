@@ -23,10 +23,18 @@
     font-family: var(--font-DuskDemon);
     line-height: 110%;
     margin-bottom: 20px;
+
+    @media (max-width: 375px) {
+      font-size: 28px;
+    }
   }
 
   &_photos {
     @include center-flex();
+
+    @media (max-width: 375px) {
+      order: 2;
+    }
   }
 
   &_photo {
@@ -64,6 +72,7 @@
 
     @media (max-width: 490px) {
       font-size: 3.5vw;
+      order: 3;
     }
   }
 
@@ -88,6 +97,7 @@
     }
     @media (max-width: 490px) {
       width: 100%;
+      margin-top: 30px;
     }
   }
 }

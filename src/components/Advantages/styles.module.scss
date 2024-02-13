@@ -5,15 +5,19 @@
   @include center-flex();
   height: auto;
   background-color: #333;
-  margin-bottom: 60px;
   padding-top: 160px;
-  padding-bottom: clamp(5.625rem, 4.018rem + 8.04vw, 11.25rem);
+  padding-bottom: 100px;
   flex-direction: column;
 
   background-image: url('../../../public/images/advantages/advantages-top-bc.webp');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
+
+  @media (max-width: 425px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 
   &_wrapper {
     max-width: 1176px;
@@ -27,6 +31,10 @@
     text-align: left;
     margin-bottom: clamp(1.875rem, 1.339rem + 2.68vw, 3.75rem);
     margin-right: auto;
+
+    @media (max-width: 425px) {
+      font-size: 28px;
+    }
   }
 
   &_texts {
@@ -48,33 +56,52 @@
     display: grid;
     grid-template-columns: 1fr 2fr 8fr;
     max-width: 1176px;
-    gap: 60px;
+    gap: 16px;
+
+    @media (max-width: 942px) {
+      grid-template-columns: auto;
+    }
 
     &_number {
       color: #f0c858;
       font-family: var(--font-DuskDemon);
-      font-size: 35px;
+      font-size: 45px;
+      line-height: 110%;
+
+      @media (max-width: 425px) {
+        font-size: 28px;
+      }
     }
 
     &_title {
       color: #f3ede9;
       text-transform: uppercase;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 120%;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 130%;
+      @media (max-width: 425px) {
+        font-size: 16px;
+      }
     }
 
     &_text {
-      color: #9b9fa4;
+      color: #868686;
       text-transform: uppercase;
       font-weight: 500;
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 160%;
+      @media (max-width: 425px) {
+      }
     }
   }
 
   &_line {
     border-top: 1.5px solid #494848;
     width: 1176px;
+
+    @media (max-width: 1200px) {
+      // width: 1069px;
+      display: none;
+    }
   }
 }

@@ -21,13 +21,16 @@ const Instructors = () => {
         />
 
         <div className={styles.instructors_info}>
-          <div className={styles.instructors_infoContent}>
-              <a
-              href="https://www.instagram.com/instructor_muller/"
-              className={styles.instructors_info_inst}>
-              instructor_Muller
-            </a>
-            <p className={styles.instructors_info_name}>Олександр Мельник</p>
+            <div className={styles.instructors_infoContent}>
+              <div className={styles.instructors_infoTitle}>
+                <a
+                  href="https://www.instagram.com/instructor_muller/"
+                  className={styles.instructors_info_inst}>
+                  instructor_Muller
+                </a>
+                <p className={styles.instructors_info_name}>Олександр Мельник</p>
+              </div>
+              
 
             <p className={styles.instructors_infoText}>
               ПОЧАВ СВІЙ ШЛЯХ ЩЕ В 2006 РОЦІ ЗАСВОЮЮЧИ СТАРЕНЬКИЙ ПМ, ПОТІМ СЛУЖБА В СПЕЦ ПІДРОЗДІЛІ, ДЕРЖАВНІЙ ТА
@@ -55,13 +58,14 @@ const Instructors = () => {
 
         <div className={styles.instructors_info}>
           <div className={styles.instructors_infoContent}>
-            <a
-              href="https://www.instagram.com/pozyvniy_chizh/"
-              className={styles.instructors_info_inst}>
-              pozyvniy_chizh
-            </a>
-            <p className={styles.instructors_info_name}>Олександр Чиж</p>
-
+              <div className={styles.instructors_infoTitle}>
+                <a
+                  href="https://www.instagram.com/pozyvniy_chizh/"
+                  className={styles.instructors_info_inst}>
+                  pozyvniy_chizh
+                </a>
+                <p className={styles.instructors_info_name}>Олександр Чиж</p>
+              </div>
             <p className={styles.instructors_infoText}>
               ОЛЕКСАНДР МАЄ ВЕЛИКИЙ ДОСВІД РОБОТИ В СФЕРІ ФІЗИЧНОЇ БЕЗПЕКИ, ДОСВІД ПРАКТИЧНОГО ВИКОРИСТАННЯ ЗБРОЇ БІЛЬШЕ
               11 РОКІВ. МАЄ ВІЙСЬКОВИЙ ДОСВІД БІЛЬШЕ 8 РОКІВ. ПРАЦЮЄ З ВІЙСЬКОВИМИ ПІДРОЗДІЛАМИ, МАЄ ДОСВІД ТА

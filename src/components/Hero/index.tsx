@@ -22,6 +22,8 @@ const Hero = () => {
         <p className={styles.hero_text}>
           Навчання на всіх рівнях. Безпека та задоволення. Приєднуйтесь сьогодні!
         </p>
+
+        <button className={styles.hero_book_btn}>Зареєструватися</button>
       </div>
       <Image
         priority
