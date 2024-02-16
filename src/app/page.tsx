@@ -7,6 +7,7 @@ import About from '@/components/About'
 // import Instagram from '@/components/Instagram'
 // import Partners from "@/components/Partners"
 import Experience from "@/components/Experience"
+import Reviews from "@/components/Reviews"
 
 export default function Home() {
   return <>
@@ -16,6 +17,7 @@ export default function Home() {
     <Experience />
     <Instructors />
     <Advantages />
+    <Reviews />
     {/* <Services /> */}
     {/* <Instagram /> */}
   </>

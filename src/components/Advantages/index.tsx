@@ -1,7 +1,10 @@
 //libs
 import React from "react";
+import Image from "next/image";
 //styles
 import styles from './styles.module.scss'
+//images
+import bgTop from '../../../public/images/experience/experience-bottom-bc.webp'
 
 const Advantages = () => {
   return <section className={styles.advantages} id={"advantages"}>
@@ -35,6 +38,11 @@ const Advantages = () => {
 
       <div className={styles.advantages_line}></div>
 
+       <Image
+        className={styles.advantages_bg_top}
+        src={bgTop}
+        alt='MullerArms'
+      />
     </div>
     </div>
   </section>

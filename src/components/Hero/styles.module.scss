@@ -13,6 +13,7 @@
   @media (max-width: 740px) {
     height: 100%;
     padding: 0;
+    justify-content: flex-end;
   }
 
   &_content {
@@ -24,6 +25,7 @@
     @media (max-width: 741px) {
       position: absolute;
       padding: 20px;
+      margin-bottom: 40px;
     }
   }
 
@@ -112,8 +114,4 @@
       padding-bottom: 16px;
     }
   }
-}
-
-.orange {
-  color: #e5a40e;
 }

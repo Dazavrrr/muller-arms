@@ -1,0 +1,19 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.reviews {
+  @include center-flex();
+  @include size(100%, 300px);
+
+  background-color: #f3ede9;
+  position: relative;
+
+  &_bg_top {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
