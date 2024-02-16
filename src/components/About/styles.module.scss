@@ -10,6 +10,11 @@
   padding-top: 80px;
   padding-bottom: 120px;
 
+  @media (max-width: 490px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
   &_wrapper {
     @include center-flex();
     max-width: 1176px;
@@ -31,9 +36,21 @@
 
   &_photos {
     @include center-flex();
+    width: 100%;
 
-    @media (max-width: 375px) {
-      order: 2;
+    @media (max-width: 490px) {
+      display: none;
+    }
+  }
+
+  &_photos_mob {
+    @include center-flex();
+
+    @media (min-width: 490px) {
+      display: none;
+    }
+    @media (max-width: 490px) {
+      display: block;
     }
   }
 

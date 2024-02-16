@@ -14,6 +14,17 @@ const About = () => {
       <div className={styles.about_info}>
         <div className={styles.about_text}>
           <h2 className={styles.about_title}>Про наш клуб</h2>
+          
+          <div className={styles.about_photos_mob}>
+            <Image
+              className={styles.about_photo}
+              src={photos}
+              placeholder={'blur'}
+              alt="Group of people"
+              width={536}
+              height={567}
+            />
+        </div>
 
           <p>СЕРЦЕ НАШОГО КЛУБУ В МІСТІ ІРПІНЬ. ЦЕ ДУЖЕ КОМФОРТНИЙ Й ЯКІСНО ОБЛАДНАНИЙ ТИР. ПРОТЕ МИ НЕ ОБМЕЖУЄМОСЯ ЛИШЕ
             ТИРОМ. НАШОЮ ОСНОВНОЮ ПЕРЕВАГОЮ Є ГНУЧКІСТЬ Й МОБІЛЬНІСТЬ. МИ ПРАЦЮЄМО НА РІЗНИХ ЛОКАЦІЯХ, В ЗАЛЕЖНОСТІ ВІД

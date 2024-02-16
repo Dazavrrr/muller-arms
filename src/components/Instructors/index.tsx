@@ -65,7 +65,7 @@ const Instructors = () => {
                   pozyvniy_chizh
                 </a>
                 <p className={styles.instructors_info_name}>Олександр Чиж</p>
-              </div>
+            </div>
             <p className={styles.instructors_infoText}>
               ОЛЕКСАНДР МАЄ ВЕЛИКИЙ ДОСВІД РОБОТИ В СФЕРІ ФІЗИЧНОЇ БЕЗПЕКИ, ДОСВІД ПРАКТИЧНОГО ВИКОРИСТАННЯ ЗБРОЇ БІЛЬШЕ
               11 РОКІВ. МАЄ ВІЙСЬКОВИЙ ДОСВІД БІЛЬШЕ 8 РОКІВ. ПРАЦЮЄ З ВІЙСЬКОВИМИ ПІДРОЗДІЛАМИ, МАЄ ДОСВІД ТА

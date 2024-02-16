@@ -15,6 +15,10 @@
   background-size: contain;
   background-position: top;
 
+  @media (max-width: 941px) {
+    padding-top: 100px;
+  }
+
   @media (max-width: 425px) {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -22,6 +26,7 @@
 
   &_wrapper {
     max-width: 1176px;
+    width: 100%;
     margin-top: 60px;
     margin-bottom: 120px;
 

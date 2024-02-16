@@ -5,7 +5,6 @@
   @include center-flex();
   @include size(100%, auto);
   background-color: #f3ede9;
-  margin-top: -2px;
   flex-direction: column;
   position: relative;
 
@@ -13,6 +12,8 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
+
+  margin-top: -2px;
   padding-top: 40px;
   padding-bottom: 80px;
 
@@ -30,6 +31,7 @@
 
   &_wrapper {
     max-width: 1176px;
+    width: 100%;
   }
 
   &_title {
@@ -69,7 +71,6 @@
   }
 
   &_cards {
-    max-width: 1176px;
     display: flex;
     flex-basis: 0;
     gap: 30px;
@@ -90,7 +91,6 @@
   }
 
   &_card {
-    max-width: 480px;
     width: 100%;
     height: 100%;
     border-radius: 15px;
@@ -99,6 +99,9 @@
     flex-direction: column;
     justify-content: space-between;
 
+    @media (min-width: 768px) {
+      max-width: 558px;
+    }
     @media (max-width: 768px) {
       width: 100%;
       border-radius: 10px;
@@ -186,7 +189,7 @@
     font-family: var(--font-Montserrat);
     font-weight: 400;
     line-height: 160%;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     font-size: 14px;
 
     @media (max-width: 479px) {

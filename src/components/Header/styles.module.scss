@@ -15,10 +15,9 @@
   }
 
   &_container {
-    max-width: 1440px;
+    max-width: 1176px;
     width: 100%;
     gap: 30px;
-
 
     justify-content: space-between;
 
@@ -39,7 +38,7 @@
       margin-right: 0;
     }
     @media (max-width: 360px) {
-      svg{
+      svg {
         width: 75px;
       }
     }
@@ -80,21 +79,21 @@
       padding-top: 120px;
     }
   }
- &_mobNavActive{
-   @media (max-width: 790px) {
-     //display: flex;
-     pointer-events: all;
-     height: 100vh;
-     opacity: 1;
+  &_mobNavActive {
+    @media (max-width: 790px) {
+      //display: flex;
+      pointer-events: all;
+      height: 100vh;
+      opacity: 1;
 
-     .header_navItem{
-       opacity: 1;
-       height: initial;
-       pointer-events: all;
-     }
-   }
- }
-  &_navItem{
+      .header_navItem {
+        opacity: 1;
+        height: initial;
+        pointer-events: all;
+      }
+    }
+  }
+  &_navItem {
     cursor: pointer;
     @media (max-width: 790px) {
       opacity: 0;
@@ -129,7 +128,7 @@
       flex-direction: column-reverse;
     }
   }
-  &_mobContactsActive{
+  &_mobContactsActive {
     @media (max-width: 555px) {
       pointer-events: all;
       transition: all 0.45s ease-in-out;
@@ -160,15 +159,15 @@
     //  font-size: 12px;
     //}
   }
- &_mobPhoneNum{
-   font-size: 14px;
-   @media (min-width: 461px) {
-     display: none;
-   }
-   @media (max-width: 360px) {
-     font-size: 12px;
-   }
- }
+  &_mobPhoneNum {
+    font-size: 14px;
+    @media (min-width: 461px) {
+      display: none;
+    }
+    @media (max-width: 360px) {
+      font-size: 12px;
+    }
+  }
   &_icon {
     @include center-flex();
     @include size(40px, 40px);
@@ -189,19 +188,17 @@
     //  }
     //}
   }
- &_rightMob{
-   display: flex;
-   align-items: center;
-   gap: 20px;
-   @media (min-width: 791px) {
-     display: none;
-   }
- }
+  &_rightMob {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @media (min-width: 791px) {
+      display: none;
+    }
+  }
 }
 
-
-
-.burger{
+.burger {
   position: relative;
   z-index: 16;
   background-color: #44454b;
