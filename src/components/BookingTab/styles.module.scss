@@ -1,0 +1,49 @@
+@import "@/styles/utils/variables";
+
+.container{
+  max-width: 700px;
+  max-height: 54px;
+
+  border-radius: 10px;
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;
+  p{
+    font-family: 'Montserrat',sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    color: #333333;
+    text-transform: uppercase;
+  }
+}
+.header{
+  background-color: $yellow-btn;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  height: 54px;
+  transition: all 0.8s ease-in-out;
+  padding: 12px 20px;
+
+}
+.openContainer{
+  transition: all 1s ease-in-out;
+  max-height: 200vh;
+
+  .header{
+    margin-bottom: 24px;
+  }
+}
+.arrow{
+  transition: all 0.3s ease-in-out;
+}
+.arrowOpen{
+  transform: rotate(180deg);
+}
+
+.children{
+
+}

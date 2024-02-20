@@ -1,0 +1,104 @@
+@import "@/styles/utils/variables";
+
+.container{
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+.image{
+  max-width: 196px;
+  max-height: 392px;
+
+  img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+.info{
+  font-family: var(--font-DuskDemon),sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #333333;
+}
+.info_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a{
+    display: flex;
+    align-items: center;
+  }
+}
+.name{
+
+}
+.desc{
+
+}
+.close_dates{
+
+}
+.slot_list{
+
+}
+.timeSlot{
+
+}
+
+
+.checkbox_wrapper input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox_wrapper input:checked + label svg path {
+  stroke-dashoffset: 0;
+}
+
+.checkbox_wrapper input:focus + label {
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+}
+
+.checkbox_wrapper input + label {
+  display: block;
+  border: 2px solid #333333;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.checkbox_wrapper input + label:active {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  border-radius: 12px;
+}
+
+.checkbox_wrapper input + label svg {
+  pointer-events: none;
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 7px;
+}
+
+.checkbox_wrapper input + label svg path {
+  fill: none;
+  stroke: $yellow-btn;
+  stroke-width: 12px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 101;
+  -webkit-transition: all 250ms cubic-bezier(1, 0, 0.37, 0.91);
+  transition: all 250ms cubic-bezier(1, 0, 0.37, 0.91);
+}

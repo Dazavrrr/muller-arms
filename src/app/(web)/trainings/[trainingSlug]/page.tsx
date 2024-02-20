@@ -1,9 +1,9 @@
 //components
 import TrainingDetails from '@/components/TrainingDetails/TrainingDetails'
-import base from '../../../../public/images/trainings/1.webp'
-import group from '../../../../public/images/trainings/2.webp'
-import individual from '../../../../public/images/trainings/3.webp'
-import course from '../../../../public/images/trainings/4.webp'
+import base from '../../../../../public/images/trainings/1.webp'
+import group from '../../../../../public/images/trainings/2.webp'
+import individual from '../../../../../public/images/trainings/3.webp'
+import course from '../../../../../public/images/trainings/4.webp'
 
 
 type PageProps = {

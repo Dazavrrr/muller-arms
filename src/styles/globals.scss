@@ -130,6 +130,8 @@ button {
 }
 
 main {
+  min-height: 100vh;
+  position: relative;
   & > section{
     padding: 0 60px;
     @media (max-width: 1024px) {
