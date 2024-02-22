@@ -78,8 +78,8 @@ export type BookingCreateRequest = {
   description: string,
   totalHours: number,
   trainerId: number,
-  trainingId: number,
-  timeslotId: number
+  trainingId: number | null,
+  timeslotId: number | null
 }
 
 export type BookingUpdateRequest = {

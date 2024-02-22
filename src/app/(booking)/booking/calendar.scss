@@ -1,0 +1,110 @@
+@import "@/styles/utils/variables";
+.main_wrapper {
+  .MuiDateCalendar-root {
+    width: 100%;
+    max-height: none;
+    height: fit-content;
+  }
+
+  .MuiPickersCalendarHeader-root {
+    padding: 0;
+  }
+
+  .MuiPickersCalendarHeader-root {
+    flex-direction: row-reverse;
+    gap: 16px;
+  }
+
+  .MuiPickersArrowSwitcher-root {
+    gap: 4px;
+  }
+
+  .MuiPickersCalendarHeader-labelContainer {
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    text-transform: uppercase;
+  }
+
+  .MuiIconButton-edgeEnd {
+    width: 24px;
+    height: 24px;
+    background: url("../../../../public/images/booking/navArrowRight.svg") no-repeat;
+    border-radius: 0;
+    transform: rotate(180deg);
+
+    svg {
+      display: none;
+    }
+  }
+
+  .MuiIconButton-edgeStart {
+    width: 24px;
+    height: 24px;
+    background: url("../../../../public/images/booking/navArrowRight.svg") no-repeat;
+    border-radius: 0;
+
+    svg {
+      display: none;
+    }
+  }
+
+  .MuiDayCalendar-header {
+    justify-content: space-between;
+  }
+
+  .MuiDayCalendar-weekContainer {
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    @media (max-width: 510px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .MuiPickersSlideTransition-root{
+    min-height: 335px;
+    @media (max-width: 510px) {
+      min-height: 300px;
+    }
+  }
+
+  .MuiDayCalendar-weekDayLabel {
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #868686;
+  }
+
+  .MuiPickersDay-root {
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .MuiPickersDay-root:not(.Mui-disabled):hover{
+    background-color: rgba(254, 196, 1, 0.2);
+  }
+
+
+  .MuiPickersDay-dayWithMargin:not(.Mui-disabled) {
+    color: #333333;
+  }
+  .MuiPickersDay-today:not(.Mui-disabled){
+    border: none;
+    color: $yellow-btn;
+  }
+  .MuiPickersDay-today:not(.Mui-disabled){
+    border: none;
+    color: $yellow-btn;
+  }
+  .MuiPickersDay-today.Mui-selected:not(.Mui-disabled){
+    color: #333;
+  }
+  .MuiPickersDay-root.Mui-selected,.MuiPickersDay-root.Mui-selected:focus{
+    background-color: $yellow-btn;
+  }
+}

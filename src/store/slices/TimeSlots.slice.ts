@@ -25,6 +25,14 @@ const initialState: {
 }
 
 
+export const fetchTimeSlotsForDayByTrainer = createAsyncThunk(
+  'timeSlot/fetchTimeSlotsForDayByTrainer',
+  async ({day, trainerId}: {day: string, trainerId: number}) => {
+    const response = await guestInstance.get(`/timeslots?day=${day}&trainerId=${trainerId}`)
+    return await response.data
+  },
+)
+
 export const fetchAllTimeSlotsByTrainer = createAsyncThunk(
   'timeSlot/fetchAllTimeSlotsByTrainer',
   async ({page, trainerId}: {page: number, trainerId: number}) => {
@@ -84,28 +92,39 @@ const TimeSlotsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      //All timeSlots
-      .addCase(fetchAllTimeSlots.pending, (state) => {
+      //All timeSlots for one day
+      .addCase(fetchTimeSlotsForDayByTrainer.pending, (state) => {
         state.timeSlotsFetchStatus = 'pending'
       })
-      .addCase(fetchAllTimeSlots.fulfilled, (state, { payload }) => {
+      .addCase(fetchTimeSlotsForDayByTrainer.fulfilled, (state, { payload }) => {
         state.timeSlotsFetchStatus = 'idle'
         state.allTimeSlots = payload
       })
-      .addCase(fetchAllTimeSlots.rejected, (state) => {
+      .addCase(fetchTimeSlotsForDayByTrainer.rejected, (state) => {
         state.timeSlotsFetchStatus = 'error'
       })
-      //All timeSlots for trainer
-      .addCase(fetchAllTimeSlotsByTrainer.pending, (state) => {
-        state.trainerTimeSlotsFetchStatus = 'pending'
-      })
-      .addCase(fetchAllTimeSlotsByTrainer.fulfilled, (state, { payload }) => {
-        state.trainerTimeSlotsFetchStatus = 'idle'
-        state.timeSlotsForTrainer = payload
-      })
-      .addCase(fetchAllTimeSlotsByTrainer.rejected, (state) => {
-        state.trainerTimeSlotsFetchStatus = 'error'
-      })
+      // //All timeSlots
+      // .addCase(fetchAllTimeSlots.pending, (state) => {
+      //   state.timeSlotsFetchStatus = 'pending'
+      // })
+      // .addCase(fetchAllTimeSlots.fulfilled, (state, { payload }) => {
+      //   state.timeSlotsFetchStatus = 'idle'
+      //   state.allTimeSlots = payload
+      // })
+      // .addCase(fetchAllTimeSlots.rejected, (state) => {
+      //   state.timeSlotsFetchStatus = 'error'
+      // })
+      // //All timeSlots for trainer
+      // .addCase(fetchAllTimeSlotsByTrainer.pending, (state) => {
+      //   state.trainerTimeSlotsFetchStatus = 'pending'
+      // })
+      // .addCase(fetchAllTimeSlotsByTrainer.fulfilled, (state, { payload }) => {
+      //   state.trainerTimeSlotsFetchStatus = 'idle'
+      //   state.timeSlotsForTrainer = payload
+      // })
+      // .addCase(fetchAllTimeSlotsByTrainer.rejected, (state) => {
+      //   state.trainerTimeSlotsFetchStatus = 'error'
+      // })
       //One timeSlot
       .addCase(fetchOneTimeSlot.pending, (state) => {
         state.oneTimeSlotFetchStatus = 'pending'

@@ -1,0 +1,49 @@
+.checkbox_wrapper input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox_wrapper input:checked + label svg path {
+  stroke-dashoffset: 0;
+}
+
+.checkbox_wrapper input:focus + label {
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+}
+
+.checkbox_wrapper input + label {
+  display: block;
+  border: 2px solid #333333;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.checkbox_wrapper input + label:active {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  border-radius: 12px;
+}
+
+.checkbox_wrapper input + label svg {
+  pointer-events: none;
+  padding: 2px 2px 7px;
+}
+
+.checkbox_wrapper input + label svg path {
+  fill: none;
+  stroke: #333333;
+  stroke-width: 12px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 101;
+  -webkit-transition: all 250ms cubic-bezier(1, 0, 0.37, 0.91);
+  transition: all 250ms cubic-bezier(1, 0, 0.37, 0.91);
+}

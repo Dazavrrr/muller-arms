@@ -1,20 +1,21 @@
 @import "@/styles/utils/variables";
 
+.disabled{
+
+  .header{
+    background-color: rgba(150, 150, 150, 0.55);
+    cursor: not-allowed;
+  }
+}
 .container{
-  max-width: 700px;
+  max-width: 748px;
   max-height: 54px;
 
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
   transition: all 0.8s ease-in-out;
   overflow: hidden;
-  p{
-    font-family: 'Montserrat',sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 21px;
-    color: #333333;
-    text-transform: uppercase;
-  }
 }
 .header{
   background-color: $yellow-btn;
@@ -28,17 +29,27 @@
   transition: all 0.8s ease-in-out;
   padding: 12px 20px;
 
+  p{
+    text-align: center;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: clamp(1rem, 0.914rem + 0.28vw, 1.25rem);
+    font-weight: 600;
+    line-height: clamp(1.313rem, 1.205rem + 0.35vw, 1.625rem);
+    color: #333333;
+    text-transform: uppercase;
+  }
 }
 .openContainer{
   transition: all 1s ease-in-out;
   max-height: 200vh;
-
-  .header{
-    margin-bottom: 24px;
+  
+  @media (max-width: 700px) {
+    max-height: 400vh;
   }
+
 }
 .arrow{
-  transition: all 0.3s ease-in-out;
+  transition: all 0.8s ease-in-out;
 }
 .arrowOpen{
   transform: rotate(180deg);
