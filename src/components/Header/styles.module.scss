@@ -6,12 +6,22 @@
   @include center-flex();
   @include size(100%, 80px);
   padding: 0 60px;
-  position: relative;
+  position: sticky;
+  z-index: 20;
+  transition: all 0.75s ease-in-out;
   @media (max-width: 1024px) {
     padding: 0 30px;
   }
   @media (max-width: 490px) {
     padding: 0 15px;
+  }
+
+  &_hide {
+    top: -12%;
+  }
+
+  &_show {
+    top: 0;
   }
 
   &_container {
@@ -135,6 +145,7 @@
       opacity: 1;
     }
   }
+
   &_phoneNum {
     color: $white;
     text-decoration: none;
@@ -180,6 +191,7 @@
     &:hover {
       background-color: #55565e;
     }
+
     //@media (max-width: 550px) {
     //  @include size(30px, 30px);
     //  svg{
