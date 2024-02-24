@@ -9,12 +9,16 @@ const MyComponent = () => {
   const [name,setName] = useState<string>();
   const [phone,setPhone] = useState<string>();
 
+
+
   return (
     <div className={styles.hero_form}>
       <input
         className={styles.hero_formField}
         type="text"
         placeholder="Ім'я"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
       />
       <Input
         className={styles.hero_formField}

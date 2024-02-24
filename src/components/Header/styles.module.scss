@@ -6,12 +6,22 @@
   @include center-flex();
   @include size(100%, 80px);
   padding: 0 60px;
-  position: relative;
+  position: sticky;
+  z-index: 20;
+  transition: all 0.75s ease-in-out;
   @media (max-width: 1024px) {
     padding: 0 30px;
   }
   @media (max-width: 490px) {
     padding: 0 15px;
+  }
+
+  &_hide {
+    top: -12%;
+  }
+
+  &_show {
+    top: 0;
   }
 
   &_container {
@@ -79,6 +89,7 @@
       padding-top: 120px;
     }
   }
+
   &_mobNavActive {
     @media (max-width: 790px) {
       //display: flex;
@@ -93,6 +104,7 @@
       }
     }
   }
+
   &_navItem {
     cursor: pointer;
     @media (max-width: 790px) {
@@ -128,6 +140,7 @@
       flex-direction: column-reverse;
     }
   }
+
   &_mobContactsActive {
     @media (max-width: 555px) {
       pointer-events: all;
@@ -135,6 +148,7 @@
       opacity: 1;
     }
   }
+
   &_phoneNum {
     color: $white;
     text-decoration: none;
@@ -159,6 +173,7 @@
     //  font-size: 12px;
     //}
   }
+
   &_mobPhoneNum {
     font-size: 14px;
     @media (min-width: 461px) {
@@ -168,6 +183,7 @@
       font-size: 12px;
     }
   }
+
   &_icon {
     @include center-flex();
     @include size(40px, 40px);
@@ -180,6 +196,7 @@
     &:hover {
       background-color: #55565e;
     }
+
     //@media (max-width: 550px) {
     //  @include size(30px, 30px);
     //  svg{
@@ -188,6 +205,7 @@
     //  }
     //}
   }
+
   &_rightMob {
     display: flex;
     align-items: center;
