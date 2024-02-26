@@ -47,7 +47,6 @@ const Footer = () => {
       </div>
     </div>
 
-
     <div className={styles.footer_politics}>
       <p>ALL RIGHTS RESERVED.</p>
       <a href="">ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</a>

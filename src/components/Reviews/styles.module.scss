@@ -1,0 +1,86 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.reviews {
+  @include center-flex();
+  @include size(100%, auto);
+  flex-direction: column;
+
+  background-color: #f3ede9;
+  position: relative;
+
+  margin-top: -2px;
+  padding-top: 80px;
+  padding-bottom: 160px;
+
+  &_bg_top {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &_title {
+    display: flex;
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+  }
+
+  &_title_container {
+    @include center-flex();
+    width: 100%;
+    max-width: 1176px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
+  &_arrows {
+    display: flex;
+    gap: 14px;
+  }
+
+  &_cards {
+    display: flex;
+    gap: 30px;
+  }
+
+  &_card {
+    @include size(403px, auto);
+    border: 1px solid #a3978d;
+
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  &_text {
+    color: #a3978d;
+    font-family: var(--font-Montserrat);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  &_name {
+    color: #333;
+    font-family: var(--font-Montserrat);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  &_bottom_bg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}

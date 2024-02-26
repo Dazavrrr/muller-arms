@@ -1,0 +1,55 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.experience {
+  @include center-flex();
+  @include size(100%, auto);
+  flex-direction: column;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+
+  padding-top: 40px;
+
+  &_bg {
+    @include size(100%, auto);
+    top: 0;
+    left: 0;
+    object-fit: cover;
+
+    @media (max-width: 741px) {
+      display: none;
+    }
+  }
+
+  &_bg_mob {
+    display: none;
+    @include size(100%, auto);
+
+    @media (max-width: 741px) {
+      display: flex;
+    }
+  }
+
+  &_bg_top {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    @media (max-width: 741px) {
+      top: 35px;
+    }
+  }
+
+  &_bg_bottom {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}

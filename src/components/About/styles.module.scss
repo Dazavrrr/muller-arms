@@ -5,21 +5,19 @@
   @include center-flex();
   @include size(100%, auto);
   background-color: $white;
-  justify-content: center;
   flex-direction: column;
 
-  padding-top: 40px;
-  padding-bottom: 60px;
+  padding-top: 80px;
+  padding-bottom: 120px;
 
+  @media (max-width: 490px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 
   &_wrapper {
     @include center-flex();
-    background-image: url("../../../public/images/about/about-bc.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 100%;
-    max-width: 1440px;
+    max-width: 1176px;
     gap: 60px;
     flex-direction: column;
   }
@@ -28,21 +26,35 @@
     font-size: 45px;
     color: #333;
     font-family: var(--font-DuskDemon);
+    line-height: 110%;
+    margin-bottom: 20px;
+
+    @media (max-width: 375px) {
+      font-size: 28px;
+    }
   }
 
   &_photos {
+    @include center-flex();
     width: 100%;
-    column-gap: 30px;
-    row-gap: 30px;
-    flex-direction: column;
-    display: grid;
+
+    @media (max-width: 490px) {
+      display: none;
+    }
+  }
+
+  &_photos_mob {
+    @include center-flex();
+
+    @media (min-width: 490px) {
+      display: none;
+    }
+    @media (max-width: 490px) {
+      display: block;
+    }
   }
 
   &_photo {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 15px;
     @media (max-width: 1080px) {
       width: 100%;
       height: auto;
@@ -52,14 +64,14 @@
   &_info {
     @include center-flex();
     width: 100%;
-    gap: 30px;
+    gap: 103px;
     @media (max-width: 1080px) {
       flex-direction: column;
     }
   }
 
   &_text {
-    gap: 30px;
+    gap: 10px;
     flex-direction: column;
     justify-content: center;
     display: flex;
@@ -68,30 +80,41 @@
     color: #a3978d;
     text-align: left;
     font-family: var(--font-Montserrat);
-    font-weight: 600;
-    line-height: 130%;
-    
+    font-weight: 500;
+    line-height: 160%;
+
+    color: var(--9B9FA4, #868686);
+
+    text-transform: uppercase;
+
     @media (max-width: 490px) {
       font-size: 3.5vw;
+      order: 3;
     }
   }
 
   &_btn {
     @include center-flex();
-    @include size(320px, 50px);
+    @include size(327px, 45px);
     background-color: $yellow-btn;
-    color: #000;
+    color: #420000;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     font-family: var(--font-Montserrat);
     font-weight: 500;
     text-decoration: none;
+    font-size: 14px;
+    line-height: 110%;
+    padding: 15px 24px;
+
+    margin-top: 50px;
 
     &:hover {
       background-color: #ffd135;
     }
     @media (max-width: 490px) {
       width: 100%;
+      margin-top: 30px;
     }
   }
 }
