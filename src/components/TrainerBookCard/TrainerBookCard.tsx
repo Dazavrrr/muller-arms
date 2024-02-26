@@ -51,27 +51,36 @@ const TrainerBookCard: FC<Props> = ({ trainer, register, setValue, watch,setSele
         </div>
         <div className={styles.close_dates}>
           <p>Найближчий час для запису:</p>
-          <p>{moment(trainer.upcomingTimeSlots[0].dateTime).locale('uk')
-            .format('DD MMMM YYYY').toUpperCase()}</p>
-          <div className={styles.slot_list}>
-            {trainer.upcomingTimeSlots.map(t => (
-              <div key={t.id} className={styles.timeSlot_container}
-                   onClick={() => {
-                    setTimeout(() => {
-                      setValue('trainerId', trainer.id);
-                      setSelectedDate(moment(t.dateTime));
-                      setValue('totalHours',1);
-                    },0)
-                   }}>
-                <input type="radio" value={t.id} id={`slot_${t.id}`}
-                       {...register('timeslotId', { required: true })} />
-                <label htmlFor={`slot_${t.id}`}
-                       className={`${styles.timeSlot} ${watch('timeslotId') == t.id && styles.timeSlot_active}`}>
-                  {moment(t.dateTime).format('HH:mm')}
-                </label>
-              </div>
-            ))}
-          </div>
+
+            {!!trainer.upcomingTimeSlots.length ?
+              <>
+                <p>{moment(trainer.upcomingTimeSlots[0].dateTime).locale('uk')
+                  .format('DD MMMM YYYY').toUpperCase()}</p>
+                <div className={styles.slot_list}>
+                  {trainer.upcomingTimeSlots.map(t => (
+                    <div key={t.id} className={styles.timeSlot_container}
+                         onClick={() => {
+                           setTimeout(() => {
+                             setValue('trainerId', trainer.id);
+                             setSelectedDate(moment(t.dateTime));
+                             setValue('totalHours', 1);
+                           }, 0)
+                         }}>
+                      <input type="radio" value={t.id} id={`slot_${t.id}`}
+                             {...register('timeslotId', { required: true })} />
+                      <label htmlFor={`slot_${t.id}`}
+                             className={`${styles.timeSlot} ${watch('timeslotId') == t.id && styles.timeSlot_active}`}>
+                        {moment(t.dateTime).format('HH:mm')}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </>
+              :
+              <p>Вільних місць немає</p>
+            }
+
+
         </div>
       </div>
     </div>
