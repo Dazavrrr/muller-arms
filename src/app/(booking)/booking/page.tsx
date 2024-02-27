@@ -31,18 +31,14 @@ import person from '../../../../public/images/booking/person.svg'
 import calendar from '../../../../public/images/booking/calendar.svg'
 import list from '../../../../public/images/booking/list.svg'
 import spinner from '../../../../public/images/booking/spinner.svg'
-import { createBooking } from '@/store/slices/Bookings.slice'
 import Link from 'next/link'
-import { adminInstance, guestInstance } from '@/api'
+import { guestInstance } from '@/api'
 
 
 const MyComponent = () => {
   const dispatch = useAppDispatch()
   const trainers = useAppSelector(state => state.Trainers.trainers)
-  const currentTrainer = useAppSelector(state => state.Trainers.currentTrainer)
-  const trainersFetchStatus = useAppSelector(state => state.Trainers.trainersFetchStatus)
   const trainings = useAppSelector(state => state.Trainings.trainings)
-  const trainingsFetchStatus = useAppSelector(state => state.Trainings.trainingsFetchStatus)
   const timeSlots = useAppSelector(state => state.TimeSlots.allTimeSlots)
   const timeSlotsFetchStatus = useAppSelector(state => state.TimeSlots.timeSlotsFetchStatus)
 
@@ -55,7 +51,6 @@ const MyComponent = () => {
     control,
     watch,
     setValue,
-    setError,
     formState: { errors, isSubmitting, isSubmitSuccessful, isSubmitted },
   } = useForm<BookingCreateRequest>({
     defaultValues: {

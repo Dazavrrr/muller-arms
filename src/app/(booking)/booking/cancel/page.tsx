@@ -28,6 +28,8 @@ const MyComponent = () => {
         }
       })()
     }
+
+    //eslint-disable-next-line
   }, [])
 
   const success = (
