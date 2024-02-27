@@ -1,6 +1,9 @@
 import axios from 'axios'
+import * as process from 'process'
 
-export const BASE_URL = 'http://localhost:8080/api';
+export const ENV_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+export const BASE_URL = `${ENV_URL}/api`;
 
 
 export const guestInstance = axios.create({
