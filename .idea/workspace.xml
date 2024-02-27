@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e338bb7f-45dd-407d-82e5-5b8c6f05d10a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(booking)/booking/cancel/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(booking)/booking/cancel/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(booking)/booking/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(booking)/booking/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +104,7 @@
       <workItem from="1708974089633" duration="409000" />
       <workItem from="1708974505453" duration="423000" />
       <workItem from="1709011480206" duration="170000" />
-      <workItem from="1709056916310" duration="6343000" />
+      <workItem from="1709056916310" duration="7240000" />
     </task>
     <servers />
   </component>
