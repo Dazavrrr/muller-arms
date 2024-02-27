@@ -5,17 +5,27 @@ const nextConfig = {
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '9001',
+        port: '8080',
       },
     ],
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV !== "development",
+  },
 }
 
+const withPWA = require("next-pwa")({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+  register: true,
+  skipWaiting: true,
+});
 
 if (process.env.NODE_ENV === 'development') {
   console.log('info  - lanUrl:', `http://${require('address').ip()}:3000`)
 }
 
 
-module.exports = nextConfig
+module.exports = withPWA(nextConfig);
