@@ -1,7 +1,6 @@
 {
   "name": "Muller Arms",
   "short_name": "Muller Arms",
-  "theme_color": "#ffff",
   "background_color": "#ffff",
   "display": "standalone",
   "orientation": "portrait",
