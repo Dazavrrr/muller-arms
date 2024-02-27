@@ -5,11 +5,11 @@ import Providers from '@/store/provider'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Muller Arms",
-  description: "Muller Arms booking page",
-  generator: "Next.js",
-  manifest: "/manifest.json",
-  keywords: ["nextjs", "nextjs13", "next13", "pwa", "next-pwa"],
+  title: 'Muller Arms',
+  description: 'Muller Arms booking page',
+  generator: 'Next.js',
+  manifest: '/manifest.json',
+  keywords: ['nextjs', 'nextjs13', 'next13', 'pwa', 'next-pwa'],
   icons: [
     { rel: "apple-touch-icon", url: "icons/big.png" },
     { rel: "icon", url: "icons/big.png" },
