@@ -41,7 +41,9 @@ const Header = () => {
 
       <nav className={`${styles.header_navigation} ${isMenuOpen && styles.header_mobNavActive}`}>
         <div className={styles.header_navItem} onClick={() => scrollHandler("aboutUs")}>Про нас</div>
-        <div className={styles.header_navItem} onClick={() => scrollHandler("services")}>Послуги</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("services")}>
+          <Link href="/services">Послуги</Link>
+        </div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("instructors")}>Тренери</div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("advantages")}>Переваги</div>
       </nav>

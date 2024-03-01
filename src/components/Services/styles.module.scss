@@ -6,7 +6,7 @@
   width: 100%;
   flex-direction: column;
   padding-bottom: 150px;
-  background-image: url("../../../public/images/services/services-botton-bc.webp");
+  background-image: url('../../../public/images/services/services-botton-bc.webp');
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -18,32 +18,22 @@
     padding-right: 5%;
   }
 
+  &_wrapper {
+    max-width: 1176px;
+    margin: 0 auto;
+  }
+
   &_title {
     height: auto;
-    text-align: center;
+    text-align: start;
     font-family: var(--font-DuskDemon), sans-serif;
     font-size: 45px;
-    line-height: 100%;
+    line-height: 110%;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 
     @media (max-width: 479px) {
       font-size: 10vw;
-    }
-  }
-
-  &_text {
-    color: #a3978d;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: var(--font-Montserrat), sans-serif;
-    font-weight: 500;
-    line-height: 120%;
-
-    padding-bottom: 60px;
-
-    @media (max-width: 479px) {
-      font-size: 3.5vw;
     }
   }
 
@@ -51,8 +41,8 @@
     width: 100%;
     max-width: 1158px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 
     @media (max-width: 1295px) {
       display: grid;
@@ -65,10 +55,11 @@
   }
 
   &_card {
-    display: block;
-    @include size(267px, 100%);
-    background-color: #333439;
-    border-radius: 15px;
+    height: 561px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
 
     @media (max-width: 1295px) {
       @include size(100%, 100%);
@@ -77,10 +68,9 @@
 
   &_photo {
     width: 100%;
-    height: 200px;
     object-fit: cover;
-    border-radius: 15px;
     overflow: hidden;
+
     @media (max-width: 768px) {
       height: auto;
     }
@@ -89,6 +79,9 @@
   &_image {
     object-fit: cover;
     object-position: center;
+    align-self: stretch;
+    height: 316px;
+    border-radius: 5px;
 
     @media (max-width: 1295px) {
       @include size(100%, 100%);
@@ -104,30 +97,27 @@
   }
 
   &_info {
-    padding: 30px;
     gap: 20px;
     flex-direction: column;
     display: flex;
-    justify-content: space-between;
 
     @media (max-width: 479px) {
-      padding: 6vw;
       grid-row-gap: 6vw;
     }
   }
 
   &_infoTitle {
-    font-size: 26px;
-    line-height: 120%;
+    font-size: 24px;
+    line-height: 110%;
     font-family: var(--font-DuskDemon);
-    color: $white;
+    color: #333;
 
     @media (max-width: 768px) {
       font-size: 30px;
     }
 
     @media (max-width: 479px) {
-      font-size: 7vw;
+      font-size: 28px;
     }
   }
 
@@ -135,8 +125,9 @@
     @include center-flex();
     justify-content: space-between;
     font-family: var(--font-Montserrat);
-    font-weight: 500;
+    font-weight: 600;
     line-height: 130%;
+    font-size: 20px;
     color: #a3978d;
 
     @media (max-width: 479px) {
@@ -150,13 +141,13 @@
 
   &_infoBtn {
     @include center-flex();
-    @include size(auto, 50px);
+    @include size(100%, 45px);
     background-color: #fec401;
-    border-radius: 10px;
-    font-family: var(--font-Montserrat);
+    border-radius: 5px;
     font-weight: 500;
     text-decoration: none;
-    color: #000;
+    color: #420000;
+    line-height: 110%;
 
     &:hover {
       background-color: #ffd135;
@@ -171,5 +162,4 @@
       font-size: 4vw;
     }
   }
-
 }
