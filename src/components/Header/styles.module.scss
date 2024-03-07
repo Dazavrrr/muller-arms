@@ -138,6 +138,7 @@
       flex-direction: column-reverse;
     }
   }
+
   &_mobContactsActive {
     @media (max-width: 555px) {
       pointer-events: all;
@@ -170,6 +171,7 @@
     //  font-size: 12px;
     //}
   }
+
   &_mobPhoneNum {
     font-size: 14px;
     @media (min-width: 461px) {
@@ -179,6 +181,7 @@
       font-size: 12px;
     }
   }
+
   &_icon {
     @include center-flex();
     @include size(40px, 40px);
@@ -200,6 +203,7 @@
     //  }
     //}
   }
+
   &_rightMob {
     display: flex;
     align-items: center;
