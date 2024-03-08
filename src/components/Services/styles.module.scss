@@ -5,6 +5,7 @@
   @include center-flex();
   width: 100%;
   flex-direction: column;
+  padding-top: 80px;
   padding-bottom: 150px;
   background-image: url('../../../public/images/services/services-botton-bc.webp');
   background-position: 50% 100%;
@@ -13,6 +14,7 @@
 
   @media (max-width: 991px) {
     height: auto;
+    padding-top: 60px;
     padding-bottom: 80px;
     padding-left: 5%;
     padding-right: 5%;

@@ -1,0 +1,110 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.certificates {
+  @include center-flex();
+  @include size(100%, auto);
+  background-color: #f3ede9;
+  padding-top: 80px;
+  padding-bottom: 120px;
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1176px;
+    margin: 0 auto;
+    gap: 120px;
+  }
+
+  &_optionsBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &_videoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &_title {
+    text-align: center;
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+  }
+
+  &_text {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 179px;
+
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  &_cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  &_card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_card_info {
+    display: flex;
+    padding: 52px 30px 21px 30px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    border-radius: 5px;
+    background: #333;
+  }
+
+  &_card_name {
+    color: #fec401;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+  }
+
+  &_card_price {
+    color: #fec401;
+    text-align: center;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  &_card_btn {
+    display: flex;
+    padding: 15px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 5px;
+    background-color: #fec401;
+    color: #420000;
+    font-weight: 500;
+    line-height: 110%;
+
+    &:hover {
+      background-color: #ffd135;
+    }
+  }
+
+  &_video {
+    @include size(100%, 582px);
+    border-radius: 5px;
+  }
+}
