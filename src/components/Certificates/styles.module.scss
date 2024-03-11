@@ -7,24 +7,42 @@
   background-color: #f3ede9;
   padding-top: 80px;
   padding-bottom: 120px;
+
+  @media (max-width: 479px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
   &_wrapper {
     display: flex;
     flex-direction: column;
     max-width: 1176px;
     margin: 0 auto;
     gap: 120px;
+
+    @media (max-width: 479px) {
+      gap: 60px;
+    }
   }
 
   &_optionsBlock {
     display: flex;
     flex-direction: column;
     gap: 50px;
+
+    @media (max-width: 479px) {
+      gap: 24px;
+    }
   }
 
   &_videoBlock {
     display: flex;
     flex-direction: column;
     gap: 50px;
+
+    @media (max-width: 479px) {
+      gap: 24px;
+    }
   }
 
   &_title {
@@ -33,6 +51,11 @@
     font-family: var(--font-DuskDemon);
     font-size: 45px;
     line-height: 110%;
+
+    @media (max-width: 479px) {
+      font-size: 28px;
+      text-align: start;
+    }
   }
 
   &_text {
@@ -45,18 +68,34 @@
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
+
+    @media (max-width: 854px) {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
   }
 
   &_cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+
+    @media (max-width: 854px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &_card {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: 854px) {
+      width: 100%;
+    }
   }
 
   &_card_info {
@@ -75,6 +114,7 @@
     font-family: var(--font-DuskDemon);
     font-size: 45px;
     line-height: 110%;
+    text-align: center;
   }
 
   &_card_price {
@@ -104,7 +144,12 @@
   }
 
   &_video {
-    @include size(100%, 582px);
+    max-width: 1176px;
+    height: 583px;
     border-radius: 5px;
+
+    @media (max-width: 479px) {
+      height: 211px;
+    }
   }
 }

@@ -5,8 +5,8 @@ import Certificates from '@/components/Certificates'
 
 export default function OurServices() {
   return <>
-    <ServicesHero />
-    <Services />
+    {/* <ServicesHero />
+    <Services /> */}
     <Certificates />
   </>
 }
