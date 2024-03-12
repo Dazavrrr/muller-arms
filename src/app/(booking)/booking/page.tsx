@@ -8,6 +8,7 @@ import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { InputMask } from '@react-input/mask'
 import moment from 'moment'
+import dynamic from 'next/dynamic'
 //components
 import BookingTab from '@/components/BookingTab/BookingTab'
 import TrainerBookCard from '@/components/TrainerBookCard/TrainerBookCard'
@@ -17,23 +18,28 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { fetchAllTrainers } from '@/store/slices/Trainers.slice'
 import { fetchAllTrainings } from '@/store/slices/Trainings.slice'
 import {
-  fetchTimeSlotsForDayByTrainer,
+  fetchTimeSlotsForDayByTrainer, fetchTimeSlotsForDayByTrainerGuest,
 } from '@/store/slices/TimeSlots.slice'
 //styles
 import styles from './styles.module.scss'
 import './calendar.scss'
 import global from '@/styles/global.module.scss'
 //types
-import { BookingCreateRequest } from '@/types'
+import { BookingCreateRequest } from '@/common/types'
 //images
 import logo from '../../../../public/images/booking/logo.svg'
 import person from '../../../../public/images/booking/person.svg'
 import calendar from '../../../../public/images/booking/calendar.svg'
 import list from '../../../../public/images/booking/list.svg'
-import spinner from '../../../../public/images/booking/spinner.svg'
+import spinner from '../../../../public/images/spinner.svg'
 import Link from 'next/link'
 import { guestInstance } from '@/api'
+import MobileInstallPromt from '@/components/MobileInstallPromt/MobileInstallPromt'
 
+const BookingTabComp = dynamic(
+  () => import('@/components/BookingTab/BookingTab'),
+  {ssr: false}
+)
 
 const MyComponent = () => {
   const dispatch = useAppDispatch()
@@ -51,11 +57,12 @@ const MyComponent = () => {
     control,
     watch,
     setValue,
-    formState: { errors, isSubmitting, isSubmitSuccessful, isSubmitted },
+    formState: { errors, isSubmitting, isValid, isSubmitSuccessful, isSubmitted },
   } = useForm<BookingCreateRequest>({
     defaultValues: {
       totalHours: 1,
     },
+    reValidateMode: 'onSubmit',
   })
 
   const onSubmit = async (data: BookingCreateRequest) => {
@@ -74,16 +81,46 @@ const MyComponent = () => {
 
   useEffect(() => {
     if (selectedTrainer && selectedDate) {
-      dispatch(fetchTimeSlotsForDayByTrainer({ day: selectedDate.toISOString(), trainerId: selectedTrainer.id }))
+      dispatch(fetchTimeSlotsForDayByTrainerGuest({ day: selectedDate.toISOString(), trainerId: selectedTrainer.id }))
     }
 
     //eslint-disable-next-line
   }, [selectedDate, selectedTrainer])
 
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [isIOS, setIsIOS] = useState<boolean>(false)
+
+  useEffect(() => {
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    }
+
+    function isIOSDevice() {
+      return /iPhone|iPad|iPod/i.test(navigator.userAgent)
+    }
+
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches
+    const lastDateString = localStorage.getItem('showedPromt')
+    if ((lastDateString && !moment(JSON.parse(lastDateString)).isBefore(moment())) || isPWA) {
+      return
+    }
+
+    if (isMobileDevice()) {
+      setIsMobile(true)
+    }
+    if (isIOSDevice()) {
+      setIsIOS(true)
+    }
+
+
+    //eslint-disable-next-line
+  }, [])
+
+
   const firstStep = (
     <>
       <div className={styles.container}>
-        <BookingTab icon={person}
+        <BookingTabComp icon={person}
                     isDisabled={false}
                     title={selectedTrainer ?
                       `${selectedTrainer.firstName} ${selectedTrainer.lastName}`
@@ -92,9 +129,9 @@ const MyComponent = () => {
             {trainers.map(t => <TrainerBookCard watch={watch} setValue={setValue} register={register} key={t.id}
                                                 trainer={t} setSelectedDate={setSelectedDate} />)}
           </div>
-        </BookingTab>
+        </BookingTabComp>
 
-        <BookingTab icon={calendar} isDisabled={!watch('trainerId')}
+        <BookingTabComp icon={calendar} isDisabled={!watch('trainerId')}
                     title={selectedTimeSlot ?
                       moment(selectedTimeSlot.dateTime).format('DD MMMM YYYY HH:mm').toUpperCase()
                       : 'вкажіть дату та час'}
@@ -104,7 +141,7 @@ const MyComponent = () => {
                           onChange={(newDate) => {
                             setSelectedDate(newDate)
                             setValue('timeslotId', null)
-                            setValue('totalHours',1);
+                            setValue('totalHours', 1)
                           }} disabled={timeSlotsFetchStatus === 'pending'} />
           </LocalizationProvider>
           <div className={styles.timeSlots_container}>
@@ -132,9 +169,14 @@ const MyComponent = () => {
               <>
                 <p className={styles.sectionTitle}>ЧАС</p>
                 <div className={styles.timeSlots}>
-                  {timeSlots.length ? timeSlots.map(t => (
+                  {timeSlots.length ? timeSlots.map((t, i) => (
                     <div key={`dateTimeSlot_${t.id}`}
-                         className={`${styles.timeSlot} ${watch('timeslotId') == t.id && styles.timeSlot_active}`}>
+                         className={`${styles.timeSlot} ${watch('timeslotId') == t.id && styles.timeSlot_active}`}
+                         onClick={() => {
+                           if (timeSlots.length - i < watch('totalHours')) {
+                             setValue('totalHours', timeSlots.length - i)
+                           }
+                         }}>
                       <input type="radio" id={`dateTimeSlot_${t.id}`} value={t.id}
                              {...register('timeslotId', { required: true })} />
                       <label htmlFor={`dateTimeSlot_${t.id}`}>
@@ -146,14 +188,16 @@ const MyComponent = () => {
               </>
             }
           </div>
-        </BookingTab>
+        </BookingTabComp>
 
-        <BookingTab icon={list} title={'Вибір послуги'} isDisabled={!watch('trainerId')}>
+        <BookingTabComp icon={list} title={selectedTraining?.name ?? 'Вибір' +
+          ' послуги'}
+                    isDisabled={!watch('trainerId') || !watch('timeslotId')}>
           {trainings.map(t => (
             <TrainingBookCard watch={watch} setValue={setValue}
                               key={`training_${t.id}`} training={t} />
           ))}
-        </BookingTab>
+        </BookingTabComp>
       </div>
       <button type={'button'} disabled={!watch('trainerId') || !watch('trainingId') || !watch('timeslotId')}
               className={styles.continue} onClick={() => {
@@ -179,14 +223,14 @@ const MyComponent = () => {
           <InputMask {...field} mask="+38 (___) ___-__-__" showMask={true} replacement={{ _: /\d/ }}
                      placeholder={'Введіть телефон'} />
         )}
-        rules={{ required: true, validate: value => value.replace(/[^+\d]/g, '').length === 13 }}
+        rules={{ required: true, validate: value => value?.replace(/[^+\d]/g, '').length === 13 }}
         control={control} name={'clientPhone'} />
     </div>
     <div className={`${styles.inputField} ${errors.clientEmail && styles.error}`}>
       <label htmlFor="email">E-mail</label>
       <input type="text" placeholder={'Введіть e-mail'} id="email"
              {...register('clientEmail', {
-               required: true, pattern: {
+               required: false, pattern: {
                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                  message: 'invalid email address',
                },
@@ -204,14 +248,18 @@ const MyComponent = () => {
         <div className={styles.bookDetails_trainer}>
           <p className={styles.trainerName}>{selectedTrainer.firstName} {selectedTrainer.lastName}</p>
           <div className={styles.trainerImage}>
-            <Image width={322} height={287} src={selectedTrainer.image} alt={'trainer image'} />
+            <Image width={322} height={287} src={selectedTrainer.wideImage} alt={'trainer image'} />
           </div>
         </div>
         <div className={styles.bookDetails_training}>
           <p className={styles.sectionTitle}>
             {moment(selectedTimeSlot.dateTime).format('DD MMMM YYYY HH:mm').toUpperCase()}
+            {` - ${moment(selectedTimeSlot.dateTime).add(watch('totalHours'), 'h').format('HH:mm')}`}
           </p>
           <p className={styles.selectedTraining}>{selectedTraining.name}</p>
+          <p className={styles.price}>
+            Кількість годин: <span className={styles.black}>{watch('totalHours')}</span>
+          </p>
           <p className={styles.price}>
             До сплати: <span className={styles.black}>{watch('totalHours') * selectedTraining.pricePerHour} ГРН</span>
           </p>
@@ -238,7 +286,7 @@ const MyComponent = () => {
       </p>
     </div>
     <button type={'submit'} className={styles.continue}
-            disabled={!agreement}>Зробити передплату
+            disabled={!agreement || !isValid}>Зробити передплату
     </button>
 
   </>)
@@ -265,12 +313,14 @@ const MyComponent = () => {
         <Image src={spinner} alt={'Spinner'} className={styles.spinner} />
         :
         <form className={`${styles.main} main_wrapper`} onSubmit={handleSubmit(onSubmit)}>
-          <Image src={logo} alt={'logo'}/>
+          <Image src={logo} alt={'logo'} onClick={() => console.log(watch())} />
           {step === 1 && !isSubmitted && firstStep}
           {step === 2 && !isSubmitted && secondStep}
           {isSubmitSuccessful && submitSuccessful}
           {isSubmitted && !isSubmitSuccessful && submitFeiled}
         </form>}
+      {isMobile && <MobileInstallPromt isIOS={isIOS} close={() => setIsMobile(false)} />}
+      {isMobile && <div className={styles.overlay}></div>}
     </>
 
   )

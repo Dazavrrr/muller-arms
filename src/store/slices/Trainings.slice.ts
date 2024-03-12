@@ -1,6 +1,8 @@
-import { FetchStatus, TrainingRequest, TrainingResponse } from '@/types'
+import { FetchStatus, TrainingResponse } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
+import { TrainingRequest } from '@/common/adminTypes'
+import { toast } from 'react-toastify'
 
 const initialState: {
   trainings: TrainingResponse[],
@@ -40,24 +42,69 @@ export const fetchOneTraining = createAsyncThunk(
 export const createTraining = createAsyncThunk(
   'training/createTraining',
   async (training: TrainingRequest) => {
-    const response = await adminInstance.post('/training', JSON.stringify(training))
-    return response.data
+    try {
+      const response = await toast.promise(
+        adminInstance.post('/trainings', JSON.stringify(training)),
+        {
+          pending: 'Запит в обробці...',
+          success: 'Тренування створено !',
+        },
+      )
+      return response.data
+    } catch (e: any) {
+      return await toast.promise(
+        Promise.reject(e),
+        {
+          error: `Сталася помилка... ${e.message}`,
+        },
+      )
+    }
   },
 )
 
 export const updateTraining = createAsyncThunk(
   'training/updateTraining',
   async ({ id, training }: { id: number, training: Partial<TrainingRequest> }) => {
-    const response = await adminInstance.patch(`/training/${id}`, JSON.stringify(training))
-    return response.data
+    try {
+      const response = await toast.promise(
+        adminInstance.patch(`/trainings/${id}`, JSON.stringify(training)),
+        {
+          pending: 'Запит в обробці...',
+          success: 'Тренування оновлено !',
+        },
+      )
+      return response.data
+    } catch (e: any) {
+      return await toast.promise(
+        Promise.reject(e),
+        {
+          error: `Сталася помилка... ${e.message}`,
+        },
+      )
+    }
   },
 )
 
 export const deleteTraining = createAsyncThunk(
   'training/deleteTraining',
   async (id: number) => {
-    await adminInstance.delete(`/training/${id}`)
-    return id
+    try {
+      await toast.promise(
+        adminInstance.delete(`/trainings/${id}`),
+        {
+          pending: 'Запит в обробці...',
+          success: 'Тренування видалено !',
+        },
+      )
+      return id
+    } catch (e: any) {
+      return await toast.promise(
+        Promise.reject(e),
+        {
+          error: `Сталася помилка... ${e.message}`,
+        },
+      )
+    }
   },
 )
 
@@ -101,6 +148,7 @@ const TrainingsSlice = createSlice({
       .addCase(createTraining.fulfilled, (state, { payload }) => {
         state.trainingCreateStatus = 'idle'
         state.trainings = [...state.trainings, payload]
+        window.location.href = `/admin/trainings/${payload.id}`;
       })
       .addCase(createTraining.rejected, (state) => {
         state.trainingCreateStatus = 'error'
@@ -127,7 +175,7 @@ const TrainingsSlice = createSlice({
       })
       .addCase(deleteTraining.fulfilled, (state, { payload }) => {
         state.trainingDeleteStatus = 'idle'
-        state.trainings = state.trainings.filter(t => t.id !== payload);
+        state.trainings = state.trainings.filter(t => t.id !== payload)
       })
       .addCase(deleteTraining.rejected, (state) => {
         state.trainingDeleteStatus = 'error'
@@ -137,6 +185,6 @@ const TrainingsSlice = createSlice({
 
 const { reducer, actions } = TrainingsSlice
 
-export const {resetCurrentTraining} = actions
+export const { resetCurrentTraining } = actions
 
 export default reducer

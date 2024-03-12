@@ -1,18 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: '51.20.66.47',
-        port: '8080',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8080',
-      },
-    ],
+    domains: ['localhost','51.20.66.47']
   },
   reactStrictMode: true,
   swcMinify: true,

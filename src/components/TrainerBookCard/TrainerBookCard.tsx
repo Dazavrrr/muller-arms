@@ -1,9 +1,9 @@
+'use client'
 import Image from 'next/image'
-import { BookingCreateRequest, TrainerResponse } from '@/types'
+import { BookingCreateRequest, TrainerResponse } from '@/common/types'
 import moment, { Moment } from 'moment'
 import { UseFormRegister,  UseFormSetValue, UseFormWatch } from 'react-hook-form'
 import { Dispatch, FC, SetStateAction } from 'react'
-
 //styles
 import styles from './styles.module.scss'
 import global from '@/styles/global.module.scss'
@@ -20,23 +20,28 @@ interface Props {
 
 const TrainerBookCard: FC<Props> = ({ trainer, register, setValue, watch,setSelectedDate }) => {
 
+  const handleTrainerChange = () => {
+    if (watch('trainerId') != trainer.id){
+      setValue('trainerId', trainer.id);
+      setTimeout(() => {
+        setValue('timeslotId', null);
+      },0)
+    }
+  }
+
   return (
     <div className={styles.container}>
-      <div className={styles.image}>
-        <Image width={196} height={392} src={trainer.image} alt={`${trainer.firstName} ${trainer.lastName}`} />
+      <div className={styles.image} onClick={handleTrainerChange}>
+        <Image width={196} height={392} src={window.innerWidth > 760 ? trainer.tallImage : trainer.wideImage} alt={`${trainer.firstName} ${trainer.lastName}`} />
       </div>
       <div className={styles.info}>
-        <div>
+        <div onClick={handleTrainerChange}>
           <div className={styles.info_header}>
             <a href={trainer.instagramLink}
                target={'_blank'} rel="noreferrer">{trainer.instagramName} <Image src={instagram}
                                                                                  alt={'instagram icon'} /></a>
 
-            <div className={global.checkbox_wrapper} onClick={() => {
-              setTimeout(() => {
-                setValue('timeslotId', null);
-              },0)
-            }}>
+            <div className={global.checkbox_wrapper}>
               <input checked={watch('trainerId') == trainer.id} type="radio" value={trainer.id}
                      id={`trainer_${trainer.id}`} {...register('trainerId', { required: true })} />
               <label htmlFor={`trainer_${trainer.id}`}>
@@ -57,13 +62,15 @@ const TrainerBookCard: FC<Props> = ({ trainer, register, setValue, watch,setSele
                 <p>{moment(trainer.upcomingTimeSlots[0].dateTime).locale('uk')
                   .format('DD MMMM YYYY').toUpperCase()}</p>
                 <div className={styles.slot_list}>
-                  {trainer.upcomingTimeSlots.map(t => (
+                  {trainer.upcomingTimeSlots.map((t,i) => (
                     <div key={t.id} className={styles.timeSlot_container}
                          onClick={() => {
                            setTimeout(() => {
                              setValue('trainerId', trainer.id);
                              setSelectedDate(moment(t.dateTime));
-                             setValue('totalHours', 1);
+                             if (trainer.upcomingTimeSlots.length - i < watch('totalHours')) {
+                               setValue('totalHours', trainer.upcomingTimeSlots.length - i)
+                             }
                            }, 0)
                          }}>
                       <input type="radio" value={t.id} id={`slot_${t.id}`}

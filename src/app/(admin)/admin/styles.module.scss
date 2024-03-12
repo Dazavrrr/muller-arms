@@ -1,0 +1,142 @@
+@import "@/styles/utils/variables";
+
+.container {
+  padding-top: 20px;
+  padding-right: 60px;
+  padding-left: 60px;
+  width: 100%;
+
+  position: relative;
+}
+
+.new {
+  width: fit-content;
+  margin-bottom: 55px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.selectWrapper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  option, select {
+    font-size: 18px;
+  }
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+
+  span {
+    text-transform: uppercase;
+    color: $yellow-btn;
+  }
+}
+
+.monthsWrapper {
+  width: 650px;
+  //flex: 1;
+}
+
+.timeSlots_spinner {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.slots {
+  display: flex;
+  gap: 50px;
+  position: relative;
+}
+
+.timeSlots {
+  padding-top: 90px;
+  width: 100%;
+  max-width: 500px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  height: fit-content;
+
+  & > p {
+    text-wrap: nowrap;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    color: #420000;
+    text-transform: uppercase;
+  }
+}
+
+.timeSlot {
+  position: relative;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #420000;
+  text-transform: uppercase;
+  text-align: center;
+
+  padding: 18px 24px;
+  background-color: $yellow-btn;
+  border-radius: 10px;
+
+  &.booked{
+    color: white;
+   background-color: red;
+    font-weight: 600;
+  }
+
+  &:hover{
+    .trashWrapper{
+      display: flex;
+    }
+  }
+}
+.trashWrapper{
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.trash{
+
+}
+.plus{
+  cursor: pointer;
+  img{
+    width: 100px;
+    height: 55px;
+  }
+}
+
+
+.modal{
+position: absolute;
+  bottom: 0;
+}
+.modalField{
+  margin-bottom: 12px;
+}
+.primaryBtn{
+
+}

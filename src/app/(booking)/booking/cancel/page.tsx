@@ -6,7 +6,7 @@ import Image from 'next/image'
 //styles
 import styles from '@/app/(booking)/booking/styles.module.scss'
 //images
-import spinner from '../../../../../public/images/booking/spinner.svg'
+import spinner from '../../../../../public/images/spinner.svg'
 import React, { useEffect, useState } from 'react'
 import { BASE_URL, guestInstance } from '@/api'
 import logo from '../../../../../public/images/booking/logo.svg'

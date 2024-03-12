@@ -1,6 +1,7 @@
-import { FetchStatus, BookingResponse, BookingCreateRequest, BookingUpdateRequest } from '@/types'
+import { FetchStatus, BookingResponse, BookingCreateRequest } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
+import { BookingUpdateRequest } from '@/common/adminTypes'
 
 const initialState: {
   bookings: BookingResponse[],
@@ -23,8 +24,8 @@ const initialState: {
 
 export const fetchAllBookings = createAsyncThunk(
   'bookings/fetchAllBookings',
-  async () => {
-    const response = await guestInstance.get('/bookings')
+  async (page: number) => {
+    const response = await adminInstance.get(`/bookings?page=${page}&size=10`);
     return await response.data
   },
 )
@@ -32,7 +33,7 @@ export const fetchAllBookings = createAsyncThunk(
 export const fetchOneBooking = createAsyncThunk(
   'bookings/fetchOneBooking',
   async (id: number) => {
-    const response = await guestInstance.get(`/bookings/${id}`)
+    const response = await adminInstance.get(`/bookings/${id}`)
     return await response.data
   },
 )

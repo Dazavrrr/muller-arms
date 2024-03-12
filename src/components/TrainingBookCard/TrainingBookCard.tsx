@@ -1,12 +1,13 @@
 //libs
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 //styles
 import styles from './styles.module.scss'
 //types
-import { BookingCreateRequest, TrainingResponse } from '@/types'
+import { BookingCreateRequest, TrainingResponse } from '@/common/types'
 import { UseFormSetValue, UseFormWatch } from 'react-hook-form'
 import { useAppSelector } from '@/store/hooks'
-import moment from 'moment'
+import moment from 'moment/moment'
+
 
 
 interface Props{
@@ -17,20 +18,6 @@ interface Props{
 
 const TrainingBookCard:FC<Props> = ({training,watch,setValue}) => {
   const timeSlots = useAppSelector(state => state.TimeSlots.allTimeSlots);
-
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      setValue('trainingId',training.id);
-    } else {
-      setValue('trainingId',null);
-      setValue('totalHours',1);
-    }
-
-    //eslint-disable-next-line
-  }, [isOpen])
-
   function countConsecutiveFreeSlots() {
 
     const pickedSlot = timeSlots.find(t => t.id == watch('timeslotId'));
@@ -57,9 +44,16 @@ const TrainingBookCard:FC<Props> = ({training,watch,setValue}) => {
     return count;
   }
 
+
   return (
     <div className={`${styles.container} ${watch('trainingId') == training.id && styles.open}`}>
-      <div className={styles.header} onClick={() => setIsOpen(prev => !prev)}>
+      <div className={styles.header} onClick={() => {
+        if (watch('trainingId') == training.id) {
+          setValue('trainingId', null);
+        } else {
+          setValue('trainingId', training.id)
+        }
+      }}>
         <p className={styles.name}>{training.name}</p>
         <div className={styles.toggler}>
           <div></div>

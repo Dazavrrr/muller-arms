@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: $body;
   color: $text-color;
   position: relative;
@@ -130,7 +130,7 @@ button {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   & > section{
     padding: 0 60px;

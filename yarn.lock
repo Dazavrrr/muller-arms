@@ -2009,6 +2009,11 @@ at-least-node@^1.0.0:
   resolved "https://registry.npmjs.org/at-least-node/-/at-least-node-1.0.0.tgz"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
+attr-accept@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/attr-accept/-/attr-accept-2.2.2.tgz"
+  integrity sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==
+
 available-typed-arrays@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz"
@@ -2319,6 +2324,11 @@ country-flag-icons@^1.5.4:
   version "1.5.9"
   resolved "https://registry.npmjs.org/country-flag-icons/-/country-flag-icons-1.5.9.tgz"
   integrity sha512-9jrjv2w7kRbqNtdtMdK2j3gmDIZzd5l9L2pZiQjF9J0mUcB+NKIGDNADTDHBEp8EQtjOkCOcciJGGSOpERdXPQ==
+
+cropperjs@^1.5.13:
+  version "1.6.1"
+  resolved "https://registry.npmjs.org/cropperjs/-/cropperjs-1.6.1.tgz"
+  integrity sha512-F4wsi+XkDHCOMrHMYjrTEE4QBOrsHHN5/2VsVAaRq8P7E5z7xQpT75S+f/9WikmBEailas3+yo+6zPIomW+NOA==
 
 cross-spawn@^7.0.2:
   version "7.0.3"
@@ -2863,6 +2873,13 @@ file-entry-cache@^6.0.1:
   integrity sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==
   dependencies:
     flat-cache "^3.0.4"
+
+file-selector@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/file-selector/-/file-selector-0.6.0.tgz"
+  integrity sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==
+  dependencies:
+    tslib "^2.4.0"
 
 filelist@^1.0.4:
   version "1.0.4"
@@ -4115,7 +4132,14 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-"react-dom@^17.0.0 || ^18.0.0", react-dom@^18, react-dom@^18.2.0, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0:
+react-cropper@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/react-cropper/-/react-cropper-2.3.3.tgz"
+  integrity sha512-zghiEYkUb41kqtu+2jpX2Ntigf+Jj1dF9ew4lAobPzI2adaPE31z0p+5TcWngK6TvmWQUwK3lj4G+NDh1PDQ1w==
+  dependencies:
+    cropperjs "^1.5.13"
+
+"react-dom@^17.0.0 || ^18.0.0", react-dom@^18, react-dom@^18.2.0, react-dom@>=16, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -4123,10 +4147,24 @@ randombytes@^2.1.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-dropzone@^14.2.3:
+  version "14.2.3"
+  resolved "https://registry.npmjs.org/react-dropzone/-/react-dropzone-14.2.3.tgz"
+  integrity sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug==
+  dependencies:
+    attr-accept "^2.2.2"
+    file-selector "^0.6.0"
+    prop-types "^15.8.1"
+
 react-hook-form@^7.50.1:
   version "7.50.1"
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.50.1.tgz"
   integrity sha512-3PCY82oE0WgeOgUtIr3nYNNtNvqtJ7BZjsbxh6TnYNbXButaD5WpjOmTjdxZfheuHKR68qfeFnEDVYoSSFPMTQ==
+
+react-image-crop@^11.0.5:
+  version "11.0.5"
+  resolved "https://registry.npmjs.org/react-image-crop/-/react-image-crop-11.0.5.tgz"
+  integrity sha512-A/Y/kspOzki1zDL/bSgwWIY1X3CQ9F1QwpdnncWLBVAktnKfAZDIQnWmjXzuzEjZHDMsBlArytIcPBVi6DNklg==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -4157,6 +4195,13 @@ react-phone-number-input@^3.3.9:
     "@types/use-sync-external-store" "^0.0.3"
     use-sync-external-store "^1.0.0"
 
+react-toastify@^10.0.4:
+  version "10.0.4"
+  resolved "https://registry.npmjs.org/react-toastify/-/react-toastify-10.0.4.tgz"
+  integrity sha512-etR3RgueY8pe88SA67wLm8rJmL1h+CLqUGHuAoNsseW35oTGJEri6eBTyaXnFKNQ80v/eO10hBYLgz036XRGgA==
+  dependencies:
+    clsx "^2.1.0"
+
 react-transition-group@^4.4.5:
   version "4.4.5"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz"
@@ -4167,7 +4212,7 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-"react@^16.8 || ^17 || ^18", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^17.0.0 || ^18.0.0", react@^18, react@^18.0, react@^18.2.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.6.0, react@>=16.8, react@>=16.8.0:
+"react@^16.8 || ^17 || ^18", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^17.0.0 || ^18.0.0", react@^18, react@^18.0, react@^18.2.0, "react@>= 16.8 || 18.0.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16, react@>=16.13.1, react@>=16.6.0, react@>=16.8, react@>=16.8.0, react@>=17.0.2:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
