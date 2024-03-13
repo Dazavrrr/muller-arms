@@ -1,7 +1,10 @@
 //libs
 import React from "react";
+import Image from "next/image";
 //styles
 import styles from './styles.module.scss'
+//images
+import bottomBg from '../../../public/images/certificates/certificates-bottom-bg.webp'
 
 const Certificates = () => {
   return <section className={styles.certificates}>
@@ -55,8 +58,14 @@ const Certificates = () => {
       <div className={styles.certificates_videoBlock}>
         <h1 className={styles.certificates_title}>дізнайтеся більше про наші сертифікати у цьому відео</h1>
 
-        <iframe className={styles.certificates_video} src="https://www.youtube.com/embed/ZniXOsuoFq0" title="MullerArms Expert" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe className={styles.certificates_video} src="https://www.youtube.com/embed/ZniXOsuoFq0" title="MullerArms Expert" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
       </div>
+
+      <Image
+        className={styles.certificates_bottom_bg}
+        src={bottomBg}
+        alt="MullerArms"
+      />
 
     </div>
   </section>

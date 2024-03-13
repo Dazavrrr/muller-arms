@@ -6,7 +6,8 @@
   @include size(100%, auto);
   background-color: #f3ede9;
   padding-top: 80px;
-  padding-bottom: 120px;
+  padding-bottom: 219px;
+  position: relative;
 
   @media (max-width: 479px) {
     padding-top: 60px;
@@ -151,5 +152,14 @@
     @media (max-width: 479px) {
       height: 211px;
     }
+  }
+
+  &_bottom_bg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
 }

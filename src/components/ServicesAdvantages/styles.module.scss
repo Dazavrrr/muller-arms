@@ -1,0 +1,85 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.advantages {
+  @include center-flex();
+  @include size(100%, auto);
+  background-color: #333;
+  padding-top: 120px;
+  padding-bottom: 219px;
+  position: relative;
+
+  @media (max-width: 854px) {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+
+  &_wrapper {
+    max-width: 1176px;
+    display: flex;
+    gap: 26px;
+    margin: 0 auto;
+
+    @media (max-width: 854px) {
+      flex-direction: column;
+    }
+  }
+
+  &_title {
+    font-family: var(--font-DuskDemon);
+    font-size: 24px;
+    line-height: 110%;
+    color: $white;
+    padding-bottom: 40px;
+  }
+
+  &_article {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &_text {
+    color: #868686;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  &_photo {
+    display: flex;
+
+    @media (max-width: 854px) {
+      display: none;
+    }
+
+    @media (max-width: 1180px) {
+      @include size(450px, 300px);
+      object-fit: cover;
+    }
+  }
+
+  &_photo_mob {
+    @include center-flex();
+    @include size(100%, auto);
+    display: none;
+
+    @media (max-width: 854px) {
+      display: flex;
+    }
+
+    @media (min-width: 740px) {
+      height: 350px;
+      object-fit: cover;
+    }
+  }
+
+  &_bottom_bg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
