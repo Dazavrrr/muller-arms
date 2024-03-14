@@ -16,7 +16,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-phone-number-input": "^3.3.9",
-    "rfs": "^10.0.0"
+    "rfs": "^10.0.0",
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",

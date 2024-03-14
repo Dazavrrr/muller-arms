@@ -15,24 +15,28 @@ const Services = () => {
     {
       image: base,
       trainingName: 'Базове тренування з автоматом',
+      smallDescription: 'РОБОТА ІЗ АВТОМАТОМ/КАРАБІНОМ В СКЛАДІ ГРУПИ 6-10 ЛЮДЕЙ',
       price: '1400 грн',
       slug: 'base-training'
     },
     {
       image: group,
       trainingName: 'Групові тренування',
+      smallDescription: 'ТРЕНУВАННЯ ПРОХОДЯТЬ В ДВОХ ФОРМАТАХ: «МІЛІТАРІ» ТА «СПОРТ»',
       price: '1500 грн',
       slug: 'group-training'
     },
     {
       image: individual,
       trainingName: 'Індивідуальні тренування',
+      smallDescription: 'ІНДИВІДУАЛЬНІ ТРЕНУВАННЯ НАЙЕФЕКТИВНІШИЙ ФОРМАТ',
       price: 'ВІД 1500 грн',
       slug: 'individual-training'
     },
     {
       image: course,
       trainingName: 'Курс майбутнього бійця',
+      smallDescription: 'КМБ СКЛАДАЄТЬСЯ З 3 МОДУЛІВ, ЯКІ мають  ТЕОРІЮ ТА ПРАКТИку ',
       price: '9900 грн',
       slug: 'soldier-course',
     },
@@ -44,7 +48,7 @@ const Services = () => {
         <h2 className={styles.services_title}>Наші послуги</h2>
 
         <div className={styles.services_cards}>
-        {trainings.map(({ image, trainingName, price, slug }, index) => (
+        {trainings.map(({ image, trainingName, smallDescription, price, slug }, index) => (
           <div className={styles.services_card} key={index}>
             <div className={styles.services_photo}>
               <Image
@@ -59,6 +63,9 @@ const Services = () => {
               <h3 className={styles.services_infoTitle}>
                 {trainingName}
               </h3>
+              <p className={styles.services_infoDesc}>
+                {smallDescription}
+              </p>
               <div className={styles.services_infoPrice}>
                 <p className={styles.services_infoPriceOrange}>{price}</p>
               </div>

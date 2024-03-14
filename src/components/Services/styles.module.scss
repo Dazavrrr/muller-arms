@@ -41,7 +41,6 @@
 
   &_cards {
     width: 100%;
-    max-width: 1158px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
@@ -81,7 +80,6 @@
   &_image {
     object-fit: cover;
     object-position: center;
-    align-self: stretch;
     height: 316px;
     border-radius: 5px;
 
@@ -121,6 +119,12 @@
     @media (max-width: 479px) {
       font-size: 28px;
     }
+  }
+
+  &_infoDesc {
+    color: #a3978d;
+    font-weight: 500;
+    line-height: 160%;
   }
 
   &_infoPrice {
