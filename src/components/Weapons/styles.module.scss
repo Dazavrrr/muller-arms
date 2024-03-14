@@ -1,0 +1,107 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.weapons {
+  @include center-flex();
+  @include size(100%, auto);
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media (max-width: 479px) {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  &_wrapper {
+    max-width: 1176px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &_title {
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+
+    @media (max-width: 479px) {
+      font-size: 28px;
+    }
+  }
+
+  &_infoBlock {
+    display: flex;
+    gap: 30px;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+  }
+
+  &_photo {
+    @include size(473px, auto);
+    object-fit: cover;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  &_photo_mob {
+    @include size(100%, 316px);
+    object-fit: cover;
+    display: none;
+
+    @media (max-width: 991px) {
+      display: flex;
+    }
+  }
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    gap: 129px;
+
+    @media (max-width: 991px) {
+      gap: 30px;
+    }
+  }
+
+  &_text {
+    color: #868686;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    @media (max-width: 479px) {
+      font-size: 16px;
+    }
+  }
+
+  &_names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &_name {
+    @include center-flex();
+    color: #333;
+    text-align: center;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+
+    padding: 10px 30px;
+    gap: 10px;
+    border-radius: 56px;
+    border: 1px solid #fec401;
+
+    @media (max-width: 479px) {
+      padding: 10px 24px;
+    }
+  }
+}
