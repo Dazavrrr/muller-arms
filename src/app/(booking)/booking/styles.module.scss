@@ -94,6 +94,7 @@
     display: block;
     width: fit-content;
     padding: 12px 24px;
+    font-weight: 600;
     background-color: #F6F6F6;
     border-radius: 10px;
     transition: all 0.3s linear;
@@ -114,6 +115,13 @@
     label{
       background-color: #333333;
       color: #fff;
+    }
+  }
+
+  &_disabled{
+    label{
+      color: white;
+      background-color: red !important;
     }
   }
 }

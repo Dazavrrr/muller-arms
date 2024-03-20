@@ -1,7 +1,7 @@
 import { FetchStatus, TrainingResponse } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
-import { TrainingRequest } from '@/common/adminTypes'
+import { TrainingRequest } from '@/common/types'
 import { toast } from 'react-toastify'
 
 const initialState: {
@@ -55,7 +55,7 @@ export const createTraining = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.message}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }
@@ -78,7 +78,7 @@ export const updateTraining = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.message}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }
@@ -101,7 +101,7 @@ export const deleteTraining = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.message}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }

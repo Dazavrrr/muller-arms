@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 //types
-import {  LoginInputs } from '@/common/adminTypes'
+import {  LoginInputs } from '@/common/types'
 //styles
 import styles from './styles.module.scss'
 import global from '@/styles/global.module.scss'

@@ -22,9 +22,8 @@ const BookingsPage = () => {
   if (bookingsFetchStatus === 'pending') {
     return <Image src={spinner} alt={'spinner'} className={global.spinnerAbsolute} />
   }
-
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.flex_col}`}>
       {bookings.map(b => <BookingAdminCard booking={b} key={b.id} />)}
     </div>
   )

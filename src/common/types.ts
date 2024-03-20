@@ -1,4 +1,5 @@
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata, ResolvingMetadata } from 'next'
+import store from '@/store/store'
 
 type MetaProps = {
   params: { locale: string; slug?: string };
@@ -7,13 +8,12 @@ type MetaProps = {
 
 export type MetaDataFunction = (
   props: MetaProps,
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ) => Promise<Metadata>;
 
-import store from '@/store/store'
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export type FetchStatus = "pending" | "idle" | "error";
+export type FetchStatus = 'pending' | 'idle' | 'error';
 
 export type TrainerResponse = {
   id: number,
@@ -35,13 +35,14 @@ export type TrainingResponse = {
   prepay: number,
   isFlexible: boolean,
   description: string,
+  shortDescription: string,
   image: string
 }
 
 export type TimeSlotResponse = {
   id: number,
   dateTime: Date,
-    booked: boolean
+  booked: boolean
 }
 
 export type BookingResponse = {
@@ -54,8 +55,8 @@ export type BookingResponse = {
   totalHours: number,
   totalPrice: number,
   untilReserved: Date,
-  isPrepaid: boolean,
-  isCanceled: boolean,
+  prepaid: boolean,
+  canceled: boolean,
   creationDate: Date,
   lastModifiedDate: Date,
   trainer: TrainerResponse,
@@ -73,3 +74,151 @@ export type BookingCreateRequest = {
   trainingId: number | null,
   timeslotId: number | null
 }
+
+export type ArticleResponse = {
+  id: number,
+  title: string,
+  author: string,
+  imageId: number,
+  imagePath: string,
+  text: string,
+  slug: string,
+  isArchived: boolean,
+  isNews: boolean,
+  eventTime: Date | null,
+  eventAddress: string | null,
+  sections: SectionResponse[],
+  creationDate: Date,
+  lastModifiedDate: Date,
+}
+
+export type ArticleSmallResponse = {
+  id: number,
+  title: string,
+  author: string,
+  imagePath: string,
+  text: string,
+  slug: string,
+  creationDate: Date,
+  eventTime: Date | null,
+  eventAddress: string | null,
+}
+
+export type ArticleCreateRequest = {
+  title: string,
+  author: string,
+  base64Image: string,
+  isArchived: boolean,
+  isNews: boolean,
+  eventTime: Date | null,
+  eventAddress: string | null,
+  text: string,
+  slug: string,
+  sections: Partial<SectionCreateRequest>[],
+}
+
+export type SectionResponse = {
+  id: number,
+  title: string,
+  text: string,
+  imagesId: number[],
+  images: string[],
+  article: ArticleResponse,
+  creationDate: Date,
+  lastModifiedDate: Date,
+}
+
+export type SectionCreateRequest = {
+  id: number,
+  articleId: number,
+  title: string,
+  text: string,
+  images: string[],
+}
+
+export type Notification = {
+  id: number,
+  name: string,
+  phone: string,
+  creationDate: Date,
+}
+
+export type NotificationCreateDto = {
+  name: string,
+  phone: string,
+}
+
+export type TableSlot = {
+  id: number,
+  name: string,
+  place: number,
+  finishTime: string,
+  lastTryDate: Date,
+  description: string,
+  task: number | null,
+  type: TableSlotsType,
+}
+
+export type TableSlotCreateDto = {
+  name: string,
+  place: number,
+  finishTime: string,
+  lastTryDate: Date,
+  description: string,
+  task: number | null,
+  type: TableSlotsType,
+}
+
+
+export type TrainerAdminResponse = {
+  id: number,
+  firstName: string,
+  lastName: string,
+  description: string,
+  email: string,
+  instagramLink: string,
+  instagramName: string,
+  tallImage: string,
+  wideImage: string,
+  calendarId: string,
+}
+
+export type TrainerAdminRequest = {
+  firstName: string,
+  lastName: string,
+  description: string,
+  email: string,
+  instagramLink: string,
+  instagramName: string,
+  base64ImageTall: ImageData | File | string | Blob,
+  base64ImageWide: ImageData | File | string | Blob,
+  calendarId: string,
+}
+
+export type TrainingRequest = {
+  name: string,
+  pricePerHour: number,
+  prepay: number,
+  isFlexible: boolean,
+  slug: string,
+  description: string,
+  shortDescription: string,
+  base64Image: string,
+}
+export type TimeSlotRequest = {
+  dateTime: string,
+  trainerId: number
+}
+export type BookingUpdateRequest = {
+  totalHours: number,
+  trainerId: number,
+  trainingId: number,
+  timeslotId: number | string
+}
+
+export type LoginInputs = {
+  email: string,
+  password: string
+}
+
+export type TableSlotsType = 'CLASSIFICATION' | 'PISTOL' | 'CARBINE'

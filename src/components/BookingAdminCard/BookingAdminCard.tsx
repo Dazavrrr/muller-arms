@@ -8,7 +8,7 @@ import global from '@/styles/global.module.scss'
 import { BookingResponse } from '@/common/types'
 
 
-const BookingAdminCard = ({ booking } : { booking: BookingResponse }) => {
+const BookingAdminCard = ({ booking }: { booking: BookingResponse }) => {
   const {
     id,
     clientName,
@@ -17,46 +17,50 @@ const BookingAdminCard = ({ booking } : { booking: BookingResponse }) => {
     description,
     totalHours,
     totalPrice,
-    isPrepaid,
-    isCanceled,
+    prepaid,
+    canceled,
     creationDate,
     lastModifiedDate,
     trainer,
     timeslots,
     training,
-  } = booking
+  } = booking;
 
 
   return (
     <div className={styles.container}>
-      <div
-        className={`${styles.prepay} ${isPrepaid ? styles.prepaid : styles.unprepaid}`}>
-        {isPrepaid ? 'Сплачено' : 'Не сплачено'}
+      <div className={styles.statuses}>
+        <div
+          className={`${styles.prepay} ${prepaid ? styles.prepaid : styles.unprepaid}`}>
+          {prepaid ? 'Сплачено' : 'Не сплачено'}
+        </div>
+        <div
+          className={`${styles.status} ${canceled ? styles.cancelled : styles.active}`}>
+          {canceled ? 'Скасоване' : 'Активне'}
+        </div>
       </div>
-      <div
-        className={`${styles.status} ${isCanceled ? styles.cancelled : styles.active}`}>
-        {isCanceled ? 'Скасовано' : 'Активно'}
-      </div>
-      <p className={styles.time}>Час: {
-        timeslots.length > 1 ?
-          `${moment(timeslots[0].dateTime).format('HH:mm')} 
+      <div className={styles.info}>
+        {!!timeslots.length && <p className={styles.time}><span>Час:</span> {
+          timeslots.length > 1 ?
+            `${moment(timeslots[0].dateTime).format('HH:mm')} 
           - 
-          ${moment(timeslots[timeslots.length - 1].dateTime).format('HH:mm')}`
-          :
-          `${moment(timeslots[0].dateTime).format('HH:mm')} 
+          ${moment(timeslots[timeslots.length - 1].dateTime).add(1, 'hour').format('HH:mm')}`
+            :
+            `${moment(timeslots[0].dateTime).format('HH:mm')} 
           - 
           ${moment(timeslots[0].dateTime).add(1, 'hour').format('HH:mm')}`
-      } / ${totalHours} годин</p>
-      <p className={styles.text}>Тренування: {training.name}</p>
-      <p className={styles.text}>Тренер: {trainer.firstName} ${trainer.lastName}</p>
-      <p className={styles.text}>Ціна: {totalPrice}</p>
-      <p className={styles.text}>Клієнт: {clientName}</p>
-      <p className={styles.text}>Телефон: {clientPhone}</p>
-      <p className={styles.text}>Пошта: {clientEmail}</p>
-      <p className={styles.text}>Коментар: {description}</p>
-      <p className={styles.text}>Дата створення: {moment(creationDate).format('dd-mm-yyyy HH:mm')}</p>
-      <p className={styles.text}>Останні зміни: {moment(lastModifiedDate).format('dd-mm-yyyy HH:mm')}</p>
-      <Link href={`/admin/bookings/${id}`} className={global.primaryBtn}>Редагувати</Link>
+        } / {totalHours} години</p>}
+        <p className={styles.text}><span>Тренування:</span> {training.name}</p>
+        <p className={styles.text}><span>Тренер:</span> {trainer.firstName} {trainer.lastName}</p>
+        <p className={styles.text}><span>Ціна: </span> {totalPrice} грн</p>
+        <p className={styles.text}><span>Клієнт:</span> {clientName}</p>
+        <p className={styles.text}><span>Телефон:</span> {clientPhone}</p>
+        <p className={styles.text}><span>Пошта:</span> {clientEmail}</p>
+        <p className={styles.text}><span>Коментар:</span> {description.length > 0 ? description : 'відсутній'}</p>
+        <p className={styles.text}><span>Дата створення:</span> {moment(creationDate).format('DD.MM.yyyy HH:mm')}</p>
+        <p className={styles.text}><span>Останні зміни:</span> {moment(lastModifiedDate).format('DD.MM.yyyy HH:mm')}</p>
+        <Link href={`/admin/bookings/${id}`} className={global.primaryBtn}>Редагувати</Link>
+      </div>
     </div>
   )
 }

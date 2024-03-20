@@ -8,7 +8,7 @@ import global from '@/styles/global.module.scss'
 //images
 import instagram from '../../../public/images/booking/instagram.svg'
 //types
-import { TrainerAdminResponse } from '@/common/adminTypes'
+import { TrainerAdminResponse } from '@/common/types'
 import Link from 'next/link'
 
 interface Props {

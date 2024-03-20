@@ -18,11 +18,12 @@ import spinner from '../../../../../../public/images/spinner.svg'
 import styles from './styles.module.scss'
 import global from '@/styles/global.module.scss'
 //types
-import { TrainingRequest } from '@/common/adminTypes'
+import { TrainingRequest } from '@/common/types'
 import { createTrainer, deleteTrainer, updateTrainer } from '@/store/slices/TrainersAdmin.slice'
 import ImageUploader from '@/components/ImageUploader/ImageUploader'
 import { getChangedFields } from '@/utils/getChangedFields'
 import { toast } from 'react-toastify'
+import slugify from 'slugify'
 
 
 const EditTrainingPag = ({ params }: { params: { id: string } }) => {
@@ -53,8 +54,8 @@ const EditTrainingPag = ({ params }: { params: { id: string } }) => {
     formState: { isSubmitting, isValid },
   } = useForm<TrainingRequest>({
     defaultValues: {
-      isFlexible: true
-    }
+      isFlexible: true,
+    },
   })
 
   useEffect(() => {
@@ -67,10 +68,10 @@ const EditTrainingPag = ({ params }: { params: { id: string } }) => {
 
   const onSubmit = (data: TrainingRequest) => {
     if (currentTraining) {
-      const body = getChangedFields(currentTraining,data);
-      if (Object.keys(body).length === 0 ){
-        toast.error("Ви не внесли ніяких змін !")
-        return;
+      const body = getChangedFields(currentTraining, data)
+      if (Object.keys(body).length === 0) {
+        toast.error('Ви не внесли ніяких змін !')
+        return
       }
       dispatch(updateTraining({ id: currentTraining.id, training: body }))
     } else {
@@ -120,7 +121,7 @@ const EditTrainingPag = ({ params }: { params: { id: string } }) => {
           <div className={global.inputField}>
             <label>Ціна за годину</label>
             <input type="number" className={global.input} placeholder="Введіть погодинну ціну"
-                   {...register('pricePerHour', { required: !watch('isFlexible')})} />
+                   {...register('pricePerHour', { required: !watch('isFlexible') })} />
           </div>
           <div className={global.inputField}>
             <label>Передплата</label>
@@ -128,9 +129,27 @@ const EditTrainingPag = ({ params }: { params: { id: string } }) => {
                    {...register('prepay', { required: true })} />
           </div>
           <div className={global.inputField}>
+            <label>Посилання</label>
+            <textarea cols={6} rows={4} className={global.input} placeholder="Введіть посилання"
+                      {...register('slug', {
+                        required: true, minLength: 1,
+                        onChange: (e) => {
+                          setValue(`slug`, slugify(e.target.value.replace(/[^a-zA-Zа-яА-Я0-9\s]/g, ''), {
+                            lower: true,
+                            remove: /[*+~.()''!:@<>$₽]/g,
+                          }))
+                        },
+                      })} />
+          </div>
+          <div className={global.inputField}>
             <label>Опис</label>
             <textarea cols={6} rows={4} className={global.input} placeholder="Введіть опис"
                       {...register('description', { required: true })} />
+          </div>
+          <div className={global.inputField}>
+            <label>Короткий опис</label>
+            <textarea cols={6} rows={2} className={global.input} placeholder="Введіть опис"
+                      {...register('shortDescription', { required: true })} />
           </div>
         </div>
         <div className={styles.image}>

@@ -1,0 +1,79 @@
+
+.container {
+  padding-top: 10px;
+  border: 1px solid darkgrey;
+  border-radius: 10px;
+  position: relative;
+  background-color: #eeeeee;
+  font-family: 'Inter',sans-serif;
+}
+.info{
+  padding: 0 45px 45px;
+}
+.statuses{
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+.prepay {
+  padding: 12px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+
+}
+.prepaid {
+  border: 1px solid green;
+  color: green;
+}
+
+.unprepaid {
+  border: 1px solid red;
+  color: red;
+}
+.status {
+  padding: 12px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cancelled {
+  border: 1px solid grey;
+  color: grey;
+}
+
+.active {
+  border: 1px solid green;
+  color: green;
+}
+
+.time {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: red;
+  font-weight: 600;
+  margin-bottom: 10px;
+  span{
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #161616;
+    font-weight: 600;
+  }
+}
+
+.text {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 16px;
+
+
+  span{
+    color: #161616;
+    font-weight: 600;
+  }
+}

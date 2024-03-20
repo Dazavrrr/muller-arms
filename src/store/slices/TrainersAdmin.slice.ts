@@ -1,5 +1,5 @@
 import { FetchStatus } from '@/common/types'
-import { TrainerAdminRequest, TrainerAdminResponse } from '@/common/adminTypes'
+import { TrainerAdminRequest, TrainerAdminResponse } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, BASE_URL } from '@/api'
 import { toast } from 'react-toastify'
@@ -55,7 +55,7 @@ export const createTrainer = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.message}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }
@@ -78,7 +78,7 @@ export const updateTrainer = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.message}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }
@@ -101,7 +101,7 @@ export const deleteTrainer = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.message}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }

@@ -69,7 +69,7 @@ const ImageUploader = ({ setValue, previewClass, inputName,trigger }: {
           background={false}
           responsive={false}
           autoCropArea={2}
-          checkOrientation={false}
+          checkOrientation={true}
         />
         <div className={global.primaryBtn} onClick={() => {
           getCropData()

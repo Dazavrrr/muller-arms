@@ -14,7 +14,7 @@ import {
   updateTrainer,
 } from '@/store/slices/TrainersAdmin.slice'
 //types
-import { TrainerAdminRequest } from '@/common/adminTypes'
+import { TrainerAdminRequest } from '@/common/types'
 //images
 import spinner from '../../../../../../public/images/spinner.svg'
 //styles

@@ -1,7 +1,7 @@
 import { FetchStatus, TimeSlotResponse } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
-import { TimeSlotRequest } from '@/common/adminTypes'
+import { TimeSlotRequest } from '@/common/types'
 import { toast } from 'react-toastify'
 
 const initialState: {
@@ -84,7 +84,7 @@ export const createTimeSlot = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.response.data}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }
@@ -107,7 +107,7 @@ export const updateTimeSlot = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.message}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }
@@ -130,7 +130,7 @@ export const deleteTimeSlot = createAsyncThunk(
       return await toast.promise(
         Promise.reject(e),
         {
-          error: `Сталася помилка... ${e.message}`,
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
         },
       )
     }
