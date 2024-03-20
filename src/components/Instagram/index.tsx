@@ -9,6 +9,7 @@ import photo2 from '../../../public/images/instagram/instagram-photo2.webp'
 import photo3 from '../../../public/images/instagram/instagram-photo3.webp'
 import photo4 from '../../../public/images/instagram/instagram-photo4.webp'
 
+
 const Instagram = () => {
   return <section className={styles.instagram}>
     <div className={styles.instagram_wrapper}>

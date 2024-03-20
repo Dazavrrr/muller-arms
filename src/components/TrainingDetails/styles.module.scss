@@ -1,18 +1,19 @@
-@import "@/styles/utils/variables";
+@import '@/styles/utils/variables';
 @import '../../styles/utils/_mixins.scss';
+
+.training {
+  background-color: #f3ede9;
+  position: relative;
+}
 
 .wrapper {
   @include size(100%, auto);
-  max-width: 1440px;
+  max-width: 1176px;
   margin: 0 auto;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 30px;
-
-  padding-top: 80px;
+  padding-top: 40px;
   padding-bottom: 40px;
-  
+
   @media (max-width: 1185px) {
     grid-template-columns: 1fr;
     row-gap: 30px;
@@ -25,127 +26,257 @@
 
 .image {
   width: 100%;
-  max-height: 320px;
+  height: 1063px;
   object-fit: cover;
   margin-bottom: 20px;
   border-radius: 10px;
 
+  @media (max-width: 1024px) {
+    height: 700px;
+  }
+
+  @media (max-width: 615px) {
+    height: 418px;
+  }
 }
 
-.weapons {
-  padding: 50px 40px 32px;
-  background-color: #F3EDE9;
-  border-radius: 10px;
-  font-family: var(--font-DuskDemon);
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 40px;
 }
 
-.weapons__title {
-  text-align: center;
-
-  font-size: 25px;
-  font-weight: 400;
-  line-height: 25px;
-  letter-spacing: 0.02em;
-
-  margin-bottom: 30px;
-
+.navigation__prev_page {
+  color: #333;
+  // font-family: var(--font-Montserrat);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
+  opacity: 0.5;
+  text-decoration: none;
 }
-
-.weapons__list {
-
+.navigation__current_page {
+  color: #333;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
 }
+// .weapons {
+//   padding: 50px 40px 32px;
+//   background-color: #f3ede9;
+//   border-radius: 10px;
+//   font-family: var(--font-DuskDemon);
+// }
 
-.weapons__weaponName {
-  text-align: center;
+// .weapons__title {
+//   text-align: center;
 
-  padding-top: 27px;
-  padding-bottom: 27px;
+//   font-size: 25px;
+//   line-height: 25px;
+//   letter-spacing: 0.02em;
 
-  font-size: 25px;
-  font-weight: 400;
-  line-height: 25px;
-  letter-spacing: 0.02em;
-  color: #A3978D;
-  border-bottom: 1px solid #0000001A;
-}
+//   margin-bottom: 30px;
+// }
+
+// .weapons__list {
+// }
+
+// .weapons__weaponName {
+//   text-align: center;
+
+//   padding-top: 27px;
+//   padding-bottom: 27px;
+
+//   font-size: 25px;
+//   font-weight: 400;
+//   line-height: 25px;
+//   letter-spacing: 0.02em;
+//   color: #a3978d;
+//   border-bottom: 1px solid #0000001a;
+// }
 
 .details {
-  padding: 50px 40px 40px;
-
-  background-color: #F3EDE9;
-  border-radius: 10px;
   height: fit-content;
+  display: flex;
+  gap: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 
 .details__title {
   font-family: var(--font-DuskDemon);
-  font-size: 45px;
+  font-size: 70px;
   font-weight: 400;
-  line-height: 45px;
+  line-height: 110%;
   letter-spacing: 0.02em;
   margin-bottom: 40px;
+
+  max-width: 906px;
+
+  color: #333;
   @media (max-width: 615px) {
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 48px;
+  }
+}
+
+.details__title_sm {
+  color: #333;
+  font-size: 24px;
+  line-height: 110%;
+
+  @media (max-width: 615px) {
+    font-size: 16px;
   }
 }
 
 .details__text {
   font-family: var(--font-Montserrat);
   font-size: 16px;
-  font-weight: 600;
-  line-height: 21px;
+  font-weight: 500;
+  line-height: 160%;
   letter-spacing: 0.02em;
-  color: #A3978D;
+  color: #a3978d;
 
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 80px;
   white-space: pre-line;
 
-}
-
-.price {
-  padding: 40px;
-  background-color: $bg-color;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-  @media (max-width: 560px) {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
+  @media (max-width: 768px) {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
-.price__text {
-  font-family: var(--font-DuskDemon);
-  font-size: 25px;
-  font-weight: 400;
-  line-height: 25px;
-  letter-spacing: 0.02em;
-  color: white;
+// .price {
+//   padding: 40px;
+//   background-color: $bg-color;
+//   border-radius: 10px;
+//   display: flex;
+//   justify-content: space-between;
+//   margin-bottom: 30px;
+//   @media (max-width: 560px) {
+//     flex-direction: column;
+//     text-align: center;
+//     gap: 8px;
+//   }
+// }
 
+// .price__text {
+//   font-family: var(--font-DuskDemon);
+//   font-size: 25px;
+//   font-weight: 400;
+//   line-height: 25px;
+//   letter-spacing: 0.02em;
+//   color: white;
+// }
+// .colored {
+//   color: #e5a40e;
+// }
+
+.location {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  @media (max-width: 615px) {
+    gap: 16px;
+  }
 }
-.colored{
-  color: #E5A40E;
+
+.location__title {
+  color: #333;
+  font-family: var(--font-DuskDemon);
+  font-size: 24px;
+  line-height: 110%;
+
+  @media (max-width: 615px) {
+    font-size: 20px;
+  }
+}
+
+.location__address {
+  display: flex;
+  gap: 8px;
+}
+
+.location__name {
+  color: #333;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
 }
 
 .btn {
-  width: 100%;
-  padding: 21px 0;
+  width: 230px;
+  padding: 15px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-Montserrat);
-  font-size: 14px;
   font-weight: 500;
   line-height: 17px;
   letter-spacing: 0;
 
   background-color: $yellow-btn;
-  border-radius: 10px;
+  color: #420000;
+  border-radius: 5px;
   text-transform: uppercase;
+
+  @media (max-width: 615px) {
+    width: 100%;
+  }
+}
+
+.quotes {
+  font-family: var(--font-Montserrat);
+  color: #333;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 130%;
+
+  @media (max-width: 615px) {
+    font-size: 20px;
+  }
+}
+
+.otherTrainings {
+  @include center-flex();
+  @include size(100%, auto);
+  background-color: $white;
+  padding-top: 60px;
+  padding-bottom: 120px;
+  position: relative;
+}
+
+.otherTrainings__top_bg {
+  @include size(100%, auto);
+  object-fit: contain;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.otherTrainings__wrapper {
+  max-width: 1176px;
+  margin: 0 auto;
+}
+
+.otherTrainings__title {
+  color: #333;
+  font-family: var(--font-DuskDemon);
+  font-size: 45px;
+  line-height: 110%;
 }
