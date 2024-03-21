@@ -5,7 +5,7 @@
   @include center-flex();
   @include size(100%, auto);
   background-color: #f3ede9;
-  padding-top: 80px;
+  padding-top: 120px;
   padding-bottom: 219px;
   position: relative;
 
@@ -152,6 +152,15 @@
     @media (max-width: 479px) {
       height: 211px;
     }
+  }
+
+  &_top_bg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 
   &_bottom_bg {

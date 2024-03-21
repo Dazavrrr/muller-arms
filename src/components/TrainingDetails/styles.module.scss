@@ -12,7 +12,7 @@
   margin: 0 auto;
 
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 
   @media (max-width: 1185px) {
     grid-template-columns: 1fr;
@@ -147,7 +147,6 @@
   flex-direction: column;
   gap: 20px;
   margin-top: 40px;
-  margin-bottom: 80px;
   white-space: pre-line;
 
   @media (max-width: 768px) {
@@ -186,10 +185,12 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 100%;
+  width: fit-content;
 
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 100px;
 
   @media (max-width: 615px) {
     gap: 16px;
@@ -256,7 +257,6 @@
   @include size(100%, auto);
   background-color: $white;
   padding-top: 60px;
-  padding-bottom: 120px;
   position: relative;
 }
 

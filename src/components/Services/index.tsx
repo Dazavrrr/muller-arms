@@ -36,7 +36,7 @@ const Services = () => {
     {
       image: course,
       trainingName: 'Курс майбутнього бійця',
-      smallDescription: 'КМБ СКЛАДАЄТЬСЯ З 3 МОДУЛІВ, ЯКІ мають  ТЕОРІЮ ТА ПРАКТИку ',
+      smallDescription: 'КМБ СКЛАДАЄТЬСЯ З 3 МОДУЛІВ, ЯКІ МАЮТЬ  ТЕОРІЮ ТА ПРАКТИКУ ',
       price: '9900 грн',
       slug: 'soldier-course',
     },

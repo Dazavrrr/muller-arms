@@ -27,7 +27,7 @@
   &_container {
     max-width: 1176px;
     width: 100%;
-    gap: 30px;
+    gap: 45px;
 
     justify-content: space-between;
 
@@ -41,7 +41,7 @@
   &_logo {
     @include center-flex();
     color: $white;
-    margin-right: 130px;
+    // margin-right: 130px;
     position: relative;
     z-index: 16;
     @media (max-width: 1150px) {
@@ -57,7 +57,7 @@
   &_navigation {
     @include center-flex();
     color: $white;
-    gap: 50px;
+    gap: 12px;
     font-weight: 600;
     line-height: 16.8px;
     text-transform: uppercase;
@@ -67,9 +67,11 @@
       text-decoration: none;
     }
 
-    @media (max-width: 1024px) {
-      gap: 25px;
+    @media (max-width: 1273px) {
       font-size: 12px;
+    }
+    @media (max-width: 1184px) {
+      font-size: 11px;
     }
     @media (max-width: 790px) {
       //display: none;

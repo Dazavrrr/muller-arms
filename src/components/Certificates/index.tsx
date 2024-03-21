@@ -4,6 +4,7 @@ import Image from "next/image";
 //styles
 import styles from './styles.module.scss'
 //images
+import topBg from '../../../public/images/certificates/certificates-top-bg.webp'
 import bottomBg from '../../../public/images/certificates/certificates-bottom-bg.webp'
 
 const Certificates = () => {
@@ -61,6 +62,11 @@ const Certificates = () => {
         <iframe className={styles.certificates_video} src="https://www.youtube.com/embed/ZniXOsuoFq0" title="MullerArms Expert" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
       </div>
 
+      <Image
+        className={styles.certificates_top_bg}
+        src={topBg}
+        alt="MullerArms"
+      />
       <Image
         className={styles.certificates_bottom_bg}
         src={bottomBg}

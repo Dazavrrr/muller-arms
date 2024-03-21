@@ -8,7 +8,8 @@ import LocationIcon from '../Icons/Location'
 //icons
 import NavArrow from '../Icons/NavArrow'
 //images
-// import topBg from '../../../public/images/trainings/training-top-bg.webp'
+import topBg from '../../../public/images/trainings/training-top-bg.webp'
+import Services from '../Services'
 
 interface Props {
   image: StaticImageData,
@@ -92,19 +93,14 @@ const TrainingDetails: FC<Props> = ({ image, mainText, trainingName}) => {
 
       </div>
 
-      {/* <section className={styles.otherTrainings}>
-        <div className={styles.otherTrainings__wrapper}>
-
-          <h2 className={styles.otherTrainings__title}>інші наші послуги</h2>
-        </div>
-        <Image
+        <section className={styles.otherTrainings}>
+          <Image
             className={styles.otherTrainings__top_bg}
             src={topBg}
             alt='MullerArms'
           />
-
-      </section> */}
-      
+          <Services />
+        </section>
     </section>
   )
 }

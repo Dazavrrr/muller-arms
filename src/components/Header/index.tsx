@@ -40,12 +40,18 @@ const Header = () => {
       </Link>
 
       <nav className={`${styles.header_navigation} ${isMenuOpen && styles.header_mobNavActive}`}>
-        <div className={styles.header_navItem} onClick={() => scrollHandler("aboutUs")}>Про нас</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("aboutUs")}>
+          <Link href="/">Про нас</Link>
+        </div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("services")}>
           <Link href="/services">Послуги</Link>
         </div>
-        <div className={styles.header_navItem} onClick={() => scrollHandler("instructors")}>Тренери</div>
-        <div className={styles.header_navItem} onClick={() => scrollHandler("advantages")}>Переваги</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("announcements")}>Анонси</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("qualifications")}>Кваліфікації клубу</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("blog")}>Блог</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("library")}>Бібліотека</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("archive")}>Архів</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("shop")}>Магазин</div>
       </nav>
 
       <div className={`${styles.header_contacts} ${isMenuOpen && styles.header_mobContactsActive}`} >
