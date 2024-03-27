@@ -7,9 +7,7 @@ import styles from './styles.module.scss'
 import LocationIcon from '../Icons/Location'
 //icons
 import NavArrow from '../Icons/NavArrow'
-//images
-import topBg from '../../../public/images/trainings/training-top-bg.webp'
-import Services from '../Services'
+import OtherTrainings from '../OtherTrainings'
 
 interface Props {
   image: StaticImageData,
@@ -18,7 +16,7 @@ interface Props {
   // weapons?: string[]
 }
 
-const TrainingDetails: FC<Props> = ({ image, mainText, trainingName}) => {
+const TrainingDetails: FC<Props> = ({ image, mainText, trainingName, trainings, index }: {training: any, slug: any}) => {
   return (
     <section className={styles.training}>
       <div className={styles.wrapper}>
@@ -91,16 +89,8 @@ const TrainingDetails: FC<Props> = ({ image, mainText, trainingName}) => {
           </div>
         </section>
 
+        <OtherTrainings trainings={trainings} key={index} />
       </div>
-
-        <section className={styles.otherTrainings}>
-          <Image
-            className={styles.otherTrainings__top_bg}
-            src={topBg}
-            alt='MullerArms'
-          />
-          <Services />
-        </section>
     </section>
   )
 }

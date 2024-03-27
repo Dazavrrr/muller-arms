@@ -1,0 +1,15 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.otherTrainings {
+  @include center-flex();
+  @include size(100%, auto);
+  flex-direction: column;
+
+  &_title {
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+    color: #333;
+  }
+}
