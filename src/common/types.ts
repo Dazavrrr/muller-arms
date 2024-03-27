@@ -151,8 +151,7 @@ export type NotificationCreateDto = {
 export type TableSlot = {
   id: number,
   name: string,
-  place: number,
-  finishTime: string,
+  finishTime: number,
   lastTryDate: Date,
   description: string,
   task: number | null,
@@ -161,8 +160,7 @@ export type TableSlot = {
 
 export type TableSlotCreateDto = {
   name: string,
-  place: number,
-  finishTime: string,
+  finishTime: number,
   lastTryDate: Date,
   description: string,
   task: number | null,
@@ -222,3 +220,66 @@ export type LoginInputs = {
 }
 
 export type TableSlotsType = 'CLASSIFICATION' | 'PISTOL' | 'CARBINE'
+
+export type LibCategory = {
+  id: number,
+  name: string
+}
+
+export type LibCategoryCreateDto = {
+  name: string
+}
+
+export type LibDocResponseDto = {
+  id: number,
+  name: string
+  imagePath: string,
+  type: LibDocType,
+  downloadUrl: string,
+  categoryIds: number[],
+}
+
+export type LibDocCreateDto = {
+  name: string,
+  base64Image: string,
+  type: LibDocType
+  categoryIds: number[],
+}
+
+
+export enum LibDocType {
+  BOOK,
+  AUDIO,
+  VIDEO
+}
+
+export type ShopCategoryResponseDto = {
+  id: number,
+  name: string,
+  categorySection: string,
+}
+
+export type ShopCategoryCreateDto = {
+  name: string,
+  categorySection: string,
+}
+
+export type ShopItemCreateDto = {
+  name: string,
+  slug: string,
+  sizes: string[],
+  base64Images: string[],
+  price:  number,
+  isCertificate: boolean,
+  categoryIds: number[]
+}
+
+export type ShopItemResponseDto = {
+   id: number,
+   name: string,
+   slug: string,
+   images: string[],
+   sizes: string[],
+   price:  number,
+   isCertificate: boolean,
+}

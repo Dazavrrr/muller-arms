@@ -8,6 +8,8 @@ import TimeSlots from './slices/TimeSlots.slice'
 import Articles from './slices/Articles.slise'
 import Notifications from './slices/Notifications.slice'
 import TableSlots from './slices/TableSlots.slice'
+import Library from './slices/Library.slice'
+import Shop from './slices/Shop.slice'
 
 const rootReducer = combineReducers({
   Bookings,
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   Articles,
   Notifications,
   TableSlots,
+  Library,
+  Shop,
 })
 
 const store = configureStore({

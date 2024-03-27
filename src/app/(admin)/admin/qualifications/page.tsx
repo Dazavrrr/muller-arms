@@ -1,5 +1,5 @@
 'use client'
-import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx'
 //styles
 import styles from '../styles.module.scss'
 import global from '@/styles/global.module.scss'
@@ -19,6 +19,7 @@ import edit from '../../../../../public/icons/edit.svg'
 import accept from '../../../../../public/icons/accept.svg'
 import reject from '../../../../../public/icons/reject.svg'
 import Image from 'next/image'
+import { guestInstance } from '@/api'
 
 
 const QualificationsPage = () => {
@@ -42,9 +43,9 @@ const QualificationsPage = () => {
   }, [selectedType, selectedTask])
 
   const handleUpload = (event: any) => {
-    const file = event.target.files[0];
-    console.log(file)
-    if (!file) return; // Проверка на наличие файла
+    const file = event.target.files[0]
+
+    if (!file) return;
 
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -57,11 +58,10 @@ const QualificationsPage = () => {
 
         const body: TableSlotCreateDto[] = parsedData.map(p => {
           return {
-            name: (p[1] as string),
-            place: (p[0] as number),
-            finishTime: (p[2] as string),
-            lastTryDate: moment.utc(p[3], 'DD-MM-YYYY').toDate(),
-            description: (p[4] as string),
+            name: (p[0] as string),
+            finishTime: (p[1] as number),
+            lastTryDate: moment.utc(p[2], 'DD-MM-YYYY').toDate(),
+            description: (p[3] as string),
             task: selectedType === 'CLASSIFICATION' ? null : selectedTask,
             type: selectedType,
           }
@@ -101,7 +101,6 @@ const QualificationsPage = () => {
         <thead>
         <tr>
           <th className={styles.head}></th>
-          <th className={styles.head}>Місце</th>
           <th className={styles.head}>ІМ’Я ТА ПРІЗВИЩЕ</th>
           <th className={styles.head}>ЧАС ВИКОНАННЯ ВПРАВИ</th>
           <th className={styles.head}>ДАТА ОСТАННЬОГО ВИКОНАННЯ ВПРАВИ</th>
@@ -110,7 +109,7 @@ const QualificationsPage = () => {
         </tr>
         </thead>
         <tbody>
-        {[...slots].sort((a,b) => a.place - b.place).map(s => (
+        {[...slots].sort((a, b) => a.finishTime - b.finishTime).map(s => (
           <tr key={s.id} className={styles.tr}>
             <th className={styles.value}>
               {editRow?.id == s.id ?
@@ -119,27 +118,15 @@ const QualificationsPage = () => {
                     dispatch(updateTableSlot({ id: s.id, data: editRow })).then(() => {
                       setTimeout(() => {
                         fetchItems()
-                      },100)
+                      }, 100)
                     })
-                    setEditRow(null);
+                    setEditRow(null)
                   }} />
                   <Image src={reject} alt={'reject'} onClick={() => {
                     setEditRow(null)
                     fetchItems()
                   }} />
                 </> : <Image src={edit} alt={'edit icon'} onClick={() => setEditRow(s)} />}
-            </th>
-            <th className={styles.value}>
-              <input type="number" disabled={editRow?.id != s.id}
-                     value={editRow && editRow.id == s.id ? editRow.place : s.place}
-                     onChange={e => {
-                       //@ts-expect-error
-                       setEditRow(prev => ({
-                         ...prev,
-                         place: e.target.value,
-                       }))
-                     }}
-              />
             </th>
             <th className={styles.value}>
               <input disabled={editRow?.id != s.id} type="text"
@@ -188,7 +175,7 @@ const QualificationsPage = () => {
       </table>
 
       <div className={styles.upload}>
-        <input type='file' accept={'.xlsx, .xls'} hidden onChange={handleUpload} id="list" />
+        <input type="file" accept={'.xlsx, .xls'} hidden onChange={handleUpload} id="list" />
         <label htmlFor="list" className={global.primaryBtn}>Завантажити</label>
       </div>
 

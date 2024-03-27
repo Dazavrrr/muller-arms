@@ -7,6 +7,7 @@
   width: 100%;
   font-family: 'Inter',sans-serif;
   position: relative;
+
 }
 .navSwitcher{
   display: flex;
@@ -68,6 +69,13 @@
     text-transform: uppercase;
     color: $yellow-btn;
   }
+
+  a{
+    font-size: 16px;
+    margin-left: 25px;
+    color: blue;
+    text-decoration: underline;
+  }
 }
 
 .monthsWrapper {
@@ -108,6 +116,8 @@
 }
 
 .timeSlot {
+  width: fit-content ;
+  height: fit-content;
   position: relative;
   font-family: var(--font-Montserrat), sans-serif;
   font-size: 14px;
@@ -230,4 +240,56 @@ position: absolute;
 
 .upload{
   margin-top: 40px;
+}
+.categoryForm{
+  margin-top: 55px;
+  margin-bottom: 55px;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 45px;
+}
+.categorySection{
+display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 45px;
+}
+
+.categoryWrapper{
+  position: relative;
+}
+.checkboxContainer{
+flex-direction: row !important;
+
+  gap: 8px;
+}
+.body{
+  margin-top: 50px;
+  display: flex;
+  gap: 80px;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.shopItems{
+  margin-top: 25px;
+}
+.sizes{
+  display: flex;
+  gap: 16px;
+}
+.sizesCards{
+  display: flex;
+  gap: 16px;
+
+  padding-top: 25px;
+}
+.checkbox{
+  display: flex;
+  gap: 8px;
 }
