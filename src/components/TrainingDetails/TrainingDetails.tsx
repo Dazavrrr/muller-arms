@@ -9,14 +9,13 @@ import LocationIcon from '../Icons/Location'
 import NavArrow from '../Icons/NavArrow'
 import OtherTrainings from '../OtherTrainings'
 
-interface Props {
-  image: StaticImageData,
-  trainingName: string,
-  mainText: string,
-  // weapons?: string[]
-}
-
-const TrainingDetails: FC<Props> = ({ image, mainText, trainingName, trainings, index }: {training: any, slug: any}) => {
+const TrainingDetails = ({ training }: { training: any }) => {
+  const {
+    trainingName,
+    image,
+    mainText,
+    slug
+  } = training
   return (
     <section className={styles.training}>
       <div className={styles.wrapper}>
@@ -24,13 +23,13 @@ const TrainingDetails: FC<Props> = ({ image, mainText, trainingName, trainings, 
         <div className={styles.navigation}>
           <Link
             className={styles.navigation__prev_page}
-            href='/services'
+            href="/services"
           >
             наші послуги
           </Link>
 
-            <NavArrow />
-          
+          <NavArrow />
+
           <div className={styles.navigation__current_page}>
             {trainingName.includes('(карабіном)') ? trainingName.replace('(карабіном)', '') : trainingName}
           </div>
@@ -79,17 +78,15 @@ const TrainingDetails: FC<Props> = ({ image, mainText, trainingName, trainings, 
 
           <div className={styles.location}>
             <h3 className={styles.location__title}>адреса</h3>
-            
-              <div className={styles.location__address}>
-                <LocationIcon />
-                <p className={styles.location__name}>Місто Ірпінь, вул. Мінеральна 7</p>
-              </div>
-            
+
+            <div className={styles.location__address}>
+              <LocationIcon />
+              <p className={styles.location__name}>Місто Ірпінь, вул. Мінеральна 7</p>
+            </div>
+
             <div className={styles.btn}>Записатися</div>
           </div>
         </section>
-
-        <OtherTrainings trainings={trainings} key={index} />
       </div>
     </section>
   )

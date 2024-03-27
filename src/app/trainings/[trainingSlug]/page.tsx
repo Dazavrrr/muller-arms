@@ -77,7 +77,7 @@ const TrainingPage = ({ params: { trainingSlug } }: PageProps) => {
   const train = trainings.find(t => t.slug == trainingSlug)
   return (
     <>
-      {train && <TrainingDetails {...train} />}
+      {train && <TrainingDetails training={train} />}
       <OtherTrainings trainings={trainings} slug={trainingSlug} />
     </>
   )

@@ -1,5 +1,6 @@
+'use client'
 //libs
-import React from "react";
+import React, { useEffect } from 'react'
 import Image from "next/image";
 //styles
 import styles from './styles.module.scss'
@@ -8,7 +9,8 @@ import topBg from '../../../public/images/trainings/training-top-bg.webp'
 import ServiceCard from "../ServiceCard";
 
 const OtherTrainings = ({ trainings, slug }: { trainings: any, slug: any }) => {
-
+  useEffect(() => {
+  }, [])
   return (
     <div className={styles.otherTrainings}>
       <div className={styles.otherTrainings_wrapper}>
@@ -16,16 +18,14 @@ const OtherTrainings = ({ trainings, slug }: { trainings: any, slug: any }) => {
         
         
         <div className={styles.services_cards}>
-          {trainings.filter(training => training.slug != slug).map((training, index) => {
+          {trainings.filter(training => training.slug != slug).map((t, index) => {
 
             if (index < 4) {
-              return <ServiceCard training={trainings} key={index} />
+              return <ServiceCard training={t} key={index} />
             }
             return null;
           })
           }
-
-          
         </div>
 
           <Image
