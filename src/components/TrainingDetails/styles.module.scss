@@ -12,7 +12,7 @@
   margin: 0 auto;
 
   padding-top: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 219px;
 
   @media (max-width: 1185px) {
     grid-template-columns: 1fr;
@@ -279,4 +279,11 @@
   font-family: var(--font-DuskDemon);
   font-size: 45px;
   line-height: 110%;
+}
+
+.trainings_bottom_bg {
+  @include size(100%, auto);
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

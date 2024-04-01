@@ -1,6 +1,5 @@
 //libs
 import React from 'react'
-// import Image from 'next/image'
 //styles
 import styles from './styles.module.scss'
 //images
@@ -8,7 +7,7 @@ import base from '../../../public/images/services/services-photo1.webp'
 import group from '../../../public/images/services/services-photo2.webp'
 import individual from '../../../public/images/services/services-photo3.webp'
 import course from '../../../public/images/services/services-photo4.webp'
-// import Link from 'next/link'
+//components
 import ServiceCard from '../ServiceCard'
 
 const Services = () => {

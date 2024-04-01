@@ -7,7 +7,8 @@ import styles from './styles.module.scss'
 import LocationIcon from '../Icons/Location'
 //icons
 import NavArrow from '../Icons/NavArrow'
-import OtherTrainings from '../OtherTrainings'
+//images
+import bottomBg from '../../../public/images/trainings/training-bottom-bg.webp'
 
 const TrainingDetails = ({ training }: { training: any }) => {
   const {
@@ -23,7 +24,7 @@ const TrainingDetails = ({ training }: { training: any }) => {
         <div className={styles.navigation}>
           <Link
             className={styles.navigation__prev_page}
-            href="/services"
+            href="/trainings"
           >
             наші послуги
           </Link>
@@ -88,6 +89,12 @@ const TrainingDetails = ({ training }: { training: any }) => {
           </div>
         </section>
       </div>
+
+      <Image
+        className={styles.trainings_bottom_bg}
+        src={bottomBg}
+        alt='MullerArms'
+      />
     </section>
   )
 }

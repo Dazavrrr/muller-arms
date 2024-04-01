@@ -44,12 +44,14 @@ const Header = () => {
           <Link href="/">Про нас</Link>
         </div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("services")}>
-          <Link href="/services">Послуги</Link>
+          <Link href="/trainings">Послуги</Link>
         </div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("announcements")}>Анонси</div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("qualifications")}>Кваліфікації клубу</div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("blog")}>Блог</div>
-        <div className={styles.header_navItem} onClick={() => scrollHandler("library")}>Бібліотека</div>
+        <div className={styles.header_navItem} onClick={() => scrollHandler("library")}>
+          <Link href="/library">Бібліотека</Link>
+        </div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("archive")}>Архів</div>
         <div className={styles.header_navItem} onClick={() => scrollHandler("shop")}>Магазин</div>
       </nav>
