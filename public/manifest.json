@@ -1,0 +1,38 @@
+{
+  "name": "Muller Arms",
+  "short_name": "Muller Arms",
+  "theme_color": "#ffff",
+  "background_color": "#ffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/booking",
+  "start_url": "/booking",
+  "theme-color": "#ffff",
+  "icons": [
+    {
+      "src": "icons/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/64x64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "splash_pages": null
+}

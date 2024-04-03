@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import type { Metadata } from 'next'
-import { MontserratFont, DuskDemon } from 'src/common/fonts'
-import Footer from 'src/components/Footer'
-import Header from 'src/components/Header'
+import { MontserratFont, DuskDemon } from '@/common/fonts'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import '@/styles/globals.scss'
 
 export const metadata: Metadata = {
