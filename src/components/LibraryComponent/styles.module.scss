@@ -1,0 +1,165 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.library {
+  @include center-flex();
+  @include size(100%, auto);
+  padding-top: 50px;
+  padding-bottom: 120px;
+
+  &_wrapper {
+    max-width: 1176px;
+    width: 100%;
+  }
+
+  &_title {
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+
+    margin-bottom: 30px;
+  }
+
+  &_categories {
+    display: flex;
+    gap: 10px;
+  }
+
+  &_categories_item {
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    text-transform: uppercase;
+
+    color: #333;
+    font-weight: 500;
+    line-height: 160%;
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_filter {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 40px;
+  }
+
+  &_filter_search {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &_filter_search_title {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &_filter_search_input {
+    display: flex;
+    padding: 15px 5px 16px 5px;
+    gap: 10px;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 1px solid #46243f;
+    max-width: 240px;
+  }
+
+  &_filter_search_field {
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  &_filter_sort {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &_filter_sort_title {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &_filter_sort_by {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &_filter_sort_recommend {
+    color: #333;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+
+    padding-bottom: 8px;
+  }
+
+  &_filter_sort_alphabet {
+    color: #a3978d;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .line {
+    @include size(135px, 1px);
+    background-color: #333;
+  }
+
+  &_filter_categories {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_filter_categories_title {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &_filter_categories_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &_filter_categories_label {
+    display: flex;
+    color: #333;
+    font-weight: 500;
+    line-height: 160%;
+
+    gap: 8px;
+    align-items: center;
+  }
+
+  &_filter_categories_input {
+    border: 1px solid #333;
+    width: 15px;
+    height: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    @include size(20px, 20px);
+    border-radius: 2px;
+  }
+}
