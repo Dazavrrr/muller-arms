@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8080',
-      },
-    ],
+    domains: ['localhost','51.20.66.47']
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
   swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV !== "development",

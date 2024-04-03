@@ -1,0 +1,135 @@
+@import "@/styles/utils/variables";
+
+.container {
+  max-width: 748px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  @media (max-width: 760px) {
+    flex-direction: column;
+  }
+}
+
+.image {
+  width: 196px;
+  height: 392px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 760px) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.info {
+  max-width: 484px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 760px) {
+    max-width: none;
+  }
+}
+
+.info_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+  font-family: var(--font-DuskDemon), sans-serif;
+  font-size: clamp(1.25rem, 1.164rem + 0.28vw, 1.5rem);
+  font-weight: 400;
+  line-height: clamp(1.375rem, 1.289rem + 0.28vw, 1.625rem);
+  color: #333333;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.name {
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: clamp(1rem, 0.914rem + 0.28vw, 1.25rem);
+  font-weight: 600;
+  line-height: clamp(1.25rem, 1.122rem + 0.42vw, 1.625rem);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.desc {
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #A3978D;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.close_dates {
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #333333;
+  text-transform: uppercase;
+
+}
+
+.slot_list {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  overflow: auto;
+  padding-bottom: 8px;
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar {
+
+    height: 6px;
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+  }
+}
+
+.timeSlot_container {
+  input {
+    display: none;
+  }
+}
+
+.timeSlot {
+  display: block;
+  cursor: pointer;
+  padding: 12px 24px;
+  background-color: #F6F6F6;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+
+  &_active {
+    background-color: #333333;
+    color: #fff;
+  }
+}

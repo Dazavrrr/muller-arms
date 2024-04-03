@@ -1,6 +1,8 @@
-import { FetchStatus, BookingResponse, BookingCreateRequest, BookingUpdateRequest } from '@/types'
+import { FetchStatus, BookingResponse, BookingCreateRequest } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
+import { BookingUpdateRequest } from '@/common/types'
+import { toast } from 'react-toastify'
 
 const initialState: {
   bookings: BookingResponse[],
@@ -23,8 +25,8 @@ const initialState: {
 
 export const fetchAllBookings = createAsyncThunk(
   'bookings/fetchAllBookings',
-  async () => {
-    const response = await guestInstance.get('/bookings')
+  async (page: number) => {
+    const response = await adminInstance.get(`/bookings?page=${page}&size=10`);
     return await response.data
   },
 )
@@ -32,7 +34,7 @@ export const fetchAllBookings = createAsyncThunk(
 export const fetchOneBooking = createAsyncThunk(
   'bookings/fetchOneBooking',
   async (id: number) => {
-    const response = await guestInstance.get(`/bookings/${id}`)
+    const response = await adminInstance.get(`/bookings/${id}`)
     return await response.data
   },
 )
@@ -48,16 +50,47 @@ export const createBooking = createAsyncThunk(
 export const updateBooking = createAsyncThunk(
   'booking/updateBooking',
   async ({ id, booking }: { id: number, booking: BookingUpdateRequest }) => {
-    const response = await adminInstance.patch(`/booking/${id}`, JSON.stringify(booking))
-    return response.data
+    try {
+      const response = await toast.promise(
+        adminInstance.patch(`/bookings/${id}`, JSON.stringify(booking)),
+        {
+          pending: 'Запит в обробці...',
+          success: 'Бронювання оновлено !',
+        }
+      )
+      return response.data
+    } catch (e: any) {
+      return await toast.promise(
+        Promise.reject(e),
+        {
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+        },
+      )
+    }
   },
 )
 
 export const deleteBooking = createAsyncThunk(
   'booking/deleteBooking',
   async (id: number) => {
-    await adminInstance.delete(`/booking/${id}`)
-    return id
+    try {
+      await toast.promise(
+        adminInstance.delete(`/bookings/${id}`),
+        {
+          pending: 'Запит в обробці...',
+          success: 'Бронювання видалено !',
+        }
+      )
+      return id
+    } catch (e: any) {
+      return await toast.promise(
+        Promise.reject(e),
+        {
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+        },
+      )
+    }
+
   },
 )
 
@@ -117,6 +150,7 @@ const BookingsSlice = createSlice({
           }
           return t
         })
+        state.currentBooking = payload;
       })
       .addCase(updateBooking.rejected, (state) => {
         state.bookingUpdateStatus = 'error'
@@ -127,7 +161,7 @@ const BookingsSlice = createSlice({
       })
       .addCase(deleteBooking.fulfilled, (state, { payload }) => {
         state.bookingDeleteStatus = 'idle'
-        state.bookings = state.bookings.filter(t => t.id !== payload);
+        state.bookings = state.bookings.filter(t => t.id != payload);
       })
       .addCase(deleteBooking.rejected, (state) => {
         state.bookingDeleteStatus = 'error'

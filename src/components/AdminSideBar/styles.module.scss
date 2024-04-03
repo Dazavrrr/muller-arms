@@ -1,0 +1,62 @@
+@import "@/styles/utils/variables";
+.container {
+  max-width: 310px;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 1);
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  &.closed {
+    max-width: 0;
+    pointer-events: none;
+  }
+}
+.header{
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo{
+  width: 96px;
+  height: 96px;
+}
+.wrapper {
+  width: fit-content;
+  padding: 60px 95px 60px 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.link {
+  display: block;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: white;
+}
+
+.active {
+  font-weight: 600;
+  color: $yellow-btn;
+}
+
+.close {
+  display: block;
+  cursor: pointer;
+}
+
+.open {
+  position: fixed;
+  left: 25px;
+  top: 25px;
+  cursor: pointer;
+  z-index: 5;
+}
+.openHide{
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}

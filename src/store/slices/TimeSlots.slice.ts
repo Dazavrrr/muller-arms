@@ -1,6 +1,8 @@
-import { FetchStatus, TimeSlotRequest, TimeSlotResponse } from '@/types'
+import { FetchStatus, TimeSlotResponse } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
+import { TimeSlotRequest } from '@/common/types'
+import { toast } from 'react-toastify'
 
 const initialState: {
   allTimeSlots: TimeSlotResponse[],
@@ -28,15 +30,23 @@ const initialState: {
 export const fetchTimeSlotsForDayByTrainer = createAsyncThunk(
   'timeSlot/fetchTimeSlotsForDayByTrainer',
   async ({day, trainerId}: {day: string, trainerId: number}) => {
-    const response = await guestInstance.get(`/timeslots?day=${day}&trainerId=${trainerId}`)
+    const response = await adminInstance.get(`/timeslots/admin?day=${day}&trainerId=${trainerId}`)
+    return await response.data
+  },
+)
+
+export const fetchTimeSlotsForDayByTrainerGuest = createAsyncThunk(
+  'timeSlot/fetchTimeSlotsForDayByTrainer',
+  async ({day, trainerId}: {day: string, trainerId: number}) => {
+    const response = await adminInstance.get(`/timeslots?day=${day}&trainerId=${trainerId}`)
     return await response.data
   },
 )
 
 export const fetchAllTimeSlotsByTrainer = createAsyncThunk(
   'timeSlot/fetchAllTimeSlotsByTrainer',
-  async ({page, trainerId}: {page: number, trainerId: number}) => {
-    const response = await guestInstance.get(`/timeslots?page=${page}&size=31&trainerId=${trainerId}`)
+  async ({month, trainerId}: {month: number, trainerId: number}) => {
+    const response = await adminInstance.get(`/timeslots/range?month=${month}&trainerId=${trainerId}`)
     return await response.data
   },
 )
@@ -60,24 +70,70 @@ export const fetchOneTimeSlot = createAsyncThunk(
 export const createTimeSlot = createAsyncThunk(
   'timeSlot/createTimeSlot',
   async (timeSlot: TimeSlotRequest) => {
-    const response = await adminInstance.post('/timeslots', JSON.stringify(timeSlot))
-    return response.data
+    try {
+      const response = await toast.promise(
+        adminInstance.post('/timeslots', JSON.stringify(timeSlot)),
+        {
+          pending: 'Запит в обробці...',
+          success: 'Таймслот створений !',
+        }
+      )
+      return response.data
+    } catch (e: any) {
+      console.log(e)
+      return await toast.promise(
+        Promise.reject(e),
+        {
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+        },
+      )
+    }
   },
 )
 
 export const updateTimeSlot = createAsyncThunk(
   'timeSlot/updateTimeSlot',
   async ({ id, timeSlot }: { id: number, timeSlot: Partial<TimeSlotRequest> }) => {
-    const response = await adminInstance.patch(`/timeslots/${id}`, JSON.stringify(timeSlot))
-    return response.data
+    try {
+      const response = await toast.promise(
+        adminInstance.patch(`/timeslots/${id}`, JSON.stringify(timeSlot)),
+        {
+          pending: 'Запит в обробці...',
+          success: 'Таймслот оновлений !',
+        }
+      )
+      return response.data
+    } catch (e: any) {
+      return await toast.promise(
+        Promise.reject(e),
+        {
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+        },
+      )
+    }
   },
 )
 
 export const deleteTimeSlot = createAsyncThunk(
   'timeSlot/deleteTimeSlot',
   async (id: number) => {
-    await adminInstance.delete(`/timeslots/${id}`)
-    return id
+    try {
+      await toast.promise(
+        adminInstance.delete(`/timeslots/${id}`),
+        {
+          pending: 'Запит в обробці...',
+          success: 'Таймслот видалений !',
+        }
+      )
+      return id
+    } catch (e: any) {
+      return await toast.promise(
+        Promise.reject(e),
+        {
+          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+        },
+      )
+    }
   },
 )
 

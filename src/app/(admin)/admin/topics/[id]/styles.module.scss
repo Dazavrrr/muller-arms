@@ -1,0 +1,65 @@
+
+.body {
+  margin-top: 50px;
+  display: flex;
+  gap: 60px;
+}
+
+.checkboxes{
+  display: flex;
+  justify-content: space-between;
+}
+.checkbox{
+display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.right{
+
+}
+.previewTitle{
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.mainImage{
+  width: 880px !important;
+aspect-ratio: 2/3;
+  overflow: hidden;
+}
+.imageFile{
+  object-fit: cover !important;
+}
+
+.sections{
+  margin-top: 40px;
+  display: flex;
+}
+
+.sections{
+
+}
+.sectionsLeft{
+
+}
+.sectionsWrapper{
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+}
+.sectionsRight{
+  width: 100%;
+  position: relative;
+}
+.prependBtn{
+  margin-left: auto;
+  top: 35px;
+  position: sticky;
+}

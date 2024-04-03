@@ -13,8 +13,6 @@ const OtherTrainings = ({ trainings, slug }: { trainings: any, slug: any }) => {
     <div className={styles.otherTrainings}>
       <div className={styles.otherTrainings_wrapper}>
         <h2 className={styles.otherTrainings_title}>інші наші послуги</h2>
-        
-        
         <div className={styles.otherTrainings_cards}>
           {trainings.filter(training => training.slug != slug).map((t, index) => {
 

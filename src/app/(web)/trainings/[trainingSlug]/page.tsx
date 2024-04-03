@@ -3,7 +3,7 @@ import TrainingDetails from '@/components/TrainingDetails/TrainingDetails'
 import OtherTrainings from '@/components/OtherTrainings'
 import base from '../../../../../public/images/trainings/1.webp'
 import group from '../../../../../public/images/trainings/2.webp'
-import individual from '../../../../../public/images/trainings/trainings/3.webp'
+import individual from '../../../../../public/images/trainings/3.webp'
 import course from '../../../../../public/images/trainings/4.webp'
 
 
@@ -22,6 +22,7 @@ const TrainingPage = ({ params: { trainingSlug } }: PageProps) => {
         "\n" +
         "ТРЕНУВАННЯ ДУЖЕ НАСИЧЕНЕ Й ЗМІСТОВНЕ, РОЗРАХОВАНЕ НА НОВАЧКІВ, ЛЮДЕЙ ЯКІ НЕ МАЮТЬ ВЛАСНОЇ ЗБРОЇ, ПРОТЕ ХОЧУТЬ ЗДОБУТИ ПЕРШИЙ ДОСВІД. МОЖЛИВІСТЬ ОВОЛОДІТИ СТРІЛЕЦЬКИМИ НАВИЧКАМИ ТЕПЕР ДОСТУПНА ДЛЯ ВСІХ.",
       price: "1 400 грн",
+      smallDescription: 'РОБОТА ІЗ АВТОМАТОМ/КАРАБІНОМ В СКЛАДІ ГРУПИ 6-10 ЛЮДЕЙ',
       slug: 'base-training'
     },
     {
@@ -34,6 +35,7 @@ const TrainingPage = ({ params: { trainingSlug } }: PageProps) => {
         " ЕНЕРГІЮ \n \n" +
         "ЯКЩО ЦЕЙ ОПИС ПРО ВАС — ЗАПИСУЙТЕСЬ НА ТРЕНУВАННЯ",
       price: "1 500 грн",
+      smallDescription: 'ТРЕНУВАННЯ ПРОХОДЯТЬ В ДВОХ ФОРМАТАХ: «МІЛІТАРІ» ТА «СПОРТ»',
       weapons: ["FOrt 12, fort 14, fort 18", "АКМ 7.62*39", "AR-15 223rem", "Mossberg 500 12 cal", "Savage cal 22lr"],
       slug: 'group-training'
     },
@@ -50,6 +52,7 @@ const TrainingPage = ({ params: { trainingSlug } }: PageProps) => {
         " \n" +
         "ВИ МОЖЕТЕ ОБРАТИ ЗРУЧНИЙ ДЛЯ ВАС ЧАС ТА МІСЦЕ ДЛЯ ЗАНЯТЬ",
       price: "1 500 грн",
+      smallDescription: 'ТРЕНУВАННЯ ПРОХОДЯТЬ В ДВОХ ФОРМАТАХ: «МІЛІТАРІ» ТА «СПОРТ»',
       weapons: ["FOrt 12, fort 14, fort 18", "АКМ 7.62*39", "AR-15 223rem", "Mossberg 500 12 cal", "Savage cal 22lr"],
       slug: 'individual-training'
     },
@@ -71,6 +74,7 @@ const TrainingPage = ({ params: { trainingSlug } }: PageProps) => {
         "2. МЕТОДИЧКУ-ПАМʼЯТКУ\n" +
         "3. ДОВІДКУ ПРО ВОЛОДІННЯ ЗБРОЄЮ (ЗА ДОДАТКОВУ ПЛАТУ)",
       price: "9 900 грн",
+      smallDescription: 'ТРЕНУВАННЯ ПРОХОДЯТЬ В ДВОХ ФОРМАТАХ: «МІЛІТАРІ» ТА «СПОРТ»',
       slug: 'soldier-course',
     },
   ]

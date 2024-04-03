@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import '@/styles/globals.scss'
 import Providers from '@/store/provider'
 import { Metadata } from 'next'
+import { Bounce, ToastContainer } from 'react-toastify'
 
 export const metadata: Metadata = {
   title: 'Muller Arms',
@@ -22,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={clsx(MontserratFont.variable, DuskDemon.variable)}>
+    <html lang="uk" className={clsx(MontserratFont.variable, DuskDemon.variable)}>
     <body>
     <style
       dangerouslySetInnerHTML={{
@@ -34,7 +35,9 @@ export default function RootLayout({
       }}
     />
     <Providers>
-      <main>{children}</main>
+      <main>
+        {children}
+      </main>
     </Providers>
     </body>
     </html>

@@ -22,9 +22,9 @@ const ServiceCard = ({ training }: { training: any }) => {
               <h3 className={styles.services_infoTitle}>
                 {trainingName}
               </h3>
-              <p className={styles.services_infoDesc}>
+              {!!smallDescription && <p className={styles.services_infoDesc}>
                 {smallDescription}
-              </p>
+              </p>}
               <div className={styles.services_infoPrice}>
                 <p className={styles.services_infoPriceOrange}>{price}</p>
               </div>

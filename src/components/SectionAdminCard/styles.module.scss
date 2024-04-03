@@ -1,0 +1,30 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 24px;
+
+  &:not(:last-child) {
+    border-bottom: 3px dotted black;
+  }
+}
+
+.preview {
+  max-width: 882px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(279px, 1fr));
+  gap: 22px;
+
+  img {
+    object-fit: cover;
+    max-height: 311px;
+  }
+}
+
+.btns{
+  margin-top: 25px;
+  display: flex;
+  gap: 16px;
+}
