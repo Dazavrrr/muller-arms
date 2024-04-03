@@ -23,6 +23,7 @@ import trash from '../../../../../../public/icons/trash.svg'
 import { toast } from 'react-toastify'
 import { useDropzone } from 'react-dropzone'
 import slugify from 'slugify'
+import { getChangedFields } from '@/utils/getChangedFields'
 
 const Page = ({ params }: { params: { id: string } }) => {
   const id = params.id
@@ -36,6 +37,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     setValue,
     watch,
     handleSubmit,
+    reset,
     formState: { isValid ,errors},
   } = useForm<ShopItemCreateDto>({
     defaultValues: {
@@ -69,7 +71,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     Promise.all(base64Images)
       .then((base64ImagesArray) => {
         setValue('base64Images', base64ImagesArray)
-        toast.success(`Файли успішно завантажений.`)
+        toast.success(`Файли успішно завантажені.`)
       })
       .catch((error) => {
         toast.error('Сталася помилка при завантаженні', error)
@@ -94,7 +96,16 @@ const Page = ({ params }: { params: { id: string } }) => {
 
     dispatch(fetchAllCategories())
     if (id != 'new') {
-      dispatch(fetchOneShopItem(parseInt(id)))
+      dispatch(fetchOneShopItem(parseInt(id))).then(({payload}) => {
+        reset({
+          name: payload.name,
+          slug: payload.slug,
+          sizes: payload.sizes,
+          price:   payload.price,
+          isCertificate: payload.isCertificate,
+          categoryIds: payload.categoryIds
+        })
+      })
     }
     return () => {
       dispatch(resetCurrentItem())
@@ -109,10 +120,35 @@ const Page = ({ params }: { params: { id: string } }) => {
         return
       }
 
-      dispatch(createShopItem(data))
+      dispatch(createShopItem(data)).then(({ payload }) => {
+        if (payload) {
+          router.push(`/admin/shop/${payload.id}`)
+        }
+      })
       return
     }
-    console.log(data)
+
+    if (item){
+      const changed = getChangedFields(
+        {
+          name: item.name,
+          slug: item.slug,
+          sizes: item.sizes,
+          price:   item.price,
+          isCertificate: item.isCertificate,
+          categoryIds: item.categoryIds
+        },
+        data
+      )
+      const keys = Object.keys(changed);
+      if (keys.length == 0){
+        toast.error('Ви не внесли ніяких змін');
+        return;
+      }
+
+      dispatch(updateShopItem({id: item.id, data}))
+    }
+
     // dispatch(updateShopItem(data))
   }
 
@@ -133,7 +169,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       <div className={styles.header}>
         <button type={'submit'} className={global.primaryBtn}>Зберегти</button>
         <button type={'button'} className={`${global.primaryBtn} ${global.greyButton}`}
-                onClick={() => router.push('/admin/library')}>Закрити
+                onClick={() => router.push('/admin/shop')}>Закрити
         </button>
         <button type={'button'} disabled={!item} className={`${global.primaryBtn} ${global.redButton}`}
                 onClick={() => {
@@ -242,6 +278,7 @@ const Page = ({ params }: { params: { id: string } }) => {
               }
               return <Image width={204} height={227} src={img} alt={'image'} key={`img_${i}`} />
             })}
+            {!watch(`base64Images`)?.length && !!item && item.images.map((img, i) => <Image width={204} height={227} src={img} alt={'image'} key={`img_${i}`} />)}
           </div>}
         </div>
       </div>

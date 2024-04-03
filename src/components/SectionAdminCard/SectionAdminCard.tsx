@@ -51,7 +51,7 @@ const SectionAdminCard: FC<Props> = ({ register, setValue, index, watch, remove 
     Promise.all(base64Images)
       .then((base64ImagesArray) => {
         setValue(`sections.${index}.images`, base64ImagesArray)
-        toast.success(`Файли успішно завантажений.`)
+        toast.success(`Файли успішно завантажені.`)
       })
       .catch((error) => {
         toast.error('Сталася помилка при завантаженні', error)

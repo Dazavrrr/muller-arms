@@ -118,11 +118,11 @@ export const createShopItem = createAsyncThunk(
 
 export const updateShopItem = createAsyncThunk(
   "shop/updateShopItem",
-  async (data: ShopItemCreateDto) => {
+  async ({ id, data } : {data: ShopItemCreateDto, id: number}) => {
 
     try {
       const response = await toast.promise(
-        adminInstance.patch("/shop" ,JSON.stringify(data)) ,
+        adminInstance.patch(`/shop/${id}` ,JSON.stringify(data)) ,
         {
           pending: 'Запит в обробці...',
           success: 'Товар оновлено !',

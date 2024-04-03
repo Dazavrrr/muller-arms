@@ -280,6 +280,7 @@ export type ShopItemResponseDto = {
    slug: string,
    images: string[],
    sizes: string[],
+  categoryIds: number[]
    price:  number,
    isCertificate: boolean,
 }
