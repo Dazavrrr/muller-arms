@@ -36,7 +36,8 @@ export type TrainingResponse = {
   isFlexible: boolean,
   description: string,
   shortDescription: string,
-  image: string
+  image: string,
+  slug: string,
 }
 
 export type TimeSlotResponse = {

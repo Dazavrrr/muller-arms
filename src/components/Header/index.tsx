@@ -10,12 +10,13 @@ import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
 import Link from 'next/link'
 import useScrollDirection from '@/hooks/useScrollDirection'
+import { usePathname, useRouter } from 'next/navigation'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
   const scrollDirection = useScrollDirection()
-
-
+  const router = useRouter()
+  const path = usePathname()
   useEffect(() => {
     document.body.style.overflowY = isMenuOpen ? 'hidden' : 'auto'
   }, [isMenuOpen])
@@ -42,7 +43,15 @@ const Header = () => {
       </Link>
 
       <nav className={`${styles.header_navigation} ${isMenuOpen && styles.header_mobNavActive}`}>
-        <div className={styles.header_navItem} onClick={() => scrollHandler('aboutUs')}>Про нас</div>
+        <div className={styles.header_navItem} onClick={() => {
+          if (path != '/') {
+            router.push('/')
+            setTimeout(() => scrollHandler('aboutUs'), 100)
+          } else {
+            scrollHandler('aboutUs')
+          }
+        }}>Про нас
+        </div>
         <Link className={styles.header_navItem} href="/trainings">Послуги</Link>
         <div className={styles.header_navItem} onClick={() => scrollHandler('announcements')}>Анонси</div>
         <div className={styles.header_navItem} onClick={() => scrollHandler('qualifications')}>Кваліфікації клубу</div>
