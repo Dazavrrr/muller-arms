@@ -1,0 +1,50 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &_title {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &_label {
+    display: flex;
+    color: #333;
+    font-weight: 500;
+    line-height: 160%;
+
+    gap: 8px;
+    align-items: center;
+  }
+
+  &_input {
+    border: 1px solid #333;
+    width: 15px;
+    height: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    @include size(20px, 20px);
+    border-radius: 2px;
+  }
+}
+
+.checkbox_container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
