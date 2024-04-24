@@ -1,16 +1,14 @@
 //libs
-import { SetStateAction, Dispatch } from 'react'
+import { useState, useEffect } from 'react'
 //styles
 import styles from './styles.module.scss'
 import global from '@/styles/global.module.scss'
+import { useAppDispatch } from '@/store/hooks'
+import { handleCheckbox } from '@/store/slices/Library.slice'
 
-const LibCheckboxComponent = ({
-  file,
-  setFile,
-}: {
-  file: string[]
-  setFile: Dispatch<SetStateAction<string[]>>
-}) => {
+const LibCheckboxComponent = () => {
+  const [file, setFile] = useState<string[]>(['BOOK', 'AUDIO', 'VIDEO'])
+
   const handleFile = (value: string) => {
     if (file.includes(value)) {
       setFile((prev) => prev.filter((element) => element !== value))
@@ -18,6 +16,12 @@ const LibCheckboxComponent = ({
       setFile((prev) => [...prev, value])
     }
   }
+
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(handleCheckbox(file))
+  }, [file])
 
   return (
     <div className={styles.categories}>

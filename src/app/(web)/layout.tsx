@@ -4,6 +4,7 @@ import { MontserratFont, DuskDemon } from '@/common/fonts'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import '@/styles/globals.scss'
+import Providers from '@/store/provider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,21 +17,26 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="uk" className={clsx(MontserratFont.variable, DuskDemon.variable)}>
-      <body>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
+    <html
+      lang="uk"
+      className={clsx(MontserratFont.variable, DuskDemon.variable)}
+    >
+      <Providers>
+        <body>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
           button, textarea, input {
             font-family: ${MontserratFont.style.fontFamily}
           }
             `,
-          }}
-        />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
+            }}
+          />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </Providers>
     </html>
   )
 }

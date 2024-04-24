@@ -10,12 +10,20 @@ const initialState: {
   currentDoc: LibDocResponseDto | null,
   currentDocFetchStatus: FetchStatus,
   docsFetchStatus: FetchStatus,
+  page: number,
+  searchValue: string,
+  selectedCategories: number[],
+  checkbox: string[],
 } = {
   categories: [],
   docs: [],
   currentDoc: null,
   currentDocFetchStatus: 'idle',
   docsFetchStatus: 'idle',
+  page: 1,
+  searchValue: '',
+  selectedCategories: [],
+  checkbox: [],
 }
 
 export const fetchAllCategories = createAsyncThunk(
@@ -32,6 +40,30 @@ export const fetchAllDocs = createAsyncThunk(
     const response = await guestInstance.get(`/library?page=${page}&size=10`)
     return await response.data
   },
+)
+
+export const fetchSearchDocs = createAsyncThunk(
+  'library/fetchSearchDocs',
+  async ({name, page}: {name: string, page: number}) => {
+    const response = await guestInstance.get(`/library/search?name=${name}&page=${page}&size=12`)
+    return await response.data
+  }
+)
+
+export const fetchDocsByCategories = createAsyncThunk(
+  'library/fetchDocsByCategories',
+  async ({ categories, page }: { categories: number[], page: number }) => {
+    const response = await guestInstance.get(`/library?page=${page}&size=10&categories=${categories}`)
+    return await response.data
+  }
+)
+
+export const fetchDocsByTypes = createAsyncThunk(
+  'library/fetchDocsByTypes',
+  async ({ types, page }: { types: string[], page: number }) => {
+    const response = await guestInstance.get(`/library?page=${page}&size=10&types=${types}&categories=8`)
+    return await response.data
+  }
 )
 
 export const fetchAllDocsAdmin = createAsyncThunk(
@@ -184,6 +216,18 @@ const LibrarySlice = createSlice({
   reducers: {
     resetCurrentDoc(state){
       state.currentDoc = null;
+    },
+    handlePage(state, { payload }) {
+      state.page = payload;
+    },
+    handleSearch(state, { payload }) {
+      state.searchValue = payload;
+    },
+    handleCheckbox(state, { payload }) {
+      state.checkbox = payload;
+    },
+    handleCategories(state, { payload }) {
+      state.selectedCategories = payload;
     }
   },
   extraReducers: (builder) => {
@@ -211,6 +255,16 @@ const LibrarySlice = createSlice({
       .addCase(fetchAllDocs.rejected,(state,{payload}) => {
         state.docsFetchStatus = 'error';
       })
+      .addCase(fetchSearchDocs.pending, (state, { payload }) => {
+        state.docsFetchStatus = 'pending';
+      })
+      .addCase(fetchSearchDocs.fulfilled, (state, { payload }) => {
+        state.docsFetchStatus = 'idle';
+        state.docs = payload;
+      })
+      .addCase(fetchSearchDocs.rejected, (state, { payload }) => {
+        state.docsFetchStatus = 'error';
+      })
       .addCase(fetchDocById.pending,(state,{payload}) => {
         state.currentDocFetchStatus = 'pending';
       })
@@ -220,6 +274,26 @@ const LibrarySlice = createSlice({
       })
       .addCase(fetchDocById.rejected,(state,{payload}) => {
         state.currentDocFetchStatus = 'error';
+      })
+      .addCase(fetchDocsByCategories.pending, (state, { payload }) => {
+        state.docsFetchStatus = 'pending';
+      })
+      .addCase(fetchDocsByCategories.fulfilled, (state, { payload }) => {
+        state.docsFetchStatus = 'idle';
+        state.docs = payload;
+      })
+      .addCase(fetchDocsByCategories.rejected, (state, { payload }) => {
+        state.docsFetchStatus = 'error';
+      })
+      .addCase(fetchDocsByTypes.pending, (state, { payload }) => {
+        state.docsFetchStatus = 'pending';
+      })
+      .addCase(fetchDocsByTypes.fulfilled, (state, { payload }) => {
+        state.docsFetchStatus = 'idle';
+        state.docs = payload;
+      })
+      .addCase(fetchDocsByTypes.rejected, (state, { payload }) => {
+        state.docsFetchStatus = 'error';
       })
       .addCase(createLibCategory.fulfilled,(state, {payload}) => {
         state.categories = [...state.categories,payload];
@@ -246,7 +320,7 @@ const LibrarySlice = createSlice({
 
 const {reducer,actions} = LibrarySlice
 
-export const {resetCurrentDoc} = actions;
+export const {resetCurrentDoc, handleCategories, handleCheckbox, handlePage, handleSearch} = actions;
 
 
 export default reducer;

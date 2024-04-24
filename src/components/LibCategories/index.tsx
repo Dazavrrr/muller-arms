@@ -4,6 +4,12 @@ import React, { useEffect, useState } from 'react'
 import LibCategory from '../LibCategory'
 //styles
 import styles from './styles.module.scss'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import {
+  fetchAllCategories,
+  fetchDocsByCategories,
+  handleCategories,
+} from '@/store/slices/Library.slice'
 
 const LibCategories = () => {
   const [selectedCategories, setSelectedCategories] = useState<number[]>([])
@@ -18,24 +24,17 @@ const LibCategories = () => {
     }
   }
 
+  const page = useAppSelector((state) => state.Library.page)
+  const dispatch = useAppDispatch()
+  const categories = useAppSelector((state) => state.Library.categories)
+
   useEffect(() => {
-    console.log(selectedCategories)
+    dispatch(handleCategories(selectedCategories))
   }, [selectedCategories])
 
-  const categories = [
-    {
-      name: 'Тактика',
-      id: 1,
-    },
-    {
-      name: 'Медицина',
-      id: 2,
-    },
-    {
-      name: 'Фізичні вправи',
-      id: 3,
-    },
-  ]
+  useEffect(() => {
+    dispatch(fetchAllCategories())
+  }, [])
 
   return (
     <div className={styles.categories}>

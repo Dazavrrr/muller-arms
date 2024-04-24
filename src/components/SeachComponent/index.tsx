@@ -1,15 +1,16 @@
 'use client'
 //libs
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 //icons
 import SearchIcon from '../Icons/Search'
 //styles
 import styles from './styles.module.scss'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { handleSearch } from '@/store/slices/Library.slice'
 
 const SearchComponent = () => {
-  const [searchValue, setSearchValue] = useState<string>('')
-
-  useEffect(() => console.log(searchValue), [searchValue])
+  const searchValue = useAppSelector((state) => state.Library.searchValue)
+  const dispatch = useAppDispatch()
 
   return (
     <div className={styles.search}>
@@ -19,7 +20,7 @@ const SearchComponent = () => {
         <SearchIcon />
         <input
           value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={(e) => dispatch(handleSearch(e.target.value))}
           className={styles.search_field}
           type="search"
           placeholder="Пошук"
