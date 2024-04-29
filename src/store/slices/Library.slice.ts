@@ -1,4 +1,4 @@
-import { FetchStatus, LibCategory, LibCategoryCreateDto, LibDocResponseDto } from '@/common/types'
+import { FetchStatus, LibCategory, LibCategoryCreateDto, LibDocResponseDto, PageWrapper } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
 import { toast } from 'react-toastify'
@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 const initialState: {
   categories: LibCategory[],
-  docs: LibDocResponseDto[],
+  docs: PageWrapper<LibDocResponseDto> | null,
   currentDoc: LibDocResponseDto | null,
   currentDocFetchStatus: FetchStatus,
   docsFetchStatus: FetchStatus,
@@ -16,7 +16,7 @@ const initialState: {
   checkbox: string[],
 } = {
   categories: [],
-  docs: [],
+  docs: null,
   currentDoc: null,
   currentDocFetchStatus: 'idle',
   docsFetchStatus: 'idle',
@@ -299,10 +299,19 @@ const LibrarySlice = createSlice({
         state.categories = [...state.categories,payload];
       })
       .addCase(createDoc.fulfilled,(state,{payload}) => {
-        state.docs = [...state.docs,payload];
+        if (state.docs == null){
+          state.docs = payload;
+          return;
+        }
+        state.docs.hasNext = payload.hasNext;
+        state.docs.allItemsCount = payload.allItemsCount;
+        state.docs.items = [...state.docs.items, payload.items]
       })
       .addCase(updateLibDoc.fulfilled,(state,{payload}) => {
-        state.docs = state.docs.map(c => {
+        if (state.docs == null){
+          return
+        }
+        state.docs.items = state.docs.items.map(c => {
           if (c.id == payload.id){
             return payload
           }
@@ -313,7 +322,10 @@ const LibrarySlice = createSlice({
         state.categories = state.categories.filter(c => c.id != payload);
       })
       .addCase(deleteDoc.fulfilled,(state,{payload}) => {
-        state.docs = state.docs.filter(c => c.id != payload);
+        if (state.docs == null){
+          return
+        }
+        state.docs.items = state.docs.items.filter(c => c.id != payload);
       })
   }
 })

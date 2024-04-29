@@ -15,6 +15,12 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export type FetchStatus = 'pending' | 'idle' | 'error';
 
+export type PageWrapper<T> = {
+  items: T[],
+  allItemsCount: number,
+  hasNext: boolean
+}
+
 export type TrainerResponse = {
   id: number,
   firstName: string,

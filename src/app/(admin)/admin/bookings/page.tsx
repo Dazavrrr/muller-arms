@@ -14,7 +14,9 @@ import BookingAdminCard from '@/components/BookingAdminCard/BookingAdminCard'
 const BookingsPage = () => {
   const bookings = useAppSelector(state => state.Bookings.bookings)
   const bookingsFetchStatus = useAppSelector(state => state.Bookings.bookingsFetchStatus)
+
   const dispatch = useAppDispatch()
+
   useEffect(() => {
     dispatch(fetchAllBookings(0))
   }, [])

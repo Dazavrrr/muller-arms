@@ -58,6 +58,9 @@ const LibraryComponent = () => {
     }
   }, [searchValue])
 
+  if (docs == null){
+    return <p>loading</p>
+  }
   return (
     <section className={styles.library}>
       <div className={styles.library_wrapper}>
@@ -75,7 +78,7 @@ const LibraryComponent = () => {
           </div>
 
           <div className={styles.library_items}>
-            {docs
+            {docs.items
               .toSorted((a, b) => {
                 if (sort === `ASC`) {
                   return a.name > b.name ? 1 : -1
