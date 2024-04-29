@@ -1,19 +1,19 @@
 //libs
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 //styles
 import styles from './styles.module.scss'
 import global from '@/styles/global.module.scss'
-import { useAppDispatch } from '@/store/hooks'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { handleCheckbox } from '@/store/slices/Library.slice'
 
 const LibCheckboxComponent = () => {
-  const [file, setFile] = useState<string[]>(['BOOK', 'AUDIO', 'VIDEO'])
+  const file = useAppSelector((state) => state.Library.checkbox)
 
   const handleFile = (value: string) => {
     if (file.includes(value)) {
-      setFile((prev) => prev.filter((element) => element !== value))
+      dispatch(handleCheckbox(file.filter((element) => element !== value)))
     } else {
-      setFile((prev) => [...prev, value])
+      dispatch(handleCheckbox([...file, value]))
     }
   }
 

@@ -1,6 +1,6 @@
 'use client'
 //libs
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import LibCategory from '../LibCategory'
 //styles
 import styles from './styles.module.scss'
@@ -12,15 +12,15 @@ import {
 } from '@/store/slices/Library.slice'
 
 const LibCategories = () => {
-  const [selectedCategories, setSelectedCategories] = useState<number[]>([])
+  const selectedCategories = useAppSelector(
+    (state) => state.Library.selectedCategories
+  )
 
   const handleSelectCategory = (id: number) => {
     if (selectedCategories.includes(id)) {
-      setSelectedCategories((prev) => {
-        return prev.filter((v) => v != id)
-      })
+      dispatch(handleCategories(selectedCategories.filter((v) => v != id)))
     } else {
-      setSelectedCategories((prev) => [...prev, id])
+      dispatch(handleCategories([...selectedCategories, id]))
     }
   }
 

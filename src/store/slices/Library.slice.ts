@@ -23,7 +23,7 @@ const initialState: {
   page: 1,
   searchValue: '',
   selectedCategories: [],
-  checkbox: [],
+  checkbox: [`BOOK`, `AUDIO`, `VIDEO`],
 }
 
 export const fetchAllCategories = createAsyncThunk(
@@ -44,16 +44,16 @@ export const fetchAllDocs = createAsyncThunk(
 
 export const fetchSearchDocs = createAsyncThunk(
   'library/fetchSearchDocs',
-  async ({name, page}: {name: string, page: number}) => {
-    const response = await guestInstance.get(`/library/search?name=${name}&page=${page}&size=12`)
+  async ({name}: {name: string}) => {
+    const response = await guestInstance.get(`/library/search?name=${name}`)
     return await response.data
   }
 )
 
 export const fetchDocsByCategories = createAsyncThunk(
   'library/fetchDocsByCategories',
-  async ({ categories, page }: { categories: number[], page: number }) => {
-    const response = await guestInstance.get(`/library?page=${page}&size=10&categories=${categories}`)
+  async ({ categories, page, types }: { categories: number[], page: number, types: string[] }) => {
+    const response = await guestInstance.get(`/library?page=${page}&size=12&categories=${categories}&types=${types}`)
     return await response.data
   }
 )
@@ -61,7 +61,7 @@ export const fetchDocsByCategories = createAsyncThunk(
 export const fetchDocsByTypes = createAsyncThunk(
   'library/fetchDocsByTypes',
   async ({ types, page }: { types: string[], page: number }) => {
-    const response = await guestInstance.get(`/library?page=${page}&size=10&types=${types}&categories=8`)
+    const response = await guestInstance.get(`/library?page=${page}&size=12&types=${types}`)
     return await response.data
   }
 )

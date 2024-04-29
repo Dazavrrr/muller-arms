@@ -2,7 +2,6 @@
 //libs
 import React, { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { fetchAllDocs } from '@/store/slices/Library.slice'
 //styles
 import styles from './styles.module.scss'
 //components
@@ -12,6 +11,13 @@ import LibSortComponent from '../LibSortComponent'
 import LibCheckboxComponent from '../LibCheckboxComponent'
 import LibElement from '../LibElement'
 import Pagination from '../../../src/components/Pagination'
+import {
+  fetchDocsByCategories,
+  fetchDocsByTypes,
+  fetchSearchDocs,
+  handleCategories,
+  handleCheckbox,
+} from '@/store/slices/Library.slice'
 
 const LibraryComponent = () => {
   const [sort, setSort] = useState<'REC' | 'ASC' | 'DESC'>('REC')
@@ -22,7 +28,35 @@ const LibraryComponent = () => {
   const docs = useAppSelector((state) => state.Library.docs)
   const dispatch = useAppDispatch()
 
-  useEffect(() => {}, [categories, checkbox, searchValue])
+  const [isReset, setIsReset] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (categories.length > 0 && !isReset) {
+      dispatch(
+        fetchDocsByCategories({
+          categories: categories,
+          types: checkbox,
+          page: 0,
+        })
+      )
+      return
+    }
+    if (checkbox.length != 0 && !isReset) {
+      dispatch(fetchDocsByTypes({ types: checkbox, page: 0 }))
+    }
+    setIsReset(false)
+  }, [categories, checkbox])
+
+  useEffect(() => {
+    if (searchValue.trim().length > 0) {
+      setIsReset(true)
+      dispatch(fetchSearchDocs({ name: searchValue }))
+      dispatch(handleCategories([]))
+      dispatch(handleCheckbox([`BOOK`, `AUDIO`, `VIDEO`]))
+    } else {
+      dispatch(fetchDocsByTypes({ types: checkbox, page: 0 }))
+    }
+  }, [searchValue])
 
   return (
     <section className={styles.library}>
