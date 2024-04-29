@@ -1,0 +1,9 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.categories {
+  display: flex;
+  gap: 10px;
+
+  flex-wrap: wrap;
+}

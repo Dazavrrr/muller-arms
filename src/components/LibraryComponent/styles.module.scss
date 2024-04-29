@@ -21,32 +21,17 @@
     margin-bottom: 30px;
   }
 
-  &_categories {
-    display: flex;
-    gap: 10px;
-  }
-
-  &_categories_item {
-    padding: 10px 30px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    text-transform: uppercase;
-
-    color: #333;
-    font-weight: 500;
-    line-height: 160%;
-  }
-
   &_content {
     display: flex;
-    flex-direction: column;
+    gap: 64px;
+    padding-top: 40px;
   }
 
   &_filter {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding-top: 40px;
+    width: 230px;
   }
 
   &_filter_search {
@@ -80,86 +65,14 @@
     text-transform: uppercase;
   }
 
-  &_filter_sort {
+  &_items {
     display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  &_filter_sort_title {
-    color: #333;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 130%;
-    text-transform: uppercase;
-  }
-
-  &_filter_sort_by {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  &_filter_sort_recommend {
-    color: #333;
-    font-weight: 500;
-    line-height: 160%;
-    text-transform: uppercase;
-
-    padding-bottom: 8px;
-  }
-
-  &_filter_sort_alphabet {
-    color: #a3978d;
-    font-weight: 500;
-    line-height: 160%;
-    text-transform: uppercase;
-  }
-
-  .line {
-    @include size(135px, 1px);
-    background-color: #333;
-  }
-
-  &_filter_categories {
-    display: flex;
-    flex-direction: column;
     gap: 20px;
+    flex-wrap: wrap;
   }
+}
 
-  &_filter_categories_title {
-    color: #333;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 130%;
-    text-transform: uppercase;
-  }
-
-  &_filter_categories_inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  &_filter_categories_label {
-    display: flex;
-    color: #333;
-    font-weight: 500;
-    line-height: 160%;
-
-    gap: 8px;
-    align-items: center;
-  }
-
-  &_filter_categories_input {
-    border: 1px solid #333;
-    width: 15px;
-    height: 15px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    @include size(20px, 20px);
-    border-radius: 2px;
-  }
+.line {
+  @include size(135px, 1px);
+  background-color: #333;
 }
