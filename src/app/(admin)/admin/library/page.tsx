@@ -20,6 +20,7 @@ import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import LibCategoryForm from '@/components/LibCategoryForm/LibCategoryForm'
 import Link from 'next/link'
+import LibElement from '@/components/LibElement'
 
 
 const LibraryPage = () => {
@@ -33,7 +34,7 @@ const LibraryPage = () => {
 
   useEffect(() => {
     dispatch(fetchAllCategories())
-    dispatch(fetchAllDocsAdmin()).then(() => setPage(prev => prev + 1))
+    dispatch(fetchAllDocsAdmin())
 
     //eslint-disable-next-line
   }, [])
@@ -63,11 +64,15 @@ const LibraryPage = () => {
           <LibCategoryForm close={() => setIsModal(false)}/>
         }
       </div>
+      <Link href={'library/new'} className={global.primaryBtn}>Додати новий</Link>
       <h2 className={styles.title}>Файли</h2>
       <div className={local.files}>
-
+        {docs?.items.map(({ name,downloadUrl,imagePath,id }) => (
+          <Link href={`/admin/library/${id}`}>
+            <LibElement name={name} downloadUrl={downloadUrl} imagePath={imagePath} key={id}/>
+          </Link>
+        ))}
       </div>
-      <Link href={'library/new'} className={global.primaryBtn}>Додати новий</Link>
     </div>
   )
 }

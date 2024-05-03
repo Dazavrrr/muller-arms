@@ -15,5 +15,18 @@
     color: #333;
     font-weight: 500;
     line-height: 160%;
+
+  }
+  .number{
+    cursor: pointer;
+
+    &_active{
+      font-weight: bold;
+      color: $yellow-btn;
+    }
+  }
+
+  .arrow{
+    cursor: pointer;
   }
 }

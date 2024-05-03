@@ -13,29 +13,41 @@ const Pagination = () => {
   const dispatch = useAppDispatch()
   const page = useAppSelector((state) => state.Library.page)
 
+  const getThreePages = (currentPage: number) => {
+    const startPage = Math.max(currentPage - 1, 0)
+    const endPage = Math.min(startPage + 2, docs!.allItemsCount - 1)
+    const pages = []
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i)
+    }
+
+    return pages
+  }
+
+
   if (fetchStatus === 'pending' || docs === null) {
     return <p>Loading</p>
   }
-
   return (
     <>
       {docs.allItemsCount !== 1 && (
         <div className={styles.pagination}>
-          <ArrowLeft />
-
+          {page != 0 &&
+            <div className={styles.arrow} onClick={() => dispatch(handlePage(page - 1))}><ArrowLeft /></div>}
           <div className={styles.pagination_pages}>
-            {Array.from({ length: docs.allItemsCount }, (_, index) => (
-              <>
-                {page != index && (
-                  <p key={index} onClick={() => dispatch(handlePage(index))}>
-                    {index + 1}
-                  </p>
-                )}
-              </>
+            {getThreePages(page).map((pageNumber) => (
+              <p
+                className={`${styles.number} ${pageNumber === page && styles.number_active}`}
+                key={pageNumber}
+                onClick={() => page != pageNumber && dispatch(handlePage(pageNumber))}
+              >
+                {pageNumber + 1}
+              </p>
             ))}
           </div>
-
-          <ArrowRight />
+          {page != docs.allItemsCount - 1 &&
+            <div className={styles.arrow} onClick={() => dispatch(handlePage(page + 1))}><ArrowRight /></div>}
         </div>
       )}
     </>

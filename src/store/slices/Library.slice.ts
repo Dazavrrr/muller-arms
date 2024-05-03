@@ -86,7 +86,7 @@ export const fetchDocsByTypes = createAsyncThunk(
 export const fetchAllDocsAdmin = createAsyncThunk(
   'library/fetchAllDocsAdmin',
   async () => {
-    const response = await guestInstance.get(`/library`)
+    const response = await adminInstance.get(`/library/admin`)
     return await response.data
   }
 )
