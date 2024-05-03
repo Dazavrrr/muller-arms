@@ -6,12 +6,20 @@
   flex-direction: column;
   gap: 20px;
 
+  @media (max-width: 704px) {
+    gap: 16px;
+  }
+
   &_content {
     display: flex;
     flex-direction: column;
     gap: 16px;
 
     max-width: 203px;
+
+    @media (max-width: 704px) {
+      gap: 12px;
+    }
   }
 
   &_title {

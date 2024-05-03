@@ -27,6 +27,7 @@ const LibraryComponent = () => {
   const checkbox = useAppSelector((state) => state.Library.checkbox)
   const docs = useAppSelector((state) => state.Library.docs)
   const dispatch = useAppDispatch()
+  const pagination = useAppSelector((state) => state.Library.page)
 
   const [isReset, setIsReset] = useState<boolean>(false)
 
@@ -36,16 +37,16 @@ const LibraryComponent = () => {
         fetchDocsByCategories({
           categories: categories,
           types: checkbox,
-          page: 0,
+          page: pagination,
         })
       )
       return
     }
     if (checkbox.length != 0 && !isReset) {
-      dispatch(fetchDocsByTypes({ types: checkbox, page: 0 }))
+      dispatch(fetchDocsByTypes({ types: checkbox, page: pagination }))
     }
     setIsReset(false)
-  }, [categories, checkbox])
+  }, [categories, checkbox, pagination])
 
   useEffect(() => {
     if (searchValue.trim().length > 0) {
@@ -54,11 +55,11 @@ const LibraryComponent = () => {
       dispatch(handleCategories([]))
       dispatch(handleCheckbox([`BOOK`, `AUDIO`, `VIDEO`]))
     } else {
-      dispatch(fetchDocsByTypes({ types: checkbox, page: 0 }))
+      dispatch(fetchDocsByTypes({ types: checkbox, page: pagination }))
     }
   }, [searchValue])
 
-  if (docs == null){
+  if (docs == null) {
     return <p>loading</p>
   }
   return (
