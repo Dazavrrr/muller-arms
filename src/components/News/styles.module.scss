@@ -1,0 +1,26 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.news {
+  @include center-flex();
+  @include size(100%, auto);
+  background-color: #f3ede9;
+  padding-top: 80px;
+  padding-bottom: 120px;
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1176px;
+    gap: 50px;
+  }
+
+  &_title {
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+  }
+  &_content {
+  }
+}
