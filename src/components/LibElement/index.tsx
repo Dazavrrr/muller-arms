@@ -16,7 +16,7 @@ const LibElement = ({
   return (
     <div className={styles.libElement}>
       <div>
-        <Image src={imagePath} alt={name} width={203} height={288} />
+        <Image src={imagePath} alt={name} width={203} height={288} className={styles.image} />
       </div>
       <div className={styles.libElement_content}>
         <p className={styles.libElement_title}>{name}</p>

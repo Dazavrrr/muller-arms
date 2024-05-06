@@ -10,6 +10,8 @@
     gap: 12px;
   }
 
+
+
   &_title {
     color: #333;
     font-size: 20px;
@@ -30,6 +32,10 @@
     align-self: stretch;
     border-bottom: 1px solid #46243f;
     max-width: 240px;
+    @media (max-width: 590px) {
+      width: 100%;
+      max-width: none;
+    }
   }
 
   &_field {

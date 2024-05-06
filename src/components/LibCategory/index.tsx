@@ -16,12 +16,8 @@ const LibCategory = ({
   const { name, id } = category
 
   return (
-    <div
-      className={`${styles.categories} ${isSelected && styles.selected}`}
-      onClick={() => handleSelectCategory(id)}
-    >
-      <p className={styles.categories_item}>{name}</p>
-    </div>
+    <p className={`${styles.category} ${isSelected && styles.selected}`}
+       onClick={() => handleSelectCategory(id)}>{name}</p>
   )
 }
 
