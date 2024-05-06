@@ -73,7 +73,7 @@ const Page = () => {
       </div>
       <Link href={'topics/new'} className={`${styles.createBtn} ${global.primaryBtn}`}>Створити нову</Link>
       <div className={styles.articles}>
-        {data.map(article => (
+        {data?.items.map(article => (
           <ArticleAdminCard article={article} key={article.id} />
         ))}
       </div>

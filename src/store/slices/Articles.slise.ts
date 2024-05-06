@@ -1,4 +1,4 @@
-import { ArticleCreateRequest, ArticleResponse, FetchStatus } from '@/common/types'
+import { ArticleCreateRequest, ArticleResponse, ArticleSmallResponse, FetchStatus, PageWrapper } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
 
@@ -6,10 +6,10 @@ import { toast } from 'react-toastify'
 import { createSection, updateSection } from '@/store/slices/Sections.slise'
 
 const initialState: {
-  articles: ArticleResponse[],
-  news: ArticleResponse[],
-  announcements: ArticleResponse[],
-  archives: ArticleResponse[],
+  articles: PageWrapper<ArticleSmallResponse> | null,
+  news: PageWrapper<ArticleSmallResponse> | null,
+  announcements: PageWrapper<ArticleSmallResponse> | null,
+  archives: PageWrapper<ArticleSmallResponse> | null,
   currentArticle: ArticleResponse | null,
   articlesFetchStatus: FetchStatus,
   oneArticleFetchStatus: FetchStatus,
@@ -18,10 +18,10 @@ const initialState: {
   articleDeleteStatus: FetchStatus,
   updatedSectionIndex: number | null,
 } = {
-  articles: [],
-  news: [],
-  announcements: [],
-  archives: [],
+  articles: null,
+  news: null,
+  announcements: null,
+  archives: null,
   currentArticle: null,
   articlesFetchStatus: 'idle',
   oneArticleFetchStatus: 'idle',
@@ -171,38 +171,22 @@ const ArticlesSlice = createSlice({
       .addCase(fetchAllArticles.fulfilled, (state, { payload }) => {
         state.articlesFetchStatus = 'idle'
         const set = new Set()
-        state.articles = [...state.articles, ...payload].filter(el => {
-          const duplicate = set.has(el.id)
-          set.add(el.id)
-          return !duplicate
-        })
+        state.articles = payload
       })
       .addCase(fetchAllArticles.rejected, (state) => {
         state.articlesFetchStatus = 'error'
       })
       .addCase(fetchAllNews.fulfilled, (state, { payload }) => {
         const set = new Set()
-        state.news = [...state.news, ...payload].filter(el => {
-          const duplicate = set.has(el.id)
-          set.add(el.id)
-          return !duplicate
-        })
+        state.news = payload;
       })
       .addCase(fetchAllAnnouncements.fulfilled, (state, { payload }) => {
         const set = new Set()
-        state.announcements = [...state.announcements, ...payload].filter(el => {
-          const duplicate = set.has(el.id)
-          set.add(el.id)
-          return !duplicate
-        })
+        state.announcements = payload
       })
       .addCase(fetchAllArchives.fulfilled, (state, { payload }) => {
         const set = new Set()
-        state.archives = [...state.archives, ...payload].filter(el => {
-          const duplicate = set.has(el.id)
-          set.add(el.id)
-          return !duplicate
-        })
+        state.archives = payload
       })
       //One article
       .addCase(fetchOneArticle.pending, (state) => {
@@ -220,20 +204,23 @@ const ArticlesSlice = createSlice({
         state.articleCreateStatus = 'pending'
       })
       .addCase(createArticle.fulfilled, (state, { payload }) => {
-        state.articleCreateStatus = 'idle';
-        if (payload.isNews){
-          state.news = [...state.news, payload];
+        state.articleCreateStatus = 'idle'
+        if(!state.news || !state.announcements || !state.archives || !state.articles){
           return;
         }
-        if (payload.eventAddress != null){
-          state.announcements = [...state.announcements, payload];
-          return;
+        if (payload.isNews) {
+          state.news.items = [...state.news.items, payload]
+          return
         }
-        if (payload.isArchive){
-          state.archives = [...state.archives, payload];
-          return;
+        if (payload.eventAddress != null) {
+          state.announcements.items = [...state.announcements.items, payload]
+          return
         }
-        state.articles = [...state.articles, payload];
+        if (payload.isArchive) {
+          state.archives.items = [...state.archives.items, payload]
+          return
+        }
+        state.articles.items = [...state.articles.items, payload]
       })
       .addCase(createArticle.rejected, (state) => {
         state.articleCreateStatus = 'error'
@@ -243,8 +230,11 @@ const ArticlesSlice = createSlice({
         state.articleUpdateStatus = 'pending'
       })
       .addCase(updateArticle.fulfilled, (state, { payload }) => {
+        if (!state.articles){
+          return;
+        }
         state.articleUpdateStatus = 'idle'
-        state.articles = state.articles.map(t => {
+        state.articles.items = state.articles.items.map(t => {
           if (t.id === payload.id) {
             return payload
           }
@@ -260,8 +250,11 @@ const ArticlesSlice = createSlice({
         state.articleDeleteStatus = 'pending'
       })
       .addCase(deleteArticle.fulfilled, (state, { payload }) => {
+        if (!state.articles){
+          return;
+        }
         state.articleDeleteStatus = 'idle'
-        state.articles = state.articles.filter(t => t.id != payload)
+        state.articles.items = state.articles.items.filter(t => t.id != payload)
       })
       .addCase(deleteArticle.rejected, (state) => {
         state.articleDeleteStatus = 'error'
@@ -272,9 +265,9 @@ const ArticlesSlice = createSlice({
             if (i == state.updatedSectionIndex) {
               return payload
             }
-            return s;
-          });
-          state.updatedSectionIndex = null;
+            return s
+          })
+          state.updatedSectionIndex = null
         }
       })
   },
