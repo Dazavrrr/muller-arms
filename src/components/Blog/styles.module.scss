@@ -1,0 +1,8 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.blog {
+  @include center-flex();
+  @include size(100%, auto);
+  flex-direction: column;
+}
