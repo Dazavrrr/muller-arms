@@ -3,9 +3,12 @@ import Image from 'next/image'
 import moment from 'moment'
 //styles
 import styles from './styles.module.scss'
+//types
 import { ArticleSmallResponse } from '@/common/types'
+//icons
 import PersonIcon from '../Icons/Person'
 import OclockIcon from '../Icons/Oclock'
+//images
 import img from '../../../public/images/blog.png'
 
 const Article = ({

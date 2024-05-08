@@ -30,6 +30,12 @@
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .author {
@@ -55,6 +61,7 @@
 
   .img {
     border-radius: 5px;
+    object-fit: cover;
   }
 }
 
@@ -145,11 +152,17 @@
   }
 
   .text {
-    color: #333;
+    color: #868686;
     font-family: var(--font-Montserrat);
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .author {

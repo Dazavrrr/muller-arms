@@ -1,26 +1,28 @@
+'use client'
 //libs
-import React from 'react'
+import React, { useEffect } from 'react'
+import Link from 'next/link'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { fetchAllArticles } from '@/store/slices/Articles.slise'
 //styles
 import styles from './styles.module.scss'
-//types
-// import { ArticleSmallResponse } from '@/common/types'
 //components
 import ArticleCard from '../ArticleCard'
 
 const Articles = () => {
-  const articles = [
-    {
-      id: 1,
-      title: 'Техніка стрільби: Секрети Майстерності',
-      author: 'Андрій жовтий',
-      imagePath: 'https://ibb.co/tBJN5qK',
-      text: 'Розкрийте світ техніки стрільби та освоюйте...',
-      slug: 'shooting_technics',
-      creationDate: new Date(),
-      eventTime: new Date(),
-      eventAddress: 'Kyiv',
-    },
-  ]
+  const articles = useAppSelector((state) => state.Articles.articles)
+  const articlesFetchStatus = useAppSelector(
+    (state) => state.Articles.articlesFetchStatus
+  )
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchAllArticles(0))
+  }, [])
+
+  if (articlesFetchStatus === 'pending' || !articles) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className={styles.articles}>
@@ -28,9 +30,39 @@ const Articles = () => {
         <h2 className={styles.articles_title}>Статті</h2>
 
         <div className={styles.articles_content}>
-          {articles.map((article) => (
-            <ArticleCard article={article} key={article.id} isBig />
-          ))}
+          <div>
+            {articles.items.map((article, index) => {
+              if (index === 0) {
+                return (
+                  <Link href={`/blog/article/${article.id}`} key={article.id}>
+                    <ArticleCard article={article} isBig />
+                  </Link>
+                )
+              }
+              return
+            })}
+          </div>
+          <div>
+            {articles.items.map((article, index) => {
+              if (index > 0 && index < 5) {
+                return (
+                  <Link href={`/blog/article/${article.id}`} key={article.id}>
+                    <ArticleCard article={article} />
+                  </Link>
+                )
+              }
+              return
+            })}
+          </div>
+          <div>
+            {articles.items.map((article) => {
+              return (
+                <Link href={`/blog/article/${article.id}`} key={article.id}>
+                  <ArticleCard article={article} isTall />
+                </Link>
+              )
+            })}
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,138 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.news {
+  position: relative;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .img {
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .date {
+    display: inline-flex;
+    padding: 6px 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #fec401;
+
+    position: absolute;
+    bottom: 94px;
+    left: 20px;
+  }
+
+  .title {
+    color: #f3ede9;
+    font-family: var(--font-DuskDemon);
+    font-size: 24px;
+    line-height: 110%;
+    padding: 20px;
+
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+  }
+}
+
+.big_news {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .img {
+    @include size(578px, 484px);
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .date {
+    display: inline-flex;
+    padding: 6px 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #fec401;
+
+    position: absolute;
+    bottom: 94px;
+    left: 20px;
+  }
+
+  .title {
+    color: #f3ede9;
+    font-family: var(--font-DuskDemon);
+    font-size: 24px;
+    line-height: 110%;
+    padding: 20px;
+
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+  }
+}
+
+.tall_news {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .img {
+    @include size(279px, 484px);
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .date {
+    display: inline-flex;
+    padding: 6px 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #fec401;
+
+    position: absolute;
+    bottom: 94px;
+    left: 20px;
+  }
+
+  .title {
+    color: #f3ede9;
+    font-family: var(--font-DuskDemon);
+    font-size: 24px;
+    line-height: 110%;
+    padding: 20px;
+
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+  }
+}
