@@ -2,7 +2,6 @@
 @import '../../styles/utils/_mixins.scss';
 
 .section {
-  @include center-flex();
   @include size(100%, auto);
   flex-direction: column;
   padding-bottom: 120px;
@@ -13,7 +12,7 @@
     justify-content: space-between;
     width: 100%;
     max-width: 1176px;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
   }
 
   .title {
@@ -27,6 +26,15 @@
   .icons {
     display: flex;
     gap: 14px;
-    cursor: pointer;
+
+    & > div {
+      cursor: pointer;
+      display: block !important;
+    }
   }
+}
+
+.swiper_container {
+  max-width: 1176px;
+  margin: 0 auto;
 }

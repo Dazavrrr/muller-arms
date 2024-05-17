@@ -4,12 +4,13 @@ import moment from 'moment'
 //styles
 import styles from './styles.module.scss'
 import { ArticleSmallResponse } from '@/common/types'
+import Link from 'next/link'
 
 const MayLikeCard = ({ article }: { article: ArticleSmallResponse }) => {
-  const { title, imagePath, creationDate } = article
+  const { title, imagePath, creationDate, slug } = article
 
   return (
-    <div className={styles.wrapper}>
+    <Link href={`/blog/${slug}`} className={styles.wrapper}>
       <Image
         className={styles.image}
         src={imagePath}
@@ -21,7 +22,7 @@ const MayLikeCard = ({ article }: { article: ArticleSmallResponse }) => {
         <p className={styles.date}>{moment(creationDate).format('DD.MM')}</p>
         <h3 className={styles.title}>{title}</h3>
       </div>
-    </div>
+    </Link>
   )
 }
 

@@ -3,6 +3,9 @@
 
 .wrapper {
   position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  display: block;
 
   .title_wrapper {
     display: flex;
@@ -35,5 +38,10 @@
     font-family: var(--font-DuskDemon);
     font-size: 24px;
     line-height: 110%;
+  }
+
+  .image {
+    object-fit: cover;
+    border-radius: 5px;
   }
 }

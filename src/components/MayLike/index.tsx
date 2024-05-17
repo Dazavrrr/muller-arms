@@ -7,11 +7,17 @@ import MayLikeCard from '../MayLikeCard'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { fetchAllArticles } from '@/store/slices/Articles.slise'
 import { useEffect } from 'react'
+import '@/styles/swiper.scss'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-const MayLike = () => {
+const MayLike = ({ slug }: { slug: string }) => {
   const articles = useAppSelector((state) => state.Articles.articles)
   const articlesFetchStatus = useAppSelector(
     (state) => state.Articles.articlesFetchStatus
+  )
+  const currentArticle = useAppSelector(
+    (state) => state.Articles.currentArticle
   )
   const dispatch = useAppDispatch()
 
@@ -28,14 +34,36 @@ const MayLike = () => {
       <div className={styles.title_wrapper}>
         <h2 className={styles.title}>ВАМ МОЖЕ СПОДОБАТИСЯ</h2>
         <div className={styles.icons}>
-          <ArrowLeft />
-          <ArrowRight />
+          <div className={'image-swiper-button-prev2'}>
+            <ArrowLeft />
+          </div>
+          <div className={'image-swiper-button-next2'}>
+            <ArrowRight />
+          </div>
         </div>
       </div>
-      <div className={styles.articles}>
-        {articles.items.map((article) => (
-          <MayLikeCard article={article} key={article.id} />
-        ))}
+
+      <div className={styles.swiper_container}>
+        <Swiper
+          loop
+          spaceBetween={30}
+          navigation={{
+            nextEl: '.image-swiper-button-next2',
+            prevEl: '.image-swiper-button-prev2',
+            disabledClass: 'swiper-button-disabled2',
+          }}
+          modules={[Navigation]}
+          className="mySwiper2"
+          slidesPerView={4}
+        >
+          {articles.items
+            .filter((article) => article.slug !== slug)
+            .map((article) => (
+              <SwiperSlide key={article.id}>
+                <MayLikeCard article={article} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
       </div>
     </section>
   )

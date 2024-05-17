@@ -24,23 +24,6 @@ const BlogSlug = ({ params: { slug } }: PageProps) => {
   )
   const dispatch = useAppDispatch()
 
-  // export type ArticleResponse = {
-  //   id: number
-  //   title: string
-  //   author: string
-  //   imageId: number
-  //   imagePath: string
-  //   text: string
-  //   slug: string
-  //   isArchived: boolean
-  //   isNews: boolean
-  //   eventTime: Date | null
-  //   eventAddress: string | null
-  //   sections: SectionResponse[]
-  //   creationDate: Date
-  //   lastModifiedDate: Date
-  // }
-
   useEffect(() => {
     dispatch(fetchOneArticleBySlug(slug))
   }, [slug])
@@ -61,7 +44,7 @@ const BlogSlug = ({ params: { slug } }: PageProps) => {
         ))}
       </div>
       <SuitableTrainings />
-      <MayLike />
+      <MayLike slug={slug} />
     </section>
   )
 }

@@ -5,6 +5,8 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import '@/styles/globals.scss'
 import Providers from '@/store/provider'
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
