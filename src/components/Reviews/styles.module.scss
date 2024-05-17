@@ -2,7 +2,7 @@
 @import '../../styles/utils/_mixins.scss';
 
 .reviews {
-  @include center-flex();
+  //@include center-flex();
   @include size(100%, auto);
   flex-direction: column;
 
@@ -35,12 +35,16 @@
     width: 100%;
     max-width: 1176px;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
   }
 
   &_arrows {
     display: flex;
     gap: 14px;
+
+    & > div{
+      cursor: pointer;
+    }
   }
 
   &_cards {
@@ -83,4 +87,8 @@
     left: 0;
     bottom: 0;
   }
+}
+.swiper_container{
+  max-width: 1176px;
+  margin: 0 auto;
 }

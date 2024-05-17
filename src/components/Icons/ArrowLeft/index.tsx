@@ -9,7 +9,7 @@ const ArrowLeft = () => {
       viewBox="0 0 24 24"
       fill="none"
     >
-      <g opacity="0.7">
+      <g>
         <rect
           x="23.5"
           y="23.5"
