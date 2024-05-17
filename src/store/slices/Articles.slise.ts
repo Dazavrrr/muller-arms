@@ -204,6 +204,16 @@ const ArticlesSlice = createSlice({
       .addCase(fetchOneArticle.rejected, (state) => {
         state.oneArticleFetchStatus = 'error'
       })
+      .addCase(fetchOneArticleBySlug.pending, (state) => {
+        state.oneArticleFetchStatus = 'pending'
+      })
+      .addCase(fetchOneArticleBySlug.fulfilled, (state, { payload }) => {
+        state.oneArticleFetchStatus = 'idle'
+        state.currentArticle = payload
+      })
+      .addCase(fetchOneArticleBySlug.rejected, (state) => {
+        state.oneArticleFetchStatus = 'error'
+      })
       //Create article
       .addCase(createArticle.pending, (state) => {
         state.articleCreateStatus = 'pending'

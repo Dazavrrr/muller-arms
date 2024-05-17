@@ -1,0 +1,76 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  @include size(100%, auto);
+  @include center-flex();
+  padding: 30px 20px 120px 20px;
+
+  .wrapper {
+    display: flex;
+    gap: 60px;
+    max-width: 882px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @media (max-width: 768px) {
+      gap: 20px;
+    }
+  }
+
+  .title {
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 24px;
+    line-height: 110%;
+  }
+
+  .text {
+    color: #333;
+    font-family: var(--font-Montserrat);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .button {
+    @include center-flex();
+    padding: 15px 24px;
+    border-radius: 5px;
+    background: #fec401;
+  }
+
+  .image {
+    @media (max-width: 858px) {
+      width: 400px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .image_mob {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: flex;
+      width: 100%;
+      height: 220px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+  }
+}

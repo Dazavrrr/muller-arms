@@ -30,34 +30,40 @@ const Articles = () => {
         <h2 className={styles.articles_title}>Статті</h2>
 
         <div className={styles.articles_content}>
-          <div>
-            {articles.items.map((article, index) => {
-              if (index === 0) {
-                return (
-                  <Link href={`/blog/article/${article.id}`} key={article.id}>
-                    <ArticleCard article={article} isBig />
-                  </Link>
-                )
-              }
-              return
-            })}
+          <div className={styles.first_wrapper}>
+            <div>
+              {articles.items.map((article, index) => {
+                if (index === 0) {
+                  return (
+                    <Link href={`/blog/${article.slug}`} key={article.id}>
+                      <ArticleCard article={article} isBig />
+                    </Link>
+                  )
+                }
+                return
+              })}
+            </div>
+            <div className={styles.small_articles}>
+              {articles.items.map((article, index) => {
+                if (index > 0 && index < 5) {
+                  return (
+                    <Link href={`/blog/${article.slug}`} key={article.id}>
+                      <ArticleCard article={article} />
+                    </Link>
+                  )
+                }
+                return
+              })}
+            </div>
           </div>
-          <div>
+
+          <div className={styles.second_wrapper}>
             {articles.items.map((article, index) => {
-              if (index > 0 && index < 5) {
-                return (
-                  <Link href={`/blog/article/${article.id}`} key={article.id}>
-                    <ArticleCard article={article} />
-                  </Link>
-                )
+              if (index < 5) {
+                return
               }
-              return
-            })}
-          </div>
-          <div>
-            {articles.items.map((article) => {
               return (
-                <Link href={`/blog/article/${article.id}`} key={article.id}>
+                <Link href={`/blog/${article.slug}`} key={article.id}>
                   <ArticleCard article={article} isTall />
                 </Link>
               )
