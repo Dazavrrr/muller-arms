@@ -2,18 +2,13 @@
 @import '../../styles/utils/_mixins.scss';
 
 .news {
-  position: relative;
+  width: fit-content;
+  border-radius: 5px;
+  overflow: hidden;
 
   .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .text-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    position: relative;
+    width: fit-content;
   }
 
   .img {
@@ -28,10 +23,7 @@
     align-items: center;
     border-radius: 20px;
     background-color: #fec401;
-
-    position: absolute;
-    bottom: 94px;
-    left: 20px;
+    width: fit-content;
   }
 
   .title {
@@ -39,27 +31,23 @@
     font-family: var(--font-DuskDemon);
     font-size: 24px;
     line-height: 110%;
-    padding: 20px;
+  }
 
+  .text_wrapper {
     position: absolute;
-    bottom: 10px;
-    left: 0;
+    bottom: 30px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 239px;
   }
 }
 
 .big_news {
   .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    position: relative;
   }
-
-  .text-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
   .img {
     @include size(578px, 484px);
     object-fit: cover;
@@ -74,9 +62,7 @@
     border-radius: 20px;
     background-color: #fec401;
 
-    position: absolute;
-    bottom: 94px;
-    left: 20px;
+    width: fit-content;
   }
 
   .title {
@@ -84,25 +70,22 @@
     font-family: var(--font-DuskDemon);
     font-size: 24px;
     line-height: 110%;
-    padding: 20px;
+  }
 
+  .text_wrapper {
     position: absolute;
-    bottom: 10px;
-    left: 0;
+    bottom: 30px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 377px;
   }
 }
 
 .tall_news {
   .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .text-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    position: relative;
   }
 
   .img {
@@ -118,10 +101,7 @@
     align-items: center;
     border-radius: 20px;
     background-color: #fec401;
-
-    position: absolute;
-    bottom: 94px;
-    left: 20px;
+    width: fit-content;
   }
 
   .title {
@@ -129,10 +109,15 @@
     font-family: var(--font-DuskDemon);
     font-size: 24px;
     line-height: 110%;
-    padding: 20px;
+  }
 
+  .text_wrapper {
     position: absolute;
-    bottom: 10px;
-    left: 0;
+    bottom: 30px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 239px;
   }
 }

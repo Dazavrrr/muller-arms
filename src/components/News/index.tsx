@@ -30,23 +30,19 @@ const News = () => {
         <h2 className={styles.news_title}>Новини</h2>
 
         <div className={styles.news_content}>
-          <div>
+          <div className={styles.first_wrapper}>
             {news?.items.map((newsItem, index) => {
               if (index === 1) {
                 return (
-                  <Link href={`/blog/article/${newsItem.id}`} key={newsItem.id}>
+                  <Link href={`/blog/${newsItem.slug}`} key={newsItem.id}>
                     <NewsCard newsItem={newsItem} isBig />
                   </Link>
                 )
               }
-              return
-            })}
-          </div>
-          <div>
-            {news?.items.map((newsItem, index) => {
-              if (index === 1) {
+
+              if (index > 1 && index < 4) {
                 return (
-                  <Link href={`/blog/article/${newsItem.id}`} key={newsItem.id}>
+                  <Link href={`/blog/${newsItem.slug}`} key={newsItem.id}>
                     <NewsCard newsItem={newsItem} isTall />
                   </Link>
                 )
@@ -54,13 +50,35 @@ const News = () => {
               return
             })}
           </div>
-          <div>
-            {news?.items.map((newsItem) => {
-              return (
-                <Link href={`/blog/article/${newsItem.id}`} key={newsItem.id}>
-                  <NewsCard newsItem={newsItem} />
-                </Link>
-              )
+          <div className={styles.second_wrapper}>
+            {news?.items.map((newsItem, index) => {
+              if (index === 4) {
+                return (
+                  <Link href={`/blog/${newsItem.slug}`} key={newsItem.id}>
+                    <NewsCard newsItem={newsItem} isBig />
+                  </Link>
+                )
+              }
+
+              if (index > 4 && index < 7) {
+                return (
+                  <Link href={`/blog/${newsItem.slug}`} key={newsItem.id}>
+                    <NewsCard newsItem={newsItem} isTall />
+                  </Link>
+                )
+              }
+              return
+            })}
+          </div>
+          <div className={styles.third_wrapper}>
+            {news?.items.map((newsItem, index) => {
+              if (index > 6 && index < 15) {
+                return (
+                  <Link href={`/blog/${newsItem.slug}`} key={newsItem.id}>
+                    <NewsCard newsItem={newsItem} />
+                  </Link>
+                )
+              }
             })}
           </div>
         </div>

@@ -33,8 +33,10 @@ const NewsCard = ({
           width={279}
           height={311}
         />
-        <p className={styles.date}>{moment(creationDate).format('DD.MM')}</p>
-        <h2 className={styles.title}>{title}</h2>
+        <div className={styles.text_wrapper}>
+          <p className={styles.date}>{moment(creationDate).format('DD.MM')}</p>
+          <h2 className={styles.title}>{title}</h2>
+        </div>
       </div>
     </div>
   )
