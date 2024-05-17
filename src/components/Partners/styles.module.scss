@@ -17,8 +17,19 @@
     font-weight: 500;
   }
 
+  .logos_wrapper {
+    width: 100%;
+  }
+
   &_logos {
-    @include center-flex();
-    gap: 80px;
+    //@include center-flex();
+    //gap: 80px;
+    text-wrap: nowrap;
+    overflow: auto;
+    svg{
+      display: inline;
+      margin-right: 80px;
+      //display: block;
+    }
   }
 }

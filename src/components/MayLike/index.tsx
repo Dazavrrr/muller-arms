@@ -54,7 +54,7 @@ const MayLike = ({ slug }: { slug: string }) => {
           }}
           modules={[Navigation]}
           className="mySwiper2"
-          slidesPerView={4}
+          slidesPerView={'auto'}
         >
           {articles.items
             .filter((article) => article.slug !== slug)

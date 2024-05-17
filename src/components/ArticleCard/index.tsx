@@ -41,7 +41,7 @@ const Article = ({
       <div className={styles.wrapper}>
         <Image
           className={styles.img}
-          src={img}
+          src={imagePath}
           alt={title}
           width={279}
           height={206}

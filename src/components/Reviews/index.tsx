@@ -89,7 +89,7 @@ const Reviews = () => {
           }}
           modules={[Navigation]}
           className="mySwiper"
-          slidesPerView={2.7}
+          slidesPerView={'auto'}
         >
           {reviews.map((r, i) => (
             <div key={i}>
