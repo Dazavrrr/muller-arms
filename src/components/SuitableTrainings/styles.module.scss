@@ -4,7 +4,8 @@
 .section {
   @include size(100%, auto);
   @include center-flex();
-  padding: 30px 20px 120px 20px;
+  margin-top: clamp(3.75rem, 2.465rem + 4.2vw, 7.5rem);
+  margin-bottom: clamp(3.75rem, 2.465rem + 4.2vw, 7.5rem);
 
   .wrapper {
     display: flex;
