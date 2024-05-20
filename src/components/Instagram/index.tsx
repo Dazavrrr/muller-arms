@@ -24,6 +24,7 @@ const Instagram = () => {
             placeholder={'blur'}
             alt="Muller Arms Instagram Photo"
           />
+
           <Image
             className={styles.instagram_photo}
             src={photo2}
@@ -40,6 +41,7 @@ const Instagram = () => {
             placeholder={'blur'}
             alt="Muller Arms Instagram Photo"
           />
+
           <Image
             className={styles.instagram_photo}
             src={photo4}
