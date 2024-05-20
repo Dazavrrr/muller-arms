@@ -16,40 +16,47 @@ const Instagram = () => {
         <h2 className={styles.instagram_title}>НАШ INSTAGRAM</h2>
 
         <div className={styles.instagram_photos}>
-          <Image
-            className={styles.instagram_photo}
-            src={photo1}
-            width={267}
-            height={268}
-            placeholder={'blur'}
-            alt="Muller Arms Instagram Photo"
-          />
+          <div className={styles.img_wrapper}>
+            <Image
+              className={styles.instagram_photo}
+              src={photo1}
+              width={267}
+              height={268}
+              placeholder={'blur'}
+              alt="Muller Arms Instagram Photo"
+            />
 
-          <Image
-            className={styles.instagram_photo}
-            src={photo2}
-            width={279}
-            height={270}
-            placeholder={'blur'}
-            alt="Muller Arms Instagram Photo"
-          />
-          <Image
-            className={styles.instagram_photo}
-            src={photo3}
-            width={279}
-            height={270}
-            placeholder={'blur'}
-            alt="Muller Arms Instagram Photo"
-          />
-
-          <Image
-            className={styles.instagram_photo}
-            src={photo4}
-            width={279}
-            height={270}
-            placeholder={'blur'}
-            alt="Muller Arms Instagram Photo"
-          />
+          </div>
+          <div className={styles.img_wrapper}>
+            <Image
+              className={styles.instagram_photo}
+              src={photo2}
+              width={279}
+              height={270}
+              placeholder={'blur'}
+              alt="Muller Arms Instagram Photo"
+            />
+          </div>
+          <div className={styles.img_wrapper}>
+            <Image
+              className={styles.instagram_photo}
+              src={photo3}
+              width={279}
+              height={270}
+              placeholder={'blur'}
+              alt="Muller Arms Instagram Photo"
+            />
+          </div>
+          <div className={styles.img_wrapper}>
+            <Image
+              className={styles.instagram_photo}
+              src={photo4}
+              width={279}
+              height={270}
+              placeholder={'blur'}
+              alt="Muller Arms Instagram Photo"
+            />
+          </div>
         </div>
 
         <a

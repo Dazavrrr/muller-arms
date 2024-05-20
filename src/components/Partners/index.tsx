@@ -16,7 +16,6 @@ const Partners = () => {
         <Logo2 />
         <Logo3 />
         <Logo2 />
-        <Logo1 />
       </div>
     </div>
   </section>
