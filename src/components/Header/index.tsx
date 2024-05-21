@@ -71,18 +71,14 @@ const Header = () => {
           <Link className={styles.header_navItem} href="/trainings">
             Послуги
           </Link>
-          <div
-            className={styles.header_navItem}
-            onClick={() => scrollHandler('announcements')}
-          >
+
+          <Link className={styles.header_navItem} href="/announcements">
             Анонси
-          </div>
-          <div
-            className={styles.header_navItem}
-            onClick={() => scrollHandler('qualifications')}
-          >
+          </Link>
+
+          <Link className={styles.header_navItem} href="/qualifications">
             Кваліфікації клубу
-          </div>
+          </Link>
 
           <Link className={styles.header_navItem} href="/blog">
             Блог
