@@ -38,9 +38,19 @@
     }
   }
 
+  .info_item.active {
+    color: #333;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    width: fit-content;
+
+    border-bottom: 1px solid #333;
+  }
+
   .info_item {
-    color: #000;
-    opacity: 0.5;
+    color: #a3978d;
     font-family: var(--font-Montserrat), sans-serif;
     font-size: 14px;
     font-weight: 500;
