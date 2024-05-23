@@ -11,7 +11,9 @@ const QualificationsHero = () => {
   return (
     <div className={styles.hero}>
       <div className={styles.hero_content}>
-        <h1 className={styles.hero_title}>КВАЛІФІКАЦІЇ ТА РЕКОРДИ КЛУБУ</h1>
+        <h1 className={styles.hero_title}>
+          КВАЛІФІКАЦІЇ <br /> ТА РЕКОРДИ КЛУБУ
+        </h1>
         <p className={styles.hero_subtitle}>
           Захопливі статті: навчайтеся стріляти та забезпечуйте свою безпеку
         </p>
