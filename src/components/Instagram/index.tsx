@@ -11,6 +11,7 @@ import photo1 from '../../../public/images/instagram/instagram-photo1.webp'
 import photo2 from '../../../public/images/instagram/instagram-photo2.webp'
 import photo3 from '../../../public/images/instagram/instagram-photo3.webp'
 import photo4 from '../../../public/images/instagram/instagram-photo4.webp'
+import bgBottom from '../../../public/images/instagram/instagram-bg-bottom.webp'
 
 const Instagram = () => {
   return (
@@ -80,6 +81,8 @@ const Instagram = () => {
         >
           ПЕРЕЙТИ В INSTAGRAM
         </a>
+
+        <Image className={styles.bg_bottom} src={bgBottom} alt="MullerArms" />
       </div>
     </section>
   )

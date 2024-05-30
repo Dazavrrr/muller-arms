@@ -3,16 +3,16 @@ import styles from './styles.module.scss'
 //components
 import QualificationExperience from '../QualificationExperience'
 import QualificationsHero from '../QualificationsHero'
-import ShooterClasses from '../ShooterClassses'
-import Briefing from '../Briefing'
+import FAQs from '../FAQs'
+import MilitaryDescription from '../MilitaryDescription'
 
 const Qualifications = () => {
   return (
     <div className={styles.section}>
       <QualificationsHero />
+      <MilitaryDescription />
       <QualificationExperience />
-      <ShooterClasses />
-      <Briefing />
+      <FAQs />
     </div>
   )
 }

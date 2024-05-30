@@ -7,8 +7,9 @@
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 80px;
-  padding-bottom: 120px;
+  padding-bottom: 160px;
   flex-direction: column;
+  position: relative;
 
   @media (max-width: 425px) {
     padding-top: 60px;
@@ -63,6 +64,7 @@
   &_photo {
     object-fit: cover;
     width: 100%;
+    border-radius: 5px;
   }
 
   &_btn {
@@ -83,5 +85,12 @@
     @media (max-width: 425px) {
       width: 100%;
     }
+  }
+
+  .bg_bottom {
+    @include size(100%, auto);
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }

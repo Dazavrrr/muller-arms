@@ -1,0 +1,118 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  @include center-flex();
+  @include size(100%, auto);
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 1110px;
+  }
+
+  .title {
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+    text-align: center;
+  }
+
+  .content_wrapper {
+    @include center-flex();
+    flex-direction: column;
+    gap: 30px;
+
+    @media (max-width: 1110px) {
+      flex-direction: row;
+    }
+  }
+
+  .line {
+    @media (max-width: 1110px) {
+      transform: rotate(-90deg);
+      width: 564px;
+    }
+
+    @media (max-width: 768px) {
+      width: 464px;
+    }
+
+    @media (max-width: 490px) {
+      width: 375px;
+    }
+  }
+
+  .exercises {
+    display: flex;
+    gap: 123px;
+
+    @media (max-width: 1110px) {
+      flex-direction: column;
+      gap: 100px;
+    }
+
+    @media (max-width: 768px) {
+      gap: 40px;
+    }
+  }
+
+  .exercise {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 288px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  .link {
+    color: #333;
+    text-align: center;
+    font-family: var(--font-Montserrat);
+    font-weight: 700;
+    line-height: 160%;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+
+  .text_wrapper {
+    @include center-flex();
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10px;
+  }
+
+  .text {
+    color: #333;
+    text-align: center;
+    font-family: var(--font-Montserrat);
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+    width: 692px;
+  }
+
+  .button {
+    color: #420000;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+    line-height: 110%;
+    text-transform: uppercase;
+    padding: 15px 24px;
+    border-radius: 5px;
+    background: #fec401;
+  }
+}

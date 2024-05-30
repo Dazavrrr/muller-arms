@@ -28,20 +28,9 @@
   }
 
   .image {
-    @include size(461px, 640px);
-
-    @media (max-width: 1080px) {
-      display: block;
-      object-fit: cover;
-      width: 100%;
-      max-height: 640px;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-
-    @media (max-width: 768px) {
-      max-height: 316px;
-    }
+    width: 461px;
+    max-height: 610px;
+    object-fit: cover;
   }
 
   .content {

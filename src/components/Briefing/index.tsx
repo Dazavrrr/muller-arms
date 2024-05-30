@@ -12,6 +12,7 @@ const Briefing = () => {
     <div className={styles.section}>
       <div className={styles.container}>
         <Image className={styles.image} src={img} alt="MullerArms" />
+
         <div className={styles.content}>
           <h2 className={styles.title}>брифінг</h2>
           <div className={styles.text_wrapper}>

@@ -5,7 +5,8 @@
   @include center-flex();
   @include size(100%, auto);
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 160px;
+  position: relative;
 
   @media (max-width: 479px) {
     padding-top: 40px;
@@ -103,5 +104,12 @@
     @media (max-width: 479px) {
       padding: 10px 24px;
     }
+  }
+
+  .bg_bottom {
+    @include size(100%, auto);
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
