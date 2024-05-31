@@ -24,7 +24,7 @@ const OtherOurQualifications = () => {
                 карабіну, який усі бажаючі можуть прострілювати із певною
                 періодичнстю
               </p>
-              <Link className={styles.link} href="/qualifications">
+              <Link className={styles.link} href="/military">
                 ДЕТАЛЬНІШЕ
               </Link>
             </div>
@@ -37,7 +37,7 @@ const OtherOurQualifications = () => {
                 стрільці клубу виконують із певною перідочністю та мають
                 можливість встановити власний рекорд
               </p>
-              <Link className={styles.link} href="/qualifications">
+              <Link className={styles.link} href="/records">
                 ДЕТАЛЬНІШЕ
               </Link>
             </div>
@@ -52,7 +52,7 @@ const OtherOurQualifications = () => {
                 складності та показує загальний рейтинг й рівень усіх стрільців
                 нашого клубу. Це по суті головний рекорд клубу
               </p>
-              <Link className={styles.link} href="/qualifications">
+              <Link className={styles.link} href="/rating">
                 ДЕТАЛЬНІШЕ
               </Link>
             </div>

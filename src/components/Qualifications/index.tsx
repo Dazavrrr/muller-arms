@@ -4,13 +4,13 @@ import styles from './styles.module.scss'
 import QualificationExperience from '../QualificationExperience'
 import QualificationsHero from '../QualificationsHero'
 import FAQs from '../FAQs'
-import MilitaryDescription from '../MilitaryDescription'
+import QualificationsDescription from '../QualificationsDescription'
 
 const Qualifications = () => {
   return (
     <div className={styles.section}>
       <QualificationsHero />
-      <MilitaryDescription />
+      <QualificationsDescription />
       <QualificationExperience />
       <FAQs />
     </div>
