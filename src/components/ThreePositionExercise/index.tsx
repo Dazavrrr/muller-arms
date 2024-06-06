@@ -65,7 +65,7 @@ const ThreePositionExercise = () => {
           <button className={styles.button} type="button">
             ЗАРЕЄСТРУВАТИСЯ
           </button>
-          <Link className={styles.link} href="/qualifications">
+          <Link className={styles.link} href="/leaders-table">
             ПЕРЕГЛЯНУТИ ТУРНІРНУ ТАБЛИЦЮ
           </Link>
         </div>

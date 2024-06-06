@@ -23,7 +23,7 @@ const OurSetOfExercises = () => {
               <p className={styles.subtitle}>
                 Майстер стрільби: <br /> Зміна Позицій
               </p>
-              <Link className={styles.link} href="/qualifications">
+              <Link className={styles.link} href="/exercises">
                 детальніше
               </Link>
             </div>
@@ -32,7 +32,7 @@ const OurSetOfExercises = () => {
               <p className={styles.subtitle}>
                 Тактичний Перехід: <br /> Майстер-Стрілець
               </p>
-              <Link className={styles.link} href="/qualifications">
+              <Link className={styles.link} href="/exercises">
                 детальніше
               </Link>
             </div>
@@ -41,7 +41,7 @@ const OurSetOfExercises = () => {
               <p className={styles.subtitle}>
                 Швидка Реакція: <br /> Бойовий Рух
               </p>
-              <Link className={styles.link} href="/qualifications">
+              <Link className={styles.link} href="/exercises">
                 детальніше
               </Link>
             </div>

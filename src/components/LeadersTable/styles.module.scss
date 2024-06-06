@@ -1,0 +1,158 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  @include center-flex();
+  @include size(100%, auto);
+  margin: 40px 0 120px 0;
+  padding: 0 60px;
+  position: relative;
+
+  @media (max-width: 1024px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+
+  @media (max-width: 490px) {
+    margin: 20px 0 60px 0;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1176px;
+    width: 100%;
+    gap: 40px;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    text-wrap: nowrap;
+    overflow: scroll;
+  }
+
+  .nav_prev {
+    color: #333;
+    opacity: 0.5;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .nav_current {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .title {
+    color: #333;
+    font-family: var(--font-DuskDemon), sans-serif;
+    font-size: 45px;
+    line-height: 110%;
+
+    @media (max-width: 490px) {
+      font-size: 28px;
+    }
+  }
+
+  .subtitle {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    @media (max-width: 490px) {
+      font-size: 16px;
+    }
+  }
+
+  table {
+    border: 1px solid #a3978d;
+  }
+
+  caption {
+    padding: 10px 0px;
+    border-radius: 10px 10px 0px 0px;
+    background: #fec401;
+
+    color: #333;
+    text-align: center;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    @media (max-width: 490px) {
+      font-size: 16px;
+    }
+  }
+
+  th {
+    padding: 22px 12px;
+    border: 1px solid #a3978d;
+  }
+
+  td {
+    padding: 12px;
+    border: 1px solid #a3978d;
+    text-align: start;
+  }
+
+  th,
+  td {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .place {
+    width: 55px;
+  }
+
+  .name {
+    width: 200px;
+  }
+
+  .time {
+    width: 226px;
+  }
+
+  .date {
+    width: 243px;
+  }
+
+  .notes {
+    width: 174px;
+  }
+
+  .bg_bottom {
+    @include size(100%, auto);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}

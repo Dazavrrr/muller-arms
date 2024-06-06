@@ -2,28 +2,47 @@
 @import '../../styles/utils/_mixins.scss';
 
 .section {
-  @include center-flex();
   @include size(100%, auto);
 
   .wrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-width: 1176px;
+    max-width: 660px;
     width: 100%;
+
+    @media (max-width: 1089px) {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+
+    @media (max-width: 490px) {
+      gap: 24px;
+    }
   }
 
   .content_wrapper {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 660px;
+
+    @media (max-width: 490px) {
+      gap: 24px;
+    }
   }
 
   .text_wrapper {
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    @media (max-width: 490px) {
+      gap: 16px;
+    }
   }
 
   .title {
@@ -46,6 +65,19 @@
   .button_wrapper {
     display: flex;
     gap: 20px;
+
+    @media (max-width: 896px) {
+      flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+    }
+
+    @media (max-width: 520px) {
+      flex-direction: column;
+      gap: 16px;
+    }
   }
 
   .link {
@@ -57,6 +89,10 @@
     font-weight: 500;
     line-height: 110%;
     text-transform: uppercase;
+
+    @media (max-width: 896px) {
+      width: fit-content;
+    }
   }
 
   .button {
@@ -68,6 +104,10 @@
     text-transform: uppercase;
     border-radius: 5px;
     border: 1px solid #fec401;
+
+    @media (max-width: 896px) {
+      width: fit-content;
+    }
   }
 
   .image {
@@ -77,5 +117,14 @@
     object-fit: cover;
     object-position: top;
     border-radius: 5px;
+
+    @media (max-width: 1089px) {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
   }
 }

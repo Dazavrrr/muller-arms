@@ -39,7 +39,7 @@ const QualificationsDescription = () => {
             </p>
           </div>
 
-          <Image src={logo} alt="MullerArms" />
+          <Image className={styles.logo} src={logo} alt="MullerArms" />
         </div>
 
         <div className={styles.content}>

@@ -22,7 +22,7 @@ const MilitaryDescription = () => {
         <div className={styles.pages}>
           <div className={styles.active}>
             <p className={styles.page_active}>01. мілітарі класифікація</p>
-            <div className={styles.border}></div>
+            <span className={styles.border}></span>
           </div>
 
           <Link href="/records" className={styles.page}>
