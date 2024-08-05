@@ -1,0 +1,82 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .image {
+    @include size(203px, auto);
+    object-fit: cover;
+    border-radius: 5px;
+
+    @media (max-width: 490px) {
+      @include size(160px, 170px);
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (max-width: 490px) {
+      gap: 12px;
+    }
+  }
+
+  .title_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .title {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    @media (max-width: 490px) {
+      font-size: 16px;
+    }
+  }
+
+  .id {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .line {
+    border: 1px solid #333;
+  }
+
+  .price_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .price {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .buy_btn {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 800;
+    line-height: 160%;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}

@@ -87,18 +87,12 @@ const Header = () => {
           <Link className={styles.header_navItem} href="/library">
             Бібліотека
           </Link>
-          <div
-            className={styles.header_navItem}
-            onClick={() => scrollHandler('archive')}
-          >
+          <Link className={styles.header_navItem} href="/archive">
             Архів
-          </div>
-          <div
-            className={styles.header_navItem}
-            onClick={() => scrollHandler('shop')}
-          >
+          </Link>
+          <Link className={styles.header_navItem} href="/shop">
             Магазин
-          </div>
+          </Link>
         </nav>
 
         <div

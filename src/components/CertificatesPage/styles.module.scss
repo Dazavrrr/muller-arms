@@ -1,0 +1,241 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  @include center-flex();
+  @include size(100%, auto);
+  margin-top: 70px;
+  margin-bottom: 219px;
+  padding: 0 60px;
+
+  @media (max-width: 1024px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .wrapper {
+    max-width: 1176px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .certificate_image {
+    display: flex;
+    padding: 175px 38px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+
+    max-width: 738px;
+    width: 100%;
+    height: auto;
+
+    @media (max-width: 1186px) {
+      max-width: 550px;
+    }
+
+    @media (max-width: 1140px) {
+      max-width: 500px;
+    }
+
+    @media (max-width: 1000px) {
+      padding: 0 38px;
+    }
+
+    @media (max-width: 900px) {
+      max-width: 400px;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      padding: 86px 20px;
+      justify-content: unset;
+    }
+  }
+
+  .image {
+    display: flex;
+    width: 662px;
+    height: 377px;
+    padding: 153px 86px 176px 86px;
+    border-radius: 62px;
+    background-color: #fec401;
+    text-align: center;
+
+    color: #000;
+    font-family: var(--font-Montserrat) sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+
+    @media (max-width: 1290px) {
+      width: 562px;
+      padding: 133px 86px 176px 86px;
+    }
+
+    @media (max-width: 900px) {
+      width: 340px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 86px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 20px;
+      width: 100%;
+    }
+
+    @media (max-width: 490px) {
+      width: 100%;
+      height: 200px;
+      font-size: 18px;
+      border-radius: 30px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+
+    @media (max-width: 1000px) {
+      justify-content: unset;
+      gap: 50px;
+      max-width: 400px;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 490px) {
+      gap: 30px;
+    }
+  }
+
+  .content_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media (max-width: 490px) {
+      gap: 24px;
+    }
+  }
+
+  .text_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media (max-width: 490px) {
+      gap: 20px;
+    }
+  }
+
+  .title {
+    color: #333;
+    font-family: var(--font-DuskDemon), sans-serif;
+    font-size: 45px;
+    line-height: 110%;
+
+    @media (max-width: 490px) {
+      font-size: 28px;
+    }
+  }
+
+  .text {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .line {
+    border: 1px solid #333;
+  }
+
+  .price_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .price_title {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  .price {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .price_text {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+    width: 184px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #e7e7e7;
+  }
+
+  .price_input {
+    display: flex;
+    justify-content: center;
+    width: 184px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #e7e7e7;
+  }
+
+  .price_input::placeholder {
+    color: #a3978d;
+    opacity: 0.5;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .button {
+    color: #420000;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+    line-height: 110%;
+    text-transform: uppercase;
+
+    display: flex;
+    padding: 15px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background-color: #fec401;
+  }
+}

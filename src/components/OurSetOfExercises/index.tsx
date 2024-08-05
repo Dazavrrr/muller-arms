@@ -5,6 +5,7 @@ import Link from 'next/link'
 import styles from './styles.module.scss'
 //icons
 import line from '../../../public/icons/ourSetOfExercises/line-dots.svg'
+import lineMob from '../../../public/icons/ourSetOfExercises/line-dots-mob.svg'
 import icon1 from '../../../public/icons/ourSetOfExercises/icon-1.svg'
 import icon2 from '../../../public/icons/ourSetOfExercises/icon-2.svg'
 import icon3 from '../../../public/icons/ourSetOfExercises/icon-3.svg'
@@ -16,10 +17,19 @@ const OurSetOfExercises = () => {
         <h2 className={styles.title}>наш комплекс вправ</h2>
         <div className={styles.content_wrapper}>
           <Image className={styles.line} src={line} alt="MullerArms shooting" />
+          <Image
+            className={styles.line_mob}
+            src={lineMob}
+            alt="MullerArms shooting"
+          />
 
           <div className={styles.exercises}>
             <div className={styles.exercise}>
-              <Image src={icon1} alt="MullerArms shooting" />
+              <Image
+                className={styles.icon}
+                src={icon1}
+                alt="MullerArms shooting"
+              />
               <p className={styles.subtitle}>
                 Майстер стрільби: <br /> Зміна Позицій
               </p>
@@ -28,7 +38,11 @@ const OurSetOfExercises = () => {
               </Link>
             </div>
             <div className={styles.exercise}>
-              <Image src={icon2} alt="MullerArms shooting" />
+              <Image
+                className={styles.icon}
+                src={icon2}
+                alt="MullerArms shooting"
+              />
               <p className={styles.subtitle}>
                 Тактичний Перехід: <br /> Майстер-Стрілець
               </p>
@@ -37,7 +51,11 @@ const OurSetOfExercises = () => {
               </Link>
             </div>
             <div className={styles.exercise}>
-              <Image src={icon3} alt="MullerArms shooting" />
+              <Image
+                className={styles.icon}
+                src={icon3}
+                alt="MullerArms shooting"
+              />
               <p className={styles.subtitle}>
                 Швидка Реакція: <br /> Бойовий Рух
               </p>

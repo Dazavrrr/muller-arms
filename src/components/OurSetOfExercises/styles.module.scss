@@ -6,6 +6,15 @@
   @include size(100%, auto);
   margin-top: 80px;
   margin-bottom: 80px;
+  padding: 0 60px;
+
+  @media (max-width: 1024px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 
   .wrapper {
     display: flex;
@@ -20,6 +29,11 @@
     font-size: 45px;
     line-height: 110%;
     text-align: center;
+
+    @media (max-width: 490px) {
+      font-size: 28px;
+      text-align: start;
+    }
   }
 
   .content_wrapper {
@@ -27,36 +41,61 @@
     flex-direction: column;
     gap: 30px;
 
-    @media (max-width: 1110px) {
+    @media (max-width: 768px) {
       flex-direction: row;
+    }
+
+    @media (max-width: 490px) {
+      gap: 20px;
+      justify-content: start;
     }
   }
 
   .line {
-    @media (max-width: 1110px) {
-      transform: rotate(-90deg);
-      width: 564px;
+    display: flex;
+
+    @media (max-width: 1150px) {
+      width: 700px;
+    }
+
+    @media (max-width: 980px) {
+      width: 600px;
+    }
+
+    @media (max-width: 878px) {
+      width: 500px;
     }
 
     @media (max-width: 768px) {
-      width: 464px;
+      display: none;
     }
+  }
 
-    @media (max-width: 490px) {
-      width: 375px;
+  .line_mob {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: flex;
+      width: 26px;
+      height: auto;
     }
   }
 
   .exercises {
     display: flex;
-    gap: 123px;
+    gap: 190px;
 
-    @media (max-width: 1110px) {
-      flex-direction: column;
-      gap: 100px;
+    @media (max-width: 1150px) {
+      gap: 110px;
+    }
+
+    @media (max-width: 980px) {
+      gap: 70px;
     }
 
     @media (max-width: 768px) {
+      flex-direction: column;
+
       gap: 40px;
     }
   }
@@ -66,7 +105,18 @@
     flex-direction: column;
     gap: 16px;
     align-items: center;
-    width: 288px;
+    max-width: 288px;
+
+    @media (max-width: 490px) {
+      align-items: start;
+    }
+  }
+
+  .icon {
+    @media (max-width: 490px) {
+      width: 66px;
+      height: 44px;
+    }
   }
 
   .subtitle {
@@ -76,11 +126,18 @@
     font-weight: 600;
     line-height: 130%;
     text-transform: uppercase;
+
+    @media (max-width: 878px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 490px) {
+      text-align: start;
+    }
   }
 
   .link {
     color: #333;
-    text-align: center;
     font-family: var(--font-Montserrat);
     font-weight: 700;
     line-height: 160%;
@@ -102,7 +159,12 @@
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
-    width: 692px;
+    max-width: 692px;
+    width: 100%;
+
+    @media (max-width: 490px) {
+      text-align: start;
+    }
   }
 
   .button {

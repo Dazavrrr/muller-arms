@@ -1,3 +1,5 @@
+//libs
+import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 
@@ -102,9 +104,9 @@ const RifleExercises = () => {
           </div>
         </div>
 
-        <button className={styles.complete_table}>
+        <Link href="/leaders-table-rifle" className={styles.complete_table}>
           ПЕРЕГЛЯНУТИ ВСЮ ТАБЛИЦЮ
-        </button>
+        </Link>
       </div>
     </div>
   )

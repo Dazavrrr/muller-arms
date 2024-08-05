@@ -9,7 +9,7 @@ const GunExercises = () => {
   return (
     <div className={styles.section}>
       <div className={styles.wrapper}>
-        <h2 className={styles.title}>завдання з карабіну</h2>
+        <h2 className={styles.title}>завдання з ПІСТОЛЕТУ</h2>
 
         <div className={styles.cards}>
           <div className={styles.card}>

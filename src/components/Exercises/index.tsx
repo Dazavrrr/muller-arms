@@ -70,10 +70,10 @@ const Exercises = () => {
                 <table className={styles.table}>
                   <thead>
                     <tr>
-                      <th>етап</th>
-                      <th>Позиція</th>
-                      <th>порядок дій</th>
-                      <th>кількість</th>
+                      <th className={styles.step}>етап</th>
+                      <th className={styles.position}>Позиція</th>
+                      <th className={styles.technique}>порядок дій</th>
+                      <th className={styles.quantity}>кількість</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -163,10 +163,10 @@ const Exercises = () => {
                 <table className={styles.table}>
                   <thead>
                     <tr>
-                      <th>етап</th>
-                      <th>Позиція</th>
-                      <th>порядок дій</th>
-                      <th>кількість</th>
+                      <th className={styles.step}>етап</th>
+                      <th className={styles.position}>Позиція</th>
+                      <th className={styles.technique}>порядок дій</th>
+                      <th className={styles.quantity}>кількість</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -234,10 +234,10 @@ const Exercises = () => {
                 <table className={styles.table}>
                   <thead>
                     <tr>
-                      <th>етап</th>
-                      <th>Позиція</th>
-                      <th>порядок дій</th>
-                      <th>кількість</th>
+                      <th className={styles.step}>етап</th>
+                      <th className={styles.position}>Позиція</th>
+                      <th className={styles.technique}>порядок дій</th>
+                      <th className={styles.quantity}>кількість</th>
                     </tr>
                   </thead>
                   <tbody>

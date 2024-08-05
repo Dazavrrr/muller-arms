@@ -24,28 +24,47 @@ const Standings = () => {
             />
           </div>
 
-          <p className={styles.complete_table}>
+          <Link href="/military" className={styles.complete_table}>
             хочете отримати повноцінну таблицю?
-          </p>
+          </Link>
         </div>
 
         <table>
           <caption>таблиця</caption>
           <thead>
             <tr>
-              <th>МІСЦЕ</th>
-              <th>ІМ’Я ТА ПРІЗВИЩЕ</th>
-              <th>ЧАС ВИКОНАННЯ ВПРАВИ</th>
-              <th>
+              <th className={styles.place}>МІСЦЕ</th>
+              <th className={styles.name}>ІМ’Я ТА ПРІЗВИЩЕ</th>
+              <th className={styles.time}>ЧАС ВИКОНАННЯ ВПРАВИ</th>
+              <th className={styles.date}>
                 ДАТА ОСТАННЬОГО <br /> ВИКОНАННЯ ВПРАВИ
               </th>
-              <th>ПРИМІТКИ</th>
+              <th className={styles.notes}>ПРИМІТКИ</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>
-                1 <Image src={firstPlace} alt="MullerArms" />
+              <td className={styles.places}>
+                1{' '}
+                <Image
+                  className={styles.place_icon}
+                  src={firstPlace}
+                  alt="MullerArms"
+                />
+              </td>
+              <td>Мельник Дар'я</td>
+              <td>13.17 сек</td>
+              <td>10.03</td>
+              <td>примітка</td>
+            </tr>
+            <tr>
+              <td className={styles.places}>
+                2{' '}
+                <Image
+                  className={styles.place_icon}
+                  src={secondPlace}
+                  alt="MullerArms"
+                />
               </td>
               <td>1</td>
               <td>1</td>
@@ -53,17 +72,13 @@ const Standings = () => {
               <td>1</td>
             </tr>
             <tr>
-              <td>
-                2 <Image src={secondPlace} alt="MullerArms" />
-              </td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>
-                3 <Image src={thirdPlace} alt="MullerArms" />
+              <td className={styles.places}>
+                3{' '}
+                <Image
+                  className={styles.place_icon}
+                  src={thirdPlace}
+                  alt="MullerArms"
+                />
               </td>
               <td>1</td>
               <td>1</td>
@@ -86,6 +101,10 @@ const Standings = () => {
             </tr>
           </tbody>
         </table>
+
+        <p className={styles.complete_table_mob}>
+          хочете отримати повноцінну таблицю?
+        </p>
       </div>
     </div>
   )

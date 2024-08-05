@@ -240,9 +240,6 @@
     text-transform: uppercase;
   }
 
-  .exercise_table {
-  }
-
   .table {
     border-collapse: collapse;
     margin: 30px 0;
@@ -254,15 +251,44 @@
     text-transform: uppercase;
   }
 
-  table,
-  th,
-  td {
-    border: 1px solid #333;
-    border-collapse: collapse;
+  .step {
+    // display: flex;
+    width: 143px;
   }
+
+  .position {
+    width: 173px;
+  }
+
+  .technique {
+    width: 217px;
+  }
+
+  thead {
+    border-bottom: 1px solid #a3978d;
+  }
+
+  tbody {
+    margin-top: 12px;
+  }
+
+  td:first-child,
+  th:first-child {
+    border-left: none;
+    padding: 0;
+  }
+
+  td {
+    border-right: 1px solid #a3978d;
+  }
+
+  td:last-child {
+    border-right: none;
+  }
+
   th,
   td {
-    padding: 5px;
+    padding: 12px;
     text-align: left;
   }
 
