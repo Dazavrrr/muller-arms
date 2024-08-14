@@ -10,7 +10,7 @@ import { SectionResponse } from '@/common/types'
 const ArticleSection = ({ section }: { section: SectionResponse }) => {
   const { title, text, images } = section
   return (
-    <section className={styles.section}>
+    <article className={styles.section}>
       <div className={styles.wrapper}>
         <div className={styles.text_wrapper}>
           <h3 className={styles.title}>{title}</h3>
@@ -59,7 +59,7 @@ const ArticleSection = ({ section }: { section: SectionResponse }) => {
           )}
         </div>
       </div>
-    </section>
+    </article>
   )
 }
 

@@ -18,14 +18,17 @@ const ArticleHero = ({ article }: { article: ArticleResponse }) => {
     <section className={styles.main_wrapper}>
       <div className={styles.hero}>
         <div className={styles.wrapper}>
-          <div className={styles.nav}>
-            <Link href="/blog" className={styles.nav_prev}>
-              Блог
-            </Link>
-            <NavArrow />
-            <p className={styles.nav_current}>{title}</p>
+          <div className={styles.nav__wrapper}>
+            <div className={styles.nav}>
+              <Link href="/blog" className={styles.nav_prev}>
+                Блог
+              </Link>
+              <div className={styles.arrow}>
+                <NavArrow />
+              </div>
+              <p className={styles.nav_current}>{title}{title}</p>
+            </div>
           </div>
-
           <h1 className={styles.title}>{title}</h1>
 
           <div className={styles.details_mob}>

@@ -38,13 +38,13 @@ const BlogSlug = ({ params: { slug } }: PageProps) => {
   return (
     <section className={styles.wrapper}>
       <ArticleHero article={article} />
-      <div className={styles.sections_wrapper}>
+      <section className={styles.sections_wrapper}>
         {article.sections.map((section) => (
           <ArticleSection section={section} key={section.id} />
         ))}
-      </div>
-      <SuitableTrainings />
-      <MayLike slug={slug} />
+        <SuitableTrainings />
+        <MayLike slug={slug} />
+      </section>
     </section>
   )
 }
