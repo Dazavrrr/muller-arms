@@ -1,6 +1,54 @@
 @import '../../styles/utils/_variables.scss';
 @import '../../styles/utils/_mixins.scss';
 
+.nav {
+  background-color: #ececec;
+  width: 100%;
+  padding-top: 29px;
+  padding-bottom: 29px;
+  margin-bottom: 50px;
+}
+
+.nav_content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1176px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 490px) {
+    gap: 8px;
+  }
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+
+  & > div {
+    display: block !important;
+  }
+
+  @media (max-width: 490px) {
+    gap: 8px;
+  }
+}
+
+.nav_date {
+  color: #333;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+  text-transform: uppercase;
+
+  @media (max-width: 490px) {
+    font-size: 16px;
+  }
+}
+
 .section {
   @include center-flex();
   @include size(100%, auto);
@@ -28,49 +76,6 @@
     width: 100%;
   }
 
-  .nav {
-    background-color: #ececec;
-    width: 100%;
-    padding-top: 29px;
-    padding-bottom: 29px;
-  }
-
-  .nav_content {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    max-width: 1176px;
-    width: 100%;
-    margin: 0 auto;
-
-    @media (max-width: 490px) {
-      gap: 8px;
-    }
-  }
-
-  .icons {
-    display: flex;
-    gap: 10px;
-    cursor: pointer;
-
-    @media (max-width: 490px) {
-      gap: 8px;
-    }
-  }
-
-  .nav_date {
-    color: #333;
-    font-family: var(--font-Montserrat), sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 130%;
-    text-transform: uppercase;
-
-    @media (max-width: 490px) {
-      font-size: 16px;
-    }
-  }
-
   .content {
     display: flex;
     flex-direction: column;
@@ -93,6 +98,12 @@
   }
 
   .cards {
+    max-width: 1176px;
+    margin: 0 auto;
+    max-height: 1075px;
+  }
+
+  .card {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

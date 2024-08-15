@@ -1,3 +1,4 @@
+'use client'
 //components
 import TrainingDetails from '@/components/TrainingDetails/TrainingDetails'
 import OtherTrainings from '@/components/OtherTrainings'

@@ -39,7 +39,7 @@ export const fetchOneTraining = createAsyncThunk(
 )
 
 export const fetchOneTrainingBySlug = createAsyncThunk(
-  'trainings/fetchOneTraining',
+  'trainings/fetchOneTrainingBySlug',
   async (slug: string) => {
     const response = await guestInstance.get(`/trainings/slug/${slug}`)
     return await response.data

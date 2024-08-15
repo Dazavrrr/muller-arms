@@ -31,7 +31,7 @@ const BlogSlug = ({ params: { slug } }: PageProps) => {
   if (fetchStatus === 'pending') {
     return <div>Loading...</div>
   }
-  if (article === null) {
+  if (!article) {
     return <div>Not found!</div>
   }
 

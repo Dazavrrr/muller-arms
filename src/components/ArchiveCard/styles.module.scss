@@ -48,6 +48,12 @@
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
   .details {
