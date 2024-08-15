@@ -73,9 +73,9 @@ const OurSetOfExercises = () => {
             тренуванні. Запрошуємо вас приєднатися до нашого навчального процесу
             та отримати цінний досвід для подальшого успішного розвитку.
           </p>
-          <button className={styles.button} type="button">
+          <Link href="/booking" className={styles.button}>
             ЗАПИСАТИСЯ НА ПІДГОТОВЧі ЗАНЯТТЯ
-          </button>
+          </Link>
         </div>
       </div>
     </div>

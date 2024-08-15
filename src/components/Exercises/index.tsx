@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
+import global from '../../styles/global.module.scss'
 import NavArrow from '../Icons/NavArrow'
 //images
 import image from '../../../public/images/exercises-image.webp'
@@ -35,7 +36,10 @@ const Exercises = () => {
             <Image className={styles.image} src={image} alt="MullerArms" />
 
             <div className={styles.button_wrapper}>
-              <button type="button" className={styles.show_scheme}>
+              <button
+                type="button"
+                className={`${global.primaryBtn} ${styles.button} ${styles.button_transparent}`}
+              >
                 ПОКАЗАТИ СХЕМУ
               </button>
               <button type="button" className={styles.button}>

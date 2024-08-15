@@ -34,15 +34,7 @@ const questions = [
 ]
 
 const FAQs = () => {
-  const [selected, setSelected] = useState(null)
-
-  const toggle = (i) => {
-    if (selected == i) {
-      return setSelected(null)
-    }
-
-    setSelected(i)
-  }
+  const [selected, setSelected] = useState<number | null>(null)
 
   return (
     <div className={styles.section}>
@@ -59,7 +51,13 @@ const FAQs = () => {
               <div
                 className={styles.questions}
                 key={i}
-                onClick={() => toggle(i)}
+                onClick={() => {
+                  if (selected !== i) {
+                    setSelected(i)
+                  } else {
+                    setSelected(null)
+                  }
+                }}
               >
                 <div className={styles.item}>
                   <div className={styles.question}>
@@ -73,11 +71,11 @@ const FAQs = () => {
                     </span>
                   </div>
                   <div
-                    className={
-                      selected === i ? styles.answer_show : styles.answer
-                    }
+                    className={`${styles.answer_container} ${
+                      selected === i && styles.answer_container_open
+                    }`}
                   >
-                    {item.answer}
+                    <p className={styles.answer}>{item.answer}</p>
                   </div>
                 </div>
               </div>

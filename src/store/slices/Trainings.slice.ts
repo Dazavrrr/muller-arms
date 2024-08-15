@@ -5,13 +5,13 @@ import { TrainingRequest } from '@/common/types'
 import { toast } from 'react-toastify'
 
 const initialState: {
-  trainings: TrainingResponse[],
-  currentTraining: TrainingResponse | null,
-  trainingsFetchStatus: FetchStatus,
-  oneTrainingFetchStatus: FetchStatus,
-  trainingCreateStatus: FetchStatus,
-  trainingUpdateStatus: FetchStatus,
-  trainingDeleteStatus: FetchStatus,
+  trainings: TrainingResponse[]
+  currentTraining: TrainingResponse | null
+  trainingsFetchStatus: FetchStatus
+  oneTrainingFetchStatus: FetchStatus
+  trainingCreateStatus: FetchStatus
+  trainingUpdateStatus: FetchStatus
+  trainingDeleteStatus: FetchStatus
 } = {
   trainings: [],
   currentTraining: null,
@@ -22,13 +22,12 @@ const initialState: {
   trainingDeleteStatus: 'idle',
 }
 
-
 export const fetchAllTrainings = createAsyncThunk(
   'trainings/fetchAllTrainings',
   async () => {
     const response = await guestInstance.get('/trainings')
     return await response.data
-  },
+  }
 )
 
 export const fetchOneTraining = createAsyncThunk(
@@ -36,7 +35,15 @@ export const fetchOneTraining = createAsyncThunk(
   async (id: number) => {
     const response = await guestInstance.get(`/trainings/${id}`)
     return await response.data
-  },
+  }
+)
+
+export const fetchOneTrainingBySlug = createAsyncThunk(
+  'trainings/fetchOneTraining',
+  async (slug: string) => {
+    const response = await guestInstance.get(`/trainings/slug/${slug}`)
+    return await response.data
+  }
 )
 
 export const createTraining = createAsyncThunk(
@@ -48,66 +55,59 @@ export const createTraining = createAsyncThunk(
         {
           pending: 'Запит в обробці...',
           success: 'Тренування створено !',
-        },
+        }
       )
       return response.data
     } catch (e: any) {
-      return await toast.promise(
-        Promise.reject(e),
-        {
-          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
-        },
-      )
+      return await toast.promise(Promise.reject(e), {
+        error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+      })
     }
-  },
+  }
 )
 
 export const updateTraining = createAsyncThunk(
   'training/updateTraining',
-  async ({ id, training }: { id: number, training: Partial<TrainingRequest> }) => {
+  async ({
+    id,
+    training,
+  }: {
+    id: number
+    training: Partial<TrainingRequest>
+  }) => {
     try {
       const response = await toast.promise(
         adminInstance.patch(`/trainings/${id}`, JSON.stringify(training)),
         {
           pending: 'Запит в обробці...',
           success: 'Тренування оновлено !',
-        },
+        }
       )
       return response.data
     } catch (e: any) {
-      return await toast.promise(
-        Promise.reject(e),
-        {
-          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
-        },
-      )
+      return await toast.promise(Promise.reject(e), {
+        error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+      })
     }
-  },
+  }
 )
 
 export const deleteTraining = createAsyncThunk(
   'training/deleteTraining',
   async (id: number) => {
     try {
-      await toast.promise(
-        adminInstance.delete(`/trainings/${id}`),
-        {
-          pending: 'Запит в обробці...',
-          success: 'Тренування видалено !',
-        },
-      )
+      await toast.promise(adminInstance.delete(`/trainings/${id}`), {
+        pending: 'Запит в обробці...',
+        success: 'Тренування видалено !',
+      })
       return id
     } catch (e: any) {
-      return await toast.promise(
-        Promise.reject(e),
-        {
-          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
-        },
-      )
+      return await toast.promise(Promise.reject(e), {
+        error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+      })
     }
-  },
+  }
 )
-
 
 const TrainingsSlice = createSlice({
   name: 'trainings',
@@ -141,6 +141,16 @@ const TrainingsSlice = createSlice({
       .addCase(fetchOneTraining.rejected, (state) => {
         state.oneTrainingFetchStatus = 'error'
       })
+      .addCase(fetchOneTrainingBySlug.pending, (state) => {
+        state.oneTrainingFetchStatus = 'pending'
+      })
+      .addCase(fetchOneTrainingBySlug.fulfilled, (state, { payload }) => {
+        state.oneTrainingFetchStatus = 'idle'
+        state.currentTraining = payload
+      })
+      .addCase(fetchOneTrainingBySlug.rejected, (state) => {
+        state.oneTrainingFetchStatus = 'error'
+      })
       //Create training
       .addCase(createTraining.pending, (state) => {
         state.trainingCreateStatus = 'pending'
@@ -148,7 +158,7 @@ const TrainingsSlice = createSlice({
       .addCase(createTraining.fulfilled, (state, { payload }) => {
         state.trainingCreateStatus = 'idle'
         state.trainings = [...state.trainings, payload]
-        window.location.href = `/admin/trainings/${payload.id}`;
+        window.location.href = `/admin/trainings/${payload.id}`
       })
       .addCase(createTraining.rejected, (state) => {
         state.trainingCreateStatus = 'error'
@@ -159,7 +169,7 @@ const TrainingsSlice = createSlice({
       })
       .addCase(updateTraining.fulfilled, (state, { payload }) => {
         state.trainingUpdateStatus = 'idle'
-        state.trainings = state.trainings.map(t => {
+        state.trainings = state.trainings.map((t) => {
           if (t.id === payload.id) {
             return payload
           }
@@ -175,7 +185,7 @@ const TrainingsSlice = createSlice({
       })
       .addCase(deleteTraining.fulfilled, (state, { payload }) => {
         state.trainingDeleteStatus = 'idle'
-        state.trainings = state.trainings.filter(t => t.id !== payload)
+        state.trainings = state.trainings.filter((t) => t.id !== payload)
       })
       .addCase(deleteTraining.rejected, (state) => {
         state.trainingDeleteStatus = 'error'

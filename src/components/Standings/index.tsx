@@ -24,9 +24,14 @@ const Standings = () => {
             />
           </div>
 
-          <Link href="/military" className={styles.complete_table}>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.complete_table}
+          >
             хочете отримати повноцінну таблицю?
-          </Link>
+          </a>
         </div>
 
         <table>

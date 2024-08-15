@@ -24,9 +24,9 @@ const QualificRecordsDesc = () => {
             <Link href="/records" className={styles.link}>
               ДЕТАЛЬНІШЕ
             </Link>
-            <button className={styles.button} type="button">
+            <Link className={styles.button} href="/trainings">
               ЗАРЕЄСТРУВАТИСЯ НА ТРЕНУВАННЯ
-            </button>
+            </Link>
           </div>
         </div>
 

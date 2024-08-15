@@ -23,7 +23,7 @@ const QualificationExperience = () => {
             <p className={styles.text}>
               У нас є багато різноманітних вправ, де ви можете з ними
               ознайомитися{' '}
-              <Link href="/" className={styles.link}>
+              <Link href="/exercises" className={styles.link}>
                 тут
               </Link>
             </p>

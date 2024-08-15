@@ -125,29 +125,6 @@
     }
   }
 
-  .show_scheme {
-    color: #420000;
-    text-align: center;
-    font-family: var(--font-Montserrat), sans-serif;
-    font-weight: 500;
-    line-height: 110%;
-    width: 195px;
-    padding: 15px 24px;
-    border-radius: 5px;
-    border: 1px solid #fec401;
-    justify-content: center;
-
-    display: none;
-
-    @media (max-width: 768px) {
-      display: flex;
-    }
-
-    @media (max-width: 490px) {
-      width: 100%;
-    }
-  }
-
   .button {
     padding: 15px 24px;
     border-radius: 5px;
@@ -160,9 +137,14 @@
 
     width: 195px;
 
-    @media (max-width: 490px) {
+    @media (max-width: 768px) {
       width: 100%;
     }
+  }
+
+  .button_transparent {
+    background-color: transparent;
+    border: 1px solid #fec401;
   }
 
   .exercises {

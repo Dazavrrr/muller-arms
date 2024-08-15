@@ -73,10 +73,26 @@
     }
   }
 
-  .answer {
+  .answer_container {
+    -webkit-transition: max-height 0.6s ease-in-out;
+    transition: max-height 0.6s ease-in-out;
     max-height: 0;
+    pointer-events: none;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+  }
+
+  .answer_container_open {
+    max-height: 70px;
+    pointer-events: all;
+  }
+
+  .answer {
+    color: #333;
+    font-family: var(--font-Montserrat);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
   }
 
   .answer_show {

@@ -1,5 +1,6 @@
 //libs
 import Image from 'next/image'
+import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //images
@@ -19,7 +20,9 @@ const RecordsRegister = () => {
           </p>
         </div>
 
-        <button className={styles.button}>ЗАРЕЄСТРУВАТИСЯ</button>
+        <Link href="/booking" className={styles.button}>
+          ЗАРЕЄСТРУВАТИСЯ
+        </Link>
       </div>
 
       <Image className={styles.image} src={image} alt="MullerArms" />
