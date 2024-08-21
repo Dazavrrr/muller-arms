@@ -1,13 +1,25 @@
+'use client'
 //libs
 import React from 'react'
 import Link from 'next/link'
+import { useForm } from 'react-hook-form'
 //styles
 import styles from './styles.module.scss'
 //icons
 import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
+//types
+import { NotificationCreateDto } from '@/common/types'
+import { useAppDispatch } from '@/store/hooks'
+import { createSubscription } from '@/store/slices/Notifications.slice'
 
 const Footer = () => {
+  const { register, handleSubmit, reset } = useForm<NotificationCreateDto>()
+  const onSubmit = async (data: NotificationCreateDto) => {
+    dispatch(createSubscription(data)).then(() => reset())
+  }
+  const dispatch = useAppDispatch()
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_container}>
@@ -59,21 +71,26 @@ const Footer = () => {
             Залиште ваші контакти <br /> для бронювання
           </h2>
 
-          <div className={styles.footer_formFields}>
+          <form
+            className={styles.footer_formFields}
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <input
               className={styles.footer_input}
               type="text"
               placeholder="Ім'я"
+              {...register('name', { required: true })}
             />
             <input
               className={styles.footer_input}
               type="text"
               placeholder="Номер телефону"
+              {...register('phone', { required: true })}
             />
-            <button className={styles.footer_button} type="button">
+            <button className={styles.footer_button} type="submit">
               Передзвоніть мені
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
