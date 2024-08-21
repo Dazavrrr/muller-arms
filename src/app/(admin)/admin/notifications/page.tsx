@@ -18,8 +18,8 @@ const Notifications = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchAllSubscribers(page)).then(() => setPage(prev => prev + 1))
-  }, [])
+    dispatch(fetchAllSubscribers(page))
+  }, [page])
 
   if (subscribersFetch === 'pending') {
     return <Image src={spinner} alt={'spinner'} className={global.spinnerAbsolute} />
@@ -47,7 +47,7 @@ const Notifications = () => {
         ))}
         </tbody>
       </table>
-      <button className={global.primaryBtn}>Завантажити ще</button>
+      <button className={global.primaryBtn} onClick={() => setPage(prev => prev + 1)}>Завантажити ще</button>
     </div>
   )
 }

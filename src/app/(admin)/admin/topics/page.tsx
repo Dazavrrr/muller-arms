@@ -20,11 +20,11 @@ const Page = () => {
   const news = useAppSelector(state => state.Articles.news)
   const announcements = useAppSelector(state => state.Articles.announcements)
   const archives = useAppSelector(state => state.Articles.archives)
-  const articlesFetchStatus = useAppSelector(state => state.Articles.articlesFetchStatus)
   const dispatch = useAppDispatch()
   const [tab, setTab] = useState<'articles' | 'news' | 'announcements' | 'archive'>('articles')
   const path = usePathname()
   useEffect(() => {
+    resetPage()
     handleLoad()
     //eslint-disable-next-line
   }, [tab])
@@ -36,17 +36,24 @@ const Page = () => {
 
   const handleLoad = () => {
     if (tab === 'articles') {
-      dispatch(fetchAllArticles(articlesPage)).then(() => setArticlesPage(prev => prev + 1))
+      dispatch(fetchAllArticles(articlesPage))
     }
     if (tab === 'news') {
-      dispatch(fetchAllNews(newsPage)).then(() => setNewsPage(prev => prev + 1))
+      dispatch(fetchAllNews(newsPage))
     }
     if (tab === 'announcements') {
-      dispatch(fetchAllAnnouncements(eventPage)).then(() => setEventPage(prev => prev + 1))
+      dispatch(fetchAllAnnouncements(eventPage))
     }
     if (tab === 'archive') {
-      dispatch(fetchAllArchives(archivesPage)).then(() => setArchivesPage(prev => prev + 1))
+      dispatch(fetchAllArchives(archivesPage))
     }
+  }
+
+  const resetPage = () => {
+      setArticlesPage(0);
+      setNewsPage(0);
+      setEventPage(0);
+      setArchivesPage(0);
   }
 
   const data = tab === 'articles' ? articles
@@ -77,9 +84,26 @@ const Page = () => {
           <ArticleAdminCard article={article} key={article.id} />
         ))}
       </div>
-      <button type={'button'} className={`${styles.loadBtn} ${global.primaryBtn}`}
-              onClick={() => handleLoad()}>Завантажити ще
-      </button>
+      {data?.hasNext && <button type={'button'} className={`${styles.loadBtn} ${global.primaryBtn}`}
+               onClick={() => {
+                 if (tab === 'articles') {
+                   setArticlesPage(prev => prev + 1)
+                   dispatch(fetchAllArticles(articlesPage))
+                 }
+                 if (tab === 'news') {
+                   setNewsPage(prev => prev + 1)
+                   dispatch(fetchAllNews(newsPage))
+                 }
+                 if (tab === 'announcements') {
+                   setEventPage(prev => prev + 1)
+                   dispatch(fetchAllAnnouncements(eventPage))
+                 }
+                 if (tab === 'archive') {
+                   setArchivesPage(prev => prev + 1)
+                   dispatch(fetchAllArchives(archivesPage))
+                 }
+               }}>Завантажити ще
+      </button>}
     </div>
   )
 }

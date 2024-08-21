@@ -40,7 +40,7 @@ const initialState: {
 export const fetchAllArticles = createAsyncThunk(
   'articles/fetchAllArticles',
   async (page: number) => {
-    const response = await guestInstance.get(`/articles?page=${page}&size=13`)
+    const response = await guestInstance.get(`/articles?page=${page}&size=9`)
     return await response.data
   }
 )
@@ -49,7 +49,7 @@ export const fetchAllNews = createAsyncThunk(
   'articles/fetchAllNews',
   async (page: number) => {
     const response = await guestInstance.get(
-      `/articles/news?page=${page}&size=14`
+      `/articles/news?page=${page}&size=9`
     )
     return await response.data
   }
