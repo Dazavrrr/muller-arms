@@ -5,17 +5,19 @@
   padding-right: 60px;
   padding-left: 60px;
   width: 100%;
-  font-family: 'Inter',sans-serif;
+  font-family: 'Inter', sans-serif;
   position: relative;
 
 }
-.navSwitcher{
+
+.navSwitcher {
   display: flex;
   gap: 35px;
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
-  div{
+
+  div {
     cursor: pointer;
     font-family: var(--font-Montserrat), sans-serif;
     font-size: 24px;
@@ -25,20 +27,24 @@
     text-transform: uppercase;
     padding-bottom: 8px;
   }
-  .activeNav{
+
+  .activeNav {
     border-bottom: 2px solid #333333;
   }
 }
+
 .header {
   display: flex;
   gap: 25px;
   justify-content: center;
 }
-.flex_col{
+
+.flex_col {
   display: flex;
   flex-direction: column;
   gap: 45px;
 }
+
 .new {
   width: fit-content;
   margin-bottom: 55px;
@@ -71,7 +77,7 @@
     color: $yellow-btn;
   }
 
-  a{
+  a {
     font-size: 16px;
     margin-left: 25px;
     color: blue;
@@ -117,7 +123,7 @@
 }
 
 .timeSlot {
-  width: fit-content ;
+  width: fit-content;
   height: fit-content;
   position: relative;
   font-family: var(--font-Montserrat), sans-serif;
@@ -132,19 +138,20 @@
   background-color: $yellow-btn;
   border-radius: 10px;
 
-  &.booked{
+  &.booked {
     color: white;
-   background-color: red;
+    background-color: red;
     font-weight: 600;
   }
 
-  &:hover{
-    .trashWrapper{
+  &:hover {
+    .trashWrapper {
       display: flex;
     }
   }
 }
-.trashWrapper{
+
+.trashWrapper {
   cursor: pointer;
   display: none;
   position: absolute;
@@ -158,29 +165,35 @@
   justify-content: center;
   border-radius: 50%;
 }
-.trash{
+
+.trash {
 
 }
-.plus{
+
+.plus {
   cursor: pointer;
-  img{
+
+  img {
     width: 100px;
     height: 55px;
   }
 }
 
 
-.modal{
-position: absolute;
+.modal {
+  position: absolute;
   bottom: 0;
 }
-.modalField{
+
+.modalField {
   margin-bottom: 12px;
 }
-.loadBtn{
+
+.loadBtn {
   margin: 0 auto;
 }
-.articles{
+
+.articles {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 50px;
@@ -188,15 +201,17 @@ position: absolute;
   margin-bottom: 40px;
 }
 
-.createBtn{
+.createBtn {
   margin: 0 auto 20px;
 }
 
 .table {
+  margin-top: 40px;
   border-collapse: collapse;
   letter-spacing: 1px;
   border: 2px solid rgb(140 140 140);
   margin-bottom: 25px;
+
   th, td {
     border: 2px solid rgb(140 140 140);
   }
@@ -221,28 +236,30 @@ position: absolute;
 
   position: relative;
 
-  span{
+  span {
     cursor: pointer;
     font-weight: 900;
     color: red;
     position: absolute;
     right: 20px;
   }
-  
-  img{
+
+  img {
     width: 32px;
     height: 32px;
     cursor: pointer;
   }
-  input{
+
+  input {
     width: 140px;
   }
 }
 
-.upload{
+.upload {
   margin-top: 40px;
 }
-.categoryForm{
+
+.categoryForm {
   margin-top: 55px;
   margin-bottom: 55px;
 
@@ -250,47 +267,63 @@ position: absolute;
   align-items: flex-end;
   gap: 45px;
 }
-.categorySection{
-display: flex;
+
+.categorySection {
+  display: flex;
   gap: 25px;
   flex-wrap: wrap;
   margin-top: 15px;
   margin-bottom: 45px;
 }
 
-.categoryWrapper{
+.categoryWrapper {
   position: relative;
 }
-.checkboxContainer{
-flex-direction: row !important;
+
+.checkboxContainer {
+  flex-direction: row !important;
 
   gap: 8px;
 }
-.body{
+
+.body {
   margin-top: 50px;
   display: flex;
   gap: 80px;
 }
 
-.left{
+.left {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-.shopItems{
+
+.shopItems {
   margin-top: 25px;
 }
-.sizes{
+
+.sizes {
   display: flex;
   gap: 16px;
 }
-.sizesCards{
+
+.sizesCards {
   display: flex;
   gap: 16px;
 
   padding-top: 25px;
 }
-.checkbox{
+
+.checkbox {
   display: flex;
   gap: 8px;
+}
+
+.tab {
+  background-color: transparent !important;
+  border: 1px solid $yellow-btn !important;
+}
+
+.activeTab {
+  background-color: $yellow-btn !important;
 }

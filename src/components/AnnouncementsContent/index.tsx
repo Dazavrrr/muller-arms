@@ -10,10 +10,10 @@ const AnnouncementsContent = () => {
 
   return (
     <>
-      {!!announcements && (
+      {!!announcements && !!announcements.items.length && (
         <div className={styles.section}>
-          <AnnouncementsCard card={announcements?.items[0]} />
-          <AnnouncementsCard card={announcements?.items[1]} />
+          <AnnouncementsCard card={announcements.items[0]} />
+          <AnnouncementsCard card={announcements.items[1]} />
         </div>
       )}
     </>

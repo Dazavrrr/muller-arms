@@ -96,10 +96,11 @@ const Page = ({ params }: { params: { id: string } }) => {
 
     dispatch(fetchAllCategories())
     if (id != 'new') {
-      dispatch(fetchOneShopItem(parseInt(id))).then(({payload}) => {
+      dispatch(fetchOneShopItem(id)).then(({payload}) => {
         reset({
           name: payload.name,
           slug: payload.slug,
+          description: payload.description,
           sizes: payload.sizes,
           price:   payload.price,
           isCertificate: payload.isCertificate,
@@ -133,6 +134,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         {
           name: item.name,
           slug: item.slug,
+          description: item.description,
           sizes: item.sizes,
           price:   item.price,
           isCertificate: item.isCertificate,
@@ -207,6 +209,11 @@ const Page = ({ params }: { params: { id: string } }) => {
                          remove: /[*+~.()''!:@<>$₽]/g,
                        }))
                      },})} />
+          </div>
+          <div className={global.inputField}>
+            <label>Опис</label>
+            <textarea className={global.input}
+                   {...register('description', { required: true })} />
           </div>
           <div className={global.inputField}>
             <label>Посилання</label>

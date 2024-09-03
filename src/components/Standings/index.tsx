@@ -1,3 +1,4 @@
+'use client'
 //libs
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,22 +9,25 @@ import SearchIcon from '../Icons/Search'
 import firstPlace from '../../../public/icons/standings/first-place.svg'
 import secondPlace from '../../../public/icons/standings/second-place.svg'
 import thirdPlace from '../../../public/icons/standings/third-place.svg'
+import { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { fetchAllClassifications } from '@/store/slices/TableSlots.slice'
+import moment from 'moment'
 
 const Standings = () => {
+
+  const dispatch = useAppDispatch();
+  const results = useAppSelector(state => state.TableSlots.slots);
+
+  useEffect(() => {
+    dispatch(fetchAllClassifications());
+  }, [])
+
   return (
     <div className={styles.section}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>турнірна таблиця</h2>
         <div className={styles.details}>
-          <div className={styles.search}>
-            <SearchIcon />
-            <input
-              className={styles.search_input}
-              type="search"
-              placeholder="Пошук"
-            />
-          </div>
-
           <a
             href="https://www.google.com"
             target="_blank"
@@ -48,62 +52,30 @@ const Standings = () => {
             </tr>
           </thead>
           <tbody>
+          {results.map((result,i) => (
             <tr>
               <td className={styles.places}>
-                1{' '}
-                <Image
+                {i + 1}
+                {i + 1 === 1 ? <Image
                   className={styles.place_icon}
                   src={firstPlace}
                   alt="MullerArms"
-                />
-              </td>
-              <td>Мельник Дар'я</td>
-              <td>13.17 сек</td>
-              <td>10.03</td>
-              <td>примітка</td>
-            </tr>
-            <tr>
-              <td className={styles.places}>
-                2{' '}
-                <Image
+                /> : i + 1 === 2 ? <Image
                   className={styles.place_icon}
                   src={secondPlace}
                   alt="MullerArms"
-                />
-              </td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td className={styles.places}>
-                3{' '}
-                <Image
+                /> : i + 1 === 3 ? <Image
                   className={styles.place_icon}
                   src={thirdPlace}
                   alt="MullerArms"
-                />
+                /> : <></>}
               </td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
+              <td>{result.name}</td>
+              <td>{result.finishTime}</td>
+              <td>{moment(result.lastTryDate).format("DD.MM.YYYY")}</td>
+              <td>{result.description}</td>
             </tr>
-            <tr>
-              <td>4</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
+          ))}
           </tbody>
         </table>
 

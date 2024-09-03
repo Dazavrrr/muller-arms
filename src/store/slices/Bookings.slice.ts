@@ -1,11 +1,14 @@
-import { FetchStatus, BookingResponse, BookingCreateRequest } from '@/common/types'
+import { FetchStatus, BookingResponse, BookingCreateRequest, NotificationCreateDto, Notification } from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
 import { BookingUpdateRequest } from '@/common/types'
 import { toast } from 'react-toastify'
+import { deleteSubscription, fetchAllSubscribers } from '@/store/slices/Notifications.slice'
 
 const initialState: {
   bookings: BookingResponse[],
+  bookingRequests: Notification[],
+  bookingRequestsFetch: FetchStatus,
   currentBooking: BookingResponse | null,
   bookingsFetchStatus: FetchStatus,
   oneBookingFetchStatus: FetchStatus,
@@ -14,6 +17,8 @@ const initialState: {
   bookingDeleteStatus: FetchStatus,
 } = {
   bookings: [],
+  bookingRequests: [],
+  bookingRequestsFetch: 'idle',
   currentBooking: null,
   bookingsFetchStatus: 'idle',
   oneBookingFetchStatus: 'idle',
@@ -31,6 +36,22 @@ export const fetchAllBookings = createAsyncThunk(
   },
 )
 
+export const fetchAllBookingRequests = createAsyncThunk(
+  'bookings/fetchAllBookingsRequests',
+  async (page: number) => {
+    const response = await adminInstance.get(`/bookings/requests?page=${page}&size=10`);
+    return await response.data
+  },
+)
+
+export const deleteBookingRequest = createAsyncThunk(
+  'bookings/deleteBookingRequest',
+  async (id: number) => {
+    await adminInstance.delete(`/bookings/requests/${id}`)
+    return id;
+  },
+)
+
 export const fetchOneBooking = createAsyncThunk(
   'bookings/fetchOneBooking',
   async (id: number) => {
@@ -42,7 +63,15 @@ export const fetchOneBooking = createAsyncThunk(
 export const createBooking = createAsyncThunk(
   'booking/createBooking',
   async (booking: BookingCreateRequest) => {
-    const response = await adminInstance.post('/booking', JSON.stringify(booking))
+    const response = await adminInstance.post('/bookings', JSON.stringify(booking))
+    return response.data
+  },
+)
+
+export const createBookingRequest = createAsyncThunk(
+  'booking/createBooking',
+  async (booking: NotificationCreateDto) => {
+    const response = await guestInstance.post('/bookings/requests', JSON.stringify(booking))
     return response.data
   },
 )
@@ -165,6 +194,25 @@ const BookingsSlice = createSlice({
       })
       .addCase(deleteBooking.rejected, (state) => {
         state.bookingDeleteStatus = 'error'
+      })
+
+      .addCase(fetchAllBookingRequests.pending, (state, { payload }) => {
+        state.bookingRequestsFetch = 'pending'
+      })
+      .addCase(fetchAllBookingRequests.fulfilled, (state, { payload }) => {
+        state.bookingRequestsFetch = 'idle'
+        const set = new Set()
+        state.bookingRequests = [...state.bookingRequests, ...payload].filter(el => {
+          const duplicate = set.has(el.id)
+          set.add(el.id)
+          return !duplicate
+        })
+      })
+      .addCase(fetchAllBookingRequests.rejected, (state, { payload }) => {
+        state.bookingRequestsFetch = 'error'
+      })
+      .addCase(deleteBookingRequest.fulfilled, (state, { payload }) => {
+        state.bookingRequests = state.bookingRequests.filter(s => s.id != payload);
       })
   },
 })

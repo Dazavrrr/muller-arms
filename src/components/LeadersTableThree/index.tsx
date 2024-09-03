@@ -1,7 +1,13 @@
 //styles
 import styles from './styles.module.scss'
+import { TableSlot } from '@/common/types'
+import Image from 'next/image'
+import firstPlace from '../../../public/icons/standings/first-place.svg'
+import secondPlace from '../../../public/icons/standings/second-place.svg'
+import thirdPlace from '../../../public/icons/standings/third-place.svg'
+import moment from 'moment'
 
-const LeadersTableThree = () => {
+const LeadersTableThree = ({result}: {result:TableSlot[]}) => {
   return (
     <div className={styles.section}>
       <div className={styles.text_wrapper}>
@@ -27,76 +33,30 @@ const LeadersTableThree = () => {
           </tr>
         </thead>
         <tbody>
+        {result.map((result,i) => (
           <tr>
-            <td>1</td>
-            <td>Мельник Дар'я</td>
-            <td>25.37 сек</td>
-            <td>20.01.2024</td>
-            <td>ПРИМІТКА</td>
+            <td className={styles.places}>
+              {i + 1}
+              {i + 1 === 1 ? <Image
+                className={styles.place_icon}
+                src={firstPlace}
+                alt="MullerArms"
+              /> : i + 1 === 2 ? <Image
+                className={styles.place_icon}
+                src={secondPlace}
+                alt="MullerArms"
+              /> : i + 1 === 3 ? <Image
+                className={styles.place_icon}
+                src={thirdPlace}
+                alt="MullerArms"
+              /> : <></>}
+            </td>
+            <td>{result.name}</td>
+            <td>{result.finishTime}</td>
+            <td>{moment(result.lastTryDate).format("DD.MM.YYYY")}</td>
+            <td>{result.description}</td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
+        ))}
         </tbody>
       </table>
     </div>

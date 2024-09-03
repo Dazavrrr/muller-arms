@@ -1,5 +1,5 @@
 import {
-  FetchStatus,
+  FetchStatus, PageWrapper,
   ShopCategoryCreateDto,
   ShopCategoryResponseDto,
   ShopItemCreateDto,
@@ -85,13 +85,23 @@ export const fetchAllItemsAdmin = createAsyncThunk(
   }
 )
 
+export const fetchAllItems= createAsyncThunk(
+  "shop/fetchAllItems",
+  async ({page,size}:{page: number,size: number}) => {
+    const response = await guestInstance.get(`/shop?page=${page}&size=${size}`);
+    return await response.data;
+  }
+)
+
+
 export const fetchOneShopItem = createAsyncThunk(
   "shop/findOneShopItem",
-  async (id: number) => {
+  async (id: number | string) => {
     const response = await adminInstance.get(`/shop/${id}`);
     return await response.data;
   }
 )
+
 
 export const createShopItem = createAsyncThunk(
   "shop/createShopItem",
@@ -191,6 +201,16 @@ const ShopSlice = createSlice(
           state.items = payload;
         })
         .addCase(fetchAllItemsAdmin.rejected,(state) => {
+          state.itemsFetchStatus = 'error';
+        })
+        .addCase(fetchAllItems.pending,(state) => {
+          state.itemsFetchStatus = 'pending';
+        })
+        .addCase(fetchAllItems.fulfilled,(state, {payload}) => {
+          state.itemsFetchStatus = 'idle';
+          state.items = payload;
+        })
+        .addCase(fetchAllItems.rejected,(state) => {
           state.itemsFetchStatus = 'error';
         })
         .addCase(fetchOneShopItem.pending, (state) => {

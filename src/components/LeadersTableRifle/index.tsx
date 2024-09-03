@@ -1,6 +1,6 @@
 'use client'
 //libs
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 //styles
@@ -14,9 +14,17 @@ import LeadersTableTwo from '../LeadersTableTwo'
 import LeadersTableThree from '../LeadersTableThree'
 import LeadersTableFour from '../LeadersTableFour'
 import LeadersTableFive from '../LeadersTableFive'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { fetchAllClassifications, fetchAllTableSlotsByType } from '@/store/slices/TableSlots.slice'
 
 const LeadersTableRifle = () => {
   const [tab, setTab] = useState(1)
+  const result = useAppSelector(state => state.TableSlots.slots);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllTableSlotsByType({type: 'CARBINE',task: tab}));
+  }, [tab])
 
   return (
     <div className={styles.section}>
@@ -86,11 +94,11 @@ const LeadersTableRifle = () => {
           </div>
 
           <div className={styles.content}>
-            {tab === 1 && <LeadersTableOne />}
-            {tab === 2 && <LeadersTableTwo />}
-            {tab === 3 && <LeadersTableThree />}
-            {tab === 4 && <LeadersTableFour />}
-            {tab === 5 && <LeadersTableFive />}
+            {tab === 1 && <LeadersTableOne result={result} />}
+            {tab === 2 && <LeadersTableTwo result={result} />}
+            {tab === 3 && <LeadersTableThree result={result} />}
+            {tab === 4 && <LeadersTableFour result={result} />}
+            {tab === 5 && <LeadersTableFive result={result} />}
           </div>
         </div>
       </div>

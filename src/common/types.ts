@@ -274,6 +274,7 @@ export type ShopCategoryCreateDto = {
 export type ShopItemCreateDto = {
   name: string,
   slug: string,
+  description: string,
   sizes: string[],
   base64Images: string[],
   price:  number,
@@ -285,6 +286,7 @@ export type ShopItemResponseDto = {
    id: number,
    name: string,
    slug: string,
+   description: string,
    images: string[],
    sizes: string[],
   categoryIds: number[]

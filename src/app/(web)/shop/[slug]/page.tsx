@@ -1,39 +1,32 @@
+'use client'
 import ProductDetails from '@/components/ProductDetails'
 import patch from '../../../../../public/images/shop-item-image.webp'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { useEffect } from 'react'
+import { fetchOneShopItem } from '@/store/slices/Shop.slice'
 
 type PageProps = {
   params: {
-    productSlug: string
+    slug: string
   }
 }
 
-const ProductPage = ({ params: { productSlug } }: PageProps) => {
-  const products = [
-    {
-      image: patch,
-      productName: 'Патч',
-      price: '₴300.00',
-      text: 'Ця нашивка представляє собою вражаючий вигляд космічної галактики, яка розкриває перед вами таємничі глибини всесвіту. Вона виготовлена з високоякісних матеріалів, які надають їй довговічність та стійкість до впливу зовнішніх чинників.',
-      slug: 'patch',
-    },
-    {
-      image: patch,
-      productName: 'Патч',
-      price: '₴300.00',
-      text: 'Ця нашивка представляє собою вражаючий вигляд космічної галактики, яка розкриває перед вами таємничі глибини всесвіту. Вона виготовлена з високоякісних матеріалів, які надають їй довговічність та стійкість до впливу зовнішніх чинників.',
-      slug: 'patch',
-    },
-    {
-      image: patch,
-      productName: 'Патч',
-      price: '₴300.00',
-      text: 'Ця нашивка представляє собою вражаючий вигляд космічної галактики, яка розкриває перед вами таємничі глибини всесвіту. Вона виготовлена з високоякісних матеріалів, які надають їй довговічність та стійкість до впливу зовнішніх чинників.',
-      slug: 'patch',
-    },
-  ]
+const ProductPage = ({ params: { slug } }: PageProps) => {
 
-  const product = products.find((p) => p.slug == productSlug)
-  return <>{product && <ProductDetails product={product} />}</>
+  const dispatch = useAppDispatch();
+  const product = useAppSelector(state => state.Shop.currentItem)
+  const currentItemFetchStatus = useAppSelector(state => state.Shop.currentItemFetchStatus)
+
+  useEffect(() => {
+    dispatch(fetchOneShopItem(slug))
+  }, [])
+
+  if (currentItemFetchStatus === 'pending') {
+    return <p>loading</p>
+  }
+  return <>
+    {!!product && <ProductDetails product={product} />}
+  </>
 }
 
 export default ProductPage

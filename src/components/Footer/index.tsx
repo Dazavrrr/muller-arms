@@ -12,11 +12,12 @@ import TelegramIcon from '../Icons/TelegramIcon'
 import { NotificationCreateDto } from '@/common/types'
 import { useAppDispatch } from '@/store/hooks'
 import { createSubscription } from '@/store/slices/Notifications.slice'
+import { createBookingRequest } from '@/store/slices/Bookings.slice'
 
 const Footer = () => {
   const { register, handleSubmit, reset } = useForm<NotificationCreateDto>()
   const onSubmit = async (data: NotificationCreateDto) => {
-    dispatch(createSubscription(data)).then(() => reset())
+    dispatch(createBookingRequest(data)).then(() => reset())
   }
   const dispatch = useAppDispatch()
 

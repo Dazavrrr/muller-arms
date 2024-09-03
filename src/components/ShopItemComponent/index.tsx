@@ -4,23 +4,23 @@ import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //images
-import img from '../../../public/images/shop-item-image.webp'
+import { ShopItemResponseDto } from '@/common/types'
 
-const ShopItemComponent = ({ slug }: { slug: any }) => {
+const ShopItemComponent = ({ item }: { item: ShopItemResponseDto }) => {
   return (
     <div className={styles.card}>
-      <Image className={styles.image} src={img} alt="Patch" />
+      <Image width={203} height={227} className={styles.image} src={item.images[0]} alt="Patch" />
 
       <div className={styles.wrapper}>
         <div className={styles.title_wrapper}>
-          <h2 className={styles.title}>Патч</h2>
-          <p className={styles.id}>код товару: 1000</p>
+          <h2 className={styles.title}>{item.name}</h2>
+          <p className={styles.id}>код товару: {item.id}</p>
         </div>
         <div className={styles.line}></div>
 
         <div className={styles.price_wrapper}>
           <p className={styles.price}>₴300.00</p>
-          <Link href={`/shop/${slug}`} className={styles.buy_btn}>
+          <Link href={`/shop/${item.slug}`} className={styles.buy_btn}>
             купити
           </Link>
         </div>

@@ -291,12 +291,15 @@ const LibrarySlice = createSlice({
       })
       .addCase(createDoc.fulfilled, (state, { payload }) => {
         if (state.docs == null) {
-          state.docs = payload
+          state.docs = {
+            items: [payload],
+            allItemsCount: 1,
+            hasNext: false,
+          }
           return
         }
-        state.docs.hasNext = payload.hasNext
-        state.docs.allItemsCount = payload.allItemsCount
-        state.docs.items = [...state.docs.items, payload.items]
+        state.docs.allItemsCount = payload.allItemsCount + 1
+        state.docs.items = [...state.docs.items, payload]
       })
       .addCase(updateLibDoc.fulfilled, (state, { payload }) => {
         if (state.docs == null) {
