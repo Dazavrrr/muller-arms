@@ -17,10 +17,14 @@
   justify-content: flex-end;
   gap: 12px;
   max-width: 1176px;
-  height: 109px;
+  height: auto;
   padding: 16px;
   align-items: flex-end;
   margin: 0 auto;
+
+  @media (max-width: 550px) {
+    align-items: flex-start;
+  }
 }
 
 .text {
@@ -31,9 +35,13 @@
   font-weight: 500;
   line-height: 160%;
   text-transform: uppercase;
+
+  @media (max-width: 550px) {
+    text-align: start;
+  }
 }
 
-.orange {
+.link {
   color: #fec401;
   font-weight: 700;
 }

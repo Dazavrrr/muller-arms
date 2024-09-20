@@ -22,8 +22,15 @@ const CookiesModal = () => {
           <div className={styles.section}>
             <p className={styles.text}>
               Ми використовуємо файли{' '}
-              <span className={styles.orange}>cookies</span> для покращення
-              вашого досвіду використання сайту
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://support.google.com/chrome/answer/95647?hl=en&co=GENIE.Platform%3DDesktop"
+                className={styles.link}
+              >
+                cookies
+              </a>{' '}
+              для покращення вашого досвіду використання сайту
             </p>
 
             <div className={styles.buttons}>
