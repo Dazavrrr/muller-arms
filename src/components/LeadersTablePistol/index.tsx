@@ -20,12 +20,13 @@ import {
   fetchAllTableSlotsByType,
 } from '@/store/slices/TableSlots.slice'
 
-const LeadersTableRifle = ({ tab }: { tab: string }) => {
+const LeadersTableRifle = () => {
+  const [tab, setTab] = useState(1)
   const result = useAppSelector((state) => state.TableSlots.slots)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchAllTableSlotsByType({ type: 'CARBINE', task: parseInt(tab) }))
+    dispatch(fetchAllTableSlotsByType({ type: 'PISTOL', task: tab }))
   }, [tab])
 
   return (
@@ -44,63 +45,65 @@ const LeadersTableRifle = ({ tab }: { tab: string }) => {
           <div>
             <NavArrow />
           </div>
-          <p className={styles.nav_current}>таблиця завдань з карабіну</p>
+          <p className={styles.nav_current}>таблиця завдань з пістолету</p>
         </div>
 
         <div className={styles.exercises}>
-          <h1 className={styles.title}>ТАБЛИЦЯ лідерів учасників З КАРАБІНУ</h1>
+          <h1 className={styles.title}>
+            ТАБЛИЦЯ лідерів учасників З пістолету
+          </h1>
 
           <div className={styles.exercises_wrapper}>
             <h2 className={styles.exercises_subtitle}>таблиця лідерів</h2>
             <div className={styles.exercise_items}>
-              <Link
-                href="/leaders-table-rifle/1"
+              <p
                 className={`${styles.exercise_item} ${
-                  parseInt(tab) === 1 && styles.active
+                  tab === 1 && styles.active
                 }`}
+                onClick={() => setTab(1)}
               >
                 / ВПРАВА №1
-              </Link>
-              <Link
-                href="/leaders-table-rifle/2"
+              </p>
+              <p
                 className={`${styles.exercise_item}  ${
-                  parseInt(tab) === 2 && styles.active
+                  tab === 2 && styles.active
                 }`}
+                onClick={() => setTab(2)}
               >
                 / ВПРАВА №2
-              </Link>
-              <Link
-                href="/leaders-table-rifle/3"
+              </p>
+              <p
                 className={`${styles.exercise_item}  ${
-                  parseInt(tab) === 3 && styles.active
+                  tab === 3 && styles.active
                 }`}
+                onClick={() => setTab(3)}
               >
                 / ВПРАВА №3
-              </Link>
-              <Link
-                href="/leaders-table-rifle/4"
+              </p>
+              <p
                 className={`${styles.exercise_item} ${
-                  parseInt(tab) === 4 && styles.active
+                  tab === 4 && styles.active
                 }`}
+                onClick={() => setTab(4)}
               >
                 / ВПРАВА №4
-              </Link>
-              <Link
-                href="/leaders-table-rifle/5"
+              </p>
+              <p
                 className={`${styles.exercise_item} 
-                ${parseInt(tab) === 5 && styles.active}`}
+                ${tab === 5 && styles.active}`}
+                onClick={() => setTab(5)}
               >
                 / ВПРАВА №5
-              </Link>
+              </p>
             </div>
           </div>
 
           <div className={styles.content}>
-            {parseInt(tab) === 1 && <LeadersTableOne result={result} />}
-            {parseInt(tab) === 2 && <LeadersTableTwo result={result} />}
-            {parseInt(tab) === 3 && <LeadersTableThree result={result} />}
-            {parseInt(tab) === 4 && <LeadersTableFour result={result} />}
-            {parseInt(tab) === 5 && <LeadersTableFive result={result} />}
+            {tab === 1 && <LeadersTableOne result={result} />}
+            {tab === 2 && <LeadersTableTwo result={result} />}
+            {tab === 3 && <LeadersTableThree result={result} />}
+            {tab === 4 && <LeadersTableFour result={result} />}
+            {tab === 5 && <LeadersTableFive result={result} />}
           </div>
         </div>
       </div>

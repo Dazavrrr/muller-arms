@@ -1,11 +1,11 @@
 'use client'
-import LeadersTableRifle from '@/components/LeadersTableRifle'
+import LeadersTablePistol from '@/components/LeadersTablePistol'
 import '@/styles/global.module.scss'
 
 export default function LeadersTableRiflePage() {
   return (
     <>
-      <LeadersTableRifle />
+      <LeadersTablePistol />
     </>
   )
 }

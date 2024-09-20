@@ -1,0 +1,140 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  @include center-flex();
+  @include size(100%, auto);
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 120px;
+  padding: 0 60px;
+
+  @media (max-width: 1024px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+
+  @media (max-width: 490px) {
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1176px;
+    width: 100%;
+
+    @media (max-width: 490px) {
+      gap: 30px;
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    overflow: scroll;
+    text-wrap: nowrap;
+  }
+
+  .nav_prev {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  .nav_current {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .exercises {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @media (max-width: 490px) {
+      gap: 24px;
+    }
+  }
+
+  .title {
+    color: #333;
+    font-family: var(--font-DuskDemon), sans-serif;
+    font-size: 45px;
+    line-height: 110%;
+
+    @media (max-width: 490px) {
+      font-size: 28px;
+    }
+  }
+
+  .exercises_wrapper {
+    display: flex;
+    gap: 58px;
+  }
+
+  .exercises_subtitle {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .exercise_items {
+    display: flex;
+    gap: 37px;
+
+    @media (max-width: 690px) {
+      flex-direction: column;
+    }
+
+    @media (max-width: 490px) {
+      gap: 20px;
+    }
+  }
+
+  .exercise_item {
+    color: #a3978d;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  .exercise_item.active {
+    color: #333;
+    border-bottom: 2px solid #333;
+  }
+
+  .bg_bottom {
+    @include size(100%, auto);
+    position: absolute;
+    bottom: -130px;
+    left: 0;
+
+    @media (max-width: 490px) {
+      bottom: -70px;
+    }
+  }
+}

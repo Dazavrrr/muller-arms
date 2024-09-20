@@ -1,5 +1,6 @@
 //libs
 import Image from 'next/image'
+import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //images
@@ -106,9 +107,9 @@ const GunExercises = () => {
           </div>
         </div>
 
-        <button className={styles.complete_table}>
+        <Link href="/leaders-table-pistol" className={styles.complete_table}>
           ПЕРЕГЛЯНУТИ ВСЮ ТАБЛИЦЮ
-        </button>
+        </Link>
 
         <Image className={styles.bg_top} src={bgTop} alt="MullerArms" />
       </div>
