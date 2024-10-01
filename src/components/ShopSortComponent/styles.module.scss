@@ -28,9 +28,11 @@
     gap: 12px;
     text-wrap: nowrap;
     overflow: auto;
+
     &::-webkit-scrollbar {
       display: none;
     }
+
     @media (max-width: 550px) {
       flex-direction: row;
     }
@@ -41,11 +43,15 @@
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
-
+    cursor: pointer;
     width: fit-content;
 
     @media (max-width: 704px) {
       font-size: 12px;
     }
+  }
+  .sort_value_active{
+    color: #333;
+    font-weight: 600;
   }
 }

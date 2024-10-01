@@ -72,7 +72,9 @@ const ShopPage = () => {
         <h2 className={styles.title}>Товари</h2>
         <Link href={'shop/new'} className={global.primaryBtn}>Додати новий</Link>
         <div className={styles.shopItems}>
-          {items.map(i => (
+          {
+            //@ts-ignore
+            items.map(i => (
             <ShopItemCard item={i} key={i.id} isAdmin={true}/>
           ))}
         </div>

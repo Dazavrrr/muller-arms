@@ -16,7 +16,7 @@ import {
   fetchDocsByTypes,
   fetchSearchDocs,
   handleCategories,
-  handleCheckbox,
+  handleCheckbox, handleSearch,
 } from '@/store/slices/Library.slice'
 
 const LibraryComponent = () => {
@@ -71,7 +71,7 @@ const LibraryComponent = () => {
 
         <div className={styles.library_content}>
           <div className={styles.library_filter}>
-            <SearchComponent />
+            <SearchComponent value={searchValue} action={handleSearch} />
 
             <LibSortComponent sort={sort} setSort={setSort} />
 

@@ -19,7 +19,7 @@ const ShopItemComponent = ({ item }: { item: ShopItemResponseDto }) => {
         <div className={styles.line}></div>
 
         <div className={styles.price_wrapper}>
-          <p className={styles.price}>₴300.00</p>
+          <p className={styles.price}>₴{item.price}</p>
           <Link href={`/shop/${item.slug}`} className={styles.buy_btn}>
             купити
           </Link>

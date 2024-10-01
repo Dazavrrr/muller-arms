@@ -34,10 +34,24 @@
   .content {
     display: flex;
     gap: 64px;
+    position: relative;
 
     @media (max-width: 768px) {
       flex-direction: column;
     }
+  }
+
+  .filters__wrapper {
+    position: relative;
+    display: flex;
+    gap: 50px;
+  }
+
+  .updateBtn {
+    height: fit-content;
+    position: fixed;
+    top: 25%;
+    left: 55px;
   }
 
   .filter {

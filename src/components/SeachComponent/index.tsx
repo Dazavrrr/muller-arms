@@ -8,8 +8,7 @@ import styles from './styles.module.scss'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { handleSearch } from '@/store/slices/Library.slice'
 
-const SearchComponent = () => {
-  const searchValue = useAppSelector((state) => state.Library.searchValue)
+const SearchComponent = ({value,action}:{value: string,action: any}) => {
   const dispatch = useAppDispatch()
 
   return (
@@ -19,8 +18,8 @@ const SearchComponent = () => {
       <div className={styles.search_input}>
         <SearchIcon />
         <input
-          value={searchValue}
-          onChange={(e) => dispatch(handleSearch(e.target.value))}
+          value={value}
+          onChange={(e) => dispatch(action(e.target.value))}
           className={styles.search_field}
           type="search"
           placeholder="Пошук"

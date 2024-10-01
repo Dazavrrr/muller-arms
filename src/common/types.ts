@@ -266,6 +266,11 @@ export type ShopCategoryResponseDto = {
   categorySection: string,
 }
 
+export type GroupedCategory = {
+  categorySection: string;
+  categories: Array<{ id: number; name: string }>;
+};
+
 export type ShopCategoryCreateDto = {
   name: string,
   categorySection: string,

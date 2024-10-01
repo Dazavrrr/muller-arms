@@ -299,7 +299,11 @@
 }
 
 .shopItems {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
   margin-top: 25px;
+  margin-bottom: 50px;
 }
 
 .sizes {
