@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 import global from '@/styles/global.module.scss'
 
 import image from '../../../public/images/archive-card-image.webp'
+import CloseIcon from '../Icons/CloseIcon'
 
 const MainModal = () => {
   const [open, setOpen] = useState(false)
@@ -28,14 +29,14 @@ const MainModal = () => {
         <>
           <div className={styles.container}></div>
           <div className={styles.modal}>
-            <span
+            <div
               onClick={() => {
                 setOpen(false)
               }}
               className={styles.close}
             >
-              X
-            </span>
+              <CloseIcon />
+            </div>
 
             <Image
               className={styles.image}
