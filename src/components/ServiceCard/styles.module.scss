@@ -1,0 +1,132 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.services_cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @media (max-width: 1295px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services_card {
+  max-width: 279px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+
+  @media (max-width: 1295px) {
+    @include size(100%, 100%);
+  }
+}
+
+.services_photo {
+  width: 100%;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
+}
+
+.services_image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 316px;
+  border-radius: 5px;
+
+  @media (max-width: 1295px) {
+    @include size(100%, 100%);
+  }
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
+
+  @media (max-width: 479px) {
+    height: 75vw;
+  }
+}
+
+.services_info {
+  gap: 16px;
+  flex-direction: column;
+  display: flex;
+
+  @media (max-width: 479px) {
+    grid-row-gap: 6vw;
+  }
+}
+
+.services_infoTitle {
+  font-size: 24px;
+  line-height: 110%;
+  font-family: var(--font-DuskDemon);
+  color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 28px;
+  }
+}
+
+.services_infoDesc {
+  color: #a3978d;
+  font-weight: 500;
+  line-height: 160%;
+}
+
+.services_infoPrice {
+  @include center-flex();
+  justify-content: space-between;
+  font-family: var(--font-Montserrat);
+  font-weight: 600;
+  line-height: 130%;
+  font-size: 20px;
+  color: #a3978d;
+
+  @media (max-width: 479px) {
+    font-size: 3.5vw;
+  }
+}
+
+.services_infoPriceOrange {
+  color: $yellow-btn;
+}
+
+.services_infoBtn {
+  @include center-flex();
+  @include size(100%, 45px);
+  background-color: #fec401;
+  border-radius: 5px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #420000;
+  line-height: 110%;
+
+  &:hover {
+    background-color: #ffd135;
+  }
+
+  @media (max-width: 768px) {
+    @include size(100%, 60px);
+  }
+
+  @media (max-width: 479px) {
+    height: 15vw;
+    font-size: 4vw;
+  }
+}

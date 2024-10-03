@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost','51.20.66.47']
+    domains: ['localhost','51.20.66.47', 'encrypted-tbn0.gstatic.com', 'ibb.co']
   },
   reactStrictMode: true,
   swcMinify: true,

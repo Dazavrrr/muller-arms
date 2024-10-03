@@ -1,0 +1,63 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.sort {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  //width: fit-content;
+
+  @media (max-width: 704px) {
+    gap: 12px;
+  }
+
+
+  &_title {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    @media (max-width: 704px) {
+      font-size: 16px;
+    }
+  }
+
+  &_by {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-wrap: nowrap;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @media (max-width: 550px) {
+      flex-direction: row;
+    }
+  }
+
+  &_value.sort_value_active {
+    color: #333;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid #333;
+  }
+
+  &_value {
+    color: #a3978d;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+
+    width: fit-content;
+
+    @media (max-width: 704px) {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  @include center-flex();
+  @include size(100%, auto);
+  margin-top: 50px;
+  margin-bottom: 120px;
+  padding: 0 60px;
+
+  @media (max-width: 1024px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+
+  .wrapper {
+    max-width: 1176px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .title {
+    color: #333;
+    font-family: var(--font-DuskDemon), sans-serif;
+    font-size: 45px;
+    line-height: 110%;
+  }
+
+  .content {
+    display: flex;
+    gap: 64px;
+    position: relative;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .filters__wrapper {
+    position: relative;
+    display: flex;
+    gap: 50px;
+  }
+
+  .updateBtn {
+    height: fit-content;
+    position: fixed;
+    top: 25%;
+    left: 55px;
+  }
+
+  .filter {
+    max-width: 240px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

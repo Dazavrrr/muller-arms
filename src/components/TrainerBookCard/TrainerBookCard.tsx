@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { BookingCreateRequest, TrainerResponse } from '@/common/types'
 import moment, { Moment } from 'moment'
-import { UseFormRegister,  UseFormSetValue, UseFormWatch } from 'react-hook-form'
+import { UseFormRegister, UseFormSetValue, UseFormWatch } from 'react-hook-form'
 import { Dispatch, FC, SetStateAction } from 'react'
 //styles
 import styles from './styles.module.scss'
@@ -18,21 +18,22 @@ interface Props {
   setSelectedDate: Dispatch<SetStateAction<Moment>>
 }
 
-const TrainerBookCard: FC<Props> = ({ trainer, register, setValue, watch,setSelectedDate }) => {
+const TrainerBookCard: FC<Props> = ({ trainer, register, setValue, watch, setSelectedDate }) => {
 
   const handleTrainerChange = () => {
-    if (watch('trainerId') != trainer.id){
-      setValue('trainerId', trainer.id);
+    if (watch('trainerId') != trainer.id) {
+      setValue('trainerId', trainer.id)
       setTimeout(() => {
-        setValue('timeslotId', null);
-      },0)
+        setValue('timeslotId', null)
+      }, 0)
     }
   }
 
   return (
     <div className={styles.container}>
       <div className={styles.image} onClick={handleTrainerChange}>
-        <Image width={196} height={392} src={window.innerWidth > 760 ? trainer.tallImage : trainer.wideImage} alt={`${trainer.firstName} ${trainer.lastName}`} />
+        <Image width={196} height={392} src={window.innerWidth > 760 ? trainer.tallImage : trainer.wideImage}
+               alt={`${trainer.firstName} ${trainer.lastName}`} />
       </div>
       <div className={styles.info}>
         <div onClick={handleTrainerChange}>
@@ -57,35 +58,35 @@ const TrainerBookCard: FC<Props> = ({ trainer, register, setValue, watch,setSele
         <div className={styles.close_dates}>
           <p>Найближчий час для запису:</p>
 
-            {!!trainer.upcomingTimeSlots.length ?
-              <>
-                <p>{moment(trainer.upcomingTimeSlots[0].dateTime).locale('uk')
-                  .format('DD MMMM YYYY').toUpperCase()}</p>
-                <div className={styles.slot_list}>
-                  {trainer.upcomingTimeSlots.map((t,i) => (
-                    <div key={t.id} className={styles.timeSlot_container}
-                         onClick={() => {
-                           setTimeout(() => {
-                             setValue('trainerId', trainer.id);
-                             setSelectedDate(moment(t.dateTime));
-                             if (trainer.upcomingTimeSlots.length - i < watch('totalHours')) {
-                               setValue('totalHours', trainer.upcomingTimeSlots.length - i)
-                             }
-                           }, 0)
-                         }}>
-                      <input type="radio" value={t.id} id={`slot_${t.id}`}
-                             {...register('timeslotId', { required: true })} />
-                      <label htmlFor={`slot_${t.id}`}
-                             className={`${styles.timeSlot} ${watch('timeslotId') == t.id && styles.timeSlot_active}`}>
-                        {moment(t.dateTime).format('HH:mm')}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-              </>
-              :
-              <p>Вільних місць немає</p>
-            }
+          {!!trainer.upcomingTimeSlots.length ?
+            <>
+              <p>{moment(trainer.upcomingTimeSlots[0].dateTime).locale('uk')
+                .format('DD MMMM YYYY').toUpperCase()}</p>
+              <div className={styles.slot_list}>
+                {trainer.upcomingTimeSlots.map((t, i) => (
+                  <div key={t.id} className={styles.timeSlot_container}
+                       onClick={() => {
+                         setTimeout(() => {
+                           setValue('trainerId', trainer.id)
+                           setSelectedDate(moment(t.dateTime))
+                           if (trainer.upcomingTimeSlots.length - i < watch('totalHours')) {
+                             setValue('totalHours', trainer.upcomingTimeSlots.length - i)
+                           }
+                         }, 0)
+                       }}>
+                    <input type="radio" value={t.id} id={`slot_${t.id}`}
+                           {...register('timeslotId', { required: true })} />
+                    <label htmlFor={`slot_${t.id}`}
+                           className={`${styles.timeSlot} ${watch('timeslotId') == t.id && styles.timeSlot_active}`}>
+                      {moment(t.dateTime).format('HH:mm')}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </>
+            :
+            <p>Вільних місць немає</p>
+          }
 
 
         </div>

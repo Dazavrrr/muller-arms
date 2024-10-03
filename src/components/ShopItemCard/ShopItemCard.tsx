@@ -14,7 +14,7 @@ const ShopItemCard = ({item,isAdmin} : {item: ShopItemResponseDto, isAdmin: bool
       <p className={styles.id}>код товару: {item.id}</p>
       <div className={styles.footer}>
         <span className={styles.price}>₴{item.price.toFixed(2)}</span>
-        {isAdmin ? <Link className={styles.btn} href={`/admin/shop/${item.id}`}>Редагувати</Link> : <Link href={'/'} className={styles.btn} >Купити</Link> }
+        {isAdmin ? <Link className={styles.btn} href={`/admin/shop/${item.slug}`}>Редагувати</Link> : <Link href={'/'} className={styles.btn} >Купити</Link> }
       </div>
     </div>
   )

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import styles from './styles.module.scss'
 //images
 import photos from '../../../public/images/about/about-photos.webp'
+import Link from 'next/link'
 
 
 const About = () => {
@@ -36,7 +37,7 @@ const About = () => {
             ВСІМ НАМ ЗНАДОБЛЯТЬСЯ У ЖИТТІ.</p>
           <p>НЕЗАЛЕЖНО ВІД ВАШОГО РІВНЯ ВПРАВНОСТІ, НАШІ ТРЕНЕРИ ГОТОВІ ДОПОМОГТИ ВАМ ВДОСКОНАЛЮВАТИ ТЕХНІКУ ТА
             НАВИЧКИ.</p>
-          <a className={styles.about_btn} href="">ЗАПИСАТИСЬ ДО ІНСТРУКТОРА</a>
+          <Link className={styles.about_btn} href="/booking">ЗАПИСАТИСЬ ДО ІНСТРУКТОРА</Link>
         </div>
 
         <div className={styles.about_photos}>

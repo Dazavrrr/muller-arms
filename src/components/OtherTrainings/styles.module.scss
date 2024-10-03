@@ -1,0 +1,30 @@
+@import '@/styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.otherTrainings {
+  @include center-flex();
+  @include size(100%, auto);
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 120px;
+
+  &_wrapper {
+    max-width: 1176px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_title {
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+    color: #333;
+    text-align: center;
+  }
+
+  &_cards {
+    display: flex;
+    gap: 23px;
+  }
+}

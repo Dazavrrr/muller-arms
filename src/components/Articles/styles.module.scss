@@ -1,0 +1,44 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.articles {
+  @include size(100%, auto);
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1176px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 52px;
+  }
+
+  &_title {
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+    text-align: start;
+  }
+}
+
+.first_wrapper {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.small_articles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.second_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 50px;
+  column-gap: 20px;
+}

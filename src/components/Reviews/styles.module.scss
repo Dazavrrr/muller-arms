@@ -2,7 +2,7 @@
 @import '../../styles/utils/_mixins.scss';
 
 .reviews {
-  @include center-flex();
+  //@include center-flex();
   @include size(100%, auto);
   flex-direction: column;
 
@@ -12,6 +12,11 @@
   margin-top: -2px;
   padding-top: 80px;
   padding-bottom: 160px;
+
+  @media (max-width: 425px) {
+    padding-top: 41px;
+    padding-bottom: 60px;
+  }
 
   &_bg_top {
     width: 100%;
@@ -28,6 +33,10 @@
     font-family: var(--font-DuskDemon);
     font-size: 45px;
     line-height: 110%;
+
+    @media (max-width: 425px) {
+      font-size: 28px;
+    }
   }
 
   &_title_container {
@@ -35,17 +44,33 @@
     width: 100%;
     max-width: 1176px;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
+
+    @media (max-width: 425px) {
+      margin: 0 auto 20px;
+    }
   }
 
   &_arrows {
     display: flex;
     gap: 14px;
+
+    & > div {
+      cursor: pointer;
+    }
+
+    @media (max-width: 550px) {
+      display: none;
+    }
   }
 
   &_cards {
     display: flex;
     gap: 30px;
+
+    @media (max-width: 550px) {
+      gap: 16px;
+    }
   }
 
   &_card {
@@ -54,6 +79,10 @@
 
     border-radius: 5px;
     padding: 20px;
+
+    @media (max-width: 550px) {
+      @include size(228px, 294px);
+    }
   }
 
   &_text {
@@ -64,6 +93,10 @@
     line-height: 160%;
     text-transform: uppercase;
     margin-bottom: 30px;
+
+    @media (max-width: 550px) {
+      font-size: 12px;
+    }
   }
 
   &_name {
@@ -73,6 +106,10 @@
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
+
+    @media (max-width: 550px) {
+      font-size: 12px;
+    }
   }
 
   &_bottom_bg {
@@ -83,4 +120,8 @@
     left: 0;
     bottom: 0;
   }
+}
+.swiper_container {
+  max-width: 1176px;
+  margin: 0 auto;
 }

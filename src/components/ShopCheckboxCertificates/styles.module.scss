@@ -1,0 +1,42 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 704px) {
+    gap: 12px;
+  }
+
+  .title {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    @media (max-width: 704px) {
+      font-size: 16px;
+    }
+  }
+
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+}

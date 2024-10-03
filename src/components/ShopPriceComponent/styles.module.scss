@@ -1,0 +1,59 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .title {
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  .price {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .price__label{
+
+    position: relative;
+
+    span{
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #868686;
+      font-family: var(--font-Montserrat), sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 160%;
+      text-transform: uppercase;
+    }
+  }
+
+
+  .price_wrapper {
+    width: 118px;
+    padding: 8px 10px;
+
+    border-radius: 10px;
+    border: 1px solid #333;
+
+    text-align: right;
+    color: #333;
+    font-family: var(--font-Montserrat), sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+
+  }
+
+}

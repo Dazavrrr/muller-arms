@@ -10,12 +10,13 @@ import Logo3 from './logos/logo-3'
 const Partners = () => {
   return <section className={styles.partners}>
     <h3 className={styles.partners_title}>Наші основні партнери</h3>
-    <div className={styles.partners_logos}>
-      <Logo1 />
-      <Logo2 />
-      <Logo3 />
-      <Logo2 />
-      <Logo1 />
+    <div className={styles.logos_wrapper}>
+      <div className={styles.partners_logos}>
+        <Logo1 />
+        <Logo2 />
+        <Logo3 />
+        <Logo2 />
+      </div>
     </div>
   </section>
 }

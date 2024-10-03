@@ -1,0 +1,174 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.certificates {
+  @include center-flex();
+  @include size(100%, auto);
+  background-color: #f3ede9;
+  padding-top: 120px;
+  padding-bottom: 219px;
+  position: relative;
+
+  @media (max-width: 479px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1176px;
+    margin: 0 auto;
+    gap: 120px;
+
+    @media (max-width: 479px) {
+      gap: 60px;
+    }
+  }
+
+  &_optionsBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @media (max-width: 479px) {
+      gap: 24px;
+    }
+  }
+
+  &_videoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @media (max-width: 479px) {
+      gap: 24px;
+    }
+  }
+
+  &_title {
+    text-align: center;
+    color: #333;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+
+    @media (max-width: 479px) {
+      font-size: 28px;
+      text-align: start;
+    }
+  }
+
+  &_text {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 179px;
+
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+
+    @media (max-width: 854px) {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  &_cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @media (max-width: 854px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &_card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (max-width: 854px) {
+      width: 100%;
+    }
+  }
+
+  &_card_info {
+    display: flex;
+    padding: 52px 30px 21px 30px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    border-radius: 5px;
+    background: #333;
+  }
+
+  &_card_name {
+    color: #fec401;
+    font-family: var(--font-DuskDemon);
+    font-size: 45px;
+    line-height: 110%;
+    text-align: center;
+  }
+
+  &_card_price {
+    color: #fec401;
+    text-align: center;
+    font-weight: 500;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  &_card_btn {
+    display: flex;
+    padding: 15px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 5px;
+    background-color: #fec401;
+    color: #420000;
+    font-weight: 500;
+    line-height: 110%;
+
+    &:hover {
+      background-color: #ffd135;
+    }
+  }
+
+  &_video {
+    max-width: 1176px;
+    height: 583px;
+    border-radius: 5px;
+
+    @media (max-width: 479px) {
+      height: 211px;
+    }
+  }
+
+  &_top_bg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &_bottom_bg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}

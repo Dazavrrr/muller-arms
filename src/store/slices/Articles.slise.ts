@@ -1,4 +1,10 @@
-import { ArticleCreateRequest, ArticleResponse, FetchStatus } from '@/common/types'
+import {
+  ArticleCreateRequest,
+  ArticleResponse,
+  ArticleSmallResponse,
+  FetchStatus,
+  PageWrapper,
+} from '@/common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { adminInstance, guestInstance } from '@/api'
 
@@ -6,22 +12,22 @@ import { toast } from 'react-toastify'
 import { createSection, updateSection } from '@/store/slices/Sections.slise'
 
 const initialState: {
-  articles: ArticleResponse[],
-  news: ArticleResponse[],
-  announcements: ArticleResponse[],
-  archives: ArticleResponse[],
-  currentArticle: ArticleResponse | null,
-  articlesFetchStatus: FetchStatus,
-  oneArticleFetchStatus: FetchStatus,
-  articleCreateStatus: FetchStatus,
-  articleUpdateStatus: FetchStatus,
-  articleDeleteStatus: FetchStatus,
-  updatedSectionIndex: number | null,
+  articles: PageWrapper<ArticleSmallResponse> | null
+  news: PageWrapper<ArticleSmallResponse> | null
+  announcements: PageWrapper<ArticleSmallResponse> | null
+  archives: PageWrapper<ArticleSmallResponse> | null
+  currentArticle: ArticleResponse | null
+  articlesFetchStatus: FetchStatus
+  oneArticleFetchStatus: FetchStatus
+  articleCreateStatus: FetchStatus
+  articleUpdateStatus: FetchStatus
+  articleDeleteStatus: FetchStatus
+  updatedSectionIndex: number | null
 } = {
-  articles: [],
-  news: [],
-  announcements: [],
-  archives: [],
+  articles: null,
+  news: null,
+  announcements: null,
+  archives: null,
   currentArticle: null,
   articlesFetchStatus: 'idle',
   oneArticleFetchStatus: 'idle',
@@ -31,37 +37,42 @@ const initialState: {
   updatedSectionIndex: null,
 }
 
-
 export const fetchAllArticles = createAsyncThunk(
   'articles/fetchAllArticles',
   async (page: number) => {
     const response = await guestInstance.get(`/articles?page=${page}&size=9`)
     return await response.data
-  },
+  }
 )
 
 export const fetchAllNews = createAsyncThunk(
   'articles/fetchAllNews',
   async (page: number) => {
-    const response = await guestInstance.get(`/articles/news?page=${page}&size=9`)
+    const response = await guestInstance.get(
+      `/articles/news?page=${page}&size=9`
+    )
     return await response.data
-  },
+  }
 )
 
 export const fetchAllAnnouncements = createAsyncThunk(
   'articles/fetchAllAnnouncements',
   async (page: number) => {
-    const response = await guestInstance.get(`/articles/events?page=${page}&size=9`)
+    const response = await guestInstance.get(
+      `/articles/events?page=${page}&size=9`
+    )
     return await response.data
-  },
+  }
 )
 
 export const fetchAllArchives = createAsyncThunk(
   'articles/fetchAllArchives',
   async (page: number) => {
-    const response = await guestInstance.get(`/articles/archive?page=${page}&size=9`)
+    const response = await guestInstance.get(
+      `/articles/archive?page=${page}&size=9`
+    )
     return await response.data
-  },
+  }
 )
 
 export const fetchOneArticle = createAsyncThunk(
@@ -69,7 +80,7 @@ export const fetchOneArticle = createAsyncThunk(
   async (id: number) => {
     const response = await guestInstance.get(`/articles/${id}`)
     return await response.data
-  },
+  }
 )
 
 export const fetchOneArticleBySlug = createAsyncThunk(
@@ -77,7 +88,7 @@ export const fetchOneArticleBySlug = createAsyncThunk(
   async (slug: string) => {
     const response = await guestInstance.get(`/articles/slug/${slug}`)
     return await response.data
-  },
+  }
 )
 
 export const createArticle = createAsyncThunk(
@@ -89,67 +100,61 @@ export const createArticle = createAsyncThunk(
         {
           pending: 'Запит в обробці...',
           success: 'Статтю створено !',
-        },
+        }
       )
       return response.data
     } catch (e: any) {
-      return await toast.promise(
-        Promise.reject(e),
-        {
-          error: `Сталася помилка... ${JSON.stringify(e.response.data).toString()}`,
-        },
-      )
+      return await toast.promise(Promise.reject(e), {
+        error: `Сталася помилка... ${JSON.stringify(
+          e.response.data
+        ).toString()}`,
+      })
     }
-  },
+  }
 )
 
 export const updateArticle = createAsyncThunk(
   'article/updateArticle',
-  async ({ id, article }: { id: number, article: Partial<ArticleCreateRequest> }) => {
+  async ({
+    id,
+    article,
+  }: {
+    id: number
+    article: Partial<ArticleCreateRequest>
+  }) => {
     try {
       const response = await toast.promise(
         adminInstance.patch(`/articles/${id}`, JSON.stringify(article)),
         {
           pending: 'Запит в обробці...',
           success: 'Статтю оновлено !',
-        },
+        }
       )
       return response.data
     } catch (e: any) {
-      return await toast.promise(
-        Promise.reject(e),
-        {
-          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
-        },
-      )
+      return await toast.promise(Promise.reject(e), {
+        error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+      })
     }
-  },
+  }
 )
 
 export const deleteArticle = createAsyncThunk(
   'article/deleteArticle',
   async (id: number) => {
     try {
-      await toast.promise(
-        adminInstance.delete(`/articles/${id}`),
-        {
-          pending: 'Запит в обробці...',
-          success: 'Статтю видалено !',
-        },
-      )
+      await toast.promise(adminInstance.delete(`/articles/${id}`), {
+        pending: 'Запит в обробці...',
+        success: 'Статтю видалено !',
+      })
       return id
     } catch (e: any) {
-      return await toast.promise(
-        Promise.reject(e),
-        {
-          error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
-        },
-      )
+      return await toast.promise(Promise.reject(e), {
+        error: `Сталася помилка... ${JSON.stringify(e.response.data)}`,
+      })
     }
-
-  },
+  }
 )
-
 
 const ArticlesSlice = createSlice({
   name: 'articles',
@@ -171,38 +176,22 @@ const ArticlesSlice = createSlice({
       .addCase(fetchAllArticles.fulfilled, (state, { payload }) => {
         state.articlesFetchStatus = 'idle'
         const set = new Set()
-        state.articles = [...state.articles, ...payload].filter(el => {
-          const duplicate = set.has(el.id)
-          set.add(el.id)
-          return !duplicate
-        })
+        state.articles = payload
       })
       .addCase(fetchAllArticles.rejected, (state) => {
         state.articlesFetchStatus = 'error'
       })
       .addCase(fetchAllNews.fulfilled, (state, { payload }) => {
         const set = new Set()
-        state.news = [...state.news, ...payload].filter(el => {
-          const duplicate = set.has(el.id)
-          set.add(el.id)
-          return !duplicate
-        })
+        state.news = payload
       })
       .addCase(fetchAllAnnouncements.fulfilled, (state, { payload }) => {
         const set = new Set()
-        state.announcements = [...state.announcements, ...payload].filter(el => {
-          const duplicate = set.has(el.id)
-          set.add(el.id)
-          return !duplicate
-        })
+        state.announcements = payload
       })
       .addCase(fetchAllArchives.fulfilled, (state, { payload }) => {
         const set = new Set()
-        state.archives = [...state.archives, ...payload].filter(el => {
-          const duplicate = set.has(el.id)
-          set.add(el.id)
-          return !duplicate
-        })
+        state.archives = payload
       })
       //One article
       .addCase(fetchOneArticle.pending, (state) => {
@@ -215,25 +204,43 @@ const ArticlesSlice = createSlice({
       .addCase(fetchOneArticle.rejected, (state) => {
         state.oneArticleFetchStatus = 'error'
       })
+      .addCase(fetchOneArticleBySlug.pending, (state) => {
+        state.oneArticleFetchStatus = 'pending'
+      })
+      .addCase(fetchOneArticleBySlug.fulfilled, (state, { payload }) => {
+        state.oneArticleFetchStatus = 'idle'
+        state.currentArticle = payload
+      })
+      .addCase(fetchOneArticleBySlug.rejected, (state) => {
+        state.oneArticleFetchStatus = 'error'
+      })
       //Create article
       .addCase(createArticle.pending, (state) => {
         state.articleCreateStatus = 'pending'
       })
       .addCase(createArticle.fulfilled, (state, { payload }) => {
-        state.articleCreateStatus = 'idle';
-        if (payload.isNews){
-          state.news = [...state.news, payload];
-          return;
+        state.articleCreateStatus = 'idle'
+        if (
+          !state.news ||
+          !state.announcements ||
+          !state.archives ||
+          !state.articles
+        ) {
+          return
         }
-        if (payload.eventAddress != null){
-          state.announcements = [...state.announcements, payload];
-          return;
+        if (payload.isNews) {
+          state.news.items = [...state.news.items, payload]
+          return
         }
-        if (payload.isArchive){
-          state.archives = [...state.archives, payload];
-          return;
+        if (payload.eventAddress != null) {
+          state.announcements.items = [...state.announcements.items, payload]
+          return
         }
-        state.articles = [...state.articles, payload];
+        if (payload.isArchive) {
+          state.archives.items = [...state.archives.items, payload]
+          return
+        }
+        state.articles.items = [...state.articles.items, payload]
       })
       .addCase(createArticle.rejected, (state) => {
         state.articleCreateStatus = 'error'
@@ -243,8 +250,11 @@ const ArticlesSlice = createSlice({
         state.articleUpdateStatus = 'pending'
       })
       .addCase(updateArticle.fulfilled, (state, { payload }) => {
+        if (!state.articles) {
+          return
+        }
         state.articleUpdateStatus = 'idle'
-        state.articles = state.articles.map(t => {
+        state.articles.items = state.articles.items.map((t) => {
           if (t.id === payload.id) {
             return payload
           }
@@ -260,21 +270,28 @@ const ArticlesSlice = createSlice({
         state.articleDeleteStatus = 'pending'
       })
       .addCase(deleteArticle.fulfilled, (state, { payload }) => {
+        if (!state.articles) {
+          return
+        }
         state.articleDeleteStatus = 'idle'
-        state.articles = state.articles.filter(t => t.id != payload)
+        state.articles.items = state.articles.items.filter(
+          (t) => t.id != payload
+        )
       })
       .addCase(deleteArticle.rejected, (state) => {
         state.articleDeleteStatus = 'error'
       })
       .addCase(createSection.fulfilled, (state, { payload }) => {
         if (state.currentArticle && state.updatedSectionIndex) {
-          state.currentArticle.sections = state.currentArticle.sections.map((s, i) => {
-            if (i == state.updatedSectionIndex) {
-              return payload
+          state.currentArticle.sections = state.currentArticle.sections.map(
+            (s, i) => {
+              if (i == state.updatedSectionIndex) {
+                return payload
+              }
+              return s
             }
-            return s;
-          });
-          state.updatedSectionIndex = null;
+          )
+          state.updatedSectionIndex = null
         }
       })
   },

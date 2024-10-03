@@ -15,6 +15,12 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export type FetchStatus = 'pending' | 'idle' | 'error';
 
+export type PageWrapper<T> = {
+  items: T[],
+  allItemsCount: number,
+  hasNext: boolean
+}
+
 export type TrainerResponse = {
   id: number,
   firstName: string,
@@ -36,7 +42,8 @@ export type TrainingResponse = {
   isFlexible: boolean,
   description: string,
   shortDescription: string,
-  image: string
+  image: string,
+  slug: string,
 }
 
 export type TimeSlotResponse = {
@@ -259,6 +266,11 @@ export type ShopCategoryResponseDto = {
   categorySection: string,
 }
 
+export type GroupedCategory = {
+  categorySection: string;
+  categories: Array<{ id: number; name: string }>;
+};
+
 export type ShopCategoryCreateDto = {
   name: string,
   categorySection: string,
@@ -267,6 +279,7 @@ export type ShopCategoryCreateDto = {
 export type ShopItemCreateDto = {
   name: string,
   slug: string,
+  description: string,
   sizes: string[],
   base64Images: string[],
   price:  number,
@@ -278,6 +291,7 @@ export type ShopItemResponseDto = {
    id: number,
    name: string,
    slug: string,
+   description: string,
    images: string[],
    sizes: string[],
   categoryIds: number[]
