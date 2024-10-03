@@ -8,6 +8,7 @@ import img1 from '../../../public/images/qualifications/basic-exercises-1.webp'
 import img2 from '../../../public/images/qualifications/basic-exercises-2.webp'
 import bgTop from '../../../public/images/qualifications/basic-exercises-bg-top.webp'
 import bgBottom from '../../../public/images/qualifications/basic-exercises-bg-bottom.webp'
+import Link from 'next/link'
 
 const BasicExercises = () => {
   return (
@@ -29,9 +30,9 @@ const BasicExercises = () => {
                 РЕЗУЛЬТАТ ЗАПИСУЄТЬСЯ В ТАБЛИЦЮ
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href={"/exercises"} className={styles.button} type="button">
               ДЕТАЛЬНІШЕ
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <Image className={styles.image} src={img2} alt="MullerArms" />
@@ -43,9 +44,9 @@ const BasicExercises = () => {
                 РЕЗУЛЬТАТ ЗАПИСУЄТЬСЯ В ТАБЛИЦЮ
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href={"/exercises"} className={styles.button} type="button">
               ДЕТАЛЬНІШЕ
-            </button>
+            </Link>
           </div>
         </div>
 

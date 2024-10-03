@@ -1,5 +1,6 @@
 //libs
 import Image from 'next/image'
+import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //images
@@ -23,9 +24,9 @@ const GunExercises = () => {
                 балів за системою Вікерса.
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href="/leaders-table-pistol/1" className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.text_wrapper}>
@@ -39,9 +40,9 @@ const GunExercises = () => {
                 Підрахунок балів за системою Вікерса
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href="/leaders-table-pistol/2" className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.text_wrapper}>
@@ -55,9 +56,9 @@ const GunExercises = () => {
                 системою Вікерса.
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href="/leaders-table-pistol/3" className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.text_wrapper}>
@@ -72,9 +73,9 @@ const GunExercises = () => {
                 за системою Вікерса.
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href="/leaders-table-pistol/4" className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.text_wrapper}>
@@ -88,9 +89,9 @@ const GunExercises = () => {
                 системою Вікерса.
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href="/leaders-table-pistol/5" className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card_advice}>
             <div className={styles.text_wrapper}>
@@ -105,10 +106,6 @@ const GunExercises = () => {
             </button>
           </div>
         </div>
-
-        <button className={styles.complete_table}>
-          ПЕРЕГЛЯНУТИ ВСЮ ТАБЛИЦЮ
-        </button>
 
         <Image className={styles.bg_top} src={bgTop} alt="MullerArms" />
       </div>

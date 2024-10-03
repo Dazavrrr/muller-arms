@@ -132,6 +132,8 @@ button {
 main {
   min-height: 100dvh;
   position: relative;
+  display: flex;
+  flex-direction: column;
   & > section{
     padding: 0 60px;
     @media (max-width: 1024px) {

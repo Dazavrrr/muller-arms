@@ -21,9 +21,9 @@ const RifleExercises = () => {
                 балів за системою Вікерса.
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href={"/leaders-table-rifle/1"} className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.text_wrapper}>
@@ -37,9 +37,9 @@ const RifleExercises = () => {
                 Підрахунок балів за системою Вікерса
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href={"/leaders-table-rifle/2"} className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.text_wrapper}>
@@ -53,9 +53,9 @@ const RifleExercises = () => {
                 системою Вікерса.
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href={"/leaders-table-rifle/3"} className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.text_wrapper}>
@@ -70,9 +70,9 @@ const RifleExercises = () => {
                 за системою Вікерса.
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href={"/leaders-table-rifle/4"} className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card}>
             <div className={styles.text_wrapper}>
@@ -86,9 +86,9 @@ const RifleExercises = () => {
                 системою Вікерса.
               </p>
             </div>
-            <button className={styles.button} type="button">
+            <Link href={"/leaders-table-rifle/5"} className={styles.button} type="button">
               Результати
-            </button>
+            </Link>
           </div>
           <div className={styles.card_advice}>
             <div className={styles.text_wrapper}>
@@ -103,10 +103,6 @@ const RifleExercises = () => {
             </button>
           </div>
         </div>
-
-        <Link href="/leaders-table-rifle" className={styles.complete_table}>
-          ПЕРЕГЛЯНУТИ ВСЮ ТАБЛИЦЮ
-        </Link>
       </div>
     </div>
   )
