@@ -19,6 +19,7 @@ const BookingsPage = () => {
 
   useEffect(() => {
     dispatch(fetchAllBookings(0))
+    //eslint-disable-next-line
   }, [])
 
   if (bookingsFetchStatus === 'pending') {

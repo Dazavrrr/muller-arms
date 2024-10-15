@@ -6,10 +6,9 @@ import global from '@/styles/global.module.scss'
 import React, { useEffect, useState } from 'react'
 import { TableSlot, TableSlotCreateDto, TableSlotsType } from '@/common/types'
 import moment from 'moment/moment'
-import { deleteSubscription } from '@/store/slices/Notifications.slice'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import {
-  createTableSlot, createTableSlotsFromList,
+  createTableSlotsFromList,
   deleteTableSlot,
   fetchAllClassifications,
   fetchAllTableSlotsByType,
@@ -19,7 +18,6 @@ import edit from '../../../../../public/icons/edit.svg'
 import accept from '../../../../../public/icons/accept.svg'
 import reject from '../../../../../public/icons/reject.svg'
 import Image from 'next/image'
-import { guestInstance } from '@/api'
 
 
 const QualificationsPage = () => {
@@ -132,7 +130,7 @@ const QualificationsPage = () => {
               <input disabled={editRow?.id != s.id} type="text"
                      value={editRow && editRow.id == s.id ? editRow.name : s.name}
                      onChange={e => {
-                       //@ts-expect-error
+                       //@ts-ignore
                        setEditRow(prev => ({
                          ...prev,
                          name: e.target.value,
@@ -143,7 +141,7 @@ const QualificationsPage = () => {
               <input disabled={editRow?.id != s.id} type="text"
                      value={editRow && editRow.id == s.id ? editRow.finishTime : s.finishTime}
                      onChange={e => {
-                       //@ts-expect-error
+                       //@ts-ignore
                        setEditRow(prev => ({
                          ...prev,
                          finishTime: e.target.value,
@@ -157,7 +155,7 @@ const QualificationsPage = () => {
               <input disabled={editRow?.id != s.id} type="text"
                      value={editRow && editRow.id == s.id ? editRow.description : s.description}
                      onChange={e => {
-                       //@ts-expect-error
+                       //@ts-ignore
                        setEditRow(prev => ({
                          ...prev,
                          description: e.target.value,

@@ -75,12 +75,11 @@ const TimeSlotsPage = () => {
           <div className={styles.timeSlots}>
             <>
               {
-                timeslots.toSorted((a,b) => {
-                  if (a.dateTime == b.dateTime){
+                timeslots.sort((a, b) => {
+                  if (a.dateTime == b.dateTime) {
                     return 0;
-                  } else {
-                    return a.dateTime < b.dateTime ? -1 : 1;
                   }
+                  return a.dateTime < b.dateTime ? -1 : 1;
                 }).map((t) => (
                   <div key={`dateTimeSlot_${t.id}`}
                        className={`${styles.timeSlot} ${t.booked && styles.booked}`}>

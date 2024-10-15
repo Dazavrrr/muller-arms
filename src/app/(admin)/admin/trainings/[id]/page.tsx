@@ -21,7 +21,7 @@ import global from '@/styles/global.module.scss'
 import { TrainingRequest } from '@/common/types'
 import { createTrainer, deleteTrainer, updateTrainer } from '@/store/slices/TrainersAdmin.slice'
 import ImageUploader from '@/components/ImageUploader/ImageUploader'
-import { getChangedFields } from '@/utils/getChangedFields'
+import  getChangedFields  from '@/utils/getChangedFields'
 import { toast } from 'react-toastify'
 import slugify from 'slugify'
 

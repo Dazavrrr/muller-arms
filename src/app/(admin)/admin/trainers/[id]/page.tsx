@@ -23,7 +23,7 @@ import styles from './styles.module.scss'
 import global from '@/styles/global.module.scss'
 //components
 import ImageUploader from '@/components/ImageUploader/ImageUploader'
-import { getChangedFields } from '@/utils/getChangedFields'
+import getChangedFields  from '@/utils/getChangedFields'
 import { toast } from 'react-toastify'
 
 

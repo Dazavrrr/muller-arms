@@ -63,7 +63,7 @@
     display: flex;
     gap: 50px;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
 
     @media (max-width: 768px) {
       flex-direction: column;

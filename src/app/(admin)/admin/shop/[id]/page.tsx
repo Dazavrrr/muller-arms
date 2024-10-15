@@ -23,7 +23,7 @@ import trash from '../../../../../../public/icons/trash.svg'
 import { toast } from 'react-toastify'
 import { useDropzone } from 'react-dropzone'
 import slugify from 'slugify'
-import { getChangedFields } from '@/utils/getChangedFields'
+import getChangedFields  from '@/utils/getChangedFields'
 
 const Page = ({ params }: { params: { id: string } }) => {
   const id = params.id
@@ -193,10 +193,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                 </svg>
               </label>
             </div>
-            <label onClick={() => {
-              console.log(watch())
-              console.log(errors)
-            }}>Сертифікат</label>
+            <label>Сертифікат</label>
           </div>
 
           <div className={global.inputField}>

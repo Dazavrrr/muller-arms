@@ -313,7 +313,7 @@ const MyComponent = () => {
         <Image src={spinner} alt={'Spinner'} className={styles.spinner} />
         :
         <form className={`${styles.main} main_wrapper`} onSubmit={handleSubmit(onSubmit)}>
-          <Image src={logo} alt={'logo'} onClick={() => console.log(watch())} />
+          <Image src={logo} alt={'logo'} />
           {step === 1 && !isSubmitted && firstStep}
           {step === 2 && !isSubmitted && secondStep}
           {isSubmitSuccessful && submitSuccessful}

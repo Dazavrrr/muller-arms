@@ -53,19 +53,19 @@ const ShopPage = () => {
         <button type={'submit'} disabled={!isValid} className={global.primaryBtn}>Додати нову</button>
       </form>
 
-      {categorySections.map(s => (
-        <>
+      {categorySections.map((s,key) => (
+        <div key={key}>
           <h2 className={styles.title}>{s}</h2>
           <div className={styles.categorySection}>
-            {categories.filter(item => item.categorySection === s).map(c => (
-              <div className={styles.timeSlot}>
+            {categories.filter(item => item.categorySection === s).map((c,i) => (
+              <div className={styles.timeSlot} key={i}>
                 <p>{c.name}</p>
                 <Image src={trash} alt={'trash'} className={styles.trashWrapper}
                 onClick={() => dispatch(deleteCategory(c.id))} />
               </div>
             ))}
           </div>
-        </>
+        </div>
       ))}
 
       <div className={styles.shopItemsWrapper}>

@@ -9,15 +9,11 @@ import global from '@/styles/global.module.scss'
 import local from './styles.module.scss'
 //redux
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { deleteCategory, fetchAllCategories, fetchAllDocs, fetchAllDocsAdmin } from '@/store/slices/Library.slice'
+import { deleteCategory, fetchAllCategories, fetchAllDocsAdmin } from '@/store/slices/Library.slice'
 //images
 import spinner from '../../../../../public/images/spinner.svg'
 import trash from '../../../../../public/icons/trash.svg'
-import moment from 'moment/moment'
-import { createTimeSlot, deleteTimeSlot } from '@/store/slices/TimeSlots.slice'
 import plus from '../../../../../public/icons/plus.svg'
-import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers'
-import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import LibCategoryForm from '@/components/LibCategoryForm/LibCategoryForm'
 import Link from 'next/link'
 import LibElement from '@/components/LibElement'
@@ -30,7 +26,6 @@ const LibraryPage = () => {
   const docsFetchStatus = useAppSelector(state => state.Library.docsFetchStatus)
   const dispatch = useAppDispatch()
   const [isModal, setIsModal] = useState<boolean>(false)
-  const [page, setPage] = useState<number>(0)
 
   useEffect(() => {
     dispatch(fetchAllCategories())
@@ -68,7 +63,7 @@ const LibraryPage = () => {
       <h2 className={styles.title}>Файли</h2>
       <div className={local.files}>
         {docs?.items.map(({ name,downloadUrl,imagePath,id }) => (
-          <Link href={`/admin/library/${id}`}>
+          <Link href={`/admin/library/${id}`} key={`link_${id}`}>
             <LibElement name={name} downloadUrl={downloadUrl} imagePath={imagePath} key={id}/>
           </Link>
         ))}

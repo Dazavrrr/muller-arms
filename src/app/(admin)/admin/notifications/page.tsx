@@ -26,6 +26,7 @@ const Notifications = () => {
   useEffect(() => {
     dispatch(fetchAllBookingRequests(page))
     dispatch(fetchAllSubscribers(page))
+    //eslint-disable-next-line
   }, [])
 
 
@@ -35,10 +36,12 @@ const Notifications = () => {
     } else {
       dispatch(fetchAllSubscribers(page))
     }
+    //eslint-disable-next-line
   }, [page])
 
   useEffect(() => {
     setPage(0)
+    //eslint-disable-next-line
   }, [tab])
 
   const data = tab === 1 ? bookingRequests : subscribers
@@ -59,7 +62,7 @@ const Notifications = () => {
       <table className={styles.table}>
         <thead>
         <tr>
-          <th className={styles.head}>Ім'я</th>
+          <th className={styles.head}>Ім`&apos;я</th>
           <th className={styles.head}>Телефон</th>
           <th className={styles.head}>Дата створення</th>
         </tr>

@@ -14,23 +14,17 @@ import { deleteBooking, fetchOneBooking, resetCurrentBooking, updateBooking } fr
 //images
 import spinner from '../../../../../../public/images/spinner.svg'
 import { fetchAllTrainings } from '@/store/slices/Trainings.slice'
-import { deleteTrainer, fetchAllTrainers } from '@/store/slices/TrainersAdmin.slice'
+import { fetchAllTrainers } from '@/store/slices/TrainersAdmin.slice'
 import {
-  createTimeSlot,
-  deleteTimeSlot,
-  fetchAllTimeSlots,
   fetchTimeSlotsForDayByTrainer,
 } from '@/store/slices/TimeSlots.slice'
 import moment from 'moment'
 import { useForm } from 'react-hook-form'
 import { BookingUpdateRequest } from '@/common/types'
 import { useRouter } from 'next/navigation'
-import { red } from '@mui/material/colors'
-import { DateCalendar, LocalizationProvider, TimePicker } from '@mui/x-date-pickers'
+import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
-import trash from '../../../../../../public/icons/trash.svg'
-import plus from '../../../../../../public/icons/plus.svg'
-import { getChangedFields } from '@/utils/getChangedFields'
+import getChangedFields  from '@/utils/getChangedFields'
 import { toast } from 'react-toastify'
 
 
@@ -65,6 +59,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     return () => {
       dispatch(resetCurrentBooking());
     }
+    //eslint-disable-next-line
   }, [])
 
   const {
@@ -72,9 +67,8 @@ const Page = ({ params }: { params: { id: string } }) => {
     setValue,
     watch,
     trigger,
-    reset,
     handleSubmit,
-    formState: { isSubmitting, isValid },
+    formState: { isValid },
   } = useForm<BookingUpdateRequest>()
   const router = useRouter()
 
@@ -101,6 +95,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         trainerId: watch('trainerId'),
       }))
     }
+    //eslint-disable-next-line
   }, [selectedDate, watch('trainerId')])
 
   const isPastTimeSlot = (time: Date) => {
@@ -154,7 +149,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       </div>
       <div className={styles.body}>
         <div className={styles.meta}>
-          <p className={styles.text} onClick={() => console.log(watch())}>
+          <p className={styles.text}>
             <span>Дата створення:</span> {moment(booking.creationDate).format('DD.MM.yyyy' +
             ' HH:mm')}</p>
           <p className={styles.text}>

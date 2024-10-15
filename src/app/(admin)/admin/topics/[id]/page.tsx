@@ -27,7 +27,7 @@ import { useDropzone } from 'react-dropzone'
 import { toast } from 'react-toastify'
 import SectionAdminCard from '@/components/SectionAdminCard/SectionAdminCard'
 import slugify from 'slugify'
-import { getChangedFields } from '@/utils/getChangedFields'
+import getChangedFields  from '@/utils/getChangedFields'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { InputMask } from '@react-input/mask'
@@ -335,10 +335,6 @@ const Page = ({ params }: { params: { id: string } }) => {
         <div className={local.right}>
           <p
             className={local.previewTitle}
-            onClick={() => {
-              console.log(watch())
-              console.log(dirtyFields)
-            }}
           >
             Головна картинка
           </p>

@@ -4,11 +4,9 @@
 import styles from '../styles.module.scss'
 import global from '@/styles/global.module.scss'
 import fStyles from '../../styles.module.scss'
-import bStyles from '@/app/(booking)/booking/styles.module.scss'
 import { useForm } from 'react-hook-form'
-import { BookingUpdateRequest, LibDocCreateDto, LibDocType } from '@/common/types'
+import { LibDocCreateDto } from '@/common/types'
 import { useRouter } from 'next/navigation'
-import { deleteBooking } from '@/store/slices/Bookings.slice'
 import React, { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import {
@@ -23,7 +21,7 @@ import Image from 'next/image'
 import spinner from '../../../../../../public/images/spinner.svg'
 import ImageUploader from '@/components/ImageUploader/ImageUploader'
 import { toast } from 'react-toastify'
-import { getChangedFields } from '@/utils/getChangedFields'
+import getChangedFields  from '@/utils/getChangedFields'
 
 const Page = ({ params }: { params: { id: string } }) => {
   const { id } = params
@@ -39,7 +37,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     trigger,
     reset,
     handleSubmit,
-    formState: { isSubmitting, isValid },
+    formState: { isValid },
   } = useForm<LibDocCreateDto>({
     defaultValues: {
       categoryIds: [],
@@ -64,6 +62,8 @@ const Page = ({ params }: { params: { id: string } }) => {
     return () => {
       dispatch(resetCurrentDoc())
     }
+
+    //eslint-disable-next-line
   }, [])
 
   const onSubmit = (data: LibDocCreateDto) => {
@@ -136,7 +136,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       <div className={styles.body}>
         <div className={styles.left}>
           <div className={global.inputField}>
-            <label onClick={() => console.log(watch())}>Назва</label>
+            <label>Назва</label>
             <input type="text" className={global.input} placeholder={'Введіть назву'}
                    {...register('name', { required: true })} />
           </div>
@@ -188,7 +188,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
           <p className={fStyles.title}>
             Файл
-            {!!doc && <a target={'_blank'} href={doc.downloadUrl} className={fStyles.title}>Cкачати існуючий</a>}
+            {!!doc && <a target={'_blank'} rel="noreferrer" href={doc.downloadUrl} className={fStyles.title}>Cкачати існуючий</a>}
           </p>
 
           <input type="file" className={global.primaryBtn} placeholder={'Завантажити файл'}

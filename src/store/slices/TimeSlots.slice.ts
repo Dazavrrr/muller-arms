@@ -80,7 +80,6 @@ export const createTimeSlot = createAsyncThunk(
       )
       return response.data
     } catch (e: any) {
-      console.log(e)
       return await toast.promise(
         Promise.reject(e),
         {

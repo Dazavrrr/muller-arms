@@ -1,5 +1,5 @@
 
-export function getChangedFields(original: any, modified: any) {
+function getChangedFields(original: any, modified: any) {
     const changedFields = {};
 
     for (const key in modified) {
@@ -11,3 +11,5 @@ export function getChangedFields(original: any, modified: any) {
 
     return changedFields;
 }
+
+export default getChangedFields;

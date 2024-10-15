@@ -64,7 +64,7 @@ const LeadersTable = () => {
             </thead>
             <tbody>
             {results.map((result,i) => (
-              <tr>
+              <tr key={i}>
                 <td className={styles.places}>
                   {i + 1}
                   {i + 1 === 1 ? <Image
