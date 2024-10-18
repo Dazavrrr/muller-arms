@@ -50,7 +50,7 @@ const LibCategories = () => {
       </div>
       <div className={`${styles.categoriesWrapper} ${!categoriesOpened && styles.closed}`}>
         {categories.map((category) => (
-          <LibCategory
+          <LibCategoryComp
             key={category.id}
             category={category}
             handleSelectCategory={handleSelectCategory}
