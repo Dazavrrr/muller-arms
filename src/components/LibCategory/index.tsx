@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import { LibCategory } from '@/common/types'
 
-const LibCategory = ({
+const LibCategoryComp = ({
   category,
   handleSelectCategory,
   isSelected,
@@ -21,4 +21,4 @@ const LibCategory = ({
   )
 }
 
-export default LibCategory
+export default LibCategoryComp

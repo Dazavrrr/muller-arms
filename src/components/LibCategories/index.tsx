@@ -1,7 +1,7 @@
 'use client'
 //libs
 import React, { useEffect, useState } from 'react'
-import LibCategory from '../LibCategory'
+import LibCategoryComp from '../LibCategory'
 //styles
 import styles from './styles.module.scss'
 //redux
