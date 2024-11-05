@@ -18,7 +18,7 @@ const Header = () => {
   const router = useRouter()
   const path = usePathname()
   useEffect(() => {
-    document.body.style.overflowY = isMenuOpen ? 'hidden' : 'auto'
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto'
   }, [isMenuOpen])
 
   const scrollHandler = (id: string) => {
@@ -32,12 +32,11 @@ const Header = () => {
           block: handleWindowWidth() ? 'center' : 'start',
         })
       },
-      isMenuOpen ? 500 : 0
+      isMenuOpen ? 500 : 0,
     )
   }
 
-  const handleWindowWidth = () =>
-    typeof window !== 'undefined' && window.innerWidth > 780
+  const handleWindowWidth = () => typeof window !== 'undefined' && window.innerWidth > 780
 
   return (
     <header
@@ -93,26 +92,28 @@ const Header = () => {
           <Link className={styles.header_navItem} href="/shop">
             Магазин
           </Link>
+
+          <div
+            className={`${styles.header_contacts} ${
+              isMenuOpen && styles.header_mobContactsActive
+            }`}
+          >
+            <a href="tel:380996533061" className={styles.header_phoneNum}>
+              +38 (099) 653-30-61
+            </a>
+            <a href="https://t.me/+380996533061" className={styles.header_icon}>
+              <TelegramIcon />
+            </a>
+            <a
+              href="https://www.instagram.com/mullerarms/"
+              className={styles.header_icon}
+            >
+              <InstagramIcon />
+            </a>
+          </div>
         </nav>
 
-        <div
-          className={`${styles.header_contacts} ${
-            isMenuOpen && styles.header_mobContactsActive
-          }`}
-        >
-          <a href="tel:380996533061" className={styles.header_phoneNum}>
-            +38 (099) 653-30-61
-          </a>
-          <a href="https://t.me/+380996533061" className={styles.header_icon}>
-            <TelegramIcon />
-          </a>
-          <a
-            href="https://www.instagram.com/mullerarms/"
-            className={styles.header_icon}
-          >
-            <InstagramIcon />
-          </a>
-        </div>
+
         <div className={styles.header_rightMob}>
           <a
             href="tel:380996533061"

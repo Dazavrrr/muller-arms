@@ -130,7 +130,7 @@ const EditTrainingPag = ({ params }: { params: { id: string } }) => {
           </div>
           <div className={global.inputField}>
             <label>Посилання</label>
-            <textarea cols={6} rows={4} className={global.input} placeholder="Введіть посилання"
+            <input type={'text'} className={global.input} placeholder="Введіть посилання"
                       {...register('slug', {
                         required: true, minLength: 1,
                         onChange: (e) => {

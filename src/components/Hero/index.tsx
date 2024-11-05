@@ -9,6 +9,7 @@ import bottomBc from '../../../public/images/hero/hero-bottom-bc.webp'
 //images
 import mobBc from '../../../public/images/hero/hero-mob-bc.webp'
 import bc from '../../../public/images/hero/hero-bg.webp'
+import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -23,7 +24,7 @@ const Hero = () => {
           Навчання на всіх рівнях. Безпека та задоволення. Приєднуйтесь сьогодні!
         </p>
 
-        <button className={styles.hero_book_btn}>Зареєструватися</button>
+        <Link href={'/trainings'} className={styles.hero_book_btn}>Зареєструватися</Link>
       </div>
       <Image
         priority
