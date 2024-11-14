@@ -23,7 +23,7 @@ import spinner from '../../../../../public/images/spinner.svg'
 const TimeSlotsPage = () => {
   moment().locale('uk')
   moment().utcOffset('+0200')
-  const [trainerId, setTrainerId] = useState<number>(1)
+  const [trainerId, setTrainerId] = useState<number>(0)
   const [selectedDate, setSelectedDate] = useState(moment())
   const [selectedNewTime, setSelectedNewTime] = useState<Moment>()
   const [isModal, setModal] = useState<boolean>(false)
@@ -55,7 +55,8 @@ const TimeSlotsPage = () => {
     <div className={styles.container}>
       <div className={styles.selectWrapper}>
         <p className={styles.title}>Оберіть тренера: </p>
-        <select onChange={e => setTrainerId(parseInt(e.target.value))}>
+        <select value={trainerId} onChange={e => setTrainerId(parseInt(e.target.value))}>
+          <option value={0}>Оберіть тренера</option>
           {trainers.map((t) => (<option key={`trainer_${t.id}`} value={t.id}>{t.firstName} {t.lastName}</option>))}
         </select>
       </div>
@@ -90,9 +91,9 @@ const TimeSlotsPage = () => {
                   </div>
                 ))}
               {!isModal ?
-                <div className={styles.plus} onClick={() => setModal(true)}>
+               (trainerId > 0 && <div className={styles.plus} onClick={() => setModal(true)}>
                   <Image src={plus} alt={'plus'} />
-                </div>
+                </div>)
                 :
                 <div className={styles.modal}>
                   <div className={styles.modalField}>
