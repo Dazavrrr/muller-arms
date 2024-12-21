@@ -76,7 +76,7 @@ const TimeSlotsPage = () => {
           <div className={styles.timeSlots}>
             <>
               {
-                timeslots.sort((a, b) => {
+                [...timeslots].sort((a, b) => {
                   if (a.dateTime == b.dateTime) {
                     return 0;
                   }
