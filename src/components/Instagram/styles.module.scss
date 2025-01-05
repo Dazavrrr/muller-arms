@@ -24,8 +24,12 @@
     align-items: center;
     gap: 60px;
 
+    @media (max-width: 490px) {
+      gap: 0;
+    }
+
     @media (max-width: 425px) {
-      gap: 32px;
+      // gap: 32px;
       align-items: baseline;
     }
   }
@@ -40,8 +44,12 @@
     line-height: 100%;
     color: #333;
 
+    @media (max-width: 490px) {
+      padding-bottom: 60px;
+    }
     @media (max-width: 425px) {
       font-size: 28px;
+      padding-bottom: 32px;
     }
   }
 
@@ -55,9 +63,9 @@
     border-radius: 5px;
     width: 279px;
     height: 270px;
-    @media (max-width: 490px) {
-      width: 268px;
-      height: 199px;
+
+    @media (max-width: 425px) {
+      height: 230px;
     }
   }
 
@@ -65,6 +73,11 @@
     object-fit: cover;
     width: 100%;
     border-radius: 5px;
+
+    @media (max-width: 490px) {
+      width: 268px;
+      height: 199px;
+    }
   }
 
   &_btn {

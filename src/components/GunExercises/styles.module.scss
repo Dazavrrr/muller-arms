@@ -5,8 +5,9 @@
   @include center-flex();
   @include size(100%, auto);
   background-color: #f3ede9;
-  padding: 150px 60px 80px 60px;
+  padding: 40px 60px;
   position: relative;
+  min-height: auto;
 
   @media (max-width: 1024px) {
     padding: 80px 30px;
@@ -175,4 +176,32 @@
     top: 0;
     left: 0;
   }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  text-wrap: nowrap;
+  overflow: scroll;
+}
+
+.nav_prev {
+  color: #333;
+  opacity: 0.5;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
+}
+
+.nav_current {
+  color: #333;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
 }

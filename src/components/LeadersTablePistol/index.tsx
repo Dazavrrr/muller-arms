@@ -21,7 +21,6 @@ import {
 } from '@/store/slices/TableSlots.slice'
 
 const LeadersTableRifle = ({ tab }: { tab: string }) => {
-
   const result = useAppSelector((state) => state.TableSlots.slots)
   const dispatch = useAppDispatch()
 
@@ -45,7 +44,13 @@ const LeadersTableRifle = ({ tab }: { tab: string }) => {
           <div>
             <NavArrow />
           </div>
-          <p className={styles.nav_current}>таблиця завдань з пістолету</p>
+          <Link href="/gun-exercises" className={styles.nav_prev}>
+            завдання з пістолету
+          </Link>
+          <div>
+            <NavArrow />
+          </div>
+          <p className={styles.nav_current}>таблиця лідерів з пістолету</p>
         </div>
 
         <div className={styles.exercises}>
@@ -54,37 +59,41 @@ const LeadersTableRifle = ({ tab }: { tab: string }) => {
           </h1>
 
           <div className={styles.exercises_wrapper}>
-            <h2 className={styles.exercises_subtitle}>таблиця лідерів</h2>
             <div className={styles.exercise_items}>
-              <Link href="/leaders-table-pistol/1"
+              <Link
+                href="/leaders-table-pistol/1"
                 className={`${styles.exercise_item} ${
                   parseInt(tab) === 1 && styles.active
                 }`}
               >
                 / ВПРАВА №1
               </Link>
-              <Link href="/leaders-table-pistol/2"
+              <Link
+                href="/leaders-table-pistol/2"
                 className={`${styles.exercise_item}  ${
                   parseInt(tab) === 2 && styles.active
                 }`}
               >
                 / ВПРАВА №2
               </Link>
-              <Link href="/leaders-table-pistol/3"
+              <Link
+                href="/leaders-table-pistol/3"
                 className={`${styles.exercise_item}  ${
                   parseInt(tab) === 3 && styles.active
                 }`}
               >
                 / ВПРАВА №3
               </Link>
-              <Link href="/leaders-table-pistol/4"
+              <Link
+                href="/leaders-table-pistol/4"
                 className={`${styles.exercise_item} ${
                   parseInt(tab) === 4 && styles.active
                 }`}
               >
                 / ВПРАВА №4
               </Link>
-              <Link href="/leaders-table-pistol/5"
+              <Link
+                href="/leaders-table-pistol/5"
                 className={`${styles.exercise_item} 
                 ${parseInt(tab) === 5 && styles.active}`}
               >

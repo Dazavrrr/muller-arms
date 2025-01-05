@@ -55,19 +55,9 @@ const Header = () => {
             isMenuOpen && styles.header_mobNavActive
           }`}
         >
-          <div
-            className={styles.header_navItem}
-            onClick={() => {
-              if (path != '/') {
-                router.push('/')
-                setTimeout(() => scrollHandler('aboutUs'), 100)
-              } else {
-                scrollHandler('aboutUs')
-              }
-            }}
-          >
+          <Link className={styles.header_navItem} href="/">
             Про нас
-          </div>
+          </Link>
           <Link className={styles.header_navItem} href="/trainings">
             Послуги
           </Link>
@@ -76,8 +66,12 @@ const Header = () => {
             Анонси
           </Link>
 
+          <Link className={styles.header_navItem} href="/club">
+            Клуб
+          </Link>
+
           <Link className={styles.header_navItem} href="/qualifications">
-            Кваліфікації клубу
+            Кваліфікації
           </Link>
 
           <Link className={styles.header_navItem} href="/blog">
