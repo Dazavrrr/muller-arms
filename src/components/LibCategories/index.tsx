@@ -1,7 +1,7 @@
 'use client'
 //libs
 import React, { useEffect, useState } from 'react'
-import LibCategory from '../LibCategory'
+import LibCategoryComp from '../LibCategory'
 //styles
 import styles from './styles.module.scss'
 //redux
@@ -50,7 +50,7 @@ const LibCategories = () => {
       </div>
       <div className={`${styles.categoriesWrapper} ${!categoriesOpened && styles.closed}`}>
         {categories.map((category) => (
-          <LibCategory
+          <LibCategoryComp
             key={category.id}
             category={category}
             handleSelectCategory={handleSelectCategory}

@@ -7,8 +7,9 @@ import styles from './styles.module.scss'
 import bottomBc from '../../../public/images/hero/hero-bottom-bc.webp'
 
 //images
-import mobBg from '../../../public/images/hero/hero-bg-mob.webp'
-import hero from '../../../public/images/hero/hero.webp'
+import mobBc from '../../../public/images/hero/hero-mob-bc.webp'
+import bc from '../../../public/images/hero/hero-bg.webp'
+import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -25,7 +26,7 @@ const Hero = () => {
           Приєднуйтесь сьогодні!
         </p>
 
-        <button className={styles.hero_book_btn}>Зареєструватися</button>
+        <Link href={'/trainings'} className={styles.hero_book_btn}>Зареєструватися</Link>
       </div>
       <Image
         priority

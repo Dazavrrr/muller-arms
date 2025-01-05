@@ -130,11 +130,11 @@ const EditTrainingPag = ({ params }: { params: { id: string } }) => {
           </div>
           <div className={global.inputField}>
             <label>Посилання</label>
-            <textarea cols={6} rows={4} className={global.input} placeholder="Введіть посилання"
+            <input type={'text'} className={global.input} placeholder="Введіть посилання"
                       {...register('slug', {
                         required: true, minLength: 1,
                         onChange: (e) => {
-                          setValue(`slug`, slugify(e.target.value.replace(/[^a-zA-Zа-яА-Я0-9\s]/g, ''), {
+                          setValue(`slug`, slugify(e.target.value.replace(/[^a-zA-Zа-яА-Я0-9-]/g, ''), {
                             lower: true,
                             remove: /[*+~.()''!:@<>$₽]/g,
                           }))
