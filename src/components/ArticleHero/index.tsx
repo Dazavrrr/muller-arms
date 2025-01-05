@@ -26,7 +26,7 @@ const ArticleHero = ({ article }: { article: ArticleResponse }) => {
               <div className={styles.arrow}>
                 <NavArrow />
               </div>
-              <p className={styles.nav_current}>{title}{title}</p>
+              <p className={styles.nav_current}>{title}</p>
             </div>
           </div>
           <h1 className={styles.title}>{title}</h1>
@@ -44,13 +44,7 @@ const ArticleHero = ({ article }: { article: ArticleResponse }) => {
             </div>
           </div>
 
-          <Image
-            width={882}
-            height={1063}
-            className={styles.image}
-            src={imagePath}
-            alt="MullerArms"
-          />
+          <Image className={styles.image} src={imagePath} alt="MullerArms" />
           <div className={styles.info}>
             <p className={styles.text}>{text}</p>
             <div className={styles.details}>

@@ -1,0 +1,32 @@
+@import '../../styles/utils/_variables.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.section {
+  @include center-flex();
+
+  flex-direction: column;
+
+  margin: 0 auto;
+  padding: 50px 0 120px 0;
+  gap: 30px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1176px;
+}
+
+.title {
+  font-size: 46px;
+  font-family: var(--font-DuskDemon), sans-serif;
+  color: #333;
+}
+
+.bold_text {
+  font-size: 24px;
+  font-family: var(--font-Montserrat), sans-serif;
+  color: #333;
+  font-weight: 600;
+  display: flex;
+  text-align: center;
+}
