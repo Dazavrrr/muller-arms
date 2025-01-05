@@ -15,8 +15,8 @@ const BasicExercises = () => {
     <div className={styles.section}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>
-          тут є базові завдання включають в себе як вправи з пістолета, так і з
-          карабіну.
+          тут є базові завдання, що включають в себе як вправи з пістолета, так
+          і з карабіну.
         </h2>
 
         <div className={styles.cards}>
@@ -30,7 +30,11 @@ const BasicExercises = () => {
                 РЕЗУЛЬТАТ ЗАПИСУЄТЬСЯ В ТАБЛИЦЮ
               </p>
             </div>
-            <Link href={"/exercises"} className={styles.button} type="button">
+            <Link
+              href={'/rifle-exercises'}
+              className={styles.button}
+              type="button"
+            >
               ДЕТАЛЬНІШЕ
             </Link>
           </div>
@@ -44,7 +48,11 @@ const BasicExercises = () => {
                 РЕЗУЛЬТАТ ЗАПИСУЄТЬСЯ В ТАБЛИЦЮ
               </p>
             </div>
-            <Link href={"/exercises"} className={styles.button} type="button">
+            <Link
+              href={'/gun-exercises'}
+              className={styles.button}
+              type="button"
+            >
               ДЕТАЛЬНІШЕ
             </Link>
           </div>

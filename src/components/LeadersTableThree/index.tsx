@@ -7,11 +7,11 @@ import secondPlace from '../../../public/icons/standings/second-place.svg'
 import thirdPlace from '../../../public/icons/standings/third-place.svg'
 import moment from 'moment'
 
-const LeadersTableThree = ({result}: {result:TableSlot[]}) => {
+const LeadersTableThree = ({ result }: { result: TableSlot[] }) => {
   return (
     <div className={styles.section}>
       <div className={styles.text_wrapper}>
-        <h2 className={styles.title}>таблиця лідерів з ВПРАВА №3</h2>
+        <h2 className={styles.title}>ВПРАВА №3</h2>
         <p className={styles.text}>
           Дві мішені IDPA. Відстань між ними 1 метр. Дистанція до мішеней 7
           метрів. Стрілець утримує в руках gscnjktn із порожнім магазином на
@@ -33,30 +33,38 @@ const LeadersTableThree = ({result}: {result:TableSlot[]}) => {
           </tr>
         </thead>
         <tbody>
-        {result.map((result,i) => (
-          <tr key={i}>
-            <td className={styles.places}>
-              {i + 1}
-              {i + 1 === 1 ? <Image
-                className={styles.place_icon}
-                src={firstPlace}
-                alt="MullerArms"
-              /> : i + 1 === 2 ? <Image
-                className={styles.place_icon}
-                src={secondPlace}
-                alt="MullerArms"
-              /> : i + 1 === 3 ? <Image
-                className={styles.place_icon}
-                src={thirdPlace}
-                alt="MullerArms"
-              /> : <></>}
-            </td>
-            <td>{result.name}</td>
-            <td>{result.finishTime}</td>
-            <td>{moment(result.lastTryDate).format("DD.MM.YYYY")}</td>
-            <td>{result.description}</td>
-          </tr>
-        ))}
+          {result.map((result, i) => (
+            <tr key={i}>
+              <td className={styles.places}>
+                {i + 1}
+                {i + 1 === 1 ? (
+                  <Image
+                    className={styles.place_icon}
+                    src={firstPlace}
+                    alt="MullerArms"
+                  />
+                ) : i + 1 === 2 ? (
+                  <Image
+                    className={styles.place_icon}
+                    src={secondPlace}
+                    alt="MullerArms"
+                  />
+                ) : i + 1 === 3 ? (
+                  <Image
+                    className={styles.place_icon}
+                    src={thirdPlace}
+                    alt="MullerArms"
+                  />
+                ) : (
+                  <></>
+                )}
+              </td>
+              <td>{result.name}</td>
+              <td>{result.finishTime}</td>
+              <td>{moment(result.lastTryDate).format('DD.MM.YYYY')}</td>
+              <td>{result.description}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

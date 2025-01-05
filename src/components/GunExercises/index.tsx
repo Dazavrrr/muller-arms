@@ -5,11 +5,28 @@ import Link from 'next/link'
 import styles from './styles.module.scss'
 //images
 import bgTop from '../../../public/images/gun-exercises-bg-top.webp'
+import NavArrow from '../Icons/NavArrow'
 
 const GunExercises = () => {
   return (
     <div className={styles.section}>
       <div className={styles.wrapper}>
+        <div className={styles.nav}>
+          <Link href="/qualifications" className={styles.nav_prev}>
+            кваліфікація клубу
+          </Link>
+          <div>
+            <NavArrow />
+          </div>
+          <Link href="/records" className={styles.nav_prev}>
+            рекорди КЛУБУ
+          </Link>
+          <div>
+            <NavArrow />
+          </div>
+
+          <p className={styles.nav_current}>завдання з пістолету</p>
+        </div>
         <h2 className={styles.title}>завдання з ПІСТОЛЕТУ</h2>
 
         <div className={styles.cards}>
@@ -24,7 +41,11 @@ const GunExercises = () => {
                 балів за системою Вікерса.
               </p>
             </div>
-            <Link href="/leaders-table-pistol/1" className={styles.button} type="button">
+            <Link
+              href="/leaders-table-pistol/1"
+              className={styles.button}
+              type="button"
+            >
               Результати
             </Link>
           </div>
@@ -40,7 +61,11 @@ const GunExercises = () => {
                 Підрахунок балів за системою Вікерса
               </p>
             </div>
-            <Link href="/leaders-table-pistol/2" className={styles.button} type="button">
+            <Link
+              href="/leaders-table-pistol/2"
+              className={styles.button}
+              type="button"
+            >
               Результати
             </Link>
           </div>
@@ -56,7 +81,11 @@ const GunExercises = () => {
                 системою Вікерса.
               </p>
             </div>
-            <Link href="/leaders-table-pistol/3" className={styles.button} type="button">
+            <Link
+              href="/leaders-table-pistol/3"
+              className={styles.button}
+              type="button"
+            >
               Результати
             </Link>
           </div>
@@ -73,7 +102,11 @@ const GunExercises = () => {
                 за системою Вікерса.
               </p>
             </div>
-            <Link href="/leaders-table-pistol/4" className={styles.button} type="button">
+            <Link
+              href="/leaders-table-pistol/4"
+              className={styles.button}
+              type="button"
+            >
               Результати
             </Link>
           </div>
@@ -89,7 +122,11 @@ const GunExercises = () => {
                 системою Вікерса.
               </p>
             </div>
-            <Link href="/leaders-table-pistol/5" className={styles.button} type="button">
+            <Link
+              href="/leaders-table-pistol/5"
+              className={styles.button}
+              type="button"
+            >
               Результати
             </Link>
           </div>
@@ -107,7 +144,7 @@ const GunExercises = () => {
           </div>
         </div>
 
-        <Image className={styles.bg_top} src={bgTop} alt="MullerArms" />
+        {/* <Image className={styles.bg_top} src={bgTop} alt="MullerArms" /> */}
       </div>
     </div>
   )

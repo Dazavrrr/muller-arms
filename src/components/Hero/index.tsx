@@ -21,7 +21,9 @@ const Hero = () => {
           та цінності
         </h1>
         <p className={styles.hero_text}>
-          Навчання на всіх рівнях. Безпека та задоволення. Приєднуйтесь сьогодні!
+          Навчання на всіх рівнях. <br />
+          Безпека та професіоналізм. <br />
+          Приєднуйтесь сьогодні!
         </p>
 
         <Link href={'/trainings'} className={styles.hero_book_btn}>Зареєструватися</Link>
@@ -31,13 +33,26 @@ const Hero = () => {
         className={styles.hero_image}
         placeholder={'blur'}
         loading={'eager'}
-        src={bc}
+        src={hero}
         width={1920}
         alt="Muller Arms instructors"
         height={1000}
       />
-      <Image priority loading={'eager'} src={bottomBc} alt="Muller Arms" className={styles.hero_bottom_bc}/>
-      <Image src={mobBc} priority loading={'eager'} placeholder={'blur'} alt={"Muller Arms instructors"} className={styles.hero_mob_bc}/>
+      <Image
+        priority
+        loading={'eager'}
+        src={bottomBc}
+        alt="Muller Arms"
+        className={styles.hero_bottom_bc}
+      />
+      <Image
+        src={mobBg}
+        priority
+        loading={'eager'}
+        placeholder={'blur'}
+        alt={'Muller Arms instructors'}
+        className={styles.hero_mob_bc}
+      />
     </section>
   )
 }

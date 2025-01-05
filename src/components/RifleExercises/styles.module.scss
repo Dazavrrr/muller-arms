@@ -4,7 +4,7 @@
 .section {
   @include center-flex();
   @include size(100%, auto);
-  padding: 80px 60px;
+  padding: 40px 60px;
 
   @media (max-width: 1024px) {
     padding: 80px 30px;
@@ -166,4 +166,32 @@
       width: 100%;
     }
   }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  text-wrap: nowrap;
+  overflow: scroll;
+}
+
+.nav_prev {
+  color: #333;
+  opacity: 0.5;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
+}
+
+.nav_current {
+  color: #333;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
 }

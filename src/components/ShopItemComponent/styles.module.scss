@@ -6,6 +6,9 @@
   flex-direction: column;
   gap: 20px;
 
+  max-width: 203px;
+  width: 100%;
+
   .image {
     object-fit: cover;
     border-radius: 5px;

@@ -14,9 +14,9 @@ const QualificationsHero = () => {
         <h1 className={styles.hero_title}>
           КВАЛІФІКАЦІЇ <br /> ТА РЕКОРДИ КЛУБУ
         </h1>
-        <p className={styles.hero_subtitle}>
+        {/* <p className={styles.hero_subtitle}>
           Захопливі статті: навчайтеся стріляти та забезпечуйте свою безпеку
-        </p>
+        </p> */}
       </div>
 
       <Image className={styles.hero_bg} src={bg} alt="MullerArms" />

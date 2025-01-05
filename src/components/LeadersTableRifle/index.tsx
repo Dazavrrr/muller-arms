@@ -44,14 +44,19 @@ const LeadersTableRifle = ({ tab }: { tab: string }) => {
           <div>
             <NavArrow />
           </div>
-          <p className={styles.nav_current}>таблиця завдань з карабіну</p>
+          <Link href="/rifle-exercises" className={styles.nav_prev}>
+            завдання з карабіну
+          </Link>
+          <div>
+            <NavArrow />
+          </div>
+          <p className={styles.nav_current}>таблиця лідерів</p>
         </div>
 
         <div className={styles.exercises}>
           <h1 className={styles.title}>ТАБЛИЦЯ лідерів учасників З КАРАБІНУ</h1>
 
           <div className={styles.exercises_wrapper}>
-            <h2 className={styles.exercises_subtitle}>таблиця лідерів</h2>
             <div className={styles.exercise_items}>
               <Link
                 href="/leaders-table-rifle/1"

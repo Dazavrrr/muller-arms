@@ -31,7 +31,7 @@ const OurSetOfExercises = () => {
                 alt="MullerArms shooting"
               />
               <p className={styles.subtitle}>
-                Майстер стрільби: <br /> Зміна Позицій
+                Вправа 1: <br /> Зміна Позицій
               </p>
               <Link className={styles.link} href="/exercises">
                 детальніше
@@ -44,7 +44,7 @@ const OurSetOfExercises = () => {
                 alt="MullerArms shooting"
               />
               <p className={styles.subtitle}>
-                Тактичний Перехід: <br /> Майстер-Стрілець
+                Вправа 2: <br /> Тактичні переміщення
               </p>
               <Link className={styles.link} href="/exercises">
                 детальніше
@@ -57,7 +57,7 @@ const OurSetOfExercises = () => {
                 alt="MullerArms shooting"
               />
               <p className={styles.subtitle}>
-                Швидка Реакція: <br /> Бойовий Рух
+                Вправа 3: <br /> Динамічна стрільба
               </p>
               <Link className={styles.link} href="/exercises">
                 детальніше
@@ -68,9 +68,10 @@ const OurSetOfExercises = () => {
 
         <div className={styles.text_wrapper}>
           <p className={styles.text}>
-            МІЛІТАРІ КЛАСИФІКАЦІЯ НАРАЗІ НЕДОСТУПНА, проте ми готові допомогти
-            вам розширити свої знання шляхом участі у нашому підготовчому
-            тренуванні. Запрошуємо вас приєднатися до нашого навчального процесу
+            Вправи МІЛІТАРІ КЛАСИФІКАЦІї включають усі основні елементи, якими
+            має володіти стрілець. Після проходження класифікації стрілець може
+            проаналізувати свої найслабші сторони та побудувати відповідний план
+            тренувань. Запрошуємо вас приєднатися до нашого навчального процесу
             та отримати цінний досвід для подальшого успішного розвитку.
           </p>
           <Link href="/booking" className={styles.button}>
