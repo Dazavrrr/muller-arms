@@ -3,7 +3,7 @@ import Image from 'next/image'
 //styles
 import styles from './styles.module.scss'
 //images
-import img from '../../../public/images/shooter-classes-image.webp'
+import video from '../../../public/images/shooter-classes-video.gif'
 import bgTop from '../../../public/images/qualifications/experience-bg-top.webp'
 import bgBottom from '../../../public/images/qualifications/experience-bg-bottom.webp'
 
@@ -11,19 +11,15 @@ const ShooterClasses = () => {
   return (
     <div className={styles.section}>
       <div className={styles.container}>
-        <Image
-          className={styles.image}
-          src={img}
-          alt="MullerArms"
-          width={385}
-          height={567}
-        />
         <div className={styles.content}>
           <h2 className={styles.title}>класи стрільця</h2>
           <div className={styles.text_wrapper}>
             <p className={styles.text}>
-              класи стільця — це показник, який визначає ефективність та
-              швидкість певного стільця в наших вправах із карабіну
+              ефективна й збалансована стрільба показує клас стрільця. баланс
+              між швидкістю і точністю - визначний критерій. до часу проходження
+              вправи додаються штрафні секунди за кожне влучання поза зоною
+              "альфа". загальний час за результатами усіх вправ класифікації
+              вноситься в таблицю, в якій кожен стрілець набуває своє місце.
             </p>
             <div className={styles.classes}>
               <div className={styles.class}>

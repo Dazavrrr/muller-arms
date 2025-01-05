@@ -5,7 +5,7 @@
   @include center-flex();
   @include size(100%, auto);
   flex-direction: column;
-  gap: 50px;
+  gap: 80px;
   padding-bottom: 80px;
 
   @media (max-width: 425px) {
@@ -14,25 +14,45 @@
 
   &_title {
     color: #9f9ba4;
-    font-family: var(--font-Montserrat);
+    font-family: var(--font-Montserrat), sans-serif;
     text-transform: uppercase;
     font-weight: 500;
   }
 
-  .logos_wrapper {
+  &_logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     max-width: 1176px;
-  }
-
-  &_logos {
-    //@include center-flex();
-    //gap: 80px;
+    gap: 50px;
     text-wrap: nowrap;
     overflow: auto;
-    svg {
-      display: inline;
+
+    @media (max-width: 820px) {
+      justify-content: initial;
+    }
+
+    @media (max-width: 790px) {
+      gap: 20px;
+    }
+  }
+
+  &_logo {
+    display: inline;
+    margin-right: 80px;
+
+    @media (max-width: 900px) {
+      margin-right: 60px;
+    }
+  }
+
+  &_logo:last-child {
+    margin-right: 0;
+
+    @media (min-width: 1000px) {
       margin-right: 80px;
-      //display: block;
     }
   }
 }

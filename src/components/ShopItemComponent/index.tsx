@@ -9,7 +9,13 @@ import { ShopItemResponseDto } from '@/common/types'
 const ShopItemComponent = ({ item }: { item: ShopItemResponseDto }) => {
   return (
     <div className={styles.card}>
-      <Image width={203} height={227} className={styles.image} src={item.images[0]} alt="Patch" />
+      <Image
+        width={203}
+        height={227}
+        className={styles.image}
+        src={item.images[0]}
+        alt="Patch"
+      />
 
       <div className={styles.wrapper}>
         <div className={styles.title_wrapper}>
@@ -21,7 +27,7 @@ const ShopItemComponent = ({ item }: { item: ShopItemResponseDto }) => {
         <div className={styles.price_wrapper}>
           <p className={styles.price}>₴{item.price}</p>
           <Link href={`/shop/${item.slug}`} className={styles.buy_btn}>
-            купити
+            детальніше
           </Link>
         </div>
       </div>
