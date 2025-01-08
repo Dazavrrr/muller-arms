@@ -2,7 +2,7 @@
 import styles from './styles.module.scss'
 //images
 import Image from 'next/image'
-import img from '../../../public/images/club/IMG_6899.webp'
+import img from '../../../public/images/club/IMG_9414.webp'
 
 const ClubTeam = () => {
   return (

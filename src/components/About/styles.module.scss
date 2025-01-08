@@ -78,7 +78,7 @@
 
     width: 100%;
     color: #a3978d;
-    text-align: left;
+    text-align: center;
     font-family: var(--font-Montserrat);
     font-weight: 500;
     line-height: 160%;
@@ -107,6 +107,7 @@
     line-height: 110%;
     padding: 15px 24px;
 
+    margin: 0 auto;
     margin-top: 50px;
 
     &:hover {
