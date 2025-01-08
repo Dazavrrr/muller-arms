@@ -7,26 +7,53 @@
   gap: 30px;
   max-width: 1176px;
   width: 100%;
+  padding: 50px 0;
 
-  padding: 50px 0 50px 0;
+  @media (max-width: 930px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 790px) {
+    padding: 50px 0 20px 0;
+  }
 }
 
 .text_wrapper {
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  text-align: center;
+
+  @media (max-width: 490px) {
+    text-align: start;
+  }
 }
 
 .text {
   font-size: 22px;
   font-family: var(--font-Montserrat), sans-serif;
   color: #333;
+
+  @media (max-width: 980px) {
+    font-size: 20px;
+  }
 }
 
 .img {
-  @include size(100%, auto);
   border-radius: 10px;
   object-fit: cover;
+  max-height: 300px;
+  width: 100%;
+
+  @media (max-width: 930px) {
+    max-height: 400px;
+    object-position: bottom;
+  }
+
+  @media (max-width: 490px) {
+    max-height: 200px;
+  }
 }
 
 .bold {

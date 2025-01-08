@@ -1,7 +1,7 @@
 //styles
 import styles from './styles.module.scss'
 //images
-import img3 from '../../../public/images/club/IMG_6534.webp'
+import img from '../../../public/images/club/IMG_6899.webp'
 import Image from 'next/image'
 
 const ClubValues = () => {
@@ -24,12 +24,7 @@ const ClubValues = () => {
         </p>
       </div>
 
-      <Image
-        src={img3}
-        className={styles.img}
-        width={400}
-        alt="MullerArms group"
-      />
+      <Image src={img} className={styles.img} alt="MullerArms group" />
     </div>
   )
 }

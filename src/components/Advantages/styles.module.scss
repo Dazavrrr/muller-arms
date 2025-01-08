@@ -106,6 +106,12 @@
       @media (max-width: 425px) {
       }
     }
+
+    &_text_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
   }
 
   &_line {

@@ -3,12 +3,22 @@
 
 .section {
   @include center-flex();
-
   flex-direction: column;
-
   margin: 0 auto;
-  padding: 50px 0 120px 0;
+  padding: 50px 60px 120px 60px;
   gap: 30px;
+
+  @media (max-width: 1024px) {
+    padding: 50px 30px 120px 30px;
+  }
+
+  @media (max-width: 790px) {
+    padding: 50px 30px 60px 30px;
+  }
+
+  @media (max-width: 490px) {
+    padding: 30px 15px 60px 15px;
+  }
 }
 
 .wrapper {
@@ -20,6 +30,10 @@
   font-size: 46px;
   font-family: var(--font-DuskDemon), sans-serif;
   color: #333;
+
+  @media (max-width: 490px) {
+    font: 40px;
+  }
 }
 
 .bold_text {
@@ -29,4 +43,8 @@
   font-weight: 600;
   display: flex;
   text-align: center;
+
+  background-color: #fec401;
+  border-radius: 20px;
+  padding: 20px;
 }

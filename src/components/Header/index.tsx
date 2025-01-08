@@ -32,11 +32,17 @@ const Header = () => {
           block: handleWindowWidth() ? 'center' : 'start',
         })
       },
-      isMenuOpen ? 500 : 0,
+      isMenuOpen ? 500 : 0
     )
   }
 
-  const handleWindowWidth = () => typeof window !== 'undefined' && window.innerWidth > 780
+  const handleNavItemClick = (id: string) => {
+    setIsMenuOpen(false)
+    scrollHandler(id)
+  }
+
+  const handleWindowWidth = () =>
+    typeof window !== 'undefined' && window.innerWidth > 780
 
   return (
     <header
@@ -54,36 +60,72 @@ const Header = () => {
             isMenuOpen && styles.header_mobNavActive
           }`}
         >
-          <Link className={styles.header_navItem} href="/">
+          <Link
+            className={styles.header_navItem}
+            href="/"
+            onClick={() => handleNavItemClick('about')}
+          >
             Про нас
           </Link>
-          <Link className={styles.header_navItem} href="/trainings">
+          <Link
+            className={styles.header_navItem}
+            href="/trainings"
+            onClick={() => handleNavItemClick('trainings')}
+          >
             Послуги
           </Link>
 
-          <Link className={styles.header_navItem} href="/announcements">
+          <Link
+            className={styles.header_navItem}
+            href="/announcements"
+            onClick={() => handleNavItemClick('announcements')}
+          >
             Анонси
           </Link>
 
-          <Link className={styles.header_navItem} href="/club">
+          <Link
+            className={styles.header_navItem}
+            href="/club"
+            onClick={() => handleNavItemClick('club')}
+          >
             Клуб
           </Link>
 
-          <Link className={styles.header_navItem} href="/qualifications">
+          <Link
+            className={styles.header_navItem}
+            href="/qualifications"
+            onClick={() => handleNavItemClick('qualifications')}
+          >
             Кваліфікації
           </Link>
 
-          <Link className={styles.header_navItem} href="/blog">
+          <Link
+            className={styles.header_navItem}
+            href="/blog"
+            onClick={() => handleNavItemClick('blog')}
+          >
             Блог
           </Link>
 
-          <Link className={styles.header_navItem} href="/library">
+          <Link
+            className={styles.header_navItem}
+            href="/library"
+            onClick={() => handleNavItemClick('library')}
+          >
             Бібліотека
           </Link>
-          <Link className={styles.header_navItem} href="/archive">
+          <Link
+            className={styles.header_navItem}
+            href="/archive"
+            onClick={() => handleNavItemClick('archive')}
+          >
             Архів
           </Link>
-          <Link className={styles.header_navItem} href="/shop">
+          <Link
+            className={styles.header_navItem}
+            href="/shop"
+            onClick={() => handleNavItemClick('shop')}
+          >
             Магазин
           </Link>
 
@@ -106,7 +148,6 @@ const Header = () => {
             </a>
           </div>
         </nav>
-
 
         <div className={styles.header_rightMob}>
           <a

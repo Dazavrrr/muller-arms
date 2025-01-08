@@ -1,15 +1,15 @@
 //libs
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //images
 import bottomBc from '../../../public/images/hero/hero-bottom-bc.webp'
 
 //images
-import mobBc from '../../../public/images/hero/hero-mob-bc.webp'
-import bc from '../../../public/images/hero/hero-bg.webp'
-import Link from 'next/link'
+import mobBg from '../../../public/images/hero/hero-bg-mob.webp'
+import hero from '../../../public/images/hero/hero.png'
 
 const Hero = () => {
   return (
@@ -26,7 +26,9 @@ const Hero = () => {
           Приєднуйтесь сьогодні!
         </p>
 
-        <Link href={'/trainings'} className={styles.hero_book_btn}>Зареєструватися</Link>
+        <Link href={'/trainings'} className={styles.hero_book_btn}>
+          Зареєструватися
+        </Link>
       </div>
       <Image
         priority

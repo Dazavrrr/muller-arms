@@ -4,31 +4,56 @@
 .section {
   @include center-flex();
   gap: 30px;
-  background-color: #333;
-
   padding: 50px 0 50px 0;
+
+  @media (max-width: 930px) {
+    flex-direction: column-reverse;
+  }
+
+  @media (max-width: 790px) {
+    padding: 20px 0 20px 0;
+  }
 }
 
 .title {
   font-size: 34px;
   font-family: var(--font-DuskDemon), sans-serif;
-  color: #fff;
+  color: #333;
 }
 
 .text_wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  text-align: center;
+
+  @media (max-width: 490px) {
+    text-align: start;
+  }
 }
 
 .text {
   font-size: 22px;
   font-family: var(--font-Montserrat), sans-serif;
-  color: #868686;
+  color: #333;
+
+  @media (max-width: 980px) {
+    font-size: 20px;
+  }
 }
 
 .img {
-  @include size(100%, auto);
   border-radius: 10px;
   object-fit: cover;
+  max-height: 400px;
+  width: 100%;
+
+  @media (max-width: 930px) {
+    max-height: 400px;
+    object-position: center;
+  }
+
+  @media (max-width: 490px) {
+    max-height: 200px;
+  }
 }

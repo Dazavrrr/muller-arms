@@ -7,6 +7,12 @@ import img from '../../../public/images/club/IMG_4726.webp'
 const ClubAchievements = () => {
   return (
     <div className={styles.section}>
+      <Image
+        src={img}
+        className={styles.img}
+        width={400}
+        alt="MullerArms group"
+      />
       <div className={styles.text_wrapper}>
         <h2 className={styles.title}>Наші досягнення у 2024 році:</h2>
         <p className={styles.text}>
@@ -26,13 +32,6 @@ const ClubAchievements = () => {
           військових та гуманітарних організацій.
         </p>
       </div>
-
-      <Image
-        src={img}
-        className={styles.img}
-        width={400}
-        alt="MullerArms group"
-      />
     </div>
   )
 }
