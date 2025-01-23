@@ -22,13 +22,15 @@ const ShopItemComponent = ({ item }: { item: ShopItemResponseDto }) => {
           <h2 className={styles.title}>{item.name}</h2>
           <p className={styles.id}>код товару: {item.id}</p>
         </div>
-        <div className={styles.line}></div>
 
         <div className={styles.price_wrapper}>
-          <p className={styles.price}>₴{item.price}</p>
-          <Link href={`/shop/${item.slug}`} className={styles.buy_btn}>
-            детальніше
-          </Link>
+          <div className={styles.line}></div>
+          <div className={styles.price_info}>
+            <p className={styles.price}>₴{item.price}</p>
+            <Link href={`/shop/${item.slug}`} className={styles.buy_btn}>
+              детальніше
+            </Link>
+          </div>
         </div>
       </div>
     </div>

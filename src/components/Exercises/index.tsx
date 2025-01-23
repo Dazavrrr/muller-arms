@@ -1,14 +1,29 @@
+'use client'
 //libs
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 //styles
 import styles from './styles.module.scss'
 import global from '../../styles/global.module.scss'
 import NavArrow from '../Icons/NavArrow'
 //images
 import image from '../../../public/images/exercises-image.webp'
+import CloseIcon from '../Icons/CloseIcon'
 
 const Exercises = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const handleShowModal = () => {
+    setIsModalOpen(true)
+  }
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
+
+  const quantityText = () => {
+    return window.innerWidth < 490 ? 'к-сть' : 'кількість'
+  }
+
   return (
     <div className={styles.section}>
       <div className={styles.wrapper}>
@@ -36,12 +51,6 @@ const Exercises = () => {
             <Image className={styles.image} src={image} alt="MullerArms" />
 
             <div className={styles.button_wrapper}>
-              <button
-                type="button"
-                className={`${global.primaryBtn} ${styles.button} ${styles.button_transparent}`}
-              >
-                ПОКАЗАТИ СХЕМУ
-              </button>
               <button type="button" className={styles.button}>
                 ЗАРЕЄСТРУВАТИСЯ
               </button>
@@ -52,7 +61,7 @@ const Exercises = () => {
             <div className={styles.exercise}>
               <div className={styles.title_wrapper}>
                 <h2 className={styles.exercise_title}>
-                  Вправа 1 ( Майстер стрільби: Зміна Позицій )
+                  Вправа 1 ( Зміна Позицій )
                 </h2>
                 <h3 className={styles.subtitle}>Стартове положення</h3>
                 <div className={styles.text_wrapper}>
@@ -77,7 +86,7 @@ const Exercises = () => {
                       <th className={styles.step}>етап</th>
                       <th className={styles.position}>Позиція</th>
                       <th className={styles.technique}>порядок дій</th>
-                      <th className={styles.quantity}>кількість</th>
+                      <th className={styles.quantity}>{quantityText()}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -145,7 +154,7 @@ const Exercises = () => {
             <div className={styles.exercise}>
               <div className={styles.title_wrapper}>
                 <h2 className={styles.exercise_title}>
-                  Вправа 2 ( Тактичний Перехід: Майстер-Стрілець )
+                  Вправа 2 ( Тактичні переміщення )
                 </h2>
                 <h3 className={styles.subtitle}>
                   Стартове положення: “Low Ready”
@@ -170,7 +179,7 @@ const Exercises = () => {
                       <th className={styles.step}>етап</th>
                       <th className={styles.position}>Позиція</th>
                       <th className={styles.technique}>порядок дій</th>
-                      <th className={styles.quantity}>кількість</th>
+                      <th className={styles.quantity}>{quantityText()}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -216,7 +225,7 @@ const Exercises = () => {
             <div className={styles.exercise}>
               <div className={styles.title_wrapper}>
                 <h2 className={styles.exercise_title}>
-                  Вправа 3 ( Швидка Реакція: Бойовий Рух )
+                  Вправа 3 ( Динамічна стрільба )
                 </h2>
                 <h3 className={styles.subtitle}>
                   Стартове положення: “Low Ready”
@@ -241,7 +250,7 @@ const Exercises = () => {
                       <th className={styles.step}>етап</th>
                       <th className={styles.position}>Позиція</th>
                       <th className={styles.technique}>порядок дій</th>
-                      <th className={styles.quantity}>кількість</th>
+                      <th className={styles.quantity}>{quantityText()}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -303,7 +312,39 @@ const Exercises = () => {
             </div>
           </div>
         </div>
+
+        <div className={styles.button_wrapper_mob}>
+          <button
+            type="button"
+            className={`${global.primaryBtn} ${styles.button} ${styles.button_transparent}`}
+            onClick={handleShowModal}
+          >
+            ПОКАЗАТИ СХЕМУ
+          </button>
+          <button type="button" className={styles.button}>
+            ЗАРЕЄСТРУВАТИСЯ
+          </button>
+        </div>
       </div>
+
+      {isModalOpen && (
+        <div className={styles.modalScheme}>
+          <div className={styles.modalScheme_content}>
+            <Image
+              className={styles.modalScheme_image}
+              src={image}
+              alt="MullerArms"
+            />
+            <button
+              type="button"
+              className={styles.modalScheme_close}
+              onClick={handleCloseModal}
+            >
+              <CloseIcon />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

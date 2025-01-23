@@ -29,12 +29,12 @@ const ServiceCard = ({ training }: { training: any }) => {
         />
       </div>
       <div className={styles.services_info}>
-        <h3 className={styles.services_infoTitle}>{name}</h3>
+        <h3 className={styles.services_infoTitle}>{name.replace(' ', '\n')}</h3>
         {!!shortDescription && (
           <p className={styles.services_infoDesc}>{shortDescription}</p>
         )}
         <div className={styles.services_infoPrice}>
-          <p className={styles.services_infoPriceOrange}>{pricePerHour}</p>
+          <p className={styles.services_infoPriceOrange}>{pricePerHour} грн</p>
         </div>
         <Link className={styles.services_infoBtn} href={`/trainings/${slug}`}>
           ЗАРЕЄСТРУВАТИСЯ

@@ -1,12 +1,9 @@
 'use client'
-//libs
-// import Image from 'next/image'
 //styles
 import styles from './styles.module.scss'
 //images
 import ArrowLeft from '../Icons/ArrowLeft'
 import ArrowRight from '../Icons/ArrowRight'
-// import bgBottom from '../../../public/images/leaders-table-bg-bottom.webp'
 //components
 import ArchiveCard from '../ArchiveCard'
 //swiper
@@ -67,7 +64,7 @@ const Archive = () => {
               <ArrowRight />
             </div>
           </div>
-          <p className={styles.nav_date}>грудень 2023</p>
+          <p className={styles.nav_date}>грудень 2024</p>
         </div>
       </div>
       <div className={styles.section}>
@@ -100,7 +97,6 @@ const Archive = () => {
             </div>
           </div>
         </div>
-        {/* <Image className={styles.bg_bottom} src={bgBottom} alt="MullerArms" /> */}
       </div>
     </>
   )

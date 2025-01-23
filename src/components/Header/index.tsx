@@ -2,15 +2,16 @@
 //libs
 import React, { useEffect, useState } from 'react'
 import { Squash as Hamburger } from 'hamburger-react'
+import { usePathname, useRouter } from 'next/navigation'
+import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //images
 import Logo from '../Icons/Logo'
 import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
-import Link from 'next/link'
+//hooks
 import useScrollDirection from '@/hooks/useScrollDirection'
-import { usePathname, useRouter } from 'next/navigation'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
