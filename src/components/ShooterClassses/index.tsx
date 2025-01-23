@@ -3,7 +3,6 @@ import Image from 'next/image'
 //styles
 import styles from './styles.module.scss'
 //images
-import video from '../../../public/images/shooter-classes-video.gif'
 import bgTop from '../../../public/images/qualifications/experience-bg-top.webp'
 import bgBottom from '../../../public/images/qualifications/experience-bg-bottom.webp'
 
@@ -11,6 +10,14 @@ const ShooterClasses = () => {
   return (
     <div className={styles.section}>
       <div className={styles.container}>
+        <video
+          className={styles.video}
+          src={'/images/shooter-classes.mp4'}
+          controls
+          loop
+          muted
+          preload="auto"
+        />
         <div className={styles.content}>
           <h2 className={styles.title}>класи стрільця</h2>
           <div className={styles.text_wrapper}>
