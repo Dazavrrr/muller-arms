@@ -4,9 +4,16 @@
 .nav {
   background-color: #ececec;
   width: 100%;
-  padding-top: 29px;
-  padding-bottom: 29px;
+  padding: 29px 60px;
   margin-bottom: 50px;
+
+  @media (max-width: 1024px) {
+    padding: 29px 30px;
+  }
+
+  @media (max-width: 790px) {
+    padding: 29px 20px;
+  }
 }
 
 .nav_content {
@@ -99,7 +106,7 @@
 
   .cards {
     max-width: 1176px;
-    margin: 0 auto;
+    // margin: 0 auto;
     max-height: 1075px;
   }
 

@@ -44,15 +44,16 @@
   .filters__wrapper {
     position: relative;
     display: flex;
+    flex-direction: column;
     gap: 50px;
   }
 
-  .updateBtn {
-    height: fit-content;
-    position: fixed;
-    top: 25%;
-    left: 55px;
-  }
+  // .updateBtn {
+  //   height: fit-content;
+  //   position: fixed;
+  //   top: 25%;
+  //   left: 55px;
+  // }
 
   .filter {
     max-width: 240px;

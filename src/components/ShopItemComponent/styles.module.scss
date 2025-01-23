@@ -2,83 +2,93 @@
 @import '../../styles/utils/_mixins.scss';
 
 .card {
+  @include size(100%, 300px);
+  max-width: 203px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
 
-  max-width: 203px;
-  width: 100%;
+.image {
+  object-fit: cover;
+  border-radius: 5px;
 
-  .image {
-    object-fit: cover;
-    border-radius: 5px;
-
-    @media (max-width: 490px) {
-      @include size(160px, 170px);
-    }
+  @media (max-width: 490px) {
+    @include size(160px, 170px);
   }
+}
 
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    @media (max-width: 490px) {
-      gap: 12px;
-    }
+  @media (max-width: 490px) {
+    gap: 12px;
   }
+}
 
-  .title_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.title_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  color: #333;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+  text-transform: uppercase;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @media (max-width: 490px) {
+    font-size: 16px;
   }
+}
 
-  .title {
-    color: #333;
-    font-family: var(--font-Montserrat), sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 130%;
-    text-transform: uppercase;
+.id {
+  color: #333;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
+}
 
-    @media (max-width: 490px) {
-      font-size: 16px;
-    }
-  }
+.line {
+  border: 1px solid #333;
+}
 
-  .id {
-    color: #333;
-    font-family: var(--font-Montserrat), sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    line-height: 160%;
-    text-transform: uppercase;
-  }
+.price_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-  .line {
-    border: 1px solid #333;
-  }
+.price_info {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .price_wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
+.price {
+  color: #333;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-weight: 500;
+  line-height: 160%;
+  text-transform: uppercase;
+}
 
-  .price {
-    color: #333;
-    font-family: var(--font-Montserrat), sans-serif;
-    font-weight: 500;
-    line-height: 160%;
-    text-transform: uppercase;
-  }
-
-  .buy_btn {
-    color: #333;
-    font-family: var(--font-Montserrat), sans-serif;
-    font-weight: 800;
-    line-height: 160%;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
+.buy_btn {
+  color: #333;
+  font-family: var(--font-Montserrat), sans-serif;
+  font-weight: 800;
+  line-height: 160%;
+  text-transform: uppercase;
+  cursor: pointer;
 }

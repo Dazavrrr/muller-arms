@@ -4,7 +4,6 @@ import styles from './styles.module.scss'
 import Articles from '../Articles'
 import BlogHero from '../BlogHero'
 import BlogImage from '../BlogImage'
-import News from '../News'
 
 const BlogComponent = () => {
   return (
@@ -12,7 +11,6 @@ const BlogComponent = () => {
       <BlogHero />
       <Articles />
       <BlogImage />
-      <News />
     </div>
   )
 }

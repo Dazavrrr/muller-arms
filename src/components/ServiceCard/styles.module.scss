@@ -46,7 +46,7 @@
   border-radius: 5px;
 
   @media (max-width: 1295px) {
-    @include size(100%, 100%);
+    width: 100%;
   }
 
   @media (max-width: 768px) {
@@ -71,8 +71,11 @@
 .services_infoTitle {
   font-size: 24px;
   line-height: 110%;
-  font-family: var(--font-DuskDemon);
+  font-family: var(--font-DuskDemon), sans-serif;
   color: #333;
+
+  display: inline-block;
+  white-space: pre-wrap;
 
   @media (max-width: 768px) {
     font-size: 30px;
@@ -87,12 +90,13 @@
   color: #a3978d;
   font-weight: 500;
   line-height: 160%;
+  text-transform: uppercase;
 }
 
 .services_infoPrice {
   @include center-flex();
   justify-content: space-between;
-  font-family: var(--font-Montserrat);
+  font-family: var(--font-Montserrat), sans-serif;
   font-weight: 600;
   line-height: 130%;
   font-size: 20px;
