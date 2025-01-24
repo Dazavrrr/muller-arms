@@ -10,8 +10,8 @@ const Instructors = () => {
       <div className={styles.instructors_wrapper}>
         <h2 className={styles.instructors_title}>Наші ТРЕНЕРИ</h2>
         <p className={styles.instructors_subtitle}>
-          Ведучі вас до майстерності: Досвід, Професіоналізм та Дружня Підтримка
-          в Навчанні зі Стрільб
+          Приведуть вас до майстерності у володінні зброєю. Досвід,
+          Професіоналізм та Дружня Підтримка в процесі Навчання
         </p>
 
         <div className={styles.instructors_cards}>
