@@ -2,7 +2,7 @@
 //libs
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 //styles
 import styles from './styles.module.scss'
 import global from '../../styles/global.module.scss'
@@ -13,15 +13,12 @@ import CloseIcon from '../Icons/CloseIcon'
 
 const Exercises = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+
   const handleShowModal = () => {
     setIsModalOpen(true)
   }
   const handleCloseModal = () => {
     setIsModalOpen(false)
-  }
-
-  const quantityText = () => {
-    return window.innerWidth < 490 ? 'к-сть' : 'кількість'
   }
 
   return (
@@ -86,7 +83,7 @@ const Exercises = () => {
                       <th className={styles.step}>етап</th>
                       <th className={styles.position}>Позиція</th>
                       <th className={styles.technique}>порядок дій</th>
-                      <th className={styles.quantity}>{quantityText()}</th>
+                      <th className={styles.quantity}>Кількість</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -179,7 +176,7 @@ const Exercises = () => {
                       <th className={styles.step}>етап</th>
                       <th className={styles.position}>Позиція</th>
                       <th className={styles.technique}>порядок дій</th>
-                      <th className={styles.quantity}>{quantityText()}</th>
+                      <th className={styles.quantity}>Кількість</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -250,7 +247,7 @@ const Exercises = () => {
                       <th className={styles.step}>етап</th>
                       <th className={styles.position}>Позиція</th>
                       <th className={styles.technique}>порядок дій</th>
-                      <th className={styles.quantity}>{quantityText()}</th>
+                      <th className={styles.quantity}>Кількість</th>
                     </tr>
                   </thead>
                   <tbody>
