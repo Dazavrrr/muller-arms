@@ -24,8 +24,8 @@ const ServiceCard = ({ training }: { training: any }) => {
           className={styles.services_image}
           src={image}
           alt={name}
-          width={267}
-          height={200}
+          // width={267}
+          // height={200}
         />
       </div>
       <div className={styles.services_info}>
