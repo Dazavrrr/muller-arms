@@ -83,14 +83,18 @@
 
   .exercises {
     display: flex;
-    gap: 190px;
+    gap: 270px;
 
     @media (max-width: 1150px) {
-      gap: 110px;
+      gap: 200px;
     }
 
     @media (max-width: 980px) {
-      gap: 70px;
+      gap: 150px;
+    }
+
+    @media (max-width: 878px) {
+      gap: 120px;
     }
 
     @media (max-width: 768px) {
@@ -177,4 +181,8 @@
     border-radius: 5px;
     background: #fec401;
   }
+}
+
+.bold {
+  font-weight: 700;
 }

@@ -28,9 +28,17 @@
   }
 
   .image {
-    width: 461px;
+    @include size(100%, auto);
+    display: block;
+    max-width: 461px;
     max-height: 610px;
     object-fit: cover;
+    border-radius: 5px;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      max-height: 316px;
+    }
   }
 
   .content {

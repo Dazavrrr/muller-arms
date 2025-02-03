@@ -31,7 +31,8 @@ const OurSetOfExercises = () => {
                 alt="MullerArms shooting"
               />
               <p className={styles.subtitle}>
-                Вправа 1: <br /> Зміна Позицій
+                <span className={styles.bold}>Вправа 1:</span> <br /> Зміна
+                <br /> Позицій
               </p>
               <Link className={styles.link} href="/exercises">
                 детальніше
@@ -44,7 +45,8 @@ const OurSetOfExercises = () => {
                 alt="MullerArms shooting"
               />
               <p className={styles.subtitle}>
-                Вправа 2: <br /> Тактичні переміщення
+                <span className={styles.bold}>Вправа 2:</span> <br /> Тактичні
+                <br /> переміщення
               </p>
               <Link className={styles.link} href="/exercises">
                 детальніше
@@ -57,7 +59,8 @@ const OurSetOfExercises = () => {
                 alt="MullerArms shooting"
               />
               <p className={styles.subtitle}>
-                Вправа 3: <br /> Динамічна стрільба
+                <span className={styles.bold}>Вправа 3:</span> <br /> Динамічна
+                <br /> стрільба
               </p>
               <Link className={styles.link} href="/exercises">
                 детальніше

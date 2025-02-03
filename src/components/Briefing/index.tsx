@@ -44,9 +44,10 @@ const Briefing = () => {
             </p>
           </div>
         </div>
+
+        <Image className={styles.bg_top} src={bgTop} alt="MullerArms" />
+        <Image className={styles.bg_bottom} src={bgBottom} alt="MullerArms" />
       </div>
-      <Image className={styles.bg_top} src={bgTop} alt="MullerArms" />
-      <Image className={styles.bg_bottom} src={bgBottom} alt="MullerArms" />
     </div>
   )
 }

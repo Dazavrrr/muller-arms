@@ -19,10 +19,10 @@ const Club = () => {
         <ClubAchievements />
         <ClubTeam />
 
-        <p className={styles.bold_text}>
-          MullerArms – це більше, ніж стрілецький клуб. Це спільнота, яка
-          мотивує до розвитку, об’єднує для досягнення великих цілей і змінює
-          світ навколо себе.
+        <p className={styles.text}>
+          <span className={styles.bold}>MullerArms</span> – це більше, ніж
+          стрілецький клуб. Це спільнота, яка мотивує до розвитку, об’єднує для
+          досягнення великих цілей і змінює світ навколо себе.
         </p>
       </div>
     </div>

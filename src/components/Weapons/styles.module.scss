@@ -44,6 +44,7 @@
   &_photo {
     @include size(473px, auto);
     object-fit: cover;
+    border-radius: 5px;
 
     @media (max-width: 991px) {
       display: none;
@@ -54,6 +55,7 @@
     @include size(100%, 316px);
     object-fit: cover;
     display: none;
+    border-radius: 5px;
 
     @media (max-width: 991px) {
       display: flex;
