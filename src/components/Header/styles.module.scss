@@ -46,7 +46,6 @@
   &_logo {
     @include center-flex();
     color: $white;
-    // margin-right: 130px;
     position: relative;
     z-index: 16;
     @media (max-width: 1150px) {
@@ -79,7 +78,9 @@
       font-size: 11px;
     }
     @media (max-width: 1053px) {
-      // display: none;
+      font-size: 16px;
+      gap: 40px;
+
       pointer-events: none;
       position: absolute;
       height: 0;
@@ -97,8 +98,7 @@
     }
   }
   &_mobNavActive {
-    @media (max-width: 790px) {
-      //display: flex;
+    @media (max-width: 1053px) {
       pointer-events: all;
       height: 100dvh;
       opacity: 1;
@@ -146,11 +146,6 @@
     @media (max-width: 460px) {
       opacity: 0;
       pointer-events: none;
-      //position: absolute;
-      //z-index: 16;
-      //left: 50%;
-      //top: 490%;
-      //transform: translateX(-50%);
       transition: all 0.2s ease-in-out;
       flex-direction: column-reverse;
     }
@@ -175,19 +170,6 @@
     &:hover {
       color: #e5a40e;
     }
-
-    @media (max-width: 840px) {
-      font-size: 12px;
-    }
-    //@media (max-width: 790px) {
-    //  font-size: 16px;
-    //}
-    //@media (max-width: 550px) {
-    //  font-size: 14px;
-    //}
-    //@media (max-width: 425px) {
-    //  font-size: 12px;
-    //}
   }
 
   &_mobPhoneNum {
@@ -212,14 +194,6 @@
     &:hover {
       background-color: #55565e;
     }
-
-    //@media (max-width: 550px) {
-    //  @include size(30px, 30px);
-    //  svg{
-    //    width: 20px;
-    //    height: 20px;
-    //  }
-    //}
   }
 
   &_rightMob {

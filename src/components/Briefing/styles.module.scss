@@ -17,7 +17,7 @@
 
   .container {
     display: flex;
-    align-items: center;
+    // align-items: center;
     max-width: 1031px;
     width: 100%;
     gap: 30px;
@@ -28,7 +28,7 @@
   }
 
   .image {
-    @include size(100%, auto);
+    @include size(40%, auto);
     display: block;
     max-width: 461px;
     max-height: 610px;
@@ -37,6 +37,7 @@
 
     @media (max-width: 768px) {
       max-width: 100%;
+      width: 100%;
       max-height: 316px;
     }
   }
