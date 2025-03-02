@@ -1,37 +1,39 @@
+'use client'
 //styles
 import styles from './styles.module.scss'
 //icons
 import ArrowLeft from '../Icons/ArrowLeft'
 import ArrowRight from '../Icons/ArrowRight'
 import MayLikeCard from '../MayLikeCard'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { fetchAllArticles } from '@/store/slices/Articles.slise'
-import { useEffect } from 'react'
 import '@/styles/swiper.scss'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Article } from '@/models/article'
+import { useEffect, useState } from 'react'
+import { getData } from '@/api'
+import { ApiPath } from '@/common/enums'
 
 const MayLike = ({ slug }: { slug: string }) => {
-  const articles = useAppSelector((state) => state.Articles.articles)
-  const articlesFetchStatus = useAppSelector(
-    (state) => state.Articles.articlesFetchStatus
-  )
-  const currentArticle = useAppSelector(
-    (state) => state.Articles.currentArticle
-  )
-  const dispatch = useAppDispatch()
+  const [articles, setArticles] = useState<Article[] | null | undefined>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    dispatch(fetchAllArticles(0))
+    async function fetchPosts() {
+      setIsLoading(true)
+      const res = await getData<Article[]>(ApiPath.BLOG)
+      setIsLoading(false)
+      setArticles(res.data)
+    }
+    fetchPosts()
   }, [])
 
-  if (articlesFetchStatus === 'pending' || !articles) {
+  if (isLoading) {
     return <div>Loading...</div>
   }
 
   return (
     <>
-      {articles.items.length !== 0 && (
+      {!!articles?.length && (
         <section className={styles.section}>
           <div className={styles.title_wrapper}>
             <h2 className={styles.title}>ВАМ МОЖЕ СПОДОБАТИСЯ</h2>
@@ -58,8 +60,8 @@ const MayLike = ({ slug }: { slug: string }) => {
               className="mySwiper2"
               slidesPerView={'auto'}
             >
-              {articles.items
-                .filter((article) => article.slug !== slug)
+              {articles
+                ?.filter((article) => article.slug !== slug)
                 .map((article) => (
                   <SwiperSlide key={article.id}>
                     <MayLikeCard article={article} />

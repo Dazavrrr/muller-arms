@@ -1,4 +1,3 @@
-'use client'
 import LeadersTableRifle from '@/components/LeadersTableRifle'
 import '@/styles/global.module.scss'
 

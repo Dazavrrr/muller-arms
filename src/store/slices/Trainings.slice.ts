@@ -38,6 +38,7 @@ export const fetchOneTraining = createAsyncThunk(
   }
 )
 
+// DELETE
 export const fetchOneTrainingBySlug = createAsyncThunk(
   'trainings/fetchOneTrainingBySlug',
   async (slug: string) => {

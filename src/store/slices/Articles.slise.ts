@@ -54,7 +54,7 @@ export const fetchAllNews = createAsyncThunk(
     return await response.data
   }
 )
-
+//DELETE
 export const fetchAllAnnouncements = createAsyncThunk(
   'articles/fetchAllAnnouncements',
   async (page: number) => {

@@ -12,7 +12,7 @@ const ShooterClasses = () => {
       <div className={styles.container}>
         <video
           className={styles.video}
-          src={'/images/shooter-classes.mp4'}
+          src={'images/shooter-classes.mp4'}
           controls
           loop
           muted

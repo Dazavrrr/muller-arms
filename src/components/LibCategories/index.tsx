@@ -14,47 +14,23 @@ import {
 //images
 import categoryIcon from '../../../public/icons/categoriesIcon.svg'
 import Image from 'next/image'
+import { Category } from '@/models/category'
 
-const LibCategories = () => {
-  const selectedCategories = useAppSelector(
-    (state) => state.Library.selectedCategories
-  )
-
-  const [categoriesOpened,setOpen] = useState(false);
-
-  const handleSelectCategory = (id: number) => {
-    if (selectedCategories.includes(id)) {
-      dispatch(handleCategories(selectedCategories.filter((v) => v != id)))
-    } else {
-      dispatch(handleCategories([...selectedCategories, id]))
-    }
-  }
-
-  const page = useAppSelector((state) => state.Library.page)
-  const dispatch = useAppDispatch()
-  const categories = useAppSelector((state) => state.Library.categories)
-
-  useEffect(() => {
-    dispatch(handleCategories(selectedCategories))
-  }, [selectedCategories])
-
-  useEffect(() => {
-    dispatch(fetchAllCategories())
-  }, [])
-
+const LibCategories = ({ categories }: { categories: Category[] }) => {
   return (
     <div className={styles.categories}>
-      <div className={styles.mob_btn} onClick={() => setOpen(prev => !prev)}>
+      <div className={styles.mob_btn}>
         <Image src={categoryIcon} alt="icon" />
         Список категорій
       </div>
-      <div className={`${styles.categoriesWrapper} ${!categoriesOpened && styles.closed}`}>
+      <div className={`${styles.categoriesWrapper}`}>
         {categories.map((category) => (
           <LibCategoryComp
             key={category.id}
             category={category}
-            handleSelectCategory={handleSelectCategory}
-            isSelected={selectedCategories.includes(category.id)}
+            handleSelectCategory={() => {}}
+            isSelected
+            // isSelected={selectedCategories.includes(category.id)}
           />
         ))}
       </div>

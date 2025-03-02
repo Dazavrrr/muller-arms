@@ -10,9 +10,10 @@ import PersonIcon from '../Icons/Person'
 import OclockIcon from '../Icons/Oclock'
 import Link from 'next/link'
 import bgBottom from '../../../public/images/article-hero-bg-bottom.png'
+import { Article } from '@/models/article'
 
-const ArticleHero = ({ article }: { article: ArticleResponse }) => {
-  const { id, title, author, imagePath, text, creationDate } = article
+const ArticleHero = ({ article }: { article: Article }) => {
+  const { id, title, author, image, text, created_at } = article
 
   return (
     <section className={styles.main_wrapper}>
@@ -39,14 +40,25 @@ const ArticleHero = ({ article }: { article: ArticleResponse }) => {
             <div className={styles.details_wrapper}>
               <OclockIcon />
               <p className={styles.date}>
-                {moment(creationDate).locale('uk').format('D MMMM')}
+                {moment(created_at).locale('uk').format('D MMMM')}
               </p>
             </div>
           </div>
-
-          <Image className={styles.image} src={imagePath} alt="MullerArms" />
+          {/* TO DO: */}
+          {image && (
+            <Image
+              width={882}
+              height={1063}
+              className={styles.image}
+              src={`http://127.0.0.1:8000${image}`}
+              alt="MullerArms"
+            />
+          )}
           <div className={styles.info}>
-            <p className={styles.text}>{text}</p>
+            <div
+              className={styles.text}
+              dangerouslySetInnerHTML={{ __html: text }}
+            ></div>
             <div className={styles.details}>
               <div className={styles.details_wrapper}>
                 <PersonIcon />
@@ -55,7 +67,7 @@ const ArticleHero = ({ article }: { article: ArticleResponse }) => {
               <div className={styles.details_wrapper}>
                 <OclockIcon />
                 <p className={styles.date}>
-                  {moment(creationDate).locale('uk').format('D MMMM')}
+                  {moment(created_at).locale('uk').format('D MMMM')}
                 </p>
               </div>
             </div>

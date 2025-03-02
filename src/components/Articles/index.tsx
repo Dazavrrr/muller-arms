@@ -1,4 +1,3 @@
-'use client'
 //libs
 import React, { useEffect } from 'react'
 import Link from 'next/link'
@@ -8,21 +7,12 @@ import { fetchAllArticles } from '@/store/slices/Articles.slise'
 import styles from './styles.module.scss'
 //components
 import ArticleCard from '../ArticleCard'
+import { getData } from '@/api'
+import { ApiPath } from '@/common/enums'
+import { Article } from '@/models/article'
 
-const Articles = () => {
-  const articles = useAppSelector((state) => state.Articles.articles)
-  const articlesFetchStatus = useAppSelector(
-    (state) => state.Articles.articlesFetchStatus
-  )
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(fetchAllArticles(0))
-  }, [])
-
-  if (articlesFetchStatus === 'pending' || !articles) {
-    return <div>Loading...</div>
-  }
+const Articles = async () => {
+  const { data: articles } = await getData<Article[]>(ApiPath.BLOG)
 
   return (
     <div className={styles.articles}>
@@ -32,7 +22,7 @@ const Articles = () => {
         <div className={styles.articles_content}>
           <div className={styles.first_wrapper}>
             <div>
-              {articles.items.map((article, index) => {
+              {articles?.map((article, index) => {
                 if (index === 0) {
                   return (
                     <Link href={`/blog/${article.slug}`} key={article.id}>
@@ -44,7 +34,7 @@ const Articles = () => {
               })}
             </div>
             <div className={styles.small_articles}>
-              {articles.items.map((article, index) => {
+              {articles?.map((article, index) => {
                 if (index > 0 && index < 5) {
                   return (
                     <Link href={`/blog/${article.slug}`} key={article.id}>
@@ -58,7 +48,7 @@ const Articles = () => {
           </div>
 
           <div className={styles.second_wrapper}>
-            {articles.items.map((article, index) => {
+            {articles?.map((article, index) => {
               if (index < 5) {
                 return
               }

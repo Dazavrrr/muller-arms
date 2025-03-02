@@ -16,58 +16,29 @@ import {
   fetchDocsByTypes,
   fetchSearchDocs,
   handleCategories,
-  handleCheckbox, handleSearch,
+  handleCheckbox,
+  handleSearch,
 } from '@/store/slices/Library.slice'
+import { LibraryItem } from '@/models/library'
+import { Category } from '@/models/category'
 
-const LibraryComponent = () => {
+const LibraryComponent = ({
+  docs,
+  categories,
+}: {
+  docs: LibraryItem[]
+  categories: Category[]
+}) => {
   const [sort, setSort] = useState<'REC' | 'ASC' | 'DESC'>('REC')
 
-  const categories = useAppSelector((state) => state.Library.selectedCategories)
   const searchValue = useAppSelector((state) => state.Library.searchValue)
-  const checkbox = useAppSelector((state) => state.Library.checkbox)
-  const docs = useAppSelector((state) => state.Library.docs)
-  const dispatch = useAppDispatch()
-  const pagination = useAppSelector((state) => state.Library.page)
 
-  const [isReset, setIsReset] = useState<boolean>(false)
-
-  useEffect(() => {
-    if (categories.length > 0 && !isReset) {
-      dispatch(
-        fetchDocsByCategories({
-          categories: categories,
-          types: checkbox,
-          page: pagination,
-        })
-      )
-      return
-    }
-    if (checkbox.length != 0 && !isReset) {
-      dispatch(fetchDocsByTypes({ types: checkbox, page: pagination }))
-    }
-    setIsReset(false)
-  }, [categories, checkbox, pagination])
-
-  useEffect(() => {
-    if (searchValue.trim().length > 0) {
-      setIsReset(true)
-      dispatch(fetchSearchDocs({ name: searchValue }))
-      dispatch(handleCategories([]))
-      dispatch(handleCheckbox([`BOOK`, `AUDIO`, `VIDEO`]))
-    } else {
-      dispatch(fetchDocsByTypes({ types: checkbox, page: pagination }))
-    }
-  }, [searchValue])
-
-  if (docs == null) {
-    return <p>loading</p>
-  }
   return (
     <section className={styles.library}>
       <div className={styles.library_wrapper}>
         <h2 className={styles.library_title}>Бібліотека</h2>
 
-        <LibCategories />
+        <LibCategories categories={categories} />
 
         <div className={styles.library_content}>
           <div className={styles.library_filter}>
@@ -79,7 +50,7 @@ const LibraryComponent = () => {
           </div>
 
           <div className={styles.library_items}>
-            {docs.items
+            {docs
               .toSorted((a, b) => {
                 if (sort === `ASC`) {
                   return a.name > b.name ? 1 : -1
@@ -93,8 +64,9 @@ const LibraryComponent = () => {
                 <LibElement
                   key={doc.id}
                   name={doc.name}
-                  downloadUrl={doc.downloadUrl}
-                  imagePath={doc.imagePath}
+                  downloadUrl={doc.main_file}
+                  //TO DO:
+                  imagePath={`http://127.0.0.1:8000${doc.image}`}
                 />
               ))}
           </div>

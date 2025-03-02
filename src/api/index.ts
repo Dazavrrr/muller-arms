@@ -2,9 +2,44 @@ import axios from 'axios'
 import * as process from 'process'
 
 export const ENV_URL = process.env.NEXT_PUBLIC_BASE_URL
+export const ENV_URL_DEV = process.env.NEXT_PUBLIC_DEV_URL
 
 export const BASE_URL = `${ENV_URL}/api`
+export const BASE_URL_DEV = `${ENV_URL_DEV}/api`
 
+interface ApiResponse<T> {
+  data?: T | null
+  error?: unknown
+}
+
+export const getData = async <T>(
+  url: string,
+  params?: RequestInit
+): Promise<ApiResponse<T>> => {
+  try {
+    const response = await fetch(`${BASE_URL_DEV}${url}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        ...params?.headers,
+      },
+      ...params,
+      next: {
+        revalidate: 1,
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`)
+    }
+
+    const data: T = await response.json()
+    return { data }
+  } catch (error) {
+    console.error('API error:', error)
+    return { data: null, error }
+  }
+}
 
 export const guestInstance = axios.create({
   baseURL: BASE_URL,
@@ -20,17 +55,22 @@ export const adminInstance = axios.create({
   },
 })
 
-adminInstance.interceptors.request.use(function(config) {
+adminInstance.interceptors.request.use(function (config) {
   config.headers.Authorization = 'Bearer ' + localStorage.getItem('access')
   return config
 })
 
 adminInstance.interceptors.response.use(
-  function(response) {
+  function (response) {
     return response
   },
-  async function(error) {
-    if (error.response && error.response.status && 401 === error.response.status || 403 === error.response.status) {
+  async function (error) {
+    if (
+      (error.response &&
+        error.response.status &&
+        401 === error.response.status) ||
+      403 === error.response.status
+    ) {
       const originalRequest = error.config
       if (!originalRequest._retry) {
         originalRequest._retry = true
@@ -42,7 +82,7 @@ adminInstance.interceptors.response.use(
           const response = await axios.post(
             `${BASE_URL}/auth/refresh`,
             JSON.stringify({ refresh: refresh }),
-            { headers: { 'Content-Type': 'application/json' } },
+            { headers: { 'Content-Type': 'application/json' } }
           )
           if (response.status === 200) {
             localStorage.setItem('access', response.data.access)
@@ -61,4 +101,5 @@ adminInstance.interceptors.response.use(
       }
     }
     return Promise.reject(error)
-  })
+  }
+)

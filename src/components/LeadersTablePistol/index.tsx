@@ -1,4 +1,3 @@
-'use client'
 //libs
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
@@ -19,14 +18,17 @@ import {
   fetchAllClassifications,
   fetchAllTableSlotsByType,
 } from '@/store/slices/TableSlots.slice'
+import { getData } from '@/api'
+import { Exercise } from '@/models/exercise'
+import { ApiPath } from '@/common/enums'
+import { LeadersTable } from '@/models/leaders-table'
 
-const LeadersTableRifle = ({ tab }: { tab: string }) => {
-  const result = useAppSelector((state) => state.TableSlots.slots)
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(fetchAllTableSlotsByType({ type: 'PISTOL', task: parseInt(tab) }))
-  }, [tab])
+const LeadersTableRifle = async ({ tab }: { tab: string }) => {
+  const exercisesData = getData<Exercise[]>(ApiPath.GUN_EXERCISES)
+  const tableData = getData<LeadersTable[]>(
+    `${ApiPath.LEADERS_TABLE_GUN}${tab}`
+  )
+  const [exercises, table] = await Promise.all([exercisesData, tableData])
 
   return (
     <div className={styles.section}>
@@ -60,55 +62,24 @@ const LeadersTableRifle = ({ tab }: { tab: string }) => {
 
           <div className={styles.exercises_wrapper}>
             <div className={styles.exercise_items}>
-              <Link
-                href="/leaders-table-pistol/1"
-                className={`${styles.exercise_item} ${
-                  parseInt(tab) === 1 && styles.active
-                }`}
-              >
-                / ВПРАВА №1
-              </Link>
-              <Link
-                href="/leaders-table-pistol/2"
-                className={`${styles.exercise_item}  ${
-                  parseInt(tab) === 2 && styles.active
-                }`}
-              >
-                / ВПРАВА №2
-              </Link>
-              <Link
-                href="/leaders-table-pistol/3"
-                className={`${styles.exercise_item}  ${
-                  parseInt(tab) === 3 && styles.active
-                }`}
-              >
-                / ВПРАВА №3
-              </Link>
-              <Link
-                href="/leaders-table-pistol/4"
-                className={`${styles.exercise_item} ${
-                  parseInt(tab) === 4 && styles.active
-                }`}
-              >
-                / ВПРАВА №4
-              </Link>
-              <Link
-                href="/leaders-table-pistol/5"
-                className={`${styles.exercise_item} 
-                ${parseInt(tab) === 5 && styles.active}`}
-              >
-                / ВПРАВА №5
-              </Link>
+              {exercises.data?.map((item) => (
+                <Link
+                  key={item.pk}
+                  href={`/leaders-table-pistol/${item.pk}`}
+                  className={`${styles.exercise_item} ${
+                    parseInt(tab) === item.pk && styles.active
+                  }`}
+                >
+                  / {item.name}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className={styles.content}>
-            {parseInt(tab) === 1 && <LeadersTableOne result={result} />}
-            {parseInt(tab) === 2 && <LeadersTableTwo result={result} />}
-            {parseInt(tab) === 3 && <LeadersTableThree result={result} />}
-            {parseInt(tab) === 4 && <LeadersTableFour result={result} />}
-            {parseInt(tab) === 5 && <LeadersTableFive result={result} />}
-          </div>
+          <LeadersTableOne
+            performers={table.data?.length ? table.data[0].performer : []}
+            exercise={!!table.data?.length ? table.data[0].exercise : undefined}
+          />
         </div>
       </div>
 

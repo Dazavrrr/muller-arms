@@ -1,4 +1,3 @@
-
 //libs
 import Link from 'next/link'
 import Image from 'next/image'
@@ -6,23 +5,16 @@ import Image from 'next/image'
 import styles from './styles.module.scss'
 //images
 import NavArrow from '../Icons/NavArrow'
-import bgBottom from '../../../public/images/leaders-table-bg-bottom.webp'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { useEffect } from 'react'
-import { fetchAllClassifications } from '@/store/slices/TableSlots.slice'
 import firstPlace from '../../../public/icons/standings/first-place.svg'
 import secondPlace from '../../../public/icons/standings/second-place.svg'
 import thirdPlace from '../../../public/icons/standings/third-place.svg'
 import moment from 'moment/moment'
+import { getData } from '@/api'
+import { ApiPath } from '@/common/enums'
+import { LeadersTable as ILeadersTable } from '@/models/leaders-table'
 
-const LeadersTable = () => {
-
-  const dispatch = useAppDispatch();
-  const results = useAppSelector(state => state.TableSlots.slots);
-
-  useEffect(() => {
-    dispatch(fetchAllClassifications());
-  }, [])
+const LeadersTable = async () => {
+  const { data } = await getData<ILeadersTable[]>(ApiPath.LEADERS_TABLE)
 
   return (
     <div className={styles.section}>
@@ -63,30 +55,42 @@ const LeadersTable = () => {
               </tr>
             </thead>
             <tbody>
-            {results.map((result,i) => (
-              <tr key={i}>
-                <td className={styles.places}>
-                  {i + 1}
-                  {i + 1 === 1 ? <Image
-                    className={styles.place_icon}
-                    src={firstPlace}
-                    alt="MullerArms"
-                  /> : i + 1 === 2 ? <Image
-                    className={styles.place_icon}
-                    src={secondPlace}
-                    alt="MullerArms"
-                  /> : i + 1 === 3 ? <Image
-                    className={styles.place_icon}
-                    src={thirdPlace}
-                    alt="MullerArms"
-                  /> : <></>}
-                </td>
-                <td>{result.name}</td>
-                <td>{result.finishTime}</td>
-                <td>{moment(result.lastTryDate).format("DD.MM.YYYY")}</td>
-                <td>{result.description}</td>
-              </tr>
-            ))}
+              {data?.length
+                ? data[0].performer?.map((result, i) => (
+                    <tr key={i}>
+                      <td className={styles.places}>
+                        {i + 1}
+                        {i + 1 === 1 ? (
+                          <Image
+                            className={styles.place_icon}
+                            src={firstPlace}
+                            alt="MullerArms"
+                          />
+                        ) : i + 1 === 2 ? (
+                          <Image
+                            className={styles.place_icon}
+                            src={secondPlace}
+                            alt="MullerArms"
+                          />
+                        ) : i + 1 === 3 ? (
+                          <Image
+                            className={styles.place_icon}
+                            src={thirdPlace}
+                            alt="MullerArms"
+                          />
+                        ) : (
+                          <></>
+                        )}
+                      </td>
+                      <td>{result.full_name}</td>
+                      <td>{result.perf_time}</td>
+                      <td>
+                        {moment(result.last_performance).format('DD.MM.YYYY')}
+                      </td>
+                      <td>{result.notes}</td>
+                    </tr>
+                  ))
+                : ''}
             </tbody>
           </table>
         </div>

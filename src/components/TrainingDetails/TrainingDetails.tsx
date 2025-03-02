@@ -9,10 +9,10 @@ import LocationIcon from '../Icons/Location'
 import NavArrow from '../Icons/NavArrow'
 //images
 import bottomBg from '../../../public/images/trainings/training-bottom-bg.webp'
-import { TrainingResponse } from '@/common/types'
+import { Training } from '@/models/training'
 
-const TrainingDetails = ({ training }: { training: TrainingResponse }) => {
-  const { name, image, description, slug } = training
+const TrainingDetails = ({ training }: { training: Training }) => {
+  const { name, image, description } = training
   return (
     <section className={styles.training}>
       <div className={styles.wrapper}>
@@ -47,14 +47,17 @@ const TrainingDetails = ({ training }: { training: TrainingResponse }) => {
 
         <section className={styles.details}>
           <div className={styles.col}>
-            <Image
-              src={image}
-              alt={'Muller Arms training'}
-              priority
-              className={styles.image}
-              width={906}
-              height={1063}
-            />
+            {/* TO DO: */}
+            {image && (
+              <Image
+                src={`http://127.0.0.1:8000${image}`}
+                alt={'Muller Arms training'}
+                priority
+                className={styles.image}
+                width={906}
+                height={1063}
+              />
+            )}
 
             <p className={styles.details__text}>{description}</p>
 

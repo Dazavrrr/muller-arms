@@ -7,22 +7,25 @@ import secondPlace from '../../../public/icons/standings/second-place.svg'
 import thirdPlace from '../../../public/icons/standings/third-place.svg'
 import moment from 'moment/moment'
 import { TableSlot } from '@/common/types'
+import { Performer } from '@/models/performer'
+import { Exercise } from '@/models/exercise'
 
-const LeadersTableOne = ({ result }: { result: TableSlot[] }) => {
+const LeadersTableOne = ({
+  performers,
+  exercise,
+}: {
+  performers?: Performer[]
+  exercise?: Exercise
+}) => {
   return (
     <div className={styles.section}>
       <div className={styles.text_wrapper}>
-        <h2 className={styles.title}>ВПРАВА №1</h2>
-        <p className={styles.text}>
-          Пістолет в кобурі прихованого носіння (без будь яких демаскуючих
-          ознак). Положення зброї №2, в магазині лише пʼять набоїв. Дистанція до
-          мішені 7 метрів. За сигналом таймера зарядити зброю та здійснити пʼять
-          пострілів в зону альфа мішені IDPA. Рахунок балів за системою Вікерса.
-        </p>
+        <h2 className={styles.title}>{exercise?.name}</h2>
+        <p className={styles.text}>{exercise?.description}</p>
       </div>
 
       <table>
-        <caption>ВПРАВА №1</caption>
+        <caption>{exercise?.name}</caption>
         <thead>
           <tr>
             <th className={styles.place}>МІСЦЕ</th>
@@ -33,7 +36,7 @@ const LeadersTableOne = ({ result }: { result: TableSlot[] }) => {
           </tr>
         </thead>
         <tbody>
-          {result.map((result, i) => (
+          {performers?.map((result, i) => (
             <tr key={i}>
               <td className={styles.places}>
                 {i + 1}
@@ -59,10 +62,10 @@ const LeadersTableOne = ({ result }: { result: TableSlot[] }) => {
                   <></>
                 )}
               </td>
-              <td>{result.name}</td>
-              <td>{result.finishTime}</td>
-              <td>{moment(result.lastTryDate).format('DD.MM.YYYY')}</td>
-              <td>{result.description}</td>
+              <td>{result.full_name}</td>
+              <td>{result.perf_time}</td>
+              <td>{moment(result.last_performance).format('DD.MM.YYYY')}</td>
+              <td>{result.notes}</td>
             </tr>
           ))}
         </tbody>

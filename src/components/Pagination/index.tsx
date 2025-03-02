@@ -25,29 +25,44 @@ const Pagination = () => {
     return pages
   }
 
-
   if (fetchStatus === 'pending' || docs === null) {
-    return <p>Loading</p>
+    return ''
   }
   return (
     <>
       {docs.allItemsCount !== 1 && (
         <div className={styles.pagination}>
-          {page != 0 &&
-            <div className={styles.arrow} onClick={() => dispatch(handlePage(page - 1))}><ArrowLeft /></div>}
+          {page != 0 && (
+            <div
+              className={styles.arrow}
+              onClick={() => dispatch(handlePage(page - 1))}
+            >
+              <ArrowLeft />
+            </div>
+          )}
           <div className={styles.pagination_pages}>
             {getThreePages(page).map((pageNumber) => (
               <p
-                className={`${styles.number} ${pageNumber === page && styles.number_active}`}
+                className={`${styles.number} ${
+                  pageNumber === page && styles.number_active
+                }`}
                 key={pageNumber}
-                onClick={() => page != pageNumber && dispatch(handlePage(pageNumber))}
+                onClick={() =>
+                  page != pageNumber && dispatch(handlePage(pageNumber))
+                }
               >
                 {pageNumber + 1}
               </p>
             ))}
           </div>
-          {page != docs.allItemsCount - 1 &&
-            <div className={styles.arrow} onClick={() => dispatch(handlePage(page + 1))}><ArrowRight /></div>}
+          {page != docs.allItemsCount - 1 && (
+            <div
+              className={styles.arrow}
+              onClick={() => dispatch(handlePage(page + 1))}
+            >
+              <ArrowRight />
+            </div>
+          )}
         </div>
       )}
     </>

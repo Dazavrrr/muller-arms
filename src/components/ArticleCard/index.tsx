@@ -1,3 +1,4 @@
+'use client'
 //libs
 import Image from 'next/image'
 import moment from 'moment'
@@ -6,35 +7,28 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from './styles.module.scss'
 import '@/styles/swiper.scss'
 //types
-import { ArticleSmallResponse } from '@/common/types'
+import { Article as IArticle } from '@/models/article'
 //icons
 import PersonIcon from '../Icons/Person'
 import OclockIcon from '../Icons/Oclock'
-//images
-import img from '../../../public/images/blog.png'
+import { useEffect, useState } from 'react'
 
 const Article = ({
   article,
   isBig,
   isTall,
 }: {
-  article: ArticleSmallResponse
+  article: IArticle
   isBig?: boolean
   isTall?: boolean
 }) => {
-  const {
-    id,
-    title,
-    author,
-    imagePath,
-    text,
-    slug,
-    creationDate,
-    eventTime,
-    eventAddress,
-  } = article
+  const { title, author, image, text, created_at } = article
 
-  const isMobile = window.innerWidth < 1019
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window?.innerWidth < 1019)
+  }, [])
 
   if (!isBig && !isTall && isMobile) {
     return (
@@ -45,18 +39,23 @@ const Article = ({
       >
         <SwiperSlide>
           <div className={styles.swiper_article}>
-            <Image
-              className={styles.swiper_img}
-              src={imagePath}
-              alt={title}
-              width={279}
-              height={206}
-            />
+            {image && (
+              <Image
+                className={styles.swiper_img}
+                src={image}
+                alt={title}
+                width={279}
+                height={206}
+              />
+            )}
 
             <div className={styles.swiper_info_wrapper}>
               <div className={styles.swiper_title_wrapper}>
                 <h3 className={styles.swiper_title}>{title}</h3>
-                <p className={styles.swiper_text}>{text}</p>
+                <p
+                  className={styles.swiper_text}
+                  dangerouslySetInnerHTML={{ __html: text }}
+                ></p>
               </div>
 
               <div className={styles.swiper_info}>
@@ -64,7 +63,7 @@ const Article = ({
                 <p className={styles.swiper_author}>{author}</p>
                 <OclockIcon />
                 <p className={styles.swiper_date}>
-                  {moment(creationDate).format('DD.MM')}
+                  {moment(created_at).format('DD.MM')}
                 </p>
               </div>
             </div>
@@ -81,27 +80,30 @@ const Article = ({
       } ${isTall && styles.tall_article}`}
     >
       <div className={styles.wrapper}>
-        <Image
-          className={styles.img}
-          src={imagePath}
-          alt={title}
-          width={279}
-          height={206}
-        />
+        {image && (
+          <Image
+            className={styles.img}
+            src={image}
+            alt={title}
+            width={279}
+            height={206}
+          />
+        )}
 
         <div className={styles.info_wrapper}>
           <div className={styles.title_wrapper}>
             <h3 className={styles.title}>{title}</h3>
-            <p className={styles.text}>{text}</p>
+            <p
+              className={styles.text}
+              dangerouslySetInnerHTML={{ __html: text }}
+            ></p>
           </div>
 
           <div className={styles.info}>
             <PersonIcon />
             <p className={styles.author}>{author}</p>
             <OclockIcon />
-            <p className={styles.date}>
-              {moment(creationDate).format('DD.MM')}
-            </p>
+            <p className={styles.date}>{moment(created_at).format('DD.MM')}</p>
           </div>
         </div>
       </div>

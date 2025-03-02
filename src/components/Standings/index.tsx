@@ -1,27 +1,18 @@
-'use client'
 //libs
 import Image from 'next/image'
-import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //icons
-import SearchIcon from '../Icons/Search'
 import firstPlace from '../../../public/icons/standings/first-place.svg'
 import secondPlace from '../../../public/icons/standings/second-place.svg'
 import thirdPlace from '../../../public/icons/standings/third-place.svg'
-import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { fetchAllClassifications } from '@/store/slices/TableSlots.slice'
 import moment from 'moment'
+import { getData } from '@/api'
+import { ApiPath } from '@/common/enums'
+import { Qualification } from '@/models/qualification'
 
-const Standings = () => {
-
-  const dispatch = useAppDispatch();
-  const results = useAppSelector(state => state.TableSlots.slots);
-
-  useEffect(() => {
-    dispatch(fetchAllClassifications());
-  }, [])
+const Standings = async () => {
+  const { data } = await getData<Qualification>(ApiPath.MILITARY)
 
   return (
     <div className={styles.section}>
@@ -52,30 +43,38 @@ const Standings = () => {
             </tr>
           </thead>
           <tbody>
-          {results.map((result,i) => (
-            <tr key={i}>
-              <td className={styles.places}>
-                {i + 1}
-                {i + 1 === 1 ? <Image
-                  className={styles.place_icon}
-                  src={firstPlace}
-                  alt="MullerArms"
-                /> : i + 1 === 2 ? <Image
-                  className={styles.place_icon}
-                  src={secondPlace}
-                  alt="MullerArms"
-                /> : i + 1 === 3 ? <Image
-                  className={styles.place_icon}
-                  src={thirdPlace}
-                  alt="MullerArms"
-                /> : <></>}
-              </td>
-              <td>{result.name}</td>
-              <td>{result.finishTime}</td>
-              <td>{moment(result.lastTryDate).format("DD.MM.YYYY")}</td>
-              <td>{result.description}</td>
-            </tr>
-          ))}
+            {data?.performer.map((result, i) => (
+              <tr key={i}>
+                <td className={styles.places}>
+                  {i + 1}
+                  {i + 1 === 1 ? (
+                    <Image
+                      className={styles.place_icon}
+                      src={firstPlace}
+                      alt="MullerArms"
+                    />
+                  ) : i + 1 === 2 ? (
+                    <Image
+                      className={styles.place_icon}
+                      src={secondPlace}
+                      alt="MullerArms"
+                    />
+                  ) : i + 1 === 3 ? (
+                    <Image
+                      className={styles.place_icon}
+                      src={thirdPlace}
+                      alt="MullerArms"
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </td>
+                <td>{result.full_name}</td>
+                <td>{result.perf_time}</td>
+                <td>{moment(result.last_performance).format('DD.MM.YYYY')}</td>
+                <td>{result.notes}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
 

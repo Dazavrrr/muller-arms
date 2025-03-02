@@ -47,6 +47,7 @@ export const fetchAllDocs = createAsyncThunk(
   }
 )
 
+//DELETE
 export const fetchSearchDocs = createAsyncThunk(
   'library/fetchSearchDocs',
   async ({ name }: { name: string }) => {
@@ -55,6 +56,7 @@ export const fetchSearchDocs = createAsyncThunk(
   }
 )
 
+//DELETE
 export const fetchDocsByCategories = createAsyncThunk(
   'library/fetchDocsByCategories',
   async ({
@@ -73,6 +75,7 @@ export const fetchDocsByCategories = createAsyncThunk(
   }
 )
 
+//DELETE
 export const fetchDocsByTypes = createAsyncThunk(
   'library/fetchDocsByTypes',
   async ({ types, page }: { types: string[]; page: number }) => {
@@ -214,9 +217,11 @@ const LibrarySlice = createSlice({
     handleSearch(state, { payload }) {
       state.searchValue = payload
     },
+    //DELETE
     handleCheckbox(state, { payload }) {
       state.checkbox = payload
     },
+    //DELETE
     handleCategories(state, { payload }) {
       state.selectedCategories = payload
     },

@@ -5,8 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 80px;
-  margin-bottom: 120px;
+  width: calc(50% - 10px);
 
   .content {
     display: flex;
@@ -19,6 +18,18 @@
     font-family: var(--font-DuskDemon), sans-serif;
     font-size: 24px;
     line-height: 110%;
+  }
+
+  .image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 0.73;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
   }
 
   .text {
@@ -38,5 +49,9 @@
   .details_item {
     display: flex;
     gap: 8px;
+  }
+
+  @media (max-width: 740px) {
+    width: 100%;
   }
 }
