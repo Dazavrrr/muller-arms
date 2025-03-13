@@ -10,6 +10,7 @@ import NavArrow from '../Icons/NavArrow'
 //images
 import bottomBg from '../../../public/images/trainings/training-bottom-bg.webp'
 import { Training } from '@/models/training'
+import { ENV_URL } from '@/api'
 
 const TrainingDetails = ({ training }: { training: Training }) => {
   const { name, image, description } = training
@@ -47,10 +48,9 @@ const TrainingDetails = ({ training }: { training: Training }) => {
 
         <section className={styles.details}>
           <div className={styles.col}>
-            {/* TO DO: */}
             {image && (
               <Image
-                src={`http://127.0.0.1:8000${image}`}
+                src={`${ENV_URL}${image}`}
                 alt={'Muller Arms training'}
                 priority
                 className={styles.image}

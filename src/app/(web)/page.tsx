@@ -7,13 +7,13 @@ import Instagram from '@/components/Instagram'
 import Partners from '@/components/Partners'
 import Experience from '@/components/Experience'
 import Reviews from '@/components/Reviews'
-import MainModal from '@/components/MainModal'
+// import MainModal from '@/components/MainModal'
 import CookiesModal from '@/components/CookiesModal'
 
 export default function Home() {
   return (
     <>
-      <MainModal />
+      {/* <MainModal /> */}
       <CookiesModal />
       <Hero />
       <About />

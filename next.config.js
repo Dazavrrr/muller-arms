@@ -7,7 +7,7 @@ const nextConfig = {
       '127.0.0.1',
       'encrypted-tbn0.gstatic.com',
       'ibb.co',
-      'muller-arms.gent-code.com' + '',
+      'muller.gent-code.com' + '',
     ],
   },
   reactStrictMode: true,
