@@ -4,16 +4,16 @@ import 'moment/locale/uk'
 import moment from 'moment'
 //styles
 import styles from './styles.module.scss'
-import { ArticleResponse } from '@/common/types'
 import NavArrow from '../../../src/components/Icons/NavArrow'
 import PersonIcon from '../Icons/Person'
 import OclockIcon from '../Icons/Oclock'
 import Link from 'next/link'
 import bgBottom from '../../../public/images/article-hero-bg-bottom.png'
 import { Article } from '@/models/article'
+import { ENV_URL } from '@/api'
 
 const ArticleHero = ({ article }: { article: Article }) => {
-  const { id, title, author, image, text, created_at } = article
+  const { title, author, image, text, created_at } = article
 
   return (
     <section className={styles.main_wrapper}>
@@ -44,13 +44,12 @@ const ArticleHero = ({ article }: { article: Article }) => {
               </p>
             </div>
           </div>
-          {/* TO DO: */}
           {image && (
             <Image
               width={882}
               height={1063}
               className={styles.image}
-              src={`http://127.0.0.1:8000${image}`}
+              src={`${ENV_URL}${image}`}
               alt="MullerArms"
             />
           )}

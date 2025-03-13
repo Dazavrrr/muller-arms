@@ -5,17 +5,22 @@ import Link from 'next/link'
 import styles from './styles.module.scss'
 //images
 import { ShopItemResponseDto } from '@/common/types'
+import { ShopItem } from '@/models/shop'
+import { ENV_URL } from '@/api'
 
-const ShopItemComponent = ({ item }: { item: ShopItemResponseDto }) => {
+const ShopItemComponent = ({ item }: { item: ShopItem }) => {
   return (
     <div className={styles.card}>
-      <Image
-        width={203}
-        height={227}
-        className={styles.image}
-        src={item.images[0]}
-        alt="Patch"
-      />
+      <div className={styles.card_image_wrapper}>
+        {!!item.image && (
+          <Image
+            fill
+            className={styles.image}
+            src={`${ENV_URL}${item.image}`}
+            alt="Patch"
+          />
+        )}
+      </div>
 
       <div className={styles.wrapper}>
         <div className={styles.title_wrapper}>
@@ -27,9 +32,7 @@ const ShopItemComponent = ({ item }: { item: ShopItemResponseDto }) => {
           <div className={styles.line}></div>
           <div className={styles.price_info}>
             <p className={styles.price}>₴{item.price}</p>
-            <Link href={`/shop/${item.slug}`} className={styles.buy_btn}>
-              детальніше
-            </Link>
+            <p className={styles.buy_btn}>детальніше</p>
           </div>
         </div>
       </div>

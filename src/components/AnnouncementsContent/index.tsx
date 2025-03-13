@@ -14,7 +14,7 @@ const AnnouncementsContent = async () => {
     <>
       {!!announcements?.length && (
         <div className={styles.section}>
-          {announcements.slice(0, 2).map((item) => (
+          {announcements.map((item) => (
             <AnnouncementsCard key={item.id} card={item} />
           ))}
         </div>

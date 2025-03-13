@@ -1,27 +1,29 @@
-//libs
-import { useEffect } from 'react'
+import { Filter, OnChangeFilters } from '../LibraryComponent'
 //styles
 import styles from './styles.module.scss'
 import global from '@/styles/global.module.scss'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { handleCheckbox } from '@/store/slices/Library.slice'
 
-const LibCheckboxComponent = () => {
-  const file = useAppSelector((state) => state.Library.checkbox)
+const LibCheckboxComponent = ({
+  onChangeFilters,
+  filters,
+}: {
+  onChangeFilters: OnChangeFilters
+  filters: Filter
+}) => {
+  const file = filters.file_type || []
 
   const handleFile = (value: string) => {
-    if (file.includes(value)) {
-      dispatch(handleCheckbox(file.filter((element) => element !== value)))
-    } else {
-      dispatch(handleCheckbox([...file, value]))
+    if (Array.isArray(file)) {
+      if (file.includes(value)) {
+        onChangeFilters(
+          'file_type',
+          file.filter((item) => item !== value)
+        )
+      } else {
+        onChangeFilters('file_type', [...file, value])
+      }
     }
   }
-
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(handleCheckbox(file))
-  }, [file])
 
   return (
     <div className={styles.categories}>
@@ -31,11 +33,11 @@ const LibCheckboxComponent = () => {
           <div className={global.checkbox_wrapper}>
             <input
               type="checkbox"
-              id={'BOOK'}
-              checked={file.includes('BOOK')}
-              onChange={() => handleFile('BOOK')}
+              id={'book'}
+              checked={file.includes('book')}
+              onChange={() => handleFile('book')}
             />
-            <label htmlFor={'BOOK'}>
+            <label htmlFor={'book'}>
               <svg viewBox="0,0,50,50">
                 <path d="M5 30 L 20 45 L 45 5"></path>
               </svg>
@@ -48,11 +50,11 @@ const LibCheckboxComponent = () => {
           <div className={global.checkbox_wrapper}>
             <input
               type="checkbox"
-              id={'AUDIO'}
-              checked={file.includes('AUDIO')}
-              onChange={() => handleFile('AUDIO')}
+              id={'audio'}
+              checked={file.includes('audio')}
+              onChange={() => handleFile('audio')}
             />
-            <label htmlFor={'AUDIO'}>
+            <label htmlFor={'audio'}>
               <svg viewBox="0,0,50,50">
                 <path d="M5 30 L 20 45 L 45 5"></path>
               </svg>
@@ -65,11 +67,11 @@ const LibCheckboxComponent = () => {
           <div className={global.checkbox_wrapper}>
             <input
               type="checkbox"
-              id={'VIDEO'}
-              checked={file.includes('VIDEO')}
-              onChange={() => handleFile('VIDEO')}
+              id={'video'}
+              checked={file.includes('video')}
+              onChange={() => handleFile('video')}
             />
-            <label htmlFor={'VIDEO'}>
+            <label htmlFor={'video'}>
               <svg viewBox="0,0,50,50">
                 <path d="M5 30 L 20 45 L 45 5"></path>
               </svg>

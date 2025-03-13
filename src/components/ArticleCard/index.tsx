@@ -95,7 +95,7 @@ const Article = ({
             <h3 className={styles.title}>{title}</h3>
             <p
               className={styles.text}
-              dangerouslySetInnerHTML={{ __html: text }}
+              // dangerouslySetInnerHTML={{ __html: text }}
             ></p>
           </div>
 

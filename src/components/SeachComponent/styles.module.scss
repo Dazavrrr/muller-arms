@@ -30,6 +30,14 @@
     align-self: stretch;
     border-bottom: 1px solid #46243f;
     max-width: 240px;
+
+    @media (max-width: 768px) {
+      &_shop {
+        width: 100%;
+        max-width: none;
+      }
+    }
+
     @media (max-width: 590px) {
       width: 100%;
       max-width: none;

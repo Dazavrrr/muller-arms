@@ -1,8 +1,6 @@
 //libs
 import Image from 'next/image'
 import moment from 'moment'
-//types
-import { ArticleSmallResponse } from '@/common/types'
 //styles
 import styles from './styles.module.scss'
 import LocationIcon from '../Icons/Location'

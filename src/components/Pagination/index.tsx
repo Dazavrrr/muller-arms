@@ -4,33 +4,31 @@ import React from 'react'
 import styles from './styles.module.scss'
 import ArrowLeft from '../Icons/PaginationArrowLeft'
 import ArrowRight from '../Icons/PaginationArrowRight'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { handlePage } from '@/store/slices/Library.slice'
 
 const Pagination = () => {
-  const docs = useAppSelector((state) => state.Library.docs)
-  const fetchStatus = useAppSelector((state) => state.Library.docsFetchStatus)
-  const dispatch = useAppDispatch()
-  const page = useAppSelector((state) => state.Library.page)
+  // const docs = useAppSelector((state) => state.Library.docs)
+  // const fetchStatus = useAppSelector((state) => state.Library.docsFetchStatus)
+  // const dispatch = useAppDispatch()
+  // const page = useAppSelector((state) => state.Library.page)
 
-  const getThreePages = (currentPage: number) => {
-    const startPage = Math.max(currentPage - 1, 0)
-    const endPage = Math.min(startPage + 2, docs!.allItemsCount - 1)
-    const pages = []
+  // const getThreePages = (currentPage: number) => {
+  //   const startPage = Math.max(currentPage - 1, 0)
+  //   const endPage = Math.min(startPage + 2, docs!.allItemsCount - 1)
+  //   const pages = []
 
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i)
-    }
+  //   for (let i = startPage; i <= endPage; i++) {
+  //     pages.push(i)
+  //   }
 
-    return pages
-  }
+  //   return pages
+  // }
 
-  if (fetchStatus === 'pending' || docs === null) {
-    return ''
-  }
+  // if (fetchStatus === 'pending' || docs === null) {
+  //   return ''
+  // }
   return (
     <>
-      {docs.allItemsCount !== 1 && (
+      {/* {docs.allItemsCount !== 1 && (
         <div className={styles.pagination}>
           {page != 0 && (
             <div
@@ -64,7 +62,7 @@ const Pagination = () => {
             </div>
           )}
         </div>
-      )}
+      )} */}
     </>
   )
 }

@@ -1,12 +1,16 @@
 //styles
 import styles from './styles.module.scss'
-import { useState } from 'react'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { handlePrices } from '@/store/slices/Shop.slice'
 
-const ShopPriceComponent = () => {
-  const prices = useAppSelector(state => state.Shop.prices)
-  const dispatch = useAppDispatch();
+const ShopPriceComponent = ({
+  value,
+  setValue,
+}: {
+  value: {
+    min_price: string
+    max_price: string
+  }
+  setValue: (key: string, value: string) => void
+}) => {
   return (
     <div className={styles.section}>
       <h2 className={styles.title}>Ціна</h2>
@@ -14,16 +18,25 @@ const ShopPriceComponent = () => {
       <div className={styles.price}>
         <label className={styles.price__label}>
           <span>від</span>
-          <input type="number" className={styles.price_wrapper} placeholder={'від'} value={prices[0]}
-          onChange={(e) => dispatch(handlePrices([parseInt(e.target.value),prices[1]]))}/>
+          <input
+            type="number"
+            className={styles.price_wrapper}
+            placeholder={'від'}
+            value={value.min_price}
+            onChange={(e) => setValue('min_price', e.target.value)}
+          />
         </label>
 
         <label className={styles.price__label}>
           <span>до</span>
-          <input type="number" className={styles.price_wrapper} placeholder={'до'} value={prices[1]}
-          onChange={(e) => dispatch(handlePrices([prices[0],parseInt(e.target.value)]))}/>
+          <input
+            type="number"
+            className={styles.price_wrapper}
+            placeholder={'до'}
+            value={value.max_price}
+            onChange={(e) => setValue('max_price', e.target.value)}
+          />
         </label>
-
       </div>
     </div>
   )

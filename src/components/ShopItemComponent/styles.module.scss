@@ -2,11 +2,14 @@
 @import '../../styles/utils/_mixins.scss';
 
 .card {
-  @include size(100%, 300px);
-  max-width: 203px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  &_image_wrapper {
+    position: relative;
+    aspect-ratio: 1;
+  }
 }
 
 .image {
@@ -75,6 +78,7 @@
 .price_info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .price {
@@ -83,6 +87,10 @@
   font-weight: 500;
   line-height: 160%;
   text-transform: uppercase;
+
+  @media (max-width: 490px) {
+    font-size: 12px;
+  }
 }
 
 .buy_btn {

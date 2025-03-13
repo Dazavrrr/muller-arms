@@ -2,22 +2,26 @@
 import React from 'react'
 //styles
 import styles from './styles.module.scss'
-import { LibCategory } from '@/common/types'
+import { Category } from '@/models/category'
 
 const LibCategoryComp = ({
   category,
   handleSelectCategory,
   isSelected,
 }: {
-  category: LibCategory
-  handleSelectCategory: (id: number) => void
+  category: Category
+  handleSelectCategory: (slug: string) => void
   isSelected: boolean
 }) => {
-  const { name, id } = category
+  const { name, slug } = category
 
   return (
-    <p className={`${styles.category} ${isSelected && styles.selected}`}
-       onClick={() => handleSelectCategory(id)}>{name}</p>
+    <p
+      className={`${styles.category} ${isSelected && styles.selected}`}
+      onClick={() => handleSelectCategory(slug)}
+    >
+      {name}
+    </p>
   )
 }
 

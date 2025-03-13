@@ -6,8 +6,8 @@
   flex-direction: column;
   gap: 24px;
 
-  @media (max-width: 704px) {
-    gap: 12px;
+  @media (max-width: 768px) {
+    display: none;
   }
 }
 
@@ -40,7 +40,7 @@
   line-height: 160%;
   text-transform: uppercase;
 
-  label{
+  label {
     cursor: pointer;
   }
 }

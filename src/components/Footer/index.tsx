@@ -10,16 +10,23 @@ import InstagramIcon from '../Icons/InstagramIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
 //types
 import { NotificationCreateDto } from '@/common/types'
-import { useAppDispatch } from '@/store/hooks'
-import { createSubscription } from '@/store/slices/Notifications.slice'
-import { createBookingRequest } from '@/store/slices/Bookings.slice'
+import { postData } from '@/api'
+import { ApiPath } from '@/common/enums'
 
 const Footer = () => {
-  const { register, handleSubmit, reset } = useForm<NotificationCreateDto>()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<NotificationCreateDto>()
+
   const onSubmit = async (data: NotificationCreateDto) => {
-    dispatch(createBookingRequest(data)).then(() => reset())
+    await postData(ApiPath.NOTIFICATIONS, {
+      name: data.name,
+      phone_number: data.phone,
+    }).then(() => reset())
   }
-  const dispatch = useAppDispatch()
 
   return (
     <footer className={styles.footer}>
@@ -88,7 +95,11 @@ const Footer = () => {
               placeholder="Номер телефону"
               {...register('phone', { required: true })}
             />
-            <button className={styles.footer_button} type="submit">
+            <button
+              disabled={isSubmitting}
+              className={styles.footer_button}
+              type="submit"
+            >
               Передзвоніть мені
             </button>
           </form>

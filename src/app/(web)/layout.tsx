@@ -4,7 +4,6 @@ import { MontserratFont, DuskDemon } from '@/common/fonts'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import '@/styles/globals.scss'
-import Providers from '@/store/provider'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -23,22 +22,20 @@ export default function RootLayout({
       lang="uk"
       className={clsx(MontserratFont.variable, DuskDemon.variable)}
     >
-      <Providers>
-        <body>
-          <style
-            dangerouslySetInnerHTML={{
-              __html: `
+      <body>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
           button, textarea, input {
             font-family: ${MontserratFont.style.fontFamily}
           }
             `,
-            }}
-          />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </body>
-      </Providers>
+          }}
+        />
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }

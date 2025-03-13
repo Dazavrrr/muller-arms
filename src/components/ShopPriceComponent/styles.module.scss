@@ -17,14 +17,17 @@
 
   .price {
     display: flex;
-    justify-content: space-between;
+    gap: 4px;
+
+    @media (max-width: 768px) {
+      gap: 15px;
+    }
   }
 
-  .price__label{
-
+  .price__label {
     position: relative;
 
-    span{
+    span {
       position: absolute;
       left: 10px;
       top: 50%;
@@ -37,7 +40,6 @@
       text-transform: uppercase;
     }
   }
-
 
   .price_wrapper {
     width: 118px;
@@ -53,7 +55,5 @@
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
-
   }
-
 }

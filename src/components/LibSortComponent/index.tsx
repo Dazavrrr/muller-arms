@@ -1,42 +1,42 @@
 import React, { SetStateAction, Dispatch } from 'react'
 
 import styles from './styles.module.scss'
+import { useQueryString } from '@/hooks/useQueryString'
+import { Filter, OnChangeFilters } from '../LibraryComponent'
 
 const LibSortComponent = ({
-  sort,
-  setSort,
+  filters,
+  onChangeFilters,
 }: {
-  sort: 'REC' | 'ASC' | 'DESC'
-  setSort: Dispatch<SetStateAction<'REC' | 'ASC' | 'DESC'>>
+  onChangeFilters: OnChangeFilters
+  filters: Filter
 }) => {
-  const handleSort = (value: 'REC' | 'ASC' | 'DESC') => {
-    setSort(value)
-  }
+  const ordering = filters.ordering || 'rec'
 
   return (
     <div className={styles.sort}>
       <h3 className={styles.sort_title}>Сортувати</h3>
       <div className={styles.sort_by}>
         <p
-          onClick={() => handleSort(`REC`)}
+          onClick={() => onChangeFilters('ordering', 'rec')}
           className={`${styles.sort_value} ${
-            sort === 'REC' && styles.sort_value_active
+            ordering === 'rec' && styles.sort_value_active
           }`}
         >
           Рекомендовані
         </p>
         <p
-          onClick={() => handleSort(`ASC`)}
+          onClick={() => onChangeFilters('ordering', 'asc')}
           className={`${styles.sort_value} ${
-            sort === 'ASC' && styles.sort_value_active
+            ordering === 'asc' && styles.sort_value_active
           }`}
         >
           За алфавітом (а-я)
         </p>
         <p
-          onClick={() => handleSort(`DESC`)}
+          onClick={() => onChangeFilters('ordering', 'desc')}
           className={`${styles.sort_value} ${
-            sort === 'DESC' && styles.sort_value_active
+            ordering === 'desc' && styles.sort_value_active
           }`}
         >
           За алфавітом (я-а)

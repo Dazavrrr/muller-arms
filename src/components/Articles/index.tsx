@@ -1,8 +1,6 @@
 //libs
-import React, { useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { fetchAllArticles } from '@/store/slices/Articles.slise'
 //styles
 import styles from './styles.module.scss'
 //components

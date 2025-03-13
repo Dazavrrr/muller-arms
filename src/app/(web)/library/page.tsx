@@ -5,11 +5,12 @@ import { ApiPath } from '@/common/enums'
 import { Library as ILibrary } from '@/models/library'
 
 export default async function Library() {
-  const { data } = await getData<ILibrary>(ApiPath.LIBRARY)
+  const { data } = await getData<ILibrary>(`${ApiPath.LIBRARY}?ordering=rec`)
+
   return (
     <>
       <LibraryComponent
-        docs={data?.items || []}
+        initialDocs={data?.items || []}
         categories={data?.categories || []}
       />
     </>

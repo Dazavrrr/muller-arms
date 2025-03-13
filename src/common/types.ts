@@ -1,5 +1,4 @@
 import { Metadata, ResolvingMetadata } from 'next'
-import store from '@/store/store'
 
 type MetaProps = {
   params: { locale: string; slug?: string }
@@ -10,10 +9,6 @@ export type MetaDataFunction = (
   props: MetaProps,
   parent: ResolvingMetadata
 ) => Promise<Metadata>
-
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-export type FetchStatus = 'pending' | 'idle' | 'error'
 
 export type PageWrapper<T> = {
   items: T[]
@@ -34,7 +29,6 @@ export type TrainerResponse = {
   upcomingTimeSlots: TimeSlotResponse[]
 }
 
-//DELETE
 export type TrainingResponse = {
   id: number
   name: string
@@ -80,7 +74,7 @@ export type BookingCreateRequest = {
   totalHours: number
   trainerId: number
   trainingId: number | null
-  timeslotId: number | null
+  timeslotId: string | null
 }
 
 export type ArticleResponse = {

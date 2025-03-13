@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 //styles
 import styles from './styles.module.scss'
 import '@/styles/swiper.scss'
-//types
 import { SectionResponse } from '@/common/types'
 
 const ArticleSection = ({ section }: { section: SectionResponse }) => {

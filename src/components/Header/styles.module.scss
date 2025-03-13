@@ -99,9 +99,11 @@
   }
   &_mobNavActive {
     @media (max-width: 1053px) {
+      gap: 12px;
       pointer-events: all;
       height: 100dvh;
       opacity: 1;
+      overflow: auto;
 
       .header_navItem {
         opacity: 1;

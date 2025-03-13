@@ -5,21 +5,29 @@ import React from 'react'
 import SearchIcon from '../Icons/Search'
 //styles
 import styles from './styles.module.scss'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { handleSearch } from '@/store/slices/Library.slice'
 
-const SearchComponent = ({value,action}:{value: string,action: any}) => {
-  const dispatch = useAppDispatch()
-
+const SearchComponent = ({
+  value,
+  setValue,
+  isShop,
+}: {
+  value: string
+  setValue: (value: string) => void
+  isShop?: boolean
+}) => {
   return (
     <div className={styles.search}>
       <h3 className={styles.search_title}>Пошук</h3>
 
-      <div className={styles.search_input}>
+      <div
+        className={`${styles.search_input} ${
+          isShop && styles.search_input_shop
+        }`}
+      >
         <SearchIcon />
         <input
           value={value}
-          onChange={(e) => dispatch(action(e.target.value))}
+          onChange={(e) => setValue(e.target.value)}
           className={styles.search_field}
           type="search"
           placeholder="Пошук"

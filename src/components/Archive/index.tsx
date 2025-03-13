@@ -10,30 +10,15 @@ import ArchiveCard from '../ArchiveCard'
 import '@/styles/swiper.scss'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { ArticleSmallResponse } from '@/common/types'
-import { useEffect } from 'react'
-import { fetchAllArchives } from '@/store/slices/Articles.slise'
+import { Article } from '@/models/article'
 
-const Archive = () => {
-  const dispatch = useAppDispatch()
-  const archives = useAppSelector((state) => state.Articles.archives)
-
-  useEffect(() => {
-    dispatch(fetchAllArchives(0))
-    // eslint-disable-next-line
-  }, [])
-
+const Archive = ({ data }: { data: Article[] }) => {
   const splitArrayIntoChunks = (
-    array: ArticleSmallResponse[],
+    array: Article[],
     chunkSize: number = 8
-  ): ArticleSmallResponse[][] => {
+  ): Article[][] => {
     return array.reduce(
-      (
-        resultArray: ArticleSmallResponse[][],
-        item: ArticleSmallResponse,
-        index: number
-      ) => {
+      (resultArray: Article[][], item: Article, index: number) => {
         const chunkIndex = Math.floor(index / chunkSize)
 
         if (!resultArray[chunkIndex]) {
@@ -46,10 +31,6 @@ const Archive = () => {
       },
       []
     )
-  }
-
-  if (!archives) {
-    return <div>Loading...</div>
   }
 
   return (
@@ -84,7 +65,7 @@ const Archive = () => {
                 modules={[Navigation]}
                 className="mySwiper3"
               >
-                {splitArrayIntoChunks(archives.items).map((items, index) => (
+                {splitArrayIntoChunks(data).map((items, index) => (
                   <SwiperSlide key={index}>
                     <div className={styles.card}>
                       {items.map((item, index) => (

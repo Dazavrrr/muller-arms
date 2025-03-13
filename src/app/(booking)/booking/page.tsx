@@ -7,20 +7,11 @@ import 'moment/locale/uk'
 import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { InputMask } from '@react-input/mask'
-import moment from 'moment'
+import moment, { Moment } from 'moment'
 import dynamic from 'next/dynamic'
 //components
-import BookingTab from '@/components/BookingTab/BookingTab'
 import TrainerBookCard from '@/components/TrainerBookCard/TrainerBookCard'
 import TrainingBookCard from '@/components/TrainingBookCard/TrainingBookCard'
-//redux
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { fetchAllTrainers } from '@/store/slices/Trainers.slice'
-import { fetchAllTrainings } from '@/store/slices/Trainings.slice'
-import {
-  fetchTimeSlotsForDayByTrainer,
-  fetchTimeSlotsForDayByTrainerGuest,
-} from '@/store/slices/TimeSlots.slice'
 //styles
 import styles from './styles.module.scss'
 import './calendar.scss'
@@ -34,8 +25,12 @@ import calendar from '../../../../public/images/booking/calendar.svg'
 import list from '../../../../public/images/booking/list.svg'
 import spinner from '../../../../public/images/spinner.svg'
 import Link from 'next/link'
-import { guestInstance } from '@/api'
+import { ENV_URL, getData, guestInstance, postData } from '@/api'
 import MobileInstallPromt from '@/components/MobileInstallPromt/MobileInstallPromt'
+import { Booking } from '@/models/booking'
+import { ApiPath } from '@/common/enums'
+import { Training } from '@/models/training'
+import { generateTimeSlots } from '@/utils/generateTimeSlots'
 
 const BookingTabComp = dynamic(
   () => import('@/components/BookingTab/BookingTab'),
@@ -43,16 +38,11 @@ const BookingTabComp = dynamic(
 )
 
 const MyComponent = () => {
-  const dispatch = useAppDispatch()
-  const trainers = useAppSelector((state) => state.Trainers.trainers)
-  const trainings = useAppSelector((state) => state.Trainings.trainings)
-  const timeSlots = useAppSelector((state) => state.TimeSlots.allTimeSlots)
-  const timeSlotsFetchStatus = useAppSelector(
-    (state) => state.TimeSlots.timeSlotsFetchStatus
-  )
+  const [bookings, setBookings] = useState<Booking[]>([])
+  const [trainings, setTrainings] = useState<Training[]>([])
 
   const [step, setStep] = useState<number>(1)
-  const [selectedDate, setSelectedDate] = useState(moment())
+  const [selectedDate, setSelectedDate] = useState<Moment | null>(null)
   const [agreement, setAgreement] = useState<boolean>(false)
   const {
     register,
@@ -75,31 +65,47 @@ const MyComponent = () => {
   })
 
   const onSubmit = async (data: BookingCreateRequest) => {
-    await guestInstance.post('/bookings', JSON.stringify(data))
+    const phone = data.clientPhone?.replace(/\D/g, '').replace(/^38/, '+38')
+    const transformedData = {
+      trainer: data.trainerId,
+      date: selectedDate?.format('YYYY-MM-DD'),
+      start_time: `${data.timeslotId}:00`,
+      book_user_name: data.clientName?.trim(),
+      phone_number: phone,
+      mail: data.clientEmail,
+      description: data.description,
+      training: data.trainingId,
+      end_time: `${
+        parseInt(data.timeslotId?.split(':')[0] || '0', 10) + data.totalHours
+      }:00:00`,
+    }
+    await postData(ApiPath.BOOKINGS, transformedData)
   }
 
   useEffect(() => {
-    dispatch(fetchAllTrainers())
-    dispatch(fetchAllTrainings())
-    //eslint-disable-next-line
+    const bookings = getData<Booking[]>(ApiPath.BOOKINGS)
+    const trainings = getData<Training[]>(ApiPath.TRAININGS)
+    Promise.all([bookings, trainings]).then(([bookings, trainings]) => {
+      setBookings(bookings.data || [])
+      setTrainings(trainings.data || [])
+    })
   }, [])
 
-  const selectedTrainer = trainers.find((t) => t.id == watch('trainerId'))
-  const selectedTimeSlot = timeSlots.find((t) => t.id == watch('timeslotId'))
-  const selectedTraining = trainings.find((t) => t.id == watch('trainingId'))
+  const trainerId = watch('trainerId')
+  const selectedBooking = bookings.find((t) => t.trainer.id == trainerId)
+  const availableSlotsOfDay = selectedBooking?.available_slots.filter(
+    (item) => moment(item.date).valueOf() === selectedDate?.valueOf()
+  )
 
-  useEffect(() => {
-    if (selectedTrainer && selectedDate) {
-      dispatch(
-        fetchTimeSlotsForDayByTrainerGuest({
-          day: selectedDate.toISOString(),
-          trainerId: selectedTrainer.id,
-        })
+  const availableTimes = Array.from(
+    new Set(
+      availableSlotsOfDay?.flatMap((item) =>
+        generateTimeSlots(item.start_time, item.end_time, item.date)
       )
-    }
+    )
+  )
 
-    //eslint-disable-next-line
-  }, [selectedDate, selectedTrainer])
+  const selectedTraining = trainings.find((t) => t.id == watch('trainingId'))
 
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [isIOS, setIsIOS] = useState<boolean>(false)
@@ -142,19 +148,20 @@ const MyComponent = () => {
           icon={person}
           isDisabled={false}
           title={
-            selectedTrainer
-              ? `${selectedTrainer.firstName} ${selectedTrainer.lastName}`
+            selectedBooking?.trainer
+              ? `${selectedBooking.trainer.first_name} ${selectedBooking.trainer.last_name}`
               : 'Оберіть тренера'
           }
         >
           <div className={styles.trainers}>
-            {trainers.map((t) => (
+            {bookings.map((t, i) => (
               <TrainerBookCard
                 watch={watch}
                 setValue={setValue}
                 register={register}
-                key={t.id}
-                trainer={t}
+                key={i}
+                trainer={t.trainer}
+                availableSlots={t.available_slots}
                 setSelectedDate={setSelectedDate}
               />
             ))}
@@ -165,10 +172,8 @@ const MyComponent = () => {
           icon={calendar}
           isDisabled={!watch('trainerId')}
           title={
-            selectedTimeSlot
-              ? moment(selectedTimeSlot.dateTime)
-                  .format('DD MMMM YYYY HH:mm')
-                  .toUpperCase()
+            selectedDate
+              ? selectedDate.locale('uk').format('DD MMMM YYYY')
               : 'вкажіть дату та час'
           }
         >
@@ -182,84 +187,41 @@ const MyComponent = () => {
                 setValue('timeslotId', null)
                 setValue('totalHours', 1)
               }}
-              disabled={timeSlotsFetchStatus === 'pending'}
+              shouldDisableDate={(date) =>
+                !bookings
+                  .find(
+                    (item) => item.trainer.id == selectedBooking?.trainer?.id
+                  )
+                  ?.available_slots.some(
+                    (item) => date.valueOf() === moment(item.date).valueOf()
+                  ) || false
+              }
             />
           </LocalizationProvider>
           <div className={styles.timeSlots_container}>
-            {timeSlotsFetchStatus === 'pending' ? (
-              <div className={styles.timeSlots_spinner}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="xMidYMid"
-                >
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="32"
-                    strokeWidth="8"
-                    stroke="#fec401"
-                    strokeDasharray="50.26548245743669 50.26548245743669"
-                    fill="none"
-                    strokeLinecap="round"
-                  >
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      dur="2.6315789473684212s"
-                      repeatCount="indefinite"
-                      keyTimes="0;1"
-                      values="0 50 50;360 50 50"
-                    ></animateTransform>
-                  </circle>
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="23"
-                    strokeWidth="8"
-                    stroke="#fec401"
-                    strokeDasharray="36.12831551628262 36.12831551628262"
-                    strokeDashoffset="36.12831551628262"
-                    fill="none"
-                    strokeLinecap="round"
-                  >
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      dur="2.6315789473684212s"
-                      repeatCount="indefinite"
-                      keyTimes="0;1"
-                      values="0 50 50;-360 50 50"
-                    ></animateTransform>
-                  </circle>
-                </svg>
-              </div>
-            ) : (
+            {!!selectedDate && (
               <>
                 <p className={styles.sectionTitle}>ЧАС</p>
                 <div className={styles.timeSlots}>
-                  {timeSlots.length ? (
-                    timeSlots.map((t, i) => (
+                  {availableTimes?.length ? (
+                    availableTimes?.map((t, i) => (
                       <div
-                        key={`dateTimeSlot_${t.id}`}
+                        key={`dateTimeSlot_${t}`}
                         className={`${styles.timeSlot} ${
-                          watch('timeslotId') == t.id && styles.timeSlot_active
+                          `${watch('timeslotId')}` == t &&
+                          styles.timeSlot_active
                         }`}
                         onClick={() => {
-                          if (timeSlots.length - i < watch('totalHours')) {
-                            setValue('totalHours', timeSlots.length - i)
-                          }
+                          setValue('totalHours', 1)
                         }}
                       >
                         <input
                           type="radio"
-                          id={`dateTimeSlot_${t.id}`}
-                          value={t.id}
+                          id={`dateTimeSlot_${t}`}
+                          value={t}
                           {...register('timeslotId', { required: true })}
                         />
-                        <label htmlFor={`dateTimeSlot_${t.id}`}>
-                          {moment(t.dateTime).format('HH:mm')}
-                        </label>
+                        <label htmlFor={`dateTimeSlot_${t}`}>{t}</label>
                       </div>
                     ))
                   ) : (
@@ -274,8 +236,7 @@ const MyComponent = () => {
         <BookingTabComp
           icon={list}
           title={selectedTraining?.name ?? 'Вибір' + ' послуги'}
-          // isDisabled={!watch('trainerId') || !watch('timeslotId')}
-          isDisabled={false}
+          isDisabled={!watch('trainerId') || !watch('timeslotId')}
         >
           {trainings.map((t) => (
             <TrainingBookCard
@@ -283,6 +244,11 @@ const MyComponent = () => {
               setValue={setValue}
               key={`training_${t.id}`}
               training={t}
+              endTimes={
+                availableSlotsOfDay?.map((item) =>
+                  parseInt(item.end_time.split(':')[0], 10)
+                ) || []
+              }
             />
           ))}
         </BookingTabComp>
@@ -303,9 +269,9 @@ const MyComponent = () => {
     </>
   )
 
-  const secondStep = !!selectedTrainer &&
+  const secondStep = !!selectedBooking &&
     !!selectedTraining &&
-    !!selectedTimeSlot && (
+    !!watch('timeslotId') && (
       <>
         <p className={`${styles.clientFieldsTitle} ${styles.sectionTitle}`}>
           ВАШІ ДАНІ
@@ -362,7 +328,7 @@ const MyComponent = () => {
             {...register('clientEmail', {
               required: false,
               pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                value: /^\s*[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\s*$/i,
                 message: 'invalid email address',
               },
             })}
@@ -383,25 +349,32 @@ const MyComponent = () => {
             <p className={styles.sectionTitle}>ДЕТАЛІ ЗАПИСУ</p>
             <div className={styles.bookDetails_trainer}>
               <p className={styles.trainerName}>
-                {selectedTrainer.firstName} {selectedTrainer.lastName}
+                {selectedBooking.trainer.first_name}{' '}
+                {selectedBooking.trainer.last_name}
               </p>
               <div className={styles.trainerImage}>
-                <Image
-                  width={322}
-                  height={287}
-                  src={selectedTrainer.wideImage}
-                  alt={'trainer image'}
-                />
+                {!!selectedBooking.trainer.wide_image && (
+                  <Image
+                    width={322}
+                    height={287}
+                    src={`${ENV_URL}${selectedBooking.trainer.wide_image}`}
+                    alt={'trainer image'}
+                  />
+                )}
               </div>
             </div>
             <div className={styles.bookDetails_training}>
               <p className={styles.sectionTitle}>
-                {moment(selectedTimeSlot.dateTime)
+                {moment(selectedDate)
+                  .add(watch('timeslotId'), 'h')
                   .format('DD MMMM YYYY HH:mm')
                   .toUpperCase()}
-                {` - ${moment(selectedTimeSlot.dateTime)
-                  .add(watch('totalHours'), 'h')
-                  .format('HH:mm')}`}
+                {` - ${
+                  watch('timeslotId')
+                    ? parseInt(watch('timeslotId')?.split(':')[0] || '0', 10) +
+                      watch('totalHours')
+                    : ''
+                }:00`}
               </p>
               <p className={styles.selectedTraining}>{selectedTraining.name}</p>
               <p className={styles.price}>
@@ -411,7 +384,7 @@ const MyComponent = () => {
               <p className={styles.price}>
                 До сплати:{' '}
                 <span className={styles.black}>
-                  {watch('totalHours') * selectedTraining.pricePerHour} ГРН
+                  {watch('totalHours') * selectedTraining.price_per_hour} ГРН
                 </span>
               </p>
               <p className={styles.price}>
@@ -486,7 +459,7 @@ const MyComponent = () => {
 
   return (
     <>
-      {!trainers.length || !trainings.length || isSubmitting ? (
+      {!bookings.length || !trainings.length || isSubmitting ? (
         <Image src={spinner} alt={'Spinner'} className={styles.spinner} />
       ) : (
         <form

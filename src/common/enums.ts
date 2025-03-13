@@ -10,4 +10,8 @@ export enum ApiPath {
   LEADERS_TABLE_RIFLE = '/leaders-table-rifle/',
   LEADERS_TABLE_GUN = '/leaders-table-gun/',
   LIBRARY = '/library/',
+  BOOKINGS = '/bookings/',
+  ARCHIVE = '/archive/',
+  NOTIFICATIONS = '/notifications/',
+  SHOP = '/shop/',
 }

@@ -1,5 +1,4 @@
 //libs
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 //styles
@@ -9,15 +8,6 @@ import NavArrow from '../Icons/NavArrow'
 import bgBottom from '../../../public/images/leaders-table-bg-bottom.webp'
 //components
 import LeadersTableOne from '../LeadersTableOne'
-import LeadersTableTwo from '../LeadersTableTwo'
-import LeadersTableThree from '../LeadersTableThree'
-import LeadersTableFour from '../LeadersTableFour'
-import LeadersTableFive from '../LeadersTableFive'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import {
-  fetchAllClassifications,
-  fetchAllTableSlotsByType,
-} from '@/store/slices/TableSlots.slice'
 import { getData } from '@/api'
 import { Exercise } from '@/models/exercise'
 import { ApiPath } from '@/common/enums'

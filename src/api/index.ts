@@ -2,10 +2,8 @@ import axios from 'axios'
 import * as process from 'process'
 
 export const ENV_URL = process.env.NEXT_PUBLIC_BASE_URL
-export const ENV_URL_DEV = process.env.NEXT_PUBLIC_DEV_URL
 
 export const BASE_URL = `${ENV_URL}/api`
-export const BASE_URL_DEV = `${ENV_URL_DEV}/api`
 
 interface ApiResponse<T> {
   data?: T | null
@@ -17,16 +15,14 @@ export const getData = async <T>(
   params?: RequestInit
 ): Promise<ApiResponse<T>> => {
   try {
-    const response = await fetch(`${BASE_URL_DEV}${url}`, {
+    const response = await fetch(`${BASE_URL}${url}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         ...params?.headers,
       },
+      cache: 'no-store',
       ...params,
-      next: {
-        revalidate: 1,
-      },
     })
 
     if (!response.ok) {
@@ -38,6 +34,27 @@ export const getData = async <T>(
   } catch (error) {
     console.error('API error:', error)
     return { data: null, error }
+  }
+}
+
+export async function postData<T>(url: string, data: unknown): Promise<T> {
+  const body = JSON.stringify(data)
+  try {
+    const response = await fetch(`${BASE_URL}${url}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+    })
+
+    if (!response.ok) {
+      const error: unknown = await response.json()
+      throw { data: error }
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('Error in postData:', error)
+    throw error
   }
 }
 
