@@ -25,6 +25,7 @@ const Footer = () => {
     await postData(ApiPath.NOTIFICATIONS, {
       name: data.name,
       phone_number: data.phone,
+      category: 'booking',
     }).then(() => reset())
   }
 
