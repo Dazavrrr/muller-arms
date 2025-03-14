@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   keywords: ['nextjs', 'nextjs13', 'next13', 'pwa', 'next-pwa'],
   icons: [
-    { rel: 'apple-touch-icon', url: 'icons/big.png' },
-    { rel: 'icon', url: 'icons/big.png' },
+    { rel: 'apple-touch-icon', url: 'icons/192x192.png' },
+    { rel: 'icon', url: 'icons/192x192.png' },
   ],
 }
 
