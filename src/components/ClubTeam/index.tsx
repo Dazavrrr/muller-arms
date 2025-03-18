@@ -26,6 +26,7 @@ const ClubTeam = () => {
         className={styles.img}
         width={400}
         alt="MullerArms group"
+        quality={100}
       />
     </div>
   )

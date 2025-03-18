@@ -22,6 +22,7 @@ const Instructors = () => {
               alt="Instructor Muller"
               width={480}
               height={340}
+              quality={100}
             />
 
             <div className={styles.instructors_info}>
@@ -57,40 +58,37 @@ const Instructors = () => {
 
           <div className={styles.instructors_line}></div>
 
-          <div className={styles.instructors_card_bottom}>
-            <div className={styles.instructors_card}>
-              <Image
-                className={styles.instructors_photos}
-                src="/images/instructors/instructor-chizh.webp"
-                alt="Instructor Chizh"
-                width={480}
-                height={340}
-              />
+          <div className={styles.instructors_card}>
+            <Image
+              className={styles.instructors_photos}
+              src="/images/instructors/instructor-chizh.webp"
+              alt="Instructor Chizh"
+              width={480}
+              height={340}
+              quality={100}
+            />
 
-              <div className={styles.instructors_info}>
-                <div className={styles.instructors_infoContent}>
-                  <div className={styles.instructors_infoTitle}>
-                    <a
-                      href="https://www.instagram.com/pozyvniy_chizh/"
-                      className={styles.instructors_info_inst}
-                    >
-                      pozyvniy_chizh
-                    </a>
-                    <p className={styles.instructors_info_name}>
-                      Олександр Чиж
-                    </p>
-                  </div>
-                  <p className={styles.instructors_infoText}>
-                    ОЛЕКСАНДР МАЄ ВЕЛИКИЙ ДОСВІД РОБОТИ В СФЕРІ ФІЗИЧНОЇ
-                    БЕЗПЕКИ, ДОСВІД ПРАКТИЧНОГО ВИКОРИСТАННЯ ЗБРОЇ БІЛЬШЕ 11
-                    РОКІВ. МАЄ ВІЙСЬКОВИЙ ДОСВІД БІЛЬШЕ 8 РОКІВ. ПРАЦЮЄ З
-                    ВІЙСЬКОВИМИ ПІДРОЗДІЛАМИ, МАЄ ДОСВІД ТА ВІДПОВІДНІ
-                    СЕРТИФІКАТИ ПРОХОДЖЕННЯ ДОМЕДИЧНОЇ ПІДГОТОВКИ. РОБОТА З
-                    ОЛЕКСАНДРОМ - ЦЕ ЗАВЖДИ ЗМІСТОВНО, ЦІКАВО, ВІН НЕ ДАЄ
-                    МОЖЛИВОСТІ ПРОЯВЛЯТИ СЛАБКІСТЬ ТА ПОЄДНУЄ ПРАКТИЧНУ, ТАКТИКО
-                    - ПРИКЛАДНУ СТРІЛЬБУ ІЗ ФІЗИЧНИМИ НАВАНТАЖЕННЯМИ.
-                  </p>
+            <div className={styles.instructors_info}>
+              <div className={styles.instructors_infoContent}>
+                <div className={styles.instructors_infoTitle}>
+                  <a
+                    href="https://www.instagram.com/pozyvniy_chizh/"
+                    className={styles.instructors_info_inst}
+                  >
+                    pozyvniy_chizh
+                  </a>
+                  <p className={styles.instructors_info_name}>Олександр Чиж</p>
                 </div>
+                <p className={styles.instructors_infoText}>
+                  ОЛЕКСАНДР МАЄ ВЕЛИКИЙ ДОСВІД РОБОТИ В СФЕРІ ФІЗИЧНОЇ БЕЗПЕКИ,
+                  ДОСВІД ПРАКТИЧНОГО ВИКОРИСТАННЯ ЗБРОЇ БІЛЬШЕ 11 РОКІВ. МАЄ
+                  ВІЙСЬКОВИЙ ДОСВІД БІЛЬШЕ 8 РОКІВ. ПРАЦЮЄ З ВІЙСЬКОВИМИ
+                  ПІДРОЗДІЛАМИ, МАЄ ДОСВІД ТА ВІДПОВІДНІ СЕРТИФІКАТИ ПРОХОДЖЕННЯ
+                  ДОМЕДИЧНОЇ ПІДГОТОВКИ. РОБОТА З ОЛЕКСАНДРОМ - ЦЕ ЗАВЖДИ
+                  ЗМІСТОВНО, ЦІКАВО, ВІН НЕ ДАЄ МОЖЛИВОСТІ ПРОЯВЛЯТИ СЛАБКІСТЬ
+                  ТА ПОЄДНУЄ ПРАКТИЧНУ, ТАКТИКО - ПРИКЛАДНУ СТРІЛЬБУ ІЗ
+                  ФІЗИЧНИМИ НАВАНТАЖЕННЯМИ.
+                </p>
               </div>
             </div>
           </div>

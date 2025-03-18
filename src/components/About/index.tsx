@@ -23,6 +23,7 @@ const About = () => {
                 alt="Group of people"
                 width={536}
                 height={567}
+                quality={100}
               />
             </div>
 

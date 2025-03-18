@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      'localhost',
-      '51.20.66.47',
-      '127.0.0.1',
-      'encrypted-tbn0.gstatic.com',
-      'ibb.co',
-      'muller.gent-code.com' + '',
+    remotePatterns: [
+      { hostname: 'localhost' },
+      { hostname: '127.0.0.1' },
+      { hostname: 'encrypted-tbn0.gstatic.com' },
+      { hostname: 'ibb.co' },
+      { hostname: 'muller.gent-code.com' },
     ],
   },
   reactStrictMode: true,
