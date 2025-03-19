@@ -4,7 +4,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 4px;
 
   &_image_wrapper {
     position: relative;
@@ -39,6 +40,7 @@
 }
 
 .title {
+  margin-top: 20px;
   color: #333;
   font-family: var(--font-Montserrat), sans-serif;
   font-size: 20px;

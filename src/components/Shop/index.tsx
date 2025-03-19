@@ -172,9 +172,7 @@ const Shop = ({ initialShop }: { initialShop: IShop }) => {
               />
             )}
             {shop?.items?.map((item) => (
-              <Link href={`/shop/${item.slug}`} key={item.id}>
-                <ShopItemComponent item={item} key={item.id} />
-              </Link>
+              <ShopItemComponent item={item} key={item.id} />
             ))}
           </div>
         </div>
