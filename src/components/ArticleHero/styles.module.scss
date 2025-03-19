@@ -110,19 +110,6 @@
   }
 }
 
-.text {
-  color: #a3978d;
-  font-family: var(--font-Montserrat);
-  font-weight: 500;
-  line-height: 160%;
-  text-transform: uppercase;
-  max-width: 523px;
-
-  @media (max-width: 768px) {
-    max-width: 728px;
-  }
-}
-
 .author {
   color: #a3978d;
   font-family: var(--font-Montserrat);

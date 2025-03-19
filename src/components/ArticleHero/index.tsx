@@ -54,10 +54,6 @@ const ArticleHero = ({ article }: { article: Article }) => {
             />
           )}
           <div className={styles.info}>
-            <div
-              className={styles.text}
-              dangerouslySetInnerHTML={{ __html: text }}
-            ></div>
             <div className={styles.details}>
               <div className={styles.details_wrapper}>
                 <PersonIcon />
