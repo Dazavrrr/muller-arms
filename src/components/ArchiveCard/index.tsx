@@ -11,42 +11,39 @@ import OclockIcon from '../Icons/Oclock'
 import { Article } from '@/models/article'
 
 const ArchiveCard = ({ item }: { item: Article }) => {
-  const { title, image, text, slug, event_time, event_address } = item
+  const { title, image, slug, event_time, event_address } = item
 
   return (
     <Link href={`/archive/${slug}`} className={styles.card}>
       <div className={styles.wrapper}>
-        {!!image && (
-          <Image
-            className={styles.image}
-            src={image}
-            alt="MullerArms"
-            width={279}
-            height={353}
-          />
-        )}
+        <div className={styles.image_wrapper}>
+          {!!image && (
+            <Image fill className={styles.image} src={image} alt="MullerArms" />
+          )}
+        </div>
         <div className={styles.text_wrapper}>
-          <h2 className={styles.title}>{title}</h2>
-          <p
-            className={styles.text}
-            dangerouslySetInnerHTML={{ __html: text }}
-          ></p>
-          <div className={styles.details}>
-            {!!event_address && (
-              <div className={styles.location}>
-                <LocationIcon />
-                <p className={styles.text}>{event_address}</p>
-              </div>
-            )}
-            {!!event_time && (
-              <div className={styles.date}>
-                <OclockIcon />
-                <p className={styles.text}>
-                  {moment(event_time).format('DD.MM')}
-                </p>
-              </div>
-            )}
+          <div>
+            <h2 className={styles.title}>{title}</h2>
+            {/* <p className={styles.text}>{description}</p> */}
           </div>
+          {(!!event_address || !!event_time) && (
+            <div className={styles.details}>
+              {!!event_address && (
+                <div className={styles.location}>
+                  <LocationIcon />
+                  <p className={styles.text}>{event_address}</p>
+                </div>
+              )}
+              {!!event_time && (
+                <div className={styles.date}>
+                  <OclockIcon />
+                  <p className={styles.text}>
+                    {moment(event_time).format('DD.MM')}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </Link>

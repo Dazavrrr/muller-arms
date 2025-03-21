@@ -6,35 +6,41 @@ import styles from './styles.module.scss'
 import LocationIcon from '../Icons/Location'
 import OclockIcon from '../Icons/Oclock'
 import { Announce } from '@/models/announce'
+import Link from 'next/link'
 
 const AnnouncementsCard = ({ card }: { card: Announce }) => {
-  const { image, title, text, event_time, event_address } = card
+  const { image, title, event_time, event_address, description, slug } = card
 
   return (
-    <div className={styles.card}>
+    <Link href={`/blog/${slug}`} className={styles.card}>
       <div className={styles.image}>
         {image && <Image src={image} alt={title} fill />}
       </div>
 
       <div className={styles.content}>
-        <h3 className={styles.title}>{title}</h3>
-        <div
-          className={styles.text}
-          dangerouslySetInnerHTML={{ __html: text }}
-        ></div>
+        <div>
+          <h3 className={styles.title}>{title}</h3>
+          <div className={styles.text}>{description}</div>
+        </div>
 
         <div className={styles.details}>
-          <div className={styles.details_item}>
-            <LocationIcon />
-            <p className={styles.text}>{event_address}</p>
-          </div>
-          <div className={styles.details_item}>
-            <OclockIcon />
-            <p className={styles.text}>{moment(event_time).format('DD.MM')}</p>
-          </div>
+          {!!event_address && (
+            <div className={styles.details_item}>
+              <LocationIcon />
+              <p className={styles.text}>{event_address}</p>
+            </div>
+          )}
+          {!!event_time && (
+            <div className={styles.details_item}>
+              <OclockIcon />
+              <p className={styles.text}>
+                {moment(event_time).format('DD.MM')}
+              </p>
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

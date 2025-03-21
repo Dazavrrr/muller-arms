@@ -25,14 +25,18 @@ const ArchiveSlug = async ({ params: { slug } }: PageProps) => {
 
   return (
     <section className={styles.wrapper}>
-      <ArticleHero article={archive} />
-      <section className={styles.sections_wrapper}>
+      <ArticleHero article={archive} isArchive />
+      <div className={styles.sections_wrapper}>
+        <div
+          className={styles.text}
+          dangerouslySetInnerHTML={{ __html: archive.text }}
+        ></div>
         {/* {archive.sections.map((section) => (
           <ArticleSection section={section} key={section.id} />
         ))} */}
         <SuitableTrainings />
         <MayLike slug={slug} />
-      </section>
+      </div>
     </section>
   )
 }

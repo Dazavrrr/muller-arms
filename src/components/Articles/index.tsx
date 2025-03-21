@@ -16,47 +16,21 @@ const Articles = async () => {
     <div className={styles.articles}>
       <div className={styles.articles_wrapper}>
         <h2 className={styles.articles_title}>Статті</h2>
-
+        {!!articles?.length && (
+          <ArticleCard isBig showXs isBigResponsive article={articles[0]} />
+        )}
         <div className={styles.articles_content}>
-          <div className={styles.first_wrapper}>
-            <div>
-              {articles?.map((article, index) => {
-                if (index === 0) {
-                  return (
-                    <Link href={`/blog/${article.slug}`} key={article.id}>
-                      <ArticleCard article={article} isBig />
-                    </Link>
-                  )
-                }
-                return
-              })}
-            </div>
-            <div className={styles.small_articles}>
-              {articles?.map((article, index) => {
-                if (index > 0 && index < 5) {
-                  return (
-                    <Link href={`/blog/${article.slug}`} key={article.id}>
-                      <ArticleCard article={article} />
-                    </Link>
-                  )
-                }
-                return
-              })}
-            </div>
-          </div>
-
-          <div className={styles.second_wrapper}>
-            {articles?.map((article, index) => {
-              if (index < 5) {
-                return
-              }
-              return (
-                <Link href={`/blog/${article.slug}`} key={article.id}>
-                  <ArticleCard article={article} isTall />
-                </Link>
-              )
-            })}
-          </div>
+          {articles?.map((article, i) => {
+            return (
+              <ArticleCard
+                key={article.id}
+                isBig={i === 0}
+                hideXs={i === 0}
+                isBigResponsive={articles.length > 3}
+                article={article}
+              />
+            )
+          })}
         </div>
       </div>
     </div>

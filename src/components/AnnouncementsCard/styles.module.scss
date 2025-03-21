@@ -10,10 +10,13 @@
   .content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 12px;
+    flex: 1;
   }
 
   .title {
+    margin-bottom: 12px;
     color: #333;
     font-family: var(--font-DuskDemon), sans-serif;
     font-size: 24px;
@@ -43,6 +46,7 @@
 
   .details {
     display: flex;
+    align-items: center;
     gap: 12px;
   }
 

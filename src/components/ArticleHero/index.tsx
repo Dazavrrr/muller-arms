@@ -12,7 +12,13 @@ import bgBottom from '../../../public/images/article-hero-bg-bottom.png'
 import { Article } from '@/models/article'
 import { ENV_URL } from '@/api'
 
-const ArticleHero = ({ article }: { article: Article }) => {
+const ArticleHero = ({
+  article,
+  isArchive,
+}: {
+  article: Article
+  isArchive?: boolean
+}) => {
   const { title, author, image, text, created_at } = article
 
   return (
@@ -21,9 +27,16 @@ const ArticleHero = ({ article }: { article: Article }) => {
         <div className={styles.wrapper}>
           <div className={styles.nav__wrapper}>
             <div className={styles.nav}>
-              <Link href="/blog" className={styles.nav_prev}>
-                Блог
-              </Link>
+              {isArchive ? (
+                <Link href="/archive" className={styles.nav_prev}>
+                  Архів
+                </Link>
+              ) : (
+                <Link href="/blog" className={styles.nav_prev}>
+                  Блог
+                </Link>
+              )}
+
               <div className={styles.arrow}>
                 <NavArrow />
               </div>

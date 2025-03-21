@@ -11,7 +11,7 @@ const ServiceCard = ({ training }: { training: Training }) => {
   const { name, price_per_hour, short_description, slug, image } = training
 
   return (
-    <div className={styles.services_card}>
+    <Link href={`/trainings/${slug}`} className={styles.services_card}>
       <div className={styles.services_photo}>
         {!!image && (
           <Image
@@ -32,11 +32,9 @@ const ServiceCard = ({ training }: { training: Training }) => {
             {price_per_hour} грн
           </p>
         </div>
-        <Link className={styles.services_infoBtn} href={`/trainings/${slug}`}>
-          ЗАРЕЄСТРУВАТИСЯ
-        </Link>
+        <p className={styles.services_infoBtn}>ЗАРЕЄСТРУВАТИСЯ</p>
       </div>
-    </div>
+    </Link>
   )
 }
 

@@ -417,11 +417,11 @@ const MyComponent = () => {
           </div>
           <p>
             Я погоджуюся з{' '}
-            <a href="" target={'_blank'}>
+            <a href="/politics" target={'_blank'}>
               Умовами
             </a>{' '}
             та{' '}
-            <a href="" target={'_blank'}>
+            <a href="/politics" target={'_blank'}>
               Політикою конфеденційності
             </a>
           </p>

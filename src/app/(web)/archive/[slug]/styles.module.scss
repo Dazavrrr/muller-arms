@@ -8,3 +8,43 @@
   gap: clamp(3.75rem, 3.172rem + 1.89vw, 5.438rem);
   padding: 40px 20px;
 }
+
+.text {
+  margin: 0 auto;
+  color: #333333;
+  font-family: var(--font-Montserrat);
+  font-weight: 500;
+  line-height: 160%;
+  font-size: 16px;
+  max-width: 882px;
+  width: 100%;
+
+  strong {
+    font-weight: 700;
+  }
+
+  p {
+    margin-top: 12px;
+  }
+
+  ul,
+  ol {
+    li {
+      position: relative;
+      margin-top: 12px;
+    }
+  }
+
+  figure {
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 728px;
+  }
+}

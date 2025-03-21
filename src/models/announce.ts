@@ -8,8 +8,9 @@ export interface Announce {
   is_archived: boolean
   is_news: boolean
   is_announce: boolean
-  event_address: string
-  event_time: string
+  event_address: string | null
+  event_time: string | null
   created_at: string
   updated_at: string
+  description: string | null
 }
