@@ -48,6 +48,7 @@
 
   &_photo {
     display: flex;
+    border-radius: 5px;
 
     @media (max-width: 854px) {
       display: none;

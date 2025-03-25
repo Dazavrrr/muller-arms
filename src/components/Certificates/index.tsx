@@ -87,7 +87,7 @@ const Certificates = () => {
           </ul>
         </div>
 
-        <div className={styles.certificates_videoBlock}>
+        {/* <div className={styles.certificates_videoBlock}>
           <h1 className={styles.certificates_title}>
             дізнайтеся більше про наші сертифікати у цьому відео
           </h1>
@@ -100,7 +100,7 @@ const Certificates = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
-        </div>
+        </div> */}
 
         <Image
           className={styles.certificates_top_bg}
