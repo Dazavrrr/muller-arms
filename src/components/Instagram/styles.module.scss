@@ -107,3 +107,37 @@
     left: 0;
   }
 }
+
+.swiper_container {
+  @include size(100%, auto);
+  max-width: 1176px;
+  margin: 0 auto;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper_container::after {
+  display: none;
+
+  @media (max-width: 1294px) {
+    display: flex;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 270px;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  @media (max-width: 490px) {
+    height: 200px;
+  }
+}

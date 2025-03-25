@@ -74,14 +74,17 @@
   }
 
   &_card {
-    @include size(403px, auto);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 403px;
+    height: 253px;
     border: 1px solid #a3978d;
-
     border-radius: 5px;
     padding: 20px;
 
     @media (max-width: 550px) {
-      @include size(228px, 294px);
+      @include size(228px, 315px);
     }
   }
 
@@ -92,7 +95,7 @@
     font-weight: 500;
     line-height: 160%;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
 
     @media (max-width: 550px) {
       font-size: 12px;
@@ -124,4 +127,27 @@
 .swiper_container {
   max-width: 1176px;
   margin: 0 auto;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper_container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 253px;
+  z-index: 2;
+  pointer-events: none;
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(243, 237, 233, 1),
+    rgba(243, 237, 233, 0)
+  );
+
+  @media (max-width: 550px) {
+    height: 315px;
+  }
 }

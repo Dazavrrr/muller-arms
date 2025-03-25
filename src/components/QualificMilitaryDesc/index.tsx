@@ -4,7 +4,7 @@ import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //images
-import img from '../../../public/images/qualifications/qualific-desc-image.webp'
+import img from '../../../public/images/qualifications/qualific-desc-military.webp'
 
 const QualificMilitaryDesc = () => {
   return (
