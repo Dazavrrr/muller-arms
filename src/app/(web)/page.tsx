@@ -9,6 +9,13 @@ import Experience from '@/components/Experience'
 import Reviews from '@/components/Reviews'
 // import MainModal from '@/components/MainModal'
 import CookiesModal from '@/components/CookiesModal'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Стрілецький Клуб "MullerArms"',
+  description:
+    'Сучасні, професійні методики навчання із пістолетів, напівавтоматичних карабінів та гладкоствольних рушниць.',
+}
 
 export default function Home() {
   return (
