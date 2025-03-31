@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import '@/styles/globals.scss'
 
 import type { Metadata as NextMetadata } from 'next'
 
