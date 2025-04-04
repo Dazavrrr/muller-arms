@@ -1,11 +1,14 @@
 //libs
 import React from 'react'
+import Image from 'next/image'
 //styles
 import styles from './styles.module.scss'
 //logos
 import LogoGerts from './logos/logoGerts'
 import LogoXgun from './logos/logoXgun'
 import LogoDrivovo from './logos/logoDrivovo'
+import LogoBalak from './logos/logoBalak'
+import LogoUWin from './logos/LogoUWin.png'
 
 const Partners = () => {
   return (
@@ -20,6 +23,14 @@ const Partners = () => {
         </div>
         <div className={styles.partners_logo}>
           <LogoDrivovo />
+        </div>
+
+        <div className={styles.partners_logo}>
+          <LogoBalak />
+        </div>
+
+        <div className={styles.partners_logo}>
+          <Image src={LogoUWin} alt="partner mullerarms" height={170} />
         </div>
       </div>
     </section>

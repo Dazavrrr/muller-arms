@@ -5,7 +5,6 @@ import Image from 'next/image'
 import styles from './styles.module.scss'
 //images
 import photo from '../../../public/images/weapons/weapons-photo.webp'
-import photoMob from '../../../public/images/weapons/weapons-photo-mob.webp'
 import bgBottom from '../../../public/images/instagram/instagram-bg-bottom.webp'
 
 const Weapons = () => {
@@ -18,11 +17,6 @@ const Weapons = () => {
           <Image
             className={styles.weapons_photo}
             src={photo}
-            alt="MullerArms"
-          />
-          <Image
-            className={styles.weapons_photo_mob}
-            src={photoMob}
             alt="MullerArms"
           />
 

@@ -13,7 +13,13 @@ const AnnouncementsCard = ({ card }: { card: ArticleSmallResponse }) => {
 
   return (
     <div className={styles.card}>
-      <Image src={imagePath} alt="img" width={578} height={794} />
+      <Image
+        className={styles.image}
+        src={imagePath}
+        alt="img"
+        width={578}
+        height={794}
+      />
 
       <div className={styles.content}>
         <h2 className={styles.title}>{title}</h2>
