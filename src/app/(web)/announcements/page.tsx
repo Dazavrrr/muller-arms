@@ -1,6 +1,7 @@
 import '@/styles/globals.scss'
 import Announcements from '@/components/Announcements'
 import AnnouncementsContent from '@/components/AnnouncementsContent'
+
 // import { Metadata } from 'next'
 
 // export const metadata: Metadata = {

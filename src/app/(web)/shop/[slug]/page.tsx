@@ -10,6 +10,26 @@ type PageProps = {
   }
 }
 
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string }
+}) {
+  const { data } = await getData<ShopItem>(`${ApiPath.SHOP}${slug}`)
+
+  if (!data || 'detail' in data) {
+    return {
+      title: 'Not found',
+      description: 'Not Found',
+    }
+  }
+
+  return {
+    title: data.name,
+    description: 'Магазин - MullerArms',
+  }
+}
+
 const ProductPage = async ({ params: { slug } }: PageProps) => {
   const { data } = await getData<ShopItem>(`${ApiPath.SHOP}${slug}`)
 

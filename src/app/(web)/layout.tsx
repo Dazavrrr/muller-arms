@@ -3,9 +3,9 @@ import Head from 'next/head'
 import { MontserratFont, DuskDemon } from '@/common/fonts'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import '@/styles/globals.scss'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import '@/styles/globals.scss'
 
 import type { Metadata as NextMetadata } from 'next'
 
@@ -26,6 +26,15 @@ export default function RootLayout({
       lang="uk"
       className={clsx(MontserratFont.variable, DuskDemon.variable)}
     >
+      <Head>
+        <link rel="icon" href="/icons/favicon.ico" type="image/icon" />
+        <title>{metadata?.title || 'Default Title'}</title>
+        <meta
+          name="description"
+          content={metadata?.description || 'Default Description'}
+        />
+      </Head>
+
       <body>
         <style
           dangerouslySetInnerHTML={{

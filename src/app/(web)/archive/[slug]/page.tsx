@@ -16,6 +16,28 @@ type PageProps = {
   }
 }
 
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string }
+}) {
+  const { data: archive } = await getData<Article>(`${ApiPath.ARCHIVE}${slug}`)
+
+  if (!archive || 'detail' in archive) {
+    return {
+      title: 'Not found',
+      description: 'Not Found',
+    }
+  }
+
+  return {
+    title: archive.title,
+    description:
+      archive?.description ||
+      'Взаємодія та спільний результат – головні цінності клубу. Це проявляється не лише у спортивних досягненнях на змаганнях зі стрільби, а й у наших інших активностях. MullerArms – це велика родина, де допомога та увага один до одного є принципом. У нас знаходять друзів, партнерів по бізнесу, нові захоплення та ідеї.',
+  }
+}
+
 const ArchiveSlug = async ({ params: { slug } }: PageProps) => {
   const { data: archive } = await getData<Article>(`${ApiPath.ARCHIVE}${slug}`)
 

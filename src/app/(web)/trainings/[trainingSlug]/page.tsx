@@ -12,6 +12,30 @@ type PageProps = {
   }
 }
 
+export async function generateMetadata({
+  params: { trainingSlug },
+}: {
+  params: { trainingSlug: string }
+}) {
+  const { data: training } = await getData<Training>(
+    `${ApiPath.TRAININGS}${trainingSlug}`
+  )
+
+  if (!training || 'detail' in training) {
+    return {
+      title: 'Not found',
+      description: 'Not Found',
+    }
+  }
+
+  return {
+    title: training.name,
+    description:
+      training?.short_description ||
+      'Наші тренери визначать усі ваші слабкі й сильні сторони, й побудють покрокову програму вашого вдосконалення',
+  }
+}
+
 const TrainingPage = async ({ params: { trainingSlug } }: PageProps) => {
   const { data: training } = await getData<Training>(
     `${ApiPath.TRAININGS}${trainingSlug}`

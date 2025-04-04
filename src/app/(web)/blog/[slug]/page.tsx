@@ -16,6 +16,28 @@ type PageProps = {
   }
 }
 
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string }
+}) {
+  const { data: article } = await getData<Article>(`${ApiPath.BLOG}${slug}`)
+
+  if (!article || 'detail' in article) {
+    return {
+      title: 'Not found',
+      description: 'Not Found',
+    }
+  }
+
+  return {
+    title: article.title,
+    description:
+      article?.description ||
+      'Захопливі статті: навчайтеся стріляти та забезпечуйте свою безпеку',
+  }
+}
+
 const BlogSlug = async ({ params: { slug } }: PageProps) => {
   const { data: article } = await getData<Article>(`${ApiPath.BLOG}${slug}`)
 
