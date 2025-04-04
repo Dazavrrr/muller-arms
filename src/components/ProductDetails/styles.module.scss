@@ -32,11 +32,10 @@
 }
 
 .image {
-  position: relative;
-  aspect-ratio: 1;
-  img {
-    object-fit: cover;
-  }
+  object-fit: cover;
+  width: 738px;
+  height: 738px;
+  border-radius: 5px;
 }
 
 .small_image {

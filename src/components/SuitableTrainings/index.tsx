@@ -3,7 +3,7 @@ import Image from 'next/image'
 //styles
 import styles from './styles.module.scss'
 //image
-import img from '../../../public/images/suitable-trainings-image.png'
+import img from '../../../public/images/suitable-trainings-image.webp'
 
 const SuitableTrainings = () => {
   return (

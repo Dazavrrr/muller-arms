@@ -17,7 +17,23 @@
     left: 0;
     object-fit: cover;
 
-    @media (max-width: 741px) {
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &_bg_tablet {
+    @include size(100%, auto);
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    display: none;
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
+
+    @media (max-width: 660px) {
       display: none;
     }
   }
@@ -26,7 +42,7 @@
     display: none;
     @include size(100%, auto);
 
-    @media (max-width: 741px) {
+    @media (max-width: 660px) {
       display: flex;
     }
   }
@@ -37,10 +53,10 @@
     object-fit: contain;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 10px;
 
-    @media (max-width: 741px) {
-      top: 35px;
+    @media (max-width: 1200px) {
+      top: 30px;
     }
   }
 

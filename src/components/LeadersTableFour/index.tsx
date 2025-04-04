@@ -22,52 +22,54 @@ const LeadersTableFour = ({ result }: { result: TableSlot[] }) => {
         </p>
       </div>
 
-      <table>
-        <caption>ВПРАВА №4</caption>
-        <thead>
-          <tr>
-            <th className={styles.place}>МІСЦЕ</th>
-            <th className={styles.name}>ІМ’Я ТА ПРІЗВИЩЕ</th>
-            <th className={styles.time}>ЧАС ВИКОНАННЯ ВПРАВИ</th>
-            <th className={styles.date}>ДАТА ОСТАННЬОГО ВИКОНАННЯ ВПРАВИ</th>
-            <th className={styles.notes}>ПРИМІТКИ</th>
-          </tr>
-        </thead>
-        <tbody>
-          {result.map((result, i) => (
-            <tr key={i}>
-              <td className={styles.places}>
-                {i + 1}
-                {i + 1 === 1 ? (
-                  <Image
-                    className={styles.place_icon}
-                    src={firstPlace}
-                    alt="MullerArms"
-                  />
-                ) : i + 1 === 2 ? (
-                  <Image
-                    className={styles.place_icon}
-                    src={secondPlace}
-                    alt="MullerArms"
-                  />
-                ) : i + 1 === 3 ? (
-                  <Image
-                    className={styles.place_icon}
-                    src={thirdPlace}
-                    alt="MullerArms"
-                  />
-                ) : (
-                  <></>
-                )}
-              </td>
-              <td>{result.name}</td>
-              <td>{result.finishTime}</td>
-              <td>{moment(result.lastTryDate).format('DD.MM.YYYY')}</td>
-              <td>{result.description}</td>
+      <div className={styles.table_wrapper}>
+        <table>
+          <caption>ВПРАВА №4</caption>
+          <thead>
+            <tr>
+              <th className={styles.place}>МІСЦЕ</th>
+              <th className={styles.name}>ІМ’Я ТА ПРІЗВИЩЕ</th>
+              <th className={styles.time}>ЧАС ВИКОНАННЯ ВПРАВИ</th>
+              <th className={styles.date}>ДАТА ОСТАННЬОГО ВИКОНАННЯ ВПРАВИ</th>
+              <th className={styles.notes}>ПРИМІТКИ</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {result.map((result, i) => (
+              <tr key={i}>
+                <td className={styles.places}>
+                  {i + 1}
+                  {i + 1 === 1 ? (
+                    <Image
+                      className={styles.place_icon}
+                      src={firstPlace}
+                      alt="MullerArms"
+                    />
+                  ) : i + 1 === 2 ? (
+                    <Image
+                      className={styles.place_icon}
+                      src={secondPlace}
+                      alt="MullerArms"
+                    />
+                  ) : i + 1 === 3 ? (
+                    <Image
+                      className={styles.place_icon}
+                      src={thirdPlace}
+                      alt="MullerArms"
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </td>
+                <td>{result.name}</td>
+                <td>{result.finishTime}</td>
+                <td>{moment(result.lastTryDate).format('DD.MM.YYYY')}</td>
+                <td>{result.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
