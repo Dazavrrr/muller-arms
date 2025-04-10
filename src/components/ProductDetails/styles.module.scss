@@ -19,6 +19,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 410px;
+    align-items: start;
     gap: 30px;
 
     @media (max-width: 1024px) {
@@ -31,7 +32,6 @@
   }
 
   .image {
-    @include size(738px, 738px);
     position: relative;
     aspect-ratio: 1;
     border-radius: 5px;
