@@ -36,28 +36,6 @@ const ShopCategories = ({
             <label htmlFor={`checkbox-${c.id}`}>{c.name}</label>
           </div>
         ))}
-        <div className={styles.checkbox}>
-          <div className={global.checkbox_wrapper}>
-            <input
-              type="checkbox"
-              value="certificate"
-              id={`checkbox-certificate`}
-              checked={filters.certificate === 'True'}
-              onChange={() =>
-                onChangeFilters(
-                  'certificate',
-                  filters.certificate === 'True' ? '' : 'True'
-                )
-              }
-            />
-            <label htmlFor={`checkbox-certificate`}>
-              <svg viewBox="0,0,50,50">
-                <path d="M5 30 L 20 45 L 45 5"></path>
-              </svg>
-            </label>
-          </div>
-          <label htmlFor={`checkbox-certificate`}>Сертифікати</label>
-        </div>
       </div>
     </div>
   )

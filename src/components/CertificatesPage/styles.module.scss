@@ -203,6 +203,11 @@
     padding: 10px;
     border-radius: 5px;
     background: #e7e7e7;
+    cursor: pointer;
+
+    &_active {
+      background: #fec401;
+    }
   }
 
   .price_input {
@@ -212,6 +217,15 @@
     padding: 10px;
     border-radius: 5px;
     background: #e7e7e7;
+
+    &[type='number']::-webkit-outer-spin-button,
+    &[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
   }
 
   .price_input::placeholder {

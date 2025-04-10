@@ -52,7 +52,7 @@ const Certificates = () => {
                 <p className={styles.certificates_card_price}>1500 грн</p>
               </div>
               <Link
-                href="/certificates"
+                href="/certificates?price=1500"
                 className={styles.certificates_card_btn}
               >
                 КУПИТИ
@@ -65,7 +65,7 @@ const Certificates = () => {
                 <p className={styles.certificates_card_price}>3500 грн</p>
               </div>
               <Link
-                href="/certificates"
+                href="/certificates?price=3500"
                 className={styles.certificates_card_btn}
               >
                 КУПИТИ
@@ -78,7 +78,7 @@ const Certificates = () => {
                 <p className={styles.certificates_card_price}>6500 грн</p>
               </div>
               <Link
-                href="/certificates"
+                href="/certificates?price=6500"
                 className={styles.certificates_card_btn}
               >
                 КУПИТИ

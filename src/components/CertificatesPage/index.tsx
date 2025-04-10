@@ -1,7 +1,22 @@
+'use client'
+
+import { useState } from 'react'
 //styles
 import styles from './styles.module.scss'
+import { useSearchParams } from 'next/navigation'
+
+const prices = ['1500', '3500', '6500']
 
 const CertificatesPage = () => {
+  const params = useSearchParams()
+  const [currentPrice, setCurrentPrice] = useState(params.get('price') || '')
+  const [customPrice, setCustomPrice] = useState('')
+
+  const handleChangePrice = (price: string) => {
+    setCurrentPrice(price)
+    setCustomPrice('')
+  }
+
   return (
     <div className={styles.section}>
       <div className={styles.wrapper}>
@@ -26,13 +41,25 @@ const CertificatesPage = () => {
             <div className={styles.price_wrapper}>
               <h2 className={styles.price_title}>сума</h2>
               <div className={styles.price}>
-                <p className={styles.price_text}>1500 грн</p>
-                <p className={styles.price_text}>2500 грн</p>
-                <p className={styles.price_text}>5500 грн</p>
+                {prices.map((price, i) => (
+                  <p
+                    key={i}
+                    onClick={() => handleChangePrice(price)}
+                    className={`${styles.price_text} ${
+                      currentPrice === price && !customPrice
+                        ? styles.price_text_active
+                        : ''
+                    }`}
+                  >
+                    {price} грн
+                  </p>
+                ))}
                 <input
                   className={styles.price_input}
-                  type="text"
                   placeholder="вкажіть вашу суму"
+                  value={customPrice}
+                  onChange={(e) => setCustomPrice(e.target.value)}
+                  type="number"
                 />
               </div>
             </div>
