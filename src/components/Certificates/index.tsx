@@ -5,6 +5,7 @@ import Link from 'next/link'
 //styles
 import styles from './styles.module.scss'
 //images
+import image from '../../../public/images/certificates/certificates-photo.webp'
 import topBg from '../../../public/images/certificates/certificates-top-bg.webp'
 import bottomBg from '../../../public/images/certificates/certificates-bottom-bg.webp'
 
@@ -16,20 +17,27 @@ const Certificates = () => {
           <h2 className={styles.certificates_title}>
             оберіть подарунковий сертифікат
           </h2>
-          <div className={styles.certificates_text}>
-            <p>
-              Наші сертифікати найкращий варіант подарунку - незабутні емоції й
-              корисний досвід, який залишиться на все життя. Сертифікати не
-              мають обмежень. Ви можете покласти на депозит будь яку суму. А
-              людина якій ви зробите такий подарунок зможе обрати собі будь які
-              опції на тренування на свій смак, в межах суми депозиту.
-            </p>
-            <p>
-              Після отримання сертифікату, потрібно звʼязатись із адміністрацією
-              клубу впродоовж місяця та зареєструватись на тренування в
-              найближчі три місяці. Сертифікати не підлягають перепродажу та
-              поверненню коштів.
-            </p>
+          <div className={styles.certificates_description}>
+            <Image
+              className={styles.certificates_image}
+              src={image}
+              alt="certificates"
+            />
+            <div className={styles.certificates_text}>
+              <p>
+                Наші сертифікати найкращий варіант подарунку - незабутні емоції
+                й корисний досвід, який залишиться на все життя. Сертифікати не
+                мають обмежень. Ви можете покласти на депозит будь-яку суму. А
+                людина якій ви зробите такий подарунок зможе обрати собі будь
+                які опції на тренування на свій смак, в межах суми депозиту.
+              </p>
+              <p>
+                Після отримання сертифікату, потрібно звʼязатись із
+                адміністрацією клубу впродовж місяця та зареєструватись на
+                тренування в найближчі три місяці. Сертифікати не підлягають
+                перепродажу та поверненню коштів.
+              </p>
+            </div>
           </div>
 
           <ul className={styles.certificates_cards}>
