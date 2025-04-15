@@ -59,10 +59,32 @@
     }
   }
 
+  &_description {
+    @include size(100%, auto);
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+
+    @media (max-width: 854px) {
+      flex-direction: column;
+    }
+  }
+
+  &_image {
+    @include size(100%, auto);
+    border-radius: 5px;
+    object-fit: cover;
+    max-width: 50%;
+
+    @media (max-width: 854px) {
+      max-width: 100%;
+    }
+  }
+
   &_text {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 179px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     color: #333;
     font-size: 14px;
@@ -70,10 +92,14 @@
     line-height: 160%;
     text-transform: uppercase;
 
+    max-width: 50%;
+    height: auto;
+
     @media (max-width: 854px) {
       display: flex;
       flex-direction: column;
       gap: 16px;
+      max-width: 100%;
     }
   }
 
