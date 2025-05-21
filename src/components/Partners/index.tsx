@@ -9,6 +9,7 @@ import LogoXgun from './logos/logoXgun'
 import LogoDrivovo from './logos/logoDrivovo'
 import LogoBalak from './logos/logoBalak'
 import LogoUWin from './logos/LogoUWin.png'
+import LogoSturm from './logos/logoSturm'
 
 const Partners = () => {
   return (
@@ -30,7 +31,11 @@ const Partners = () => {
         </div>
 
         <div className={styles.partners_logo}>
-          <Image src={LogoUWin} alt="partner mullerarms" height={170} />
+          <Image src={LogoUWin} alt="partner mullerarms" height={150} />
+        </div>
+
+        <div className={styles.partners_logo}>
+          <LogoSturm />
         </div>
       </div>
     </section>

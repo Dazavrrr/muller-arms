@@ -268,7 +268,6 @@
   }
 
   .step {
-    // display: flex;
     width: 143px;
   }
 
@@ -278,6 +277,10 @@
 
   .technique {
     width: 217px;
+  }
+
+  .quantity {
+    text-wrap: wrap;
   }
 
   thead {
