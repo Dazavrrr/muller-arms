@@ -5,6 +5,7 @@ export interface Article {
   title: string
   author: string
   text: string
+  rendered_text: string
   slug: string
   is_archived: boolean
   is_news: boolean

@@ -1,3 +1,5 @@
+'use client'
+
 //libs
 import Image from 'next/image'
 //styles
@@ -9,14 +11,16 @@ import { ShopItem } from '@/models/shop'
 import { ENV_URL } from '@/api'
 
 const ProductDetails = ({ product }: { product: ShopItem }) => {
-  const { name, description, image, price } = product
+  const { name, description, images, price, sizes, colors } = product
+
+  const [mainImage, setMainImage] = useState(images[0]?.image)
 
   return (
     <section className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.image}>
-          {!!image && (
-            <Image fill src={`${ENV_URL}${image}`} alt="MullerArms patch" />
+          {!!mainImage && (
+            <Image fill src={`${ENV_URL}${mainImage}`} alt="MullerArms patch" />
           )}
         </div>
 
@@ -24,40 +28,54 @@ const ProductDetails = ({ product }: { product: ShopItem }) => {
           <div className={styles.details__wrapper}>
             <h1 className={styles.title}>{name}</h1>
             <p className={styles.price}>₴{price}.00</p>
-            <p className={styles.desc}>{description}</p>
-            {/* {images.length > 1 && (
+            <p
+              className={styles.desc}
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></p>
+            {images.length > 1 && (
               <>
                 <label>Фото</label>
                 <div className={styles.images}>
-                  {images.map((img, i) => (
-                    <Image
-                      width={120}
-                      height={120}
-                      src={img}
-                      alt={'image'}
-                      key={i}
+                  {images.map(({ image: img }, i) => (
+                    <div
                       className={`${styles.small_image} ${
-                        image === img && styles.small_image__active
+                        mainImage === img && styles.small_image__active
                       }`}
-                      onClick={() => setImage(img)}
-                    />
+                      key={i}
+                      onClick={() => setMainImage(img)}
+                    >
+                      <Image src={`${ENV_URL}${img}`} alt={'image'} fill />
+                    </div>
                   ))}
                 </div>
               </>
-            )} */}
-            {/* {!!sizes.length && (
+            )}
+            {!!sizes.length && (
               <div className={styles.size}>
                 <label>розмір</label>
                 <select>
                   <option value="">виберіть розмір</option>
-                  {sizes.map((size, i) => (
+                  {sizes.map(({ size }, i) => (
                     <option value={size} key={i}>
                       {size}
                     </option>
                   ))}
                 </select>
               </div>
-            )} */}
+            )}
+            {!!colors.length && (
+              <div className={styles.size}>
+                <label>колір</label>
+                <select>
+                  <option value="">виберіть колір</option>
+                  {colors.map(({ name }, i) => (
+                    <option value={name} key={i}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
           <div className={styles.button_wrapper}>
             <a href="#" className={global.primaryBtn}>

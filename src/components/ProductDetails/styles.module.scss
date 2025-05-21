@@ -35,22 +35,28 @@
     position: relative;
     aspect-ratio: 1;
     border-radius: 5px;
+    overflow: hidden;
     img {
       object-fit: cover;
     }
   }
 
   .small_image {
-    object-fit: cover;
-    width: 120px;
-    height: 120px;
+    position: relative;
+    aspect-ratio: 1;
     cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
     &__active {
       border: 3px solid $yellow-btn;
     }
+    img {
+      object-fit: cover;
+    }
   }
   .images {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-bottom: 30px;
   }
@@ -84,7 +90,6 @@
   }
 
   .desc {
-    text-transform: uppercase;
     font-family: var(--font-Montserrat), sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -97,6 +102,10 @@
   .size {
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
+    select {
+      outline: none;
+    }
   }
 
   select {

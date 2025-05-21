@@ -51,7 +51,7 @@ const BlogSlug = async ({ params: { slug } }: PageProps) => {
       <div className={styles.sections_wrapper}>
         <div
           className={styles.text}
-          dangerouslySetInnerHTML={{ __html: article.text }}
+          dangerouslySetInnerHTML={{ __html: article.rendered_text }}
         ></div>
         {/* {article.sections.map((section) => (
           <ArticleSection section={section} key={section.id} />

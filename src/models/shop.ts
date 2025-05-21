@@ -5,7 +5,9 @@ export interface ShopItem {
   name: string
   description: string
   price: number
-  image: string | null
+  colors: { name: string }[]
+  images: { image: string }[]
+  sizes: { size: string }[]
   slug: string
   url: string
 }

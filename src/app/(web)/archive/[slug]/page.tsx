@@ -51,7 +51,7 @@ const ArchiveSlug = async ({ params: { slug } }: PageProps) => {
       <div className={styles.sections_wrapper}>
         <div
           className={styles.text}
-          dangerouslySetInnerHTML={{ __html: archive.text }}
+          dangerouslySetInnerHTML={{ __html: archive.rendered_text }}
         ></div>
         {/* {archive.sections.map((section) => (
           <ArticleSection section={section} key={section.id} />

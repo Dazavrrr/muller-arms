@@ -8,15 +8,16 @@ import { ShopItem } from '@/models/shop'
 import { ENV_URL } from '@/api'
 
 const ShopItemComponent = ({ item }: { item: ShopItem }) => {
+  const image = item.images[0]?.image
   return (
     <Link href={`/shop/${item.slug}`} className={styles.card}>
       <div>
         <div className={styles.card_image_wrapper}>
-          {!!item.image && (
+          {!!image && (
             <Image
               fill
               className={styles.image}
-              src={`${ENV_URL}${item.image}`}
+              src={`${ENV_URL}${image}`}
               alt="Patch"
             />
           )}
