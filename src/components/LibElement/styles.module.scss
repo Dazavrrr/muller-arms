@@ -7,7 +7,6 @@
   gap: 20px;
   width: clamp(10rem, 9.079rem + 3.01vw, 12.688rem);
 
-
   @media (max-width: 704px) {
     gap: 16px;
   }
@@ -15,12 +14,11 @@
     width: 240px;
   }
 
-
   &_content {
     display: flex;
     flex-direction: column;
     gap: 16px;
-
+    justify-content: space-between;
 
     @media (max-width: 704px) {
       gap: 12px;
@@ -36,20 +34,26 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
 
-  &_download {
-    font-size: 14px;
-    font-weight: 800;
-    line-height: 160%;
-    text-transform: uppercase;
+    margin-top: 20px;
+    color: #333;
     font-family: var(--font-Montserrat), sans-serif;
+    font-size: 20px;
   }
+}
 
-  .image {
-    width: 100%;
-    object-fit: cover;
-  }
+&_download_btn {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 160%;
+  text-transform: uppercase;
+  font-family: var(--font-Montserrat), sans-serif;
+  color: #333;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
 }
 
 .line {
